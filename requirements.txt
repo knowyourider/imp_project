@@ -1,0 +1,7 @@
+Requirements
+
+django 1.7
+psycopg2
+
+stage and prod need
+mod_wsgi
