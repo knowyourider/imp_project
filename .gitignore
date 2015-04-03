@@ -3,8 +3,6 @@
 *.log
 
 # files
-manage.py
-local_settings.py
 .DS_Store
 
 # directories
