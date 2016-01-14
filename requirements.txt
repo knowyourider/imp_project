@@ -1,7 +1,2 @@
-Requirements
-
-django 1.7
-psycopg2
-
-stage and prod need
-mod_wsgi
+Django==1.7.7
+psycopg2==2.6
