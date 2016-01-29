@@ -9,8 +9,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# import os
+from unipath import Path
+import json
+from django.core.exceptions import ImproperlyConfigured
+
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# 3-tier approach Using Unipath per Two Scoops
+BASE_DIR = Path(__file__).ancestor(3)
 
 
 # Quick-start development settings - unsuitable for production
@@ -62,9 +68,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'impressions',
-        'USER': 'imp_user',
-        'PASSWORD': 'orra$1821',
+        'NAME': 'impdb',
+        'USER': 'impdb_user',
+        'PASSWORD': 'Orra$1821',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -75,7 +81,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -83,9 +89,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
+#SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+# STATIC_ROOT = os.path.join( SITE_ROOT, '../static')
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = os.path.join( SITE_ROOT, '../static')
+STATIC_ROOT = BASE_DIR.ancestor(2).child("imp_static")
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    BASE_DIR.child("local_static"),
+)
+
