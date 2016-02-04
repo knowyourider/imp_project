@@ -20,7 +20,7 @@ class CommonModel(models.Model):
         (4,'4 - Published'),
     )
     slug = models.SlugField('short name', max_length=48, unique=True)
-    menu_blurb = models.CharField(max_length=255, blank=True, default='')
+    menu_blurb = models.TextField(blank=True, default='')
     ordinal = models.IntegerField('Order in Menu', default=99)
     notes = models.TextField('Production Notes', blank=True, default='')
     edited_by = models.CharField(max_length=64, blank=True, default='')
