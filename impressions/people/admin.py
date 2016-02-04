@@ -4,7 +4,8 @@ from .models import Person
 class PersonAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title_prefix', 'first_name', 'last_name', 
-            'suffix', 'slug', 'birth_year', 'death_year']}),
+            'suffix', 'slug', 'birth_year', 'death_year',
+            'menu_blurb']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes'], 'classes': ['collapse']}),
     ]

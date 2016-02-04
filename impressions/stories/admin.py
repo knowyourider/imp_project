@@ -9,7 +9,8 @@ class ChapterInline(admin.TabularInline):
 
 class StoryAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,            {'fields': ['title', 'subtitle', 'slug']}),
+        (None,            {'fields': ['title', 'subtitle', 'slug',
+            'menu_blurb']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes'], 'classes': ['collapse']}),
     ]
