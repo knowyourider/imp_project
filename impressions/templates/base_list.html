@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}{{ menu_info.title }}{% endblock %}
+{% block title %}[list title]{% endblock %}
 
 {% block title_area %}
   Menu title: 
@@ -9,5 +9,10 @@
 
 
 {% block content_area %}
+
+{% block menu %}
+	block menu
+{% endblock menu %}
+
 
 {% endblock content_area %}

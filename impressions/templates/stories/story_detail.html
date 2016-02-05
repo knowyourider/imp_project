@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
+
+{% block title_area %}
+	<p>
+		<a href="/">Home</a> >
+		<a href="{% url 'stories:story_list' %}">Stories</a> 
+		
+	</p>
+	<h1>{{ object.title|safe }}</h1> 
+{% endblock title_area %}
+
+{% block content_area %}
+<p>Intro: {{ object.introduction }}</p>
+
+
+{% endblock content_area %}

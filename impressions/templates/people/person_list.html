@@ -1,0 +1,21 @@
+{% extends "base_list.html" %}
+{% load staticfiles %}
+
+{% block title %}[story title]{% endblock %}
+
+{% block title_area %}
+  <h1>People</h1>
+{% endblock title_area %}
+
+
+{% block menu %}
+  <ul id="pop-list">
+  {% for object in object_list %}
+    <li>
+      <a href="{% url 'stories:story_detail' object.slug %}">
+        {{ object.first_name|safe }} {{ object.last_name|safe }}
+      </a> menu blurb: {{ object.menu_blurb }}
+    </li>
+  {% endfor %}
+  </ul>     
+{% endblock menu %}

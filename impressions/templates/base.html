@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-{% load settings_extras %}
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -9,9 +9,24 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>{% block title %}Impressioins{% endblock %}</title>
+
+  {% block javascript %}
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/application.js' %}" type="text/javascript"></script>
+  {% endblock javascript %}
+
 </head>
 
 <body>
+
+{% block full_page %}
+
+<p>
+	<a href="/">Home</a> |
+	<a href="{% url 'stories:story_list' %}">Stories</a> |
+	Map | Timeline
+</p>
+<hr />
 
 {% block title_area %}
 	title area
@@ -20,5 +35,14 @@
 {% block content_area %}
 	content goes here
 {% endblock content_area %}
+
+<hr />
+<p>
+	<a href="{% url 'people:person_list' %}">People</a> |
+	Evidence | Glossary-Context
+</p>
+
+{% endblock full_page %}
+
 </body>
 </html>
