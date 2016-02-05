@@ -10,4 +10,5 @@ class Person(CommonModel):
     suffix = models.CharField(max_length=16, blank=True, default='')
     birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
+    narrative = models.TextField(blank=True, default='')
 

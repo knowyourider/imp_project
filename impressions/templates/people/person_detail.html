@@ -1,0 +1,11 @@
+{% extends "base_slim.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
+{% block item_title %}{{ object.first_name|safe }} {{ object.last_name|safe }}{% endblock %}
+
+{% block slim_content%}
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}

@@ -1,0 +1,15 @@
+{% extends "base_slim.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
+{% block item_title %}{{ object.title|safe }}: {{ object.subtitle|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<p>Creator {{ object.creator }} <br />
+Year: {{ object.year }}
+</p>
+
+{{ object.description|safe }}
+
+{% endblock slim_content %}

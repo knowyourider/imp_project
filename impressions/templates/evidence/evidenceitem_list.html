@@ -1,10 +1,10 @@
 {% extends "base_list.html" %}
 {% load staticfiles %}
 
-{% block title %}[story title]{% endblock %}
+{% block title %}[evidence title]{% endblock %}
 
 {% block title_area %}
-  <h1>People</h1>
+  <h1>Evidence</h1>
 {% endblock title_area %}
 
 
@@ -12,8 +12,8 @@
   <ul>
   {% for object in object_list %}
     <li>
-      <a class="pop-item" href="{% url 'people:person_detail' object.slug %}">
-        {{ object.first_name|safe }} {{ object.last_name|safe }}
+      <a class="pop-item" href="{% url 'evidence:evidenceitem_detail' object.slug %}">
+        {{ object.title|safe }}: {{ object.subtitle|safe }}
       </a> menu blurb: {{ object.menu_blurb }}
     </li>
   {% endfor %}

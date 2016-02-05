@@ -7,3 +7,7 @@ class PersonListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'people/person_list.html' 
 
+class PersonDetailView(DetailView):
+    model = Person
+    # context_object_name = 'object'
+    # template_name = 'people/person_detail.html'
