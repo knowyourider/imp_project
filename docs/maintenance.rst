@@ -29,6 +29,6 @@ Renew WSGI after code change
 Tools
 ~~~~~~~~~
 phpPgAdmin
-http://68.169.58.50/phppgadmin/
+https://68.169.58.50/pgadmin/
 user: postgres
-Pass: in 1pass, keychain
+Pass: in 1pass, keychain, and in ISP > Server Settings --> Database Servers

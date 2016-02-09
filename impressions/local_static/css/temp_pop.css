@@ -93,7 +93,7 @@ span.selected img {
 .unhidden {
   display: block; }
 
-#lbOverlay {
+#slimpop-overlay {
   position: fixed;
   z-index: 99;
   left: 0;

@@ -26,22 +26,22 @@ $(document).ready(function(){
 */
 function slimPop(theURL, displayClass) { 
   // append divs if not present
-  if (!$('#lbOverlay').length > 0) { // overlay html doesn't exist
+  if (!$('#slimpop-overlay').length > 0) { // overlay html doesn't exist
     //create HTML markup for lightbox window
-    var lbOverlay = 
-    '<div id="lbOverlay" class="hidden"></div>' +
-    '<div id="ajax_wrapper" class="hidden"></div>';
+    var slimpopOverlay = 
+    '<div id="slimpop-overlay" class="hidden"></div>' +
+    '<div id="slimpop-container" class="hidden"></div>';
     //insert lightbox HTML into page
-    $('body').append(lbOverlay);
+    $('body').append(slimpopOverlay);
     // assign close click to overlay
-    $('#lbOverlay').click(function(event){
+    $('#slimpop-overlay').click(function(event){
       hideBox();    
     });
   }
   // unhide overlay
-  $('#lbOverlay').removeClass().addClass('unhidden');
+  $('#slimpop-overlay').removeClass().addClass('unhidden');
   // assign contentDiv for further use
-  var contentDiv = $('#ajax_wrapper');
+  var contentDiv = $('#slimpop-container');
   // contentDiv will be unhidden by specific classes 
   contentDiv.removeClass().addClass(displayClass); 
   // call Ajax
@@ -56,13 +56,13 @@ function hideBox() {
   //  document.getElementById("audioPlayer").pause();     
   //}   
     
-  var contentDiv = $('#ajax_wrapper');
+  var contentDiv = $('#slimpop-container');
   // empty content div so it won't briefly show old content on new pop
   contentDiv.html = " ";  
   // hide box.. 
   contentDiv.removeClass().addClass('hidden');
   // ..and darkening overlay
-  $('#lbOverlay').removeClass().addClass('hidden');
+  $('#slimpop-overlay').removeClass().addClass('hidden');
 }
 
 // ----------- AJAX ----------
