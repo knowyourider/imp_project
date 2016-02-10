@@ -31,7 +31,8 @@
   z-index: 99;
 }
 
-#slimpop-container {
+/* JavaScript assigns this (or .hidden) to slimpop-container */
+.slimpop-basicsize {
   bottom: 0;
   display: block;
   left: 0;

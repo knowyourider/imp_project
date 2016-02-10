@@ -16,7 +16,7 @@ $(document).ready(function(){
     //var theURL = "/" + href_split[1] + "/" + href_split[2] + "/";
     //alert('url for slimpop: ' + chosen_href); 
     // call ajax for the slim pop. 
-    slimPop(chosen_href, 'pop_connection');
+    slimPop(chosen_href, 'slimpop-basicsize');
   });
 
 }); // end doc ready
