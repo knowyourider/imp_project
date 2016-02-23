@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Person
 
 class PersonAdmin(admin.ModelAdmin):
+    change_form_template = 'people/admin/change_form.html'
     fieldsets = [
         (None,            {'fields': ['title_prefix', 'first_name', 'last_name', 
             'suffix', 'slug', 'birth_year', 'death_year',
