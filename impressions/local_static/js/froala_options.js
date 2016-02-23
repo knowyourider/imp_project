@@ -16,7 +16,7 @@ var froalaBasic = {
 		},
 		{
 			displayText: 'evidence',
-			href: '/evendence/(evendence-shortname)/',
+			href: '/evidence/(evidence-shortname)/',
 		}
 	],
 	linkStyles: {
@@ -59,7 +59,7 @@ var froalaImage = {
 		},
 		{
 			displayText: 'evidence',
-			href: '/evendence/(evendence-shortname)/',
+			href: '/evidence/(evidence-shortname)/',
 		}
 	],
 	linkStyles: {

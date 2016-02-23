@@ -3,7 +3,7 @@ $(document).ready(function(){
   // ------- PEOPLE MENU ------
 
   // enable click event on menu items
-  $('.pop-item').click(function(event){
+  $('.pop_item').click(function(event){
   //$('.pop-item').live("click", function(event){
   //$(document).on("click", ".pop-item", function(event){
     event.preventDefault();

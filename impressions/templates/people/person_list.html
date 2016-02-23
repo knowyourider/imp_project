@@ -1,7 +1,7 @@
 {% extends "base_list.html" %}
 {% load staticfiles %}
 
-{% block title %}[story title]{% endblock %}
+{% block title %}{{ object_list.0.content_type.plural_title }}{% endblock %}
 
 {% block title_area %}
   <h1>People</h1>
@@ -12,7 +12,7 @@
   <ul>
   {% for object in object_list %}
     <li>
-      <a class="pop-item" href="{% url 'people:person_detail' object.slug %}">
+      <a class="pop_item" href="{% url 'people:person_detail' object.slug %}">
         {{ object.first_name|safe }} {{ object.last_name|safe }}
       </a> menu blurb: {{ object.menu_blurb }}
     </li>
