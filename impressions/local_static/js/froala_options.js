@@ -1,81 +1,61 @@
 // option settings for Froala
 
-var froalaBasic = {
+var froalaChapter = {
 	heightMin: 200,
-	htmlAllowedTags: ['a', 'article', 'aside', 'blockquote', 'br', 'caption', 
-		'cite', 'dd', 'details', 'div', 'dl', 'dt', 'em', 'figure', 'footer', 
-		'h1', 'h2', 'h3', 'h4', 'h5', 'header', 'label', 'li', 'link', 
-		'main', 'ol', 'option', 'p', 'section', 'span', 'strong', 'sub', 
-		'summary', 'sup', 'title', 'ul'],
 	linkAutoPrefix: '',
 	linkList: [
 		{
-			displayText: 'Froala',
-			href: 'https://froala.com',
-			target: '_blank'
+			displayText: 'evidence',
+			href: '/evidence/SHORTNAME/'
 		},
 		{
-			displayText: 'evidence',
-			href: '/evidence/(evidence-shortname)/',
+			displayText: 'person',
+			href: '/people/SHORTNAME/'
+		},
+		{
+			displayText: 'context',
+			href: '/context/SHORTNAME/'
 		}
 	],
 	linkStyles: {
-		pop_item: 'slimpop',
-		new_page: 'new page'
+		pop_item: 'slimpop'
 	},
 	paragraphFormat: {
 		N: 'Normal',
-		H1: 'Heading 1',
-		H2: 'Heading 2',
-		ARTICLE: 'article element',
 		DETAILS: 'read more'
 	},
 	pastePlain: true,
-	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 'paragraphStyle', 
-		'|', 'paragraphFormat', 'formatOL', 'formatUL',  'quote', 'insertLink', 
+	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 
+		'|', 'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
 		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
-var froalaImage = {
+var froalaSlim = {
 	heightMin: 200,
-	htmlAllowedTags: ['a', 'article', 'aside', 'blockquote', 'br', 'caption', 
-		'cite', 'dd', 'details', 'div', 'dl', 'dt', 'em', 'figure', 'footer', 
-		'h1', 'h2', 'h3', 'h4', 'h5', 'header', 'img', 'label', 'li', 'link', 
-		'main', 'ol', 'option', 'p', 'section', 'span', 'strong', 'sub', 
-		'summary', 'sup', 'title', 'ul'],
-	linkAutoPrefix: '',
-	linkList: [
-		{
-			text: 'Google',
-			href: 'http://google.com',
-			target: '_blank',
-			rel: 'nofollow'
-		},
-		{
-			displayText: 'Froala',
-			href: 'https://froala.com',
-			target: '_blank'
-		},
-		{
-			displayText: 'evidence',
-			href: '/evidence/(evidence-shortname)/',
-		}
-	],
-	linkStyles: {
-		pop_item: 'slimpop',
-		new_page: 'new page'
-	},
 	paragraphFormat: {
 		N: 'Normal',
-		H1: 'Heading 1',
-		H2: 'Heading 2',
-		ARTICLE: 'article element',
-		DETAILS: 'read more'
+		H2: 'Subheading - h2'
 	},
 	pastePlain: true,
-	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 'paragraphStyle', 
-		'|', 'paragraphFormat', 'formatOL', 'formatUL',  'quote', 'insertLink', 
-		'insertImage', '-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 
+		'|', 'paragraphFormat', 'formatOL', 'quote',  
+		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
+}
+
+var froalaIntro = {
+	heightMin: 200,
+	pastePlain: true,
+	toolbarButtons: ['fullscreen', 'italic', 'quote',
+		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	width: '800'
+}
+
+var froalaBlurb = {
+	heightMin: 100,
+	pastePlain: true,
+	toolbarButtons: ['fullscreen', 'italic', '|', 
+		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	width: '400'
 }

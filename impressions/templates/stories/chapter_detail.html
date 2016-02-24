@@ -25,12 +25,12 @@
 {% block content_area %}
 {{ chapter.narrative|safe }}
 
-<p>Related People and Evidence</p>
+<p>Dig Deeper</p>
 <ul>
   {% for person in chapter.people.all %}
     <li>
       <a class="pop_item" href="{% url 'people:person_detail' person.slug %}">
-        {{ person.first_name }} {{ person.first_name }}
+        {{ person.first_name }} {{ person.last_name }}
       </a>
     </li>
   {% endfor %}

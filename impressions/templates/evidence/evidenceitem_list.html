@@ -10,9 +10,9 @@
   <ul>
   {% for object in object_list %}
     <li>
-      <a class="pop-item" href="{% url 'evidence:evidenceitem_detail' object.slug %}">
+      <a class="pop_item" href="{% url 'evidence:evidenceitem_detail' object.slug %}">
         {{ object.title|safe }}: {{ object.subtitle|safe }}
-      </a> menu blurb: {{ object.menu_blurb }}
+      </a> - {{ object.menu_blurb }}
     </li>
   {% endfor %}
   </ul>     

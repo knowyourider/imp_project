@@ -9,6 +9,7 @@ class ChapterInline(admin.TabularInline):
 """
 
 class StoryAdmin(admin.ModelAdmin):
+    change_form_template = 'stories/admin/story_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'subtitle', 'slug',
             'menu_blurb', 'introduction']}),

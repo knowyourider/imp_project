@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import EvidenceType, EvidenceItem
 
-class   EvidenceTypeAdmin(admin.ModelAdmin):
+class EvidenceTypeAdmin(admin.ModelAdmin):
     """docstring for EvidenceTypeAdmin"""
     fields = ['slug', 'title', 'is_document_oriented', 'ordinal']
     list_display = ('slug', 'title', 'is_document_oriented')
@@ -10,10 +10,11 @@ admin.site.register(EvidenceType, EvidenceTypeAdmin)
 
 
 class EvidenceItemAdmin(admin.ModelAdmin):
+    change_form_template = 'evidence/admin/change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'subtitle', 'slug', 'evidence_type',
             'creator', 'dimensions', 'materials', 'creation_year', 'menu_blurb',
-            'description']}),
+            'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes'], 'classes': ['collapse']}),
     ]

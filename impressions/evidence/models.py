@@ -25,7 +25,7 @@ class EvidenceItem(CommonModel):
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
-    description = models.TextField('Description / Label', blank=True, default='')
+    narrative = models.TextField('Description / Label', blank=True, default='')
     creator = models.CharField('maker/author', max_length=64, blank=True, default='')
     creation_year = models.IntegerField(blank=True, null=True)
     dimensions = models.CharField(max_length=128, blank=True, default='')
