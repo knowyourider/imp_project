@@ -7,7 +7,6 @@
 	<p>
 		<a href="/">Home</a> >
 		<a href="{% url 'stories:story_list' %}">Stories</a> 
-		
 	</p>
 	<h1>{{ object.title|safe }}</h1> 
 {% endblock title_area %}
@@ -15,5 +14,14 @@
 {% block content_area %}
 <p>Intro: {{ object.introduction }}</p>
 
-
+<ul>
+  {% for chapter in object.chapter_set.all %}
+    <li>
+      <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
+	      <!-- chapter.chapter_number -->
+        {{ chapter.chapter_num }} {{ chapter.title|safe }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 {% endblock content_area %}

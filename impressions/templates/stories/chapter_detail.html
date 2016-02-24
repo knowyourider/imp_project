@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
+
+{% block title_area %}
+	<p>
+		<a href="/">Home</a> >
+		<a href="{% url 'stories:story_list' %}">Stories</a> >
+    <a href="{% url 'stories:story_detail' story.slug %}">{{ story.title|safe }}</a>
+	</p>
+  <ul>
+    {% for chapter in object.chapter_set.all %}
+      <li>
+        <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
+          {{ chapter.chapter_num }} {{ chapter.title|safe }}
+        </a>
+      </li>
+    {% endfor %}
+	<h2>{{ chapter.title|safe }}</h2> 
+    
+  </ul>
+{% endblock title_area %}
+
+{% block content_area %}
+{{ chapter.narrative|safe }}
+
+<p>Related People and Evidence</p>
+<ul>
+  {% for person in chapter.people.all %}
+    <li>
+      <a class="pop_item" href="{% url 'people:person_detail' person.slug %}">
+        {{ person.first_name }} {{ person.first_name }}
+      </a>
+    </li>
+  {% endfor %}
+  {% for evidenceitem in chapter.evidence.all %}
+    <li>
+      <a class="pop_item" href="{% url 'evidence:evidenceitem_detail' evidenceitem.slug %}">
+        {{ evidenceitem.title }}
+      </a>
+    </li>
+  {% endfor %}
+  
+</ul>
+{% endblock content_area %}

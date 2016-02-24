@@ -19,5 +19,8 @@ class Chapter(models.Model):
     evidence = models.ManyToManyField('evidence.EvidenceItem', 
         verbose_name='evidence items related to this chapter', blank=True)
     
+    class Meta:
+        ordering = ['story', 'chapter_num']
+
     def __str__(self):
         return self.title
