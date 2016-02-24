@@ -12,7 +12,7 @@
     <li>
       <a class="pop_item" href="{% url 'people:person_detail' object.slug %}">
         {{ object.first_name|safe }} {{ object.last_name|safe }}
-      </a> - {{ object.menu_blurb }}
+      </a> - {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>     

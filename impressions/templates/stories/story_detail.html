@@ -12,7 +12,7 @@
 {% endblock title_area %}
 
 {% block content_area %}
-<p>Intro: {{ object.introduction }}</p>
+<p>Intro: {{ object.introduction|safe }}</p>
 
 <ul>
   {% for chapter in object.chapter_set.all %}

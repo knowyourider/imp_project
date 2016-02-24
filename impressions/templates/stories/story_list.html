@@ -13,7 +13,7 @@
     <li>
       <a href="{% url 'stories:story_detail' object.slug %}">
         {{ object.title|safe }}: {{ object.subtitle|safe }}
-      </a> - {{ object.menu_blurb }}
+      </a> - {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>     
