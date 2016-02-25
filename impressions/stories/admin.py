@@ -27,8 +27,7 @@ class ChapterAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/chapter_change_form.html'
     fieldsets = [
         (None,  {'fields': ['story', 'chapter_num', 'title', 'narrative']}),
-        ('Related Items',   {'fields': ['people', 'evidence'], 
-            'classes': ['collapse']}),
+        ('Related Items',   {'fields': ['people', 'evidence']}),
     ]
     filter_horizontal = ['people', 'evidence']    #search_fields = ['title']
     list_display = ('title',  'chapter_num', 'story')

@@ -1,14 +1,26 @@
 {% extends "base_slim.html" %}
 {% load staticfiles %}
 
-{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
-{% block item_title %}{{ object.title|safe }}: {{ object.subtitle|safe }}{% endblock %}
+{% block heading %}
+	{{ object.content_type.plural_title }}: {{ object.evidence_type }}
+{% endblock %}
+
+{% block item_title %}{{ object.title|safe }} {{ object.subtitle|safe }}{% endblock %}
 
 {% block slim_content%}
 
-<p>Creator {{ object.creator }} <br />
-Year: {{ object.year }}
-</p>
+<p>[Image will appear here]</p>
+
+<dl>
+  <dt>Creator:</dt>
+  <dd>{{ object.creator }}</dd>
+  <dt>Year:</dt>
+  <dd>{{ object.creation_year }}</dd>
+  <dt>Dimensions:</dt>
+  <dd>{{ object.dimensions }}</dd>
+  <dt>Materials:</dt>
+  <dd>{{ object.materials }}</dd>
+</dl>
 
 {{ object.narrative|safe }}
 

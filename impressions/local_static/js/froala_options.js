@@ -25,9 +25,9 @@ var froalaChapter = {
 		DETAILS: 'read more'
 	},
 	pastePlain: true,
-	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 
-		'|', 'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
-		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtons: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
@@ -38,9 +38,9 @@ var froalaSlim = {
 		H2: 'Subheading - h2'
 	},
 	pastePlain: true,
-	toolbarButtons: ['fullscreen', 'italic', 'superscript', '|', 
-		'|', 'paragraphFormat', 'formatOL', 'quote',  
-		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtons: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
@@ -48,14 +48,15 @@ var froalaIntro = {
 	heightMin: 200,
 	pastePlain: true,
 	toolbarButtons: ['fullscreen', 'italic', 'quote',
-		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
 var froalaBlurb = {
 	heightMin: 100,
 	pastePlain: true,
+	placeholderText: 'Single (short) paragraph only.',
 	toolbarButtons: ['fullscreen', 'italic', '|', 
-		'-', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+		'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '400'
 }
