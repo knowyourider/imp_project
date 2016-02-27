@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title_area %}
-  <h1>Evidence</h1>
+  <h1>People</h1>
 {% endblock title_area %}
 
 
@@ -10,8 +10,8 @@
   <ul>
   {% for object in object_list %}
     <li>
-      <a class="pop_item" href="{% url 'evidence:evidenceitem_detail' object.slug %}">
-        {{ object.title|safe }}: {{ object.subtitle|safe }}
+      <a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}">
+        {{ object.first_name|safe }} {{ object.last_name|safe }}
       </a> - {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}

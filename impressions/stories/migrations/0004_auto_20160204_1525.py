@@ -4,29 +4,18 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 
+# edited by hand to remove refs to evidence_evidenceitem and people_person
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('people', '0002_auto_20160204_1514'),
-        ('evidence', '0005_auto_20160204_1514'),
         ('stories', '0003_auto_20160204_1513'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='chapter',
-            name='evidence_item',
-            field=models.ManyToManyField(blank=True, to='evidence.EvidenceItem', verbose_name='evidence items related to this chapter'),
-        ),
-        migrations.AddField(
-            model_name='chapter',
             name='narrative',
             field=models.TextField(blank=True, default=''),
-        ),
-        migrations.AddField(
-            model_name='chapter',
-            name='people',
-            field=models.ManyToManyField(blank=True, to='people.Person', verbose_name='People related to this chapter'),
         ),
     ]

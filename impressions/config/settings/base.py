@@ -57,9 +57,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'evidence',
-    'people',
     'stories',
+    'supporting',
 )
 
 MIDDLEWARE_CLASSES = (
