@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import ContentType, CommonModel
+from core.models import ContentType, CommonModel, AssociationMixin
 
 class Story(CommonModel):
     STORY_CONTENT_TYPE_ID = 1
@@ -9,15 +9,11 @@ class Story(CommonModel):
     introduction = models.TextField(blank=True, default='')
 
 
-class Chapter(models.Model):
+class Chapter(AssociationMixin, models.Model):
     story = models.ForeignKey('stories.Story')
     title = models.CharField(max_length=64)
     chapter_num = models.IntegerField()
     narrative = models.TextField(blank=True, default='')
-    #people = models.ManyToManyField('people.Person', 
-    #    verbose_name='People related to this chapter', blank=True)
-    #evidence = models.ManyToManyField('evidence.EvidenceItem', 
-    #    verbose_name='evidence items related to this chapter', blank=True)
     
     class Meta:
         ordering = ['story', 'chapter_num']

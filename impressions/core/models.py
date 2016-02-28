@@ -32,3 +32,15 @@ class CommonModel(models.Model):
 
     def __str__(self):
         return self.slug
+
+class AssociationMixin(models.Model):
+    """
+    Many to many relationship shared by several content types
+    """
+    people = models.ManyToManyField('supporting.Person', 
+        verbose_name='People related to this item', blank=True)
+    evidence = models.ManyToManyField('supporting.EvidenceItem', 
+        verbose_name='Evidence items related to this item', blank=True)
+
+    class Meta:
+        abstract = True
