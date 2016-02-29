@@ -3,6 +3,7 @@
 {% load staticfiles %}
 
 {% block after_related_objects %}
+	{{ block.super }}
 	<!-- Initialize the editor. -->
 	<script>
 		$(function() {

@@ -108,7 +108,11 @@
 {% endfor %}
 {% endblock %}
 
-{% block after_related_objects %}{% endblock %}
+{% block after_related_objects %}
+<script>
+  $.FroalaEditor.DEFAULTS.key = 'OjjuctzqyrF2uxF2tnz==';
+</script>
+{% endblock %}
 
 {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
 
