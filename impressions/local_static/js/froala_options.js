@@ -56,7 +56,6 @@ var froalaBlurb = {
 	heightMin: 100,
 	pastePlain: true,
 	placeholderText: 'Single (short) paragraph only.',
-	toolbarButtons: ['fullscreen', 'italic', '|', 
-		'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtons: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '400'
 }

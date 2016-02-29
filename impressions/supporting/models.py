@@ -1,6 +1,14 @@
 from django.db import models
 from core.models import ContentType, CommonModel
 
+class Context(CommonModel):
+    CONTEXT_CONTENT_TYPE_ID = 5
+    content_type = models.ForeignKey('core.ContentType', default=CONTEXT_CONTENT_TYPE_ID)
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128, blank=True, default='')
+    # filename = models.CharField(max_length=64, blank=True, default='')
+    narrative = models.TextField('Description / Label', blank=True, default='')
+
 
 class EvidenceType(models.Model):
     """docstring for EvidenceType"""

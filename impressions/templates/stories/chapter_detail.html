@@ -41,6 +41,13 @@
       </a>
     </li>
   {% endfor %}
+  {% for context in chapter.contexts.all %}
+    <li>
+      <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
+        {{ context.title }}
+      </a>
+    </li>
+  {% endfor %}
   
 </ul>
 {% endblock content_area %}

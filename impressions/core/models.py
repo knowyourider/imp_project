@@ -37,6 +37,8 @@ class AssociationMixin(models.Model):
     """
     Many to many relationship shared by several content types
     """
+    contexts = models.ManyToManyField('supporting.Context', 
+        verbose_name='Contexts related to this item', blank=True)
     people = models.ManyToManyField('supporting.Person', 
         verbose_name='People related to this item', blank=True)
     evidence = models.ManyToManyField('supporting.EvidenceItem', 

@@ -1,5 +1,22 @@
 from django.contrib import admin
-from .models import EvidenceType, EvidenceItem, Person
+from .models import Context, EvidenceType, EvidenceItem, Person
+
+
+class ContextAdmin(admin.ModelAdmin):
+    change_form_template = 'supporting/admin/context_change_form.html'
+    fieldsets = [
+        (None,  {'fields': ['title', 'subtitle', 'slug', 'menu_blurb',
+             'narrative']}),
+        ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
+            'edit_date', 'notes'], 'classes': ['collapse']}),
+    ]
+    list_display = ('title', 'slug', 'status_num')
+    #list_filter     = ['augmented'] # , 'edit_date'
+    search_fields = ['title', 'slug']
+    #filter_horizontal = ['resourcesets', 'artifacts']
+
+admin.site.register(Context, ContextAdmin)
+
 
 class EvidenceTypeAdmin(admin.ModelAdmin):
     """docstring for EvidenceTypeAdmin"""

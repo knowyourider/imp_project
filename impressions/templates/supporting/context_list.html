@@ -1,0 +1,19 @@
+{% extends "base_list.html" %}
+{% load staticfiles %}
+
+{% block title_area %}
+  <h1>Contexts</h1>
+{% endblock title_area %}
+
+
+{% block menu %}
+  <ul>
+  {% for object in object_list %}
+    <li>
+      <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
+        {{ object.title|safe }} {{ object.subtitle|safe }}
+      </a> - {{ object.menu_blurb|safe }}
+    </li>
+  {% endfor %}
+  </ul>     
+{% endblock menu %}

@@ -27,9 +27,10 @@ class ChapterAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/chapter_change_form.html'
     fieldsets = [
         (None,  {'fields': ['story', 'chapter_num', 'title', 'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
     ]
-    filter_horizontal = ['people', 'evidence']    #search_fields = ['title']
+    filter_horizontal = ['people', 'evidence', 'contexts']    
+    #search_fields = ['title']
     list_display = ('title',  'chapter_num', 'story')
     list_filter     = ['story'] # , 'edit_date'
 
