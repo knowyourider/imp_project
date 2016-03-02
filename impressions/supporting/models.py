@@ -1,7 +1,7 @@
 from django.db import models
-from core.models import ContentType, CommonModel
+from core.models import ContentType, CommonModel, AssociationMixin
 
-class Context(CommonModel):
+class Context(AssociationMixin, CommonModel):
     CONTEXT_CONTENT_TYPE_ID = 5
     content_type = models.ForeignKey('core.ContentType', default=CONTEXT_CONTENT_TYPE_ID)
     title = models.CharField(max_length=128)
@@ -12,7 +12,8 @@ class Context(CommonModel):
 
 class EvidenceType(models.Model):
     """docstring for EvidenceType"""
-    is_document_oriented = models.BooleanField('Document-oriented: can have pages and/or transcripts')
+    is_document_oriented = models.BooleanField('Document-oriented: can have pages \
+        and/or transcripts')
     title = models.CharField(max_length=32)
     slug = models.SlugField(max_length=16, unique=True)
     ordinal = models.IntegerField('Order in Menu', default=99)
@@ -24,7 +25,7 @@ class EvidenceType(models.Model):
         return self.title       
 
 
-class EvidenceItem(CommonModel):
+class EvidenceItem(AssociationMixin, CommonModel):
     """
     EvidenceItem
     ContentType is defined in Admin in Core > ContentTypes
@@ -42,10 +43,11 @@ class EvidenceItem(CommonModel):
     materials = models.CharField(max_length=128, blank=True, default='')
 
 
-class Person(CommonModel):
+class Person(AssociationMixin, CommonModel):
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', default=PERSON_CONTENT_TYPE_ID)
     first_name = models.CharField(max_length=32, blank=True, default='')
+    middle_name = models.CharField(max_length=32, blank=True, default='')
     last_name = models.CharField(max_length=32, blank=True, default='')
     title_prefix = models.CharField(max_length=16, blank=True, default='')
     suffix = models.CharField(max_length=16, blank=True, default='')

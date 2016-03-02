@@ -1,8 +1,11 @@
-{% extends "base_slim.html" %}
+{% extends "supporting/base_detail.html" %}
 {% load staticfiles %}
 
 {% block heading %}{{ object.content_type.plural_title }} {% endblock %}
-{% block item_title %}{{ object.first_name|safe }} {{ object.last_name|safe }}{% endblock %}
+{% block item_title %}
+	{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
+        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}
+{% endblock item_title%}
 
 {% block slim_content%}
 

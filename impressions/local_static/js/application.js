@@ -1,22 +1,25 @@
 $(document).ready(function(){
 
-  // ------- PEOPLE MENU ------
+  // ------- SLIM POPS ------
 
-  // enable click event on menu items
+  // enable click event on menu items and text links
   $('.pop_item').click(function(event){
-  //$('.pop-item').live("click", function(event){
-  //$(document).on("click", ".pop-item", function(event){
     event.preventDefault();
-    // get params from href
+    // get href
     var chosen_href = $(event.target).attr('href');
-    //var href_split = chosen_href.split('/');  
-    // app_namespace = href_split[1]  
-    // short_name = href_split[2]  
-    // form local url
-    //var theURL = "/" + href_split[1] + "/" + href_split[2] + "/";
-    //alert('url for slimpop: ' + chosen_href); 
     // call ajax for the slim pop. 
     slimPop(chosen_href, 'slimpop-basicsize');
+  });
+
+  // enable click event on slim that's already up
+  // document on required since this the markup was loaded by ajax.
+  $(document).on("click", ".swap_pop", function(event){
+    event.preventDefault();
+    // get href
+    var chosen_href = $(event.target).attr('href');
+    // alert('chosen_href: ' + chosen_href);
+    // call ajax for the slim pop. 
+    getURL(chosen_href, $('#slimpop-container'));
   });
 
 }); // end doc ready
