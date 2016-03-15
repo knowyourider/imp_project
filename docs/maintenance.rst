@@ -13,9 +13,19 @@ On eapps, login as root. We're not using the -O option since local and remote ha
 	
     cd /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions (or workon impressions)
 
+Or, run script from local which accesses remote:
+:: 
+	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
+	ssh root@68.169.58.50 'bash -s' < copy_stagedb.sh
+	(root password)
+
 Transfer to local via FTP pvma root.
 ::
+	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
+	wget --user=pvma --password='pocumtuckvma$1860' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
 
+In either case:
+::
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
 	pg_restore --clean --dbname=impdb --user=impdb_user --verbose impdb_$(date +"%Y_%m_%d").backup
 

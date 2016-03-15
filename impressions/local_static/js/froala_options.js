@@ -6,15 +6,15 @@ var froalaChapter = {
 	linkList: [
 		{
 			displayText: 'evidence',
-			href: '/evidence/SHORTNAME/'
+			href: '/supporting/evidenceitem/SHORTNAME/'
 		},
 		{
 			displayText: 'person',
-			href: '/people/SHORTNAME/'
+			href: '/supporting/person/SHORTNAME/'
 		},
 		{
 			displayText: 'context',
-			href: '/context/SHORTNAME/'
+			href: '/supporting/context/SHORTNAME/'
 		}
 	],
 	linkStyles: {
@@ -56,6 +56,7 @@ var froalaBlurb = {
 	heightMin: 100,
 	pastePlain: true,
 	placeholderText: 'Single (short) paragraph only.',
-	toolbarButtons: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtons: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 
+		'selectAll', 'html'],
 	width: '400'
 }
