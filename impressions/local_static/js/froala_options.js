@@ -6,15 +6,15 @@ var froalaChapter = {
 	linkList: [
 		{
 			displayText: 'evidence',
-			href: '/supporting/evidenceitem/SHORTNAME/'
+			href: '/supporting/evidenceitem/'
 		},
 		{
 			displayText: 'person',
-			href: '/supporting/person/SHORTNAME/'
+			href: '/supporting/person/'
 		},
 		{
 			displayText: 'context',
-			href: '/supporting/context/SHORTNAME/'
+			href: '/supporting/context/'
 		}
 	],
 	linkStyles: {
