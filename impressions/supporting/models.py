@@ -43,6 +43,18 @@ class EvidenceItem(AssociationMixin, CommonModel):
     materials = models.CharField(max_length=128, blank=True, default='')
 
 
+class FastFact(CommonModel):
+    """
+    FastFact
+    ContentType is defined in Admin in Core > ContentTypes
+    """
+    FASTFACT_CONTENT_TYPE_ID = 6
+    content_type = models.ForeignKey('core.ContentType', default=FASTFACT_CONTENT_TYPE_ID)
+    title = models.CharField(max_length=128)
+    narrative = models.TextField('Description / Label', blank=True, default='')
+    has_image = models.BooleanField(default=False)
+
+
 class Person(AssociationMixin, CommonModel):
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', default=PERSON_CONTENT_TYPE_ID)

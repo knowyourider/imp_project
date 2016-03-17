@@ -1,0 +1,20 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}
+	{{ object.content_type.plural_title }}
+{% endblock %}
+
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<p>[Image will appear here, if appropriate]</p>
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}
+
+{# supress related items for fast facts #}
+{% block related_items%}{% endblock related_items%}
+

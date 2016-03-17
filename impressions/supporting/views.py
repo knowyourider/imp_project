@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Context, EvidenceItem, Person
+from .models import Context, EvidenceItem, FastFact, Person
 
 class ContextListView(ListView):
     model = Context
@@ -22,6 +22,12 @@ class EvidenceItemDetailView(DetailView):
     model = EvidenceItem
     # context_object_name = 'object'
     # template_name = 'supporting/evidenceitem_detail.html'
+
+
+class FastFactDetailView(DetailView):
+    model = FastFact
+    # context_object_name = 'object'
+    # template_name = 'supporting/fastfact_detail.html'
 
 
 class PersonListView(ListView):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Context, EvidenceType, EvidenceItem, Person
+from .models import Context, EvidenceType, EvidenceItem, FastFact, Person
 
 
 class ContextAdmin(admin.ModelAdmin):
@@ -44,6 +44,23 @@ class EvidenceItemAdmin(admin.ModelAdmin):
     search_fields = ['title', 'slug']
 
 admin.site.register(EvidenceItem, EvidenceItemAdmin)
+
+
+class FastFactAdmin(admin.ModelAdmin):
+    change_form_template = 'supporting/admin/fastfact_change_form.html'
+    fieldsets = [
+        (None,            {'fields': ['title', 'slug', 'has_image',
+            'narrative']}),
+        ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
+            'edit_date', 'notes'], 'classes': ['collapse']}),
+    ]
+    #inlines = [QuestionInline, IdeaInline, PageInline]
+    list_display = ('title',  'slug', 'has_image')
+    #list_filter     = ['evidence_type'] # , 'edit_date'
+    search_fields = ['title', 'slug']
+
+admin.site.register(FastFact, FastFactAdmin)
+
 
 class PersonAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/person_change_form.html'

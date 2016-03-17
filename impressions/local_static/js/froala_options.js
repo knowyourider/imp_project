@@ -15,6 +15,10 @@ var froalaChapter = {
 		{
 			displayText: 'context',
 			href: '/supporting/context/'
+		},
+		{
+			displayText: 'fast fact',
+			href: '/supporting/fastfact/'
 		}
 	],
 	linkStyles: {
