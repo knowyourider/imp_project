@@ -12,8 +12,8 @@
     <li>
       <a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}">
         {{ object.title_prefix|safe }} {{ object.first_name|safe }} 
-        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}
-      </a> - {{ object.menu_blurb|safe }}
+        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}</a>
+        {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>     

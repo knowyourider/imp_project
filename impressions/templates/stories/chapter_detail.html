@@ -30,7 +30,7 @@
   {% for person in chapter.people.all %}
     <li>
       <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
-        {{ person.first_name }} {{ person.last_name }}
+        {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
       </a>
     </li>
   {% endfor %}

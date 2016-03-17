@@ -11,8 +11,8 @@
   {% for object in object_list %}
     <li>
       <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
-        {{ object.title|safe }}: {{ object.subtitle|safe }}
-      </a> - {{ object.menu_blurb|safe }}
+        {{ object.title|safe }}</a>
+        {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>     

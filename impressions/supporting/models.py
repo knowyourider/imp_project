@@ -54,3 +54,7 @@ class Person(AssociationMixin, CommonModel):
     birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
+
+    class Meta:
+        ordering = ['last_name']
+        
