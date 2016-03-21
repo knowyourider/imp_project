@@ -1,6 +1,9 @@
 # extensions
 *.pyc
 *.log
+*.jpg
+*.png
+*.gif
 
 # files
 .DS_Store
