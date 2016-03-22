@@ -167,6 +167,7 @@ We're in Apace version 2.2.21
 		AddType application/x-httpd-php-source .phps
 
         Alias /static/ /var/www/pvma/data/www/imp_static/
+        Alias /design/ /var/www/pvma/data/www/mpdev.deerfield-ma.org/impressions/design/
 
         WSGIDaemonProcess staging python-path=/var/www/pvma/data/www/impdev.deerfield-ma.org/impressions:/var/www/pvma/data/.envs/impressions/lib/python3.5/site-packages
         WSGIProcessGroup staging
