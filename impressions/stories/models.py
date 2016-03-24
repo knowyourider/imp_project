@@ -6,6 +6,7 @@ class Story(CommonModel):
     content_type = models.ForeignKey('core.ContentType', default=STORY_CONTENT_TYPE_ID)
     title = models.CharField(max_length=48)
     subtitle = models.CharField(max_length=64, blank=True, default='')
+    image_name = models.CharField(max_length=32, blank=True, default='')
     introduction = models.TextField(blank=True, default='')
 
 
@@ -13,6 +14,7 @@ class Chapter(AssociationMixin, models.Model):
     story = models.ForeignKey('stories.Story')
     title = models.CharField(max_length=64)
     chapter_num = models.IntegerField()
+    image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
     
     class Meta:

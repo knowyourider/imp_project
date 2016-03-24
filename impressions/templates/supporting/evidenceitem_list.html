@@ -10,6 +10,7 @@
   <ul>
   {% for object in object_list %}
     <li>
+        <img src="{% static 'supporting/evidenceitem/thumbpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" width="100" height="100">       
       <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
         {{ object.title|safe }}</a>
         {{ object.menu_blurb|safe }}

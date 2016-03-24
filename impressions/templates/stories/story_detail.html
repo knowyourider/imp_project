@@ -12,6 +12,9 @@
 {% endblock title_area %}
 
 {% block content_area %}
+
+<img src="{% static 'stories/fullpics/' %}{{ object.image_name }}.jpg"  alt="image of {{ object.image_name}}">
+
 <p>Intro: {{ object.introduction|safe }}</p>
 
 <ul>

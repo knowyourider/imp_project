@@ -11,7 +11,7 @@ class ChapterInline(admin.TabularInline):
 class StoryAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/story_change_form.html'
     fieldsets = [
-        (None,            {'fields': ['title', 'subtitle', 'slug',
+        (None,            {'fields': ['title', 'subtitle', 'slug', 'image_name',
             'menu_blurb', 'introduction']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes'], 'classes': ['collapse']}),
@@ -26,7 +26,8 @@ admin.site.register(Story, StoryAdmin)
 class ChapterAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/chapter_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['story', 'chapter_num', 'title', 'narrative']}),
+        (None,  {'fields': ['story', 'chapter_num', 'title', 'image_name',
+            'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
     ]
     filter_horizontal = ['people', 'evidence', 'contexts']    

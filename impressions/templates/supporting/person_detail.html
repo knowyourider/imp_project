@@ -9,6 +9,8 @@
 
 {% block slim_content%}
 
+<img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+
 {{ object.narrative|safe }}
 
 {% endblock slim_content %}

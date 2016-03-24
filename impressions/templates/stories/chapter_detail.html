@@ -23,13 +23,16 @@
 {% endblock title_area %}
 
 {% block content_area %}
+<img src="{% static 'stories/fullpics/' %}{{ chapter.image_name }}.jpg"  alt="image of {{ chapter.image_name}}">
+
 {{ chapter.narrative|safe }}
 
 <p>Dig Deeper</p>
 <ul>
   {% for person in chapter.people.all %}
     <li>
-      <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+      <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">   
+        <img src="{% static 'supporting/person/thumbpics/' %}{{ person.slug }}.jpg"  alt="image of {{ person.slug}}" width="100" height="100">      
         {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
       </a>
     </li>
@@ -37,6 +40,9 @@
   {% for evidenceitem in chapter.evidence.all %}
     <li>
       <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+
+      <img src="{% static 'supporting/evidenceitem/thumbpics/' %}{{ evidenceitem.slug }}.jpg"  alt="image of {{ evidenceitem.slug}}" width="100" height="100">
+
         {{ evidenceitem.title }}
       </a>
     </li>
