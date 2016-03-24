@@ -9,6 +9,8 @@
 .DS_Store
 
 # directories
+**/.sass-cache
+**/.sass-cache/*
 static/
 webstat/
 impressions/design/local_static_sym
