@@ -19,17 +19,45 @@
 
 <body>
 
-<header>
+<header class="top-navigation" role="banner">
 
   <h1>Impressions from a Lost World</h1>
 
-  <ul>
-    <li><a href="stories/">Narrative View</a></li>
-    <li><a href="map/">Geographic View</a></li>
-    <li><a href="timeline/">Chronologic View</a></li>
-    <li><a href="people/">Biographic View</a></li>
-    <li><a href="themes/">Thematic View</a></li>
-  </ul>
+  <div class="top-navigation-wrapper">
+
+    <a href="index.html" class="mobile-logo">
+      <img src="/local_static_sym/images/footmark-logo.png" alt="Logo image">
+    </a>
+
+    <a href="javascript:void(0)" id="js-top-navigation-mobile-menu" class="top-navigation-mobile-menu">MENU</a>
+
+    <nav role="navigation">
+
+      <ul id="js-top-navigation-menu" class="top-navigation-menu show">
+
+        <li class="nav-link logo">
+          <a href="index.html" class="logo">
+            <img src="/local_static_sym/images/footmark-logo.png" alt="Logo image">
+          </a>
+        </li>
+
+        <li class="nav-link more"><a href="stories/">Narrative View</a>
+          <ul class="submenu">
+            <li><a href="stories/whose-discovery/"></a>Whose Discovery Was It?</li>
+            <li><a href="stories/refinement-edward-orra/"></a>Edward and Orra Hitchcock in the Age of Refinement</li>
+            <li><a href="stories/imprints-culture/"></a>Imprints on the Culture</li>
+            <li><a href="stories/subdue-earth/"></a>Subduing the Earth</li>
+            <li><a href="stories/expanding-world.html">The Expanding World of Dexter Marsh</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-link more"><a href="map/">Geographic View</a></li>
+        <li class="nav-link more"><a href="timeline/">Chronologic View</a></li>
+        <li class="nav-link more"><a href="people/">Biographic View</a></li>
+        <li class="nav-link more"><a href="themes/">Thematic View</a></li>
+    </ul>
+    </nav>
+  </div>
 
 </header>
 

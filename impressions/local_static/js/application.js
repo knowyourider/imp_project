@@ -75,3 +75,17 @@ function getURL(theURL, contentDiv) {
   contentDiv.load(theURL);
 }
 
+// ---------- NAVIGATION ----------
+$(document).ready(function() {
+  var menuToggle = $('#js-top-navigation-mobile-menu').unbind();
+  $('#js-top-navigation-menu').removeClass("show");
+  
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-top-navigation-menu').slideToggle(function(){
+      if($('#js-top-navigation-menu').is(':hidden')) {
+        $('#js-top-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
