@@ -1,9 +1,5 @@
-// Breakpoints
-$medium-screen: 600px;
-$large-screen: em(860) !default;
-
 // Typography
-$base-font-family: $font-stack-system;
+$base-font-family: $helvetica;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
@@ -21,28 +17,21 @@ $base-z-index: 0;
 
 // Colors
 $blue: #1565c0;
-$dark-gray: #7d7664 !default;
+$dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
-$light-taupe: #b3aa98;
-$dark-taupe: #65605a;
 
 // Font Colors
-$base-font-color: $dark-gray !default;
+$base-font-color: $dark-gray;
 $action-color: $blue;
 
 // Border
-$base-border-color: $light-taupe;
+$base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
-// Radii
-$base-border-radius: 3px !default;
-
 // Background Colors
-$base-background-color: #fff4e4;
+$base-background-color: #fff;
 $secondary-background-color: tint($base-border-color, 75%);
-$panel-background-color: $dark-taupe;
-$top-nav-background-color: #d2cdba;
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
@@ -51,15 +40,3 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
-
-// Top Navigation
-$top-navigation-padding: 1em;
-$top-navigation-logo-height: 2em;
-$top-navigation-color: transparentize($base-font-color, 0.3);
-$top-navigation-color-hover: $base-font-color;
-$top-navigation-height: 60px;
-$top-navigation-item-padding: 1em;
-$top-navigation-submenu-padding: 1em;
-$top-navigation-submenu-width: 12em;
-$top-navigation-item-nudge: 2.2em;
-$horizontal-bar-mode: $large-screen;
