@@ -1,0 +1,12 @@
+//basic layout - used for Story Menu, Theme Menu, People Menu
+
+.basic {
+	@include outer-container;
+  	padding-top: $base-spacing;
+  	padding-bottom: $base-spacing;
+
+  @include media(max-width $max-width) {
+  	padding-left: $base-spacing;
+  	padding-right: $base-spacing;
+  }
+}

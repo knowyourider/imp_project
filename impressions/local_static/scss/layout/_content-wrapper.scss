@@ -1,0 +1,17 @@
+// content wrapper
+//this came from refills > footer, to make it sticky...
+.content-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+html, body {
+ height: 100%;
+}
+
+.content-wrapper:after {
+  content: "";
+  display: block;
+}
