@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 
 <html lang="en">
 <head>
@@ -9,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Stories</title>
+    <title>Story Main Menu</title>
 	
     <link rel="stylesheet" href="/local_static_sym/css/application.css" type="text/css"/>
   
@@ -20,83 +18,136 @@
 
 <body>
 
-<header>
+<header class="top-navigation" role="banner">
 
-  <h1>Impressions from a Lost World</h1>
+  <div class="top-navigation-wrapper">
 
-  <ul class="top-nav">
-    <li><a href="/stories/">Narrative View</a></li>
-    <li><a href="/map/">Geographic View</a></li>
-    <li><a href="/timeline/">Chronologic View</a></li>
-    <li><a href="/people/">Biographic View</a></li>
-    <li><a href="/themes/">Thematic View</a></li>
-  </ul>
+    <a href="index.html" class="mobile-logo">
+      <img src="/local_static_sym/images/footmark-logo.png" alt="Logo image">
+    </a>
+
+    <a href="javascript:void(0)" id="js-top-navigation-mobile-menu" class="top-navigation-mobile-menu">MENU</a>
+
+    <nav role="navigation">
+
+      <ul id="js-top-navigation-menu" class="top-navigation-menu show">
+
+        <li class="nav-link logo">
+          <a href="/index.html" class="logo">
+            <img src="/local_static_sym/images/footmark-logo.png" alt="Logo image">
+          </a>
+        </li>
+
+        <li class="nav-link more"><a href="stories/">Stories</a>
+          <ul class="submenu">
+            <li><a href="/stories/whose-discovery/">Whose Discovery Was It?</a></li>
+            <li><a href="/stories/refinement-edward-orra/">Edward and Orra Hitchcock in the Age of Refinement</a></li>
+            <li><a href="/stories/imprints-culture/">Imprints on the Culture</a></li>
+            <li><a href="/stories/subdue-earth/">Subduing the Earth</a></li>
+            <li><a href="/stories/expanding-world.html">The Expanding World of Dexter Marsh</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-link more"><a href="/map/">Map</a></li>
+        <li class="nav-link more"><a href="/timeline/">Timeline</a></li>
+        <li class="nav-link more"><a href="/main-people/">Primary People</a></li>
+        <li class="nav-link more"><a href="/themes/">Themes</a></li>
+    </ul>
+    </nav>
+  </div>
 
 </header>
 
+<div class="content-wrapper basic">
+
   <p class="breadcrumbs">
     <a href="/">Home</a> | 
-    <a href="/stories/">Stories</a> | Map | Timeline
+    Story Menu
   </p>
 
-  <h1>Story Menu</h1>
+  <h1 class="main-title">Story Menu</h1>
 
-  <ul>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <ul class="menu-gallery">
   
     <li>
       <a href="/stories/whose-discovery/">
-        Whose Discovery Was It?: The tracks in a scientific sense
+      <img src="/stories/images/story-menu-pic5.jpg">
+      <span>Whose Discovery Was It?:<br/>The tracks in a scientific sense</span>
       </a>
-      <p>In which Edward Hitchcock and James Deane spar over who deserves credit for discovering the fossil tracks. Benjamin Silliman officiates.</p>
+      <p class="menu-blurb">In which Edward Hitchcock and James Deane spar over who deserves credit for discovering the fossil tracks. Benjamin Silliman officiates.</p>
     </li>
   
     <li>
       <a href="/stories/refinement-edward-orra/">
-        Edward and Orra Hitchcock in the  Age of Refinement: Education, Art, and Science
+      <img src="/stories/images/story-menu-pic2.jpg">
+        Edward and Orra Hitchcock in the  Age of Refinement:<br/> Education, Art, and Science
       </a>
-      <p>In which Edward Hitchcock, young scientist, meets Orra White, budding naturalist.</p>
+      <p class="menu-blurb">In which Edward Hitchcock, young scientist, meets Orra White, budding naturalist.</p>
     </li>
   
     <li>
       <a href="expanding-world.html">
-        The Expanding World of Dexter Marsh: The Fossil Market in the Larger World
+      <img src="/stories/images/story-menu-pic3.jpg">
+        The Expanding World of Dexter Marsh:<br/> The Fossil Market in the Larger World
       </a>
-      <p>In early March 1835, in a tiny rural town in western Massachusetts, a poor laborer&rsquo;s life changed dramatically when he came across what looked like turkey tracks in a slab of rock he was laying into the sidewalk.</p>
+      <p class="menu-blurb">In which a poor laborer&rsquo;s life changes dramatically when he notices what look like turkey tracks in a rock he was laying in a sidewalk.</p>
     </li>
   
     <li>
       <a href="/stories/imprints-culture/">
-        Imprints on the Culture: The impact of geology on the popular imagination
+      <img src="/stories/images/story-menu-pic8.jpg">
+        Imprints on the Culture:<br/> The impact of geology on the popular imagination
       </a>
-      <p>Geology&apos;s influence on the arts</p>
+      <p class="menu-blurb">In which the newly popular science of Geology influences literature, philosophy, and the arts.</p>
     </li>
   
     <li>
       <a href="/stories/interpreting-footprints/">
-        Interpreting the Fossil Footprints: From Noah's Raven to Coelophysis
+      <img src="/stories/images/story-menu-pic1.jpg">
+        Interpreting the Fossil Footprints:<br/> From Noah's Raven to Coelophysis
       </a>
-      <p>Interpretations of the &quot;fossil bird tracks&quot; evolved from a biblical understanding to seeing them as the footprints of dinosaurs</p>
+      <p class="menu-blurb">In which interpretations of the &quot;fossil bird tracks&quot; evolve from a biblical understanding to a scientific one.</p>
     </li>
   
     <li>
       <a href="/stories/subdue-earth/">
-        Subduing the Earth: subduing-earth
+      <img src="/stories/images/story-menu-pic6.jpg">
+        Subduing the Earth:<br/> Edward Maps Massachusetts
       </a>
-      <p>Excavating the earth led to greater knowledge about the ground on which we stand</p>
+      <p class="menu-blurb">In which excavating the earth leads to a greater knowledge about the ground on which we stand.</p>
+    </li>
+  
+    <li>
+      <a href="/stories/subdue-earth/">
+      <img src="/stories/images/story-menu-pic7.jpg">
+        Working Together:<br/> A Companionate Marriage
+      </a>
+      <p class="menu-blurb">In which Edward and Orra Hitchcock collaborate and together invent ichnology.</p>
+    </li>
+  
+    <li>
+      <a href="/stories/subdue-earth/">
+      <img src="/stories/images/story-menu-pic4.jpg">
+        Spreading the Word:<br/> the Track Heard 'Round the World  
+      </a>
+      <p class="menu-blurb">In which the discovery of the dinosaur tracks spreads to Europe and beyond.</p>
     </li>
   
   </ul>     
+</div>
 
-<footer>
+<footer class="footer" role="contentinfo">
 
-  <ul>
-    <li><a href="/supporting/person/">People</a></li>
-    <li><a href="/supporting/evidenceitem/">Evidence</a></li>
+  <ul class="footer-primary">
+    <li><a href="/supporting/people/">People</a></li>
+    <li><a href="/supporting/evidence/">Evidence</a></li>
     <li><a href="/supporting/context/">Context</a></li>
     <li><a href="/supporting/special/">Special Features</a></li>
   </ul>
 
-  <ul>
+  <ul class="footer-secondary-links">
     <li><a href="">About This Site</a></li>
     <li><a href="">Suggested Reading</a></li>
     <li><a href="">Suggested Viewing</a></li>

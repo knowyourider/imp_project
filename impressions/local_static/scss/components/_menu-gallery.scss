@@ -1,0 +1,20 @@
+// Menus for Stories, Themes
+.menu-gallery {
+	li {
+	  @include span-columns(3);
+	  @include omega(4n);
+
+	  	a:link {
+	  		font-style: italic;
+	  	}
+
+	  	img {
+	  		padding: 2px;
+	  		border: $double-border;
+	  	}
+	}
+}
+
+.menu-blurb {
+	font-size: $small-font-size;
+}

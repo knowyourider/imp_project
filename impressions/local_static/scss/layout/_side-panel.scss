@@ -1,0 +1,22 @@
+//side panel layout
+.text-panel {
+	background-color: transparentize($dark-taupe, 0.2);
+	color: $light-font-color;
+	font-size: $base-font-size * 1.15;
+	padding: $base-spacing;
+
+	@include span-columns (3);
+	@include omega();
+}
+
+.image-panel {
+	padding: $base-spacing;
+
+	@include span-columns (9);
+	@include omega();
+}
+
+.expanding-intro {
+	background: url("/stories/images/expanding-intro.jpg") no-repeat;
+	background-size: cover;
+}

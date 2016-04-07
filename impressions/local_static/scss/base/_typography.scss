@@ -18,6 +18,14 @@ h6 {
   margin: 0 0 $small-spacing;
 }
 
+//main titles on menu pages, story intro pages
+.main-title {
+  color: $accent-color;
+  font-weight: normal;
+  font-size: $title-font-size;
+  font-style: italic;
+}
+
 p {
   margin: 0 0 $small-spacing;
 }

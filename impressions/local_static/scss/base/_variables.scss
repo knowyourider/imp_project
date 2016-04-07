@@ -3,11 +3,13 @@ $medium-screen: em(640) !default;
 $large-screen: em(860) !default;
 
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: $georgia;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$small-font-size: 0.8em;
+$title-font-size: 2.5em;
 
 // Line height
 $base-line-height: 1.5;
@@ -29,7 +31,8 @@ $dark-taupe: #65605a;
 // Font Colors
 $base-font-color: $dark-gray !default;
 $light-font-color: #fff4e4;
-$action-color: $blue;
+$accent-color: #d94a38;
+$action-color: #d94a38;
 $footer-color: $light-font-color;
 $footer-link-color: transparentize($footer-color, 0.6);
 $footer-disclaimer-color: transparentize($footer-color, 0.6);
@@ -44,6 +47,7 @@ $footer-background-color: $dark-taupe;
 // Borders
 $base-border-color: $light-taupe;
 $base-border: 1px solid $base-border-color;
+$double-border: double $base-border-color;
 
 // Radii & Misc
 $base-border-radius: 3px !default;
