@@ -537,17 +537,19 @@ html, body {
 
 .image-panel {
   padding: 1.5em;
+  position: relative;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 74.41059%;
-  margin-right: 0; }
+  width: 76.5601%; }
   .image-panel:last-child {
     margin-right: 0; }
 
-.expanding-intro {
-  background: url("/stories/images/expanding-intro.jpg") no-repeat;
-  background-size: cover; }
+.story-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; }
 
 /* top navigation */
 .top-navigation {
