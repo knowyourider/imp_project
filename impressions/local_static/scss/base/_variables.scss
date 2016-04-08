@@ -3,12 +3,13 @@ $medium-screen: em(640) !default;
 $large-screen: em(860) !default;
 
 // Typography
-$base-font-family: $georgia;
+$base-font-family: $libre-baskerville;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
 $small-font-size: 0.8em;
+$large-font-size: 2em;
 $title-font-size: 2.5em;
 
 // Line height
@@ -18,6 +19,7 @@ $heading-line-height: 1.2;
 // Spacing
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
+$tiny-spacing: $base-spacing / 4;
 $large-spacing: $base-spacing * 2;
 
 // Colors
@@ -56,6 +58,9 @@ $base-z-index: 0;
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+//shadows
+$title-shadow: 1px 1px 2px black;
 
 // Animations
 $base-duration: 150ms;

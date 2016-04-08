@@ -1,23 +1,33 @@
 //side panel layout
 .text-panel {
-	background-color: transparentize($dark-taupe, 0.2);
+	background-color: $dark-taupe;
 	color: $light-font-color;
-	font-size: $base-font-size * 1.15;
+	height: 100vh;
 	padding: $base-spacing;
 
-	@include span-columns (3);
+	@include span-columns (3.25);
 	@include omega();
 }
 
-.image-panel {
-	padding: $base-spacing;
-	position: relative;
-	@include span-columns (9.252);
+.intro-text {
+	font-size: $base-font-size * 1.15;
 }
 
-.story-image {
-	position: absolute;
-  top: 0; 
-  left: 0;
-  z-index: $base-z-index;
+.intro-nav {
+	font-size: $small-font-size ;
+		
+		li {
+			display: inline;
+			@include span-columns (1 of 3)
+		}
 }
+
+.chapter-text {
+		h2 {
+			font-size: $large-font-size;
+			font-weight: normal;
+		}
+
+}
+
+.theme-text {}

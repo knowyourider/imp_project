@@ -1,2 +1,39 @@
-//images for stories and themes
+//images for stories and themes, works with _side-panel.scss
 
+.image-panel {
+	background-size: cover;
+	height: 100vh;
+	padding: $base-spacing;
+	position: relative;
+	@include span-columns (9);
+	@include omega();
+}
+
+.image-panel--caption {
+	background-color: rgba(101, 96, 90, 0.8);
+	color: $light-font-color;
+	font-size: $small-font-size;
+	padding: $small-spacing;
+	position: absolute;
+	bottom: 80px;
+	@include span-columns (2.5 of 9);
+}
+
+// The Expanding World of Dexter Marsh
+.expanding-world-0 {
+	background-image: url("../../../design/stories/images/expanding-world-0.jpg");
+}
+
+.expanding-world-1 {
+	background-image: url("../../../design/stories/images/expanding-world-1.jpg");
+}
+
+// Whose Discovery Was It?
+.whose-discovery-0 {
+	background-image: url("../../../design/stories/images/whose-discovery-0.jpg");
+}
+
+// Edward and Orra Hitchcock in the Age of Refinement
+.age-refinement-0 {
+	background-image: url("../../../design/stories/images/age-refinement-0.jpg");
+}

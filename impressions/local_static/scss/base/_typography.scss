@@ -19,12 +19,22 @@ h6 {
 }
 
 //main titles on menu pages, story intro pages
-.main-title {
-  color: $accent-color;
+.main-title, .story-subtitle {
+  //background-color: rgba(0, 0, 0, 0.25);
+  color: $light-font-color;
   font-weight: normal;
-  font-size: $title-font-size;
   font-style: italic;
+  margin-bottom: $tiny-spacing;
+  text-shadow: $title-shadow;
 }
+
+.main-title {
+  font-size: $title-font-size;
+}  
+
+.story-subtitle {
+  font-size: $large-font-size;
+}  
 
 p {
   margin: 0 0 $small-spacing;
