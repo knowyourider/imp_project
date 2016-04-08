@@ -11,12 +11,13 @@
 
 .image-panel {
 	padding: $base-spacing;
-
-	@include span-columns (9);
-	@include omega();
+	position: relative;
+	@include span-columns (9.252);
 }
 
-.expanding-intro {
-	background: url("/stories/images/expanding-intro.jpg") no-repeat;
-	background-size: cover;
+.story-image {
+	position: absolute;
+  top: 0; 
+  left: 0;
+  z-index: $base-z-index;
 }
