@@ -21,6 +21,7 @@ $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $tiny-spacing: $base-spacing / 4;
 $large-spacing: $base-spacing * 2;
+$xlarge-spacing: $base-spacing * 4;
 
 // Colors
 $blue: #1565c0;
@@ -66,14 +67,15 @@ $title-shadow: 1px 1px 2px black;
 $base-duration: 150ms;
 $base-timing: ease;
 
-// Top Navigation
+// Navigation
 $top-navigation-padding: 1em;
 $top-navigation-logo-height: 2em;
 $top-navigation-color: transparentize($base-font-color, 0.3);
 $top-navigation-color-hover: $base-font-color;
-$top-navigation-height: 60px;
+$top-navigation-height: 50px;
 $top-navigation-item-padding: 1em;
 $top-navigation-submenu-padding: 1em;
 $top-navigation-submenu-width: 16em;
 $top-navigation-item-nudge: 2.2em;
 $horizontal-bar-mode: $large-screen;
+$bottom-navigation-height: 80px;

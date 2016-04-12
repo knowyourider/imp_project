@@ -1,17 +1,19 @@
 // content wrapper
-//this came from refills > footer, to make it sticky...
-.content-wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -4em;
+
+// jj-is this already taken care of by normalize??
+body { margin:0; padding:0; }
+
+.content-wrapper { 
+	@include outer-container;
+	overflow: auto; 
+	padding: $xlarge-spacing 0 $xlarge-spacing 0; 
+
+// when viewport is less than or equal to 1200px, add side padding
+	@include media(max-width $max-width) {
+		padding: $xlarge-spacing $base-spacing;
+	}
 }
 
-html, body {
- height: 100%;
-}
-
-.content-wrapper:after {
-  content: "";
-  display: block;
+.content-wrapper-cover {
+	padding-top: $top-navigation-height; 
 }

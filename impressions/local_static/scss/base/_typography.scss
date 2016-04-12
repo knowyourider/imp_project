@@ -3,6 +3,7 @@ body {
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
+  height: 100vh;
   line-height: $base-line-height;
 }
 
@@ -18,22 +19,28 @@ h6 {
   margin: 0 0 $small-spacing;
 }
 
-//main titles on menu pages, story intro pages
-.main-title, .story-subtitle {
-  //background-color: rgba(0, 0, 0, 0.25);
-  color: $light-font-color;
-  font-weight: normal;
+//main titles on menu pages, story intro pages SASSIFY THIS
+.main-title, .story-title, .story-subtitle {
   font-style: italic;
+  font-weight: normal;
   margin-bottom: $tiny-spacing;
-  text-shadow: $title-shadow;
 }
 
 .main-title {
   font-size: $title-font-size;
+  color: $accent-color;
 }  
+
+.story-title {
+  font-size: $title-font-size;
+  color: $light-font-color;
+  text-shadow: $title-shadow;
+}
 
 .story-subtitle {
   font-size: $large-font-size;
+  color: $light-font-color;
+  text-shadow: $title-shadow;
 }  
 
 p {

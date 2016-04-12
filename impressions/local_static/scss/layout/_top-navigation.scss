@@ -3,7 +3,10 @@
   background-color: $top-nav-background-color;
   border-bottom: 1px solid darken($top-nav-background-color, 9%);
   min-height: $top-navigation-height;
-  width: 100%;
+  left: 0; 
+  position: fixed; 
+  width: 100%; 
+  top:0;
   z-index: 9999;
 
   // Mobile view
@@ -215,7 +218,7 @@
       padding-right: 0;
 
       @include media($horizontal-bar-mode) {
-        line-height: $top-navigation-height / 3;
+        line-height: $top-navigation-height / 2.5;
 
         &:first-child > a {
           border-top-left-radius: $base-border-radius;
