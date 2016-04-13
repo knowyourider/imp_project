@@ -1,5 +1,10 @@
 /* temp css */
 
+#map { 
+  height: 600px; 
+  width: 800px;
+}
+
 #slimpop-wrapper {
   background-color: white;
   border: 1px solid #999;

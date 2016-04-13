@@ -4,15 +4,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>{% block title %}Impressioins{% endblock %}</title>
+  <title>{% block title %}Impressioins{% endblock %}</title>
 
 	{% block stylesheets %}
     <link rel="stylesheet" href="{% static 'css/temp_pop.css' %}" type="text/css"/>
-    {% block additional_css %}{% endblock %}
   {% endblock stylesheets %}
 
   {% block javascript %}
