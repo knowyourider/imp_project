@@ -6,11 +6,11 @@ body { margin:0; padding:0; }
 .content-wrapper { 
 	@include outer-container;
 	overflow: auto; 
-	padding: $xlarge-spacing 0 $xlarge-spacing 0; 
+	padding: $large-spacing 0 $xlarge-spacing 0; 
 
 // when viewport is less than or equal to 1200px, add side padding
 	@include media(max-width $max-width) {
-		padding: $xlarge-spacing $base-spacing;
+		padding: $large-spacing $base-spacing;
 	}
 }
 

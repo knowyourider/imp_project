@@ -5,15 +5,17 @@ $large-screen: em(860) !default;
 // Typography
 $base-font-family: $libre-baskerville;
 $heading-font-family: $base-font-family;
+$utility-font-family: $lucida-grande;
 
 // Font Sizes
 $base-font-size: 1em;
 $small-font-size: 0.8em;
+$medlarge-font-size: 1.5em;
 $large-font-size: 2em;
 $title-font-size: 2.5em;
 
 // Line height
-$base-line-height: 1.5;
+$base-line-height: 1.6;
 $heading-line-height: 1.2;
 
 // Spacing
@@ -44,6 +46,7 @@ $footer-disclaimer-color: transparentize($footer-color, 0.6);
 $base-background-color: $light-font-color;
 $secondary-background-color: tint($light-taupe, 75%);
 $panel-background-color: $dark-taupe;
+$panel-darken-color: darken($dark-taupe, 3%);
 $top-nav-background-color: #d2cdba;
 $footer-background-color: $dark-taupe;
 
@@ -62,6 +65,7 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 
 //shadows
 $title-shadow: 1px 1px 2px black;
+$drop-shadow: 5px 5px 8px rgba(0, 0, 0, 0.65);
 
 // Animations
 $base-duration: 150ms;

@@ -5,8 +5,13 @@
 	height: 100vh;
 	padding: $base-spacing;
 
-	@include span-columns (3.25);
-	@include omega();
+	@include span-columns (12);
+
+  @include media($large-screen) {
+		// why isn't 3 working here?
+		@include span-columns (3.25);
+		@include omega();
+	}
 }
 
 .intro-text {
@@ -14,20 +19,25 @@
 }
 
 .intro-nav {
-	font-size: $small-font-size ;
+	font-size: $small-font-size;
 		
 		li {
 			display: inline;
+
 			@include span-columns (1 of 3)
 		}
 }
 
 .chapter-text {
 		h2 {
-			font-size: $large-font-size;
-			font-weight: normal;
+			font-size: $medlarge-font-size;
 		}
-
 }
 
-.theme-text {}
+.chapter-text--scroll {
+	background-color: $panel-darken-color;
+	font-size: $base-font-size / 1.15;
+	height: 70%;
+	margin-bottom: $small-spacing;
+	overflow-y: scroll;
+}

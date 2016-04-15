@@ -1,12 +1,12 @@
-/* top navigation */
+// top navigation (based on refills Centered Navigation example) //
 .top-navigation {
   background-color: $top-nav-background-color;
   border-bottom: 1px solid darken($top-nav-background-color, 9%);
-  min-height: $top-navigation-height;
   left: 0; 
+  min-height: $top-navigation-height;
   position: fixed; 
-  width: 100%; 
   top:0;
+  width: 100%; 
   z-index: 9999;
 
   // Mobile view
@@ -19,7 +19,6 @@
 
     img {
       max-height: $top-navigation-height;
-      opacity: .6;
       padding: .8em 0;
     }
 
@@ -28,6 +27,7 @@
     }
   }
 
+  // the MENU link that displays at mobile sizes
   .top-navigation-mobile-menu {
     color: $top-navigation-color;
     display: block;
@@ -85,6 +85,7 @@
     }
   }
 
+  // top menu links
   ul li.nav-link {
     background: $top-nav-background-color;
     display: block;
@@ -130,7 +131,6 @@
   .logo img {
     margin-bottom: -$top-navigation-logo-height / 3;
     max-height: $top-navigation-logo-height;
-    opacity: 0.6;
   }
 
   // Sub menus
@@ -139,7 +139,7 @@
     padding-right: 0;
 
     @include media($large-screen) {
-      padding-right: $top-navigation-submenu-padding;
+      padding-right: $top-navigation-submenu-padding * 2;
     }
 
     > ul > li:first-child a  {
@@ -148,6 +148,10 @@
 
     a {
       margin-right: $top-navigation-submenu-padding;
+
+      @include media($large-screen) {
+        margin-right: 0;
+      }
     }
 
     > a {
@@ -199,11 +203,12 @@
   ul.submenu {
     display: none;
     padding-left: 0;
+    box-shadow: $drop-shadow;
 
     @include media($horizontal-bar-mode) {
       left: -$top-navigation-submenu-padding;
       position: absolute;
-      top: 1.5em;
+      top: 2em;
     }
 
     .submenu {
@@ -236,14 +241,15 @@
         background-color: darken($top-nav-background-color, 3%);
         border-bottom: $base-border;
         display: inline-block;
-        padding: .5em 0 1em 0;
+        font-size: $small-font-size;
+        //padding: .25em 1em .25em 0;
         text-align: right;
         text-decoration: none;
         width: 100%;
 
         @include media($horizontal-bar-mode) {
           background-color: $top-nav-background-color;
-          padding-left: $top-navigation-submenu-padding;
+          padding: .75em 1em;
           text-align: left;
           width: $top-navigation-submenu-width;
         }
