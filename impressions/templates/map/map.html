@@ -14,10 +14,14 @@
   <!-- JavaScript variables from Django -->
   <script type="text/javascript">
     var map_params = {
-      // test_lable1: "{ resource_object.fusion_table_id }",
-      testLabelArray: [
+      "layers": [
       {% for object in object_list %}
         "{{object.title}}"{% if not forloop.last %}, {% endif %}       
+      {% endfor %}            
+      ],
+      "sites": [
+      {% for site in site_list %}
+        ["{{site.site_type}}", "{{site.short_name}}", {{site.latitude}}, {{site.longitude}}] {% if not forloop.last %}, {% endif %}       
       {% endfor %}            
       ]
     }
@@ -39,6 +43,14 @@
   {% for object in object_list %}
     <li>
         {{ object.title|safe }}
+    </li>
+  {% endfor %}
+  </ul>     
+
+  <ul>
+  {% for site in site_list %}
+    <li>
+        {{ site.site_type }}: {{ site.short_name }}
     </li>
   {% endfor %}
   </ul>     

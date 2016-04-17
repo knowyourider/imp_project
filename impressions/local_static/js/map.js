@@ -1,13 +1,22 @@
 // per http://leafletjs.com/examples/layers-control.html
 // define markers
-var bigfoot = L.marker([42.265169, -72.592089]).bindPopup('Big footprint.'),
+/*
+var bigfoot = L.marker([map_params.sites[0][2], map_params.sites[0][3]]).bindPopup(map_params.sites[0][0] + ":" + map_params.sites[0][1]),
     fossil    = L.marker([42.292416, -72.653876]).bindPopup('Curious Fossil.'),
     bone    = L.marker([42.172750, -72.562724]).bindPopup('leg bone.');
+*/
+// create array for sites and populate with map params defined in html header
+var sites = [];
 
-var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.testLabelArray[0]),
-    coal    = L.marker([42.31	, -72.562724]).bindPopup(map_params.testLabelArray[1]);
+for (var i = 0; i < map_params.sites.length; i++) {
+    sites.push(L.marker([map_params.sites[i][2], map_params.sites[i][3]]).bindPopup(map_params.sites[i][0] + ":" + map_params.sites[i][1]));
+} // end for    
 
-var sites = L.layerGroup([bigfoot, fossil, bone]);
+var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.layers[0]),
+    coal    = L.marker([42.31	, -72.562724]).bindPopup(map_params.layers[1]);
+
+//var siteMarkers = L.layerGroup([bigfoot, fossil, bone]);
+var siteMarkers = L.layerGroup(sites);
 var geostuff = L.layerGroup([cragrock, coal]);
 
 // define base layers
@@ -54,7 +63,7 @@ can's use varables inside the object literal,
 (String(map_params[testLabelArray][0]): satellite_,
 so:
 var baseMaps = {};
-var name1 = map_params.testLabelArray[0];
+var name1 = map_params.layers[0];
 var name2 = "Hitchcock";
 baseMaps[name1] = satellite;
 baseMaps[name2] = hitchcock;
@@ -68,7 +77,7 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Sites": sites,
+    "Sites": siteMarkers,
     "Geo Stuff": geostuff
 };
 
@@ -76,7 +85,7 @@ var map = L.map('map', {
     center: [42.26, -72.59],
     zoom: 10,
     //layers: [streets, sites]
-    layers: [hitchcock, sites]
+    layers: [hitchcock, siteMarkers]
 });
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
