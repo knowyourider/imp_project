@@ -4,8 +4,8 @@ var bigfoot = L.marker([42.265169, -72.592089]).bindPopup('Big footprint.'),
     fossil    = L.marker([42.292416, -72.653876]).bindPopup('Curious Fossil.'),
     bone    = L.marker([42.172750, -72.562724]).bindPopup('leg bone.');
 
-var cragrock = L.marker([42.19, -72.592089]).bindPopup('Craggy rock.'),
-    coal    = L.marker([42.31	, -72.562724]).bindPopup('coal deposit.');
+var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.testLabelArray[0]),
+    coal    = L.marker([42.31	, -72.562724]).bindPopup(map_params.testLabelArray[1]);
 
 var sites = L.layerGroup([bigfoot, fossil, bone]);
 var geostuff = L.layerGroup([cragrock, coal]);
@@ -46,6 +46,18 @@ hitchcock   = L.tileLayer('hitchcock1833_valley_geo/{z}/{x}/{y}.png', {
     attribution: 'hitchcock 1833',
     tms: true
 });
+*/
+
+/*
+* If we want to pull layer titles from the db,
+can's use varables inside the object literal, 
+(String(map_params[testLabelArray][0]): satellite_,
+so:
+var baseMaps = {};
+var name1 = map_params.testLabelArray[0];
+var name2 = "Hitchcock";
+baseMaps[name1] = satellite;
+baseMaps[name2] = hitchcock;
 */
 
 var baseMaps = {

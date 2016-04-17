@@ -10,7 +10,19 @@
 
 {% block javascript %}
   {{ block.super }}
-    <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script>
+  <!-- JavaScript variables from Django -->
+  <script type="text/javascript">
+    var map_params = {
+      // test_lable1: "{ resource_object.fusion_table_id }",
+      testLabelArray: [
+      {% for object in object_list %}
+        "{{object.title}}"{% if not forloop.last %}, {% endif %}       
+      {% endfor %}            
+      ]
+    }
+  </script>
+
 {% endblock javascript %}
 
 {% block title_area %}
