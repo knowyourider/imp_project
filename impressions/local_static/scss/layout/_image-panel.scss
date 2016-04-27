@@ -5,12 +5,15 @@
 	height: 100vh;
 	padding: $base-spacing;
 	position: relative;
-
+	// for small displays:
 	@include span-columns (12);
 	
+	//for large displays:
   @include media($large-screen) {
-		@include span-columns (9);
-		@include omega();
+		@include direction-context(right-to-left) {
+			@include span-columns (9);
+			margin: 0;
+		}
 	}
 }
 

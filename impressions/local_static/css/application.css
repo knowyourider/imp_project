@@ -594,13 +594,13 @@ body {
     margin-right: 0; }
   @media screen and (min-width: 53.75em) {
     .image-panel {
-      float: left;
+      float: right;
       display: block;
-      margin-right: 2.35765%;
+      margin-left: 2.35765%;
       width: 74.41059%;
-      margin-right: 0; }
+      margin: 0; }
       .image-panel:last-child {
-        margin-right: 0; } }
+        margin-left: 0; } }
 
 .image-panel--caption {
   background-color: rgba(101, 96, 90, 0.8);
