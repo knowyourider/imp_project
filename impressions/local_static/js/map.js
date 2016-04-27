@@ -1,15 +1,31 @@
 // per http://leafletjs.com/examples/layers-control.html
-// define markers
-/*
-var bigfoot = L.marker([map_params.sites[0][2], map_params.sites[0][3]]).bindPopup(map_params.sites[0][0] + ":" + map_params.sites[0][1]),
-    fossil    = L.marker([42.292416, -72.653876]).bindPopup('Curious Fossil.'),
-    bone    = L.marker([42.172750, -72.562724]).bindPopup('leg bone.');
-*/
-// create array for sites and populate with map params defined in html header
-var sites = [];
 
-for (var i = 0; i < map_params.sites.length; i++) {
-    sites.push(L.marker([map_params.sites[i][2], map_params.sites[i][3]]).bindPopup(map_params.sites[i][0] + ":" + map_params.sites[i][1]));
+// define markers
+
+// create array for sites and populate with sitesJson defined in html header
+var sites = [];
+/*
+for (var i = 0; i < sitesJson.length; i++) {
+    sites.push(L.marker([sitesJson[i].fields.latitude, 
+        sitesJson[i].fields.longitude]).bindPopup(sitesJson[i].fields.site_type + 
+        ": " + sitesJson[i].fields.short_name));
+} // end for    
+
+for (var i = 0; i < sitesJson.length; i++) {
+    sites.push(L.marker([sitesJson[i].latitude, 
+        sitesJson[i].longitude]).bindPopup(sitesJson[i].site_type + 
+        ": " + sitesJson[i].site_info.title));
+        //sitesJson[i].short_name));
+} // end for    
+*/
+for (var i = 0; i < sitesJson.length; i++) {
+    var popHtml = "<p>" + sitesJson[i].site_type + "<br />" +
+        "<strong>" + sitesJson[i].site_info.title + "</strong> </p>" +
+        "<p>" + sitesJson[i].site_info.narrative + "</p>";
+
+    sites.push(L.marker([sitesJson[i].latitude, 
+        sitesJson[i].longitude]).bindPopup(popHtml));
+        //sitesJson[i].short_name));
 } // end for    
 
 var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.layers[0]),
@@ -70,15 +86,15 @@ baseMaps[name2] = hitchcock;
 */
 
 var baseMaps = {
-    "Satellite": satellite,
-    "Hitchcock": hitchcock,
-    "Streets": streets,
-    "Terrain": terrain
+    "Glacier": satellite,
+    "Hitchcock's Era": hitchcock,
+    "Today": streets,
+    "Jurassic": terrain
 };
 
 var overlayMaps = {
-    "Sites": siteMarkers,
-    "Geo Stuff": geostuff
+    "Sites": siteMarkers //,
+    //"Geo Stuff": geostuff
 };
 
 var map = L.map('map', {

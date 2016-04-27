@@ -13,18 +13,15 @@
   <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script>
   <!-- JavaScript variables from Django -->
   <script type="text/javascript">
+    //var sitesJson = {{ sites_json|safe }};
+    var sitesJson = {{ site_values|safe }};
     var map_params = {
       "layers": [
       {% for object in object_list %}
         "{{object.title}}"{% if not forloop.last %}, {% endif %}       
       {% endfor %}            
-      ],
-      "sites": [
-      {% for site in site_list %}
-        ["{{site.site_type}}", "{{site.short_name}}", {{site.latitude}}, {{site.longitude}}] {% if not forloop.last %}, {% endif %}       
-      {% endfor %}            
       ]
-    }
+    };
   </script>
 
 {% endblock javascript %}
@@ -39,6 +36,7 @@
 
   <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
 
+  <p>Eras:</p>
   <ul>
   {% for object in object_list %}
     <li>
@@ -47,12 +45,24 @@
   {% endfor %}
   </ul>     
 
+  <!-- <p>sites from QuerySet:</p>
   <ul>
-  {% for site in site_list %}
+  {# for site in site_list #}
     <li>
-        {{ site.site_type }}: {{ site.short_name }}
+        { site.site_type }: { site.short_name } - { site.site_info }
+    </li>
+  {# endfor #}
+  </ul>   --> 
+
+  <p>Sites:</p>
+  <ul>
+  {% for site in site_values %}
+    <li>
+        {{ site.site_type }}: {{ site.site_info.title }} 
     </li>
   {% endfor %}
-  </ul>     
+  </ul>   
+
+  <!-- <p>site_values: { site_values|safe }</p> -->  
 
 {% endblock content_area %}

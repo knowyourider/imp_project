@@ -1,5 +1,6 @@
 from django.db import models
 from core.models import AssociationMixin
+from django.apps import apps
 
 
 class Layer(AssociationMixin, models.Model):
@@ -33,6 +34,23 @@ class Site(models.Model):
         help_text="Decimal degrees. Right click on google maps - What's Here.")
     longitude = models.FloatField(blank=True, null=True,
         help_text="Decimal degrees, U.S. negative")
+
+    # return object related to this site
+    @property
+    def site_info(self):
+        suppporting_type = self.site_type
+        # retrieve model
+        SupportingModel = apps.get_model(app_label="supporting", 
+                model_name=suppporting_type)
+        # get object (move this outside of property for multiple?)
+        supporting_object = SupportingModel.objects.get(slug=self.short_name)
+        # need to convert object to json-type dictionary
+        # and get subset using a comprehension
+        # http://stackoverflow.com/questions/5352546/
+        # best-way-to-extract-subset-of-key-value-pairs-from-python-dictionary-object
+        site_info = dict((k, supporting_object.__dict__[k]) for k in ('title', 'narrative')) 
+        # and get subset
+        return site_info
 
     def __str__(self):
         return self.site_type + ": " + self.short_name
