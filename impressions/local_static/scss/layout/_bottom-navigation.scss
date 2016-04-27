@@ -1,40 +1,33 @@
 // bottom navigation
 
-.footer, .content-wrapper:after {
-  height: 17em;
-
-  @include media($large-screen) {
-    height: 4em;
-  }
-}
-
 .footer {
+  border-top: 1px solid $panel-darken-color;
+  bottom: 0; 
+  left: 0; 
+  position: fixed; 
+  width: 100%; 
   background: $footer-background-color;
   display: inline-block;
   padding: $small-spacing;
-  text-align: center;
-  width: 100%;
+
+// if viewport is larger than 860em, make bottom nav height 80px
+  @include media($large-screen) {
+    height: $bottom-navigation-height;
+  }
 
   ul {
     line-height: 1.5em;
-    margin: 0 0 1em 0;
-    padding: 0;
     
     @include media($large-screen) {
-      //float: left;
       line-height: 1.8em;
-      margin-left: 1em;
-      margin-bottom: 0;
     }
   }
 
   ul li {
-    list-style: none;
-    padding-right: 1em;
+    padding-right: $base-spacing;
 
     @include media($large-screen) {
       display: inline;
-      //text-align: left;
     }
   }
 
@@ -48,45 +41,59 @@
     }
   }
 
-  .footer-secondary-links {
+  .footer-primary {
+    float: left;
+    margin: 0 $large-spacing;
+    text-align: left;
+    
     @include media($large-screen) {
-      //float: right;
+      float: none;
+      text-align: center;
+    }
+  }
+
+  .footer-secondary {
+    text-align: left;
+
+    @include media($large-screen) {
+      float: none;
+      text-align: center;
     }
 
     li {
       font-size: 0.8em;
     }
 
-    ul.footer-social {
-      margin: 1em 0 0 0;
+    // ul.footer-social {
+    //   margin: 1em 0 0 0;
 
-      @include media($large-screen) {
-        float: right;
-        margin-top: 0;
-      }
+    //   @include media($large-screen) {
+    //     float: right;
+    //     margin-top: 0;
+    //   }
 
-      li {
-        font-size: 1em;
-        float: left;
-        line-height: 0;
-        margin: 0;
-        padding-right: 0.7em;
+      // li {
+      //   font-size: 1em;
+      //   float: left;
+      //   line-height: 0;
+      //   margin: 0;
+      //   padding-right: 0.7em;
 
-        &:last-child {
-          padding-right: 0;
-        }
-      }
+      //   &:last-child {
+      //     padding-right: 0;
+      //   }
+      // }
 
-      img {
-        height: 1.6em;
-        opacity: 0.7;
-        padding: 1px;
+      // img {
+      //   height: 1.6em;
+      //   opacity: 0.7;
+      //   padding: 1px;
 
-        &:focus,
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
+      //   &:focus,
+      //   &:hover {
+      //     opacity: 1;
+      //   }
+      // }
+      //}
   }
 }

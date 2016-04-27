@@ -5,35 +5,26 @@
 	height: 100vh;
 	padding: $base-spacing;
 	position: relative;
-	@include span-columns (9);
-	@include omega();
+	// for small displays:
+	@include span-columns (12);
+	
+	//for large displays:
+  @include media($large-screen) {
+		@include direction-context(right-to-left) {
+			@include span-columns (9);
+			margin: 0;
+		}
+	}
 }
 
 .image-panel--caption {
 	background-color: rgba(101, 96, 90, 0.8);
+	bottom: $bottom-navigation-height + 60px;
 	color: $light-font-color;
+	font-family: $utility-font-family;
 	font-size: $small-font-size;
 	padding: $small-spacing;
 	position: absolute;
-	bottom: 80px;
-	@include span-columns (2.5 of 9);
-}
-
-// The Expanding World of Dexter Marsh
-.expanding-world-0 {
-	background-image: url("../../../design/stories/images/expanding-world-0.jpg");
-}
-
-.expanding-world-1 {
-	background-image: url("../../../design/stories/images/expanding-world-1.jpg");
-}
-
-// Whose Discovery Was It?
-.whose-discovery-0 {
-	background-image: url("../../../design/stories/images/whose-discovery-0.jpg");
-}
-
-// Edward and Orra Hitchcock in the Age of Refinement
-.age-refinement-0 {
-	background-image: url("../../../design/stories/images/age-refinement-0.jpg");
+	
+	@include span-columns (2.75 of 9);
 }
