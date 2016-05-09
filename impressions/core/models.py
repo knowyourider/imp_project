@@ -14,9 +14,9 @@ class CommonModel(models.Model):
     Maps, Lecture, Project, Resourceset
     """
     STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
+        (1,'1 - In Admin Only'),
+        (2,'2 - Development (Wireframe)'),
+        (3,'3 - Candidate for Publication'),
         (4,'4 - Published'),
     )
     slug = models.SlugField('short name', max_length=48, unique=True)

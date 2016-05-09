@@ -119,3 +119,7 @@ STATICFILES_DIRS = (
     BASE_DIR.child("local_static"),
 )
 
+# Project specific constants
+# 2 for wireframe, 3 for devel, 4 for public
+STATUS_LEVEL = 2
+

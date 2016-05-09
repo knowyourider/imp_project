@@ -14,10 +14,10 @@ class StoryAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title', 'subtitle', 'slug', 'image_name',
             'menu_blurb', 'introduction']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes'], 'classes': ['collapse']}),
+            'edit_date', 'notes']}), # , 'classes': ['collapse']
     ]
     #inlines = [ChapterInline]
-    list_display = ('title',  'slug', 'status_num')
+    list_display = ('title',  'slug', 'ordinal', 'status_num')
     #list_filter     = ['augmented'] # , 'edit_date'
     search_fields = ['title', 'slug']
 

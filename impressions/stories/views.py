@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+from django.conf import settings
 from .models import Story, Chapter
 
 class StoryListView(ListView):
     model = Story
+    queryset = Story.objects.filter(status_num__gte=settings.STATUS_LEVEL)
     # context_object_name = 'object_list'
     # template_name = 'stories/story_list.html' 
 
@@ -31,7 +33,8 @@ class ChapterDetailView(DetailView):
         # chapter_num will come from parameters
         # chapter_num = self.kwargs['chapter_num']
         # get the chapter object
-        chapter = get_object_or_404(Chapter, story_id=self.object.id, chapter_num=self.kwargs['chapter_num'])
+        chapter = get_object_or_404(Chapter, story_id=self.object.id, 
+            chapter_num=self.kwargs['chapter_num'])
         # set the context
         context['chapter'] = chapter
         return context

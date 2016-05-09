@@ -9,11 +9,14 @@ class Story(CommonModel):
     image_name = models.CharField(max_length=32, blank=True, default='')
     introduction = models.TextField(blank=True, default='')
 
+    class Meta:
+        ordering = ['ordinal']
+
 
 class Chapter(AssociationMixin, models.Model):
     story = models.ForeignKey('stories.Story')
     title = models.CharField(max_length=64)
-    chapter_num = models.IntegerField()
+    chapter_num = models.CharField(max_length=8)
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
     
