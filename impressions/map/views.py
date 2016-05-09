@@ -40,6 +40,7 @@ class SiteListMixin(object):
         # for loop version easier to read, works, but comprehension might be faster
         for idx, row in enumerate(site_values):
             row['site_info'] = site_list[idx].site_info
+            #row.update( { "test": "test" } )
 
         # comprehension version
         # first, creat the function that will generate the new value

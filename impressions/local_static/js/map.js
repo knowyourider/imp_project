@@ -35,9 +35,15 @@ var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.layers[0]),
 var siteMarkers = L.layerGroup(sites);
 var geostuff = L.layerGroup([cragrock, coal]);
 
+ var southWest = L.latLng(41.211, -73.225), 
+                northEast = L.latLng(42.747, -72.294),
+                mybounds = L.latLngBounds(southWest, northEast);
+
 // define base layers
 var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    bounds: mybounds,
+    minZoom: 9,
     maxZoom: 18,
     //id: 'mapbox.streets',
     id: 'mapbox.mapbox-terrain-v2',
@@ -45,12 +51,16 @@ var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
 }),
 satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    bounds: mybounds,
+    minZoom: 9,
     maxZoom: 18,
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 }),
 streets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    bounds: mybounds,
+    minZoom: 8,
     maxZoom: 18,
     id: 'mapbox.streets',
     //id: 'mapbox.mapbox-terrain-v2',
@@ -58,6 +68,7 @@ streets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 }),
 hitchcock   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Hitchcock map',
+    bounds: mybounds,
     minZoom: 10,
     maxZoom: 13,
     id: 'donaldo.d51bywq4',

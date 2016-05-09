@@ -31,4 +31,4 @@ local -- in Terminal, doesn't matter what directory you're in, don't need "worko
 eapps
 ::
 	
-	ln -s /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions/local_static /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions/model/local_static_sym
+	ln -s /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions/local_static /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions/design/local_static_sym
