@@ -4,14 +4,14 @@
 
 @import "base/base";
 
-@import "components/slimpop";
-@import "components/menu-gallery";
 @import "components/dig-deeper";
 @import "components/image-panel-images";
+@import "components/menu-gallery";
+@import "components/slimpop";
 
-@import "layout/basic";
+@import "layout/menu-basic";
 @import "layout/bottom-navigation";
 @import "layout/content-wrapper";
-@import "layout/side-panel";
 @import "layout/image-panel";
+@import "layout/side-panel";
 @import "layout/top-navigation";

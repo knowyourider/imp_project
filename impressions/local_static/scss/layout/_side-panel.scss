@@ -1,17 +1,16 @@
-//side panel layout
+//side panel layout for text, works with _image-panel.scss
 .text-panel {
 	background-color: $dark-taupe;
 	color: $light-font-color;
-	height: 100vh;
 	padding: $base-spacing;
-	// for small displays:
-	@include span-columns (12);
+	// for small displays
+	width: 100%;
 
 	//for large displays:
   @include media($large-screen) {
-		// why isn't 3 working here?
-		@include span-columns (3.25);
-		@include omega();
+		width: 30%;
+		@include calc(height, "100vh - #{$top-plus-bottom}");
+		@include position(absolute, 0 null 0 0); 
 	}
 }
 
@@ -37,8 +36,10 @@
 
 .chapter-text--scroll {
 	background-color: $panel-darken-color;
+	border: 1px solid darken($panel-darken-color, 80%);
 	font-size: $base-font-size / 1.15;
-	height: 70%;
+	height: 75%;
 	margin-bottom: $small-spacing;
+	padding: $small-spacing;
 	overflow-y: scroll;
 }

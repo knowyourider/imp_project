@@ -1,30 +1,26 @@
 //images for stories and themes, works with _side-panel.scss
-
 .image-panel {
+	//need to fix this so image is tall enough at mobile sizes
 	background-size: cover;
-	height: 100vh;
 	padding: $base-spacing;
 	position: relative;
-	// for small displays:
-	@include span-columns (12);
-	
+	// for small displays
+	width: 100%;
+
 	//for large displays:
   @include media($large-screen) {
-		@include direction-context(right-to-left) {
-			@include span-columns (9);
-			margin: 0;
-		}
+		@include calc(height, "100vh - #{$top-plus-bottom}");
+		@include position(absolute, 0 0 0 null); 
+		width: 70%;
 	}
 }
 
 .image-panel--caption {
 	background-color: rgba(101, 96, 90, 0.8);
-	bottom: $bottom-navigation-height + 60px;
 	color: $light-font-color;
 	font-family: $utility-font-family;
 	font-size: $small-font-size;
 	padding: $small-spacing;
-	position: absolute;
-	
-	@include span-columns (2.75 of 9);
+	@include position(absolute, null null $base-spacing $base-spacing); 
+	width: 300px;
 }

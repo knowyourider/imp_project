@@ -1,5 +1,35 @@
 // Dig Deeper Gallery
 
-.dig-deeper {
-	display: none;
+.digdeeper {
+	height: 40vh;
+	margin: 0 0 $base-spacing 0;
+
+		li {
+			display: inline-block;
+			margin-right: $base-spacing;
+		}
+}
+
+.top-row, .bottom-row {
+		li {
+			display: inline-block;
+			margin-right: $base-spacing;
+
+				img {
+					border: 1px solid $base-border-color;
+					padding: 2px;
+
+					&.oval {
+						border-radius: 50%;	
+					}
+				}
+		}
+}
+
+.bottom-row li {
+	vertical-align: top;
+}
+
+.top-row li {
+	vertical-align: bottom;
 }
