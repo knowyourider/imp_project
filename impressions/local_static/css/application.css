@@ -389,6 +389,60 @@ picture {
   margin: 0;
   max-width: 100%; }
 
+.digdeeper {
+  height: 40vh;
+  margin: 0 0 1.6em 0; }
+  .digdeeper li {
+    display: inline-block;
+    margin-right: 1.6em; }
+
+.top-row li, .bottom-row li {
+  display: inline-block;
+  margin-right: 1.6em; }
+  .top-row li img, .bottom-row li img {
+    border: 1px solid #b3aa98;
+    padding: 2px; }
+    .top-row li img.oval, .bottom-row li img.oval {
+      border-radius: 50%; }
+
+.bottom-row li {
+  vertical-align: top; }
+
+.top-row li {
+  vertical-align: bottom; }
+
+.expanding-world-0 {
+  background-image: url("../../../design/stories/images/expanding-world-0.jpg"); }
+
+.expanding-world-1 {
+  background-image: url("../../../design/stories/images/expanding-world-1.jpg"); }
+
+.whose-discovery-0 {
+  background-image: url("../../../design/stories/images/whose-discovery-0.jpg"); }
+
+.age-refinement-0 {
+  background-image: url("../../../design/stories/images/age-refinement-0.jpg"); }
+
+.menu-gallery li {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  .menu-gallery li:last-child {
+    margin-right: 0; }
+  .menu-gallery li:nth-child(4n) {
+    margin-right: 0; }
+  .menu-gallery li:nth-child(4n+1) {
+    clear: left; }
+  .menu-gallery li a:link {
+    font-style: italic; }
+  .menu-gallery li img {
+    padding: 2px;
+    border: double #b3aa98; }
+
+.menu-blurb {
+  font-size: 0.8em; }
+
 /* temp css */
 #slimpop-wrapper {
   background-color: white;
@@ -433,41 +487,6 @@ picture {
   width: 500px;
   z-index: 100; }
 
-.menu-gallery li {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%; }
-  .menu-gallery li:last-child {
-    margin-right: 0; }
-  .menu-gallery li:nth-child(4n) {
-    margin-right: 0; }
-  .menu-gallery li:nth-child(4n+1) {
-    clear: left; }
-  .menu-gallery li a:link {
-    font-style: italic; }
-  .menu-gallery li img {
-    padding: 2px;
-    border: double #b3aa98; }
-
-.menu-blurb {
-  font-size: 0.8em; }
-
-.dig-deeper {
-  display: none; }
-
-.expanding-world-0 {
-  background-image: url("../../../design/stories/images/expanding-world-0.jpg"); }
-
-.expanding-world-1 {
-  background-image: url("../../../design/stories/images/expanding-world-1.jpg"); }
-
-.whose-discovery-0 {
-  background-image: url("../../../design/stories/images/whose-discovery-0.jpg"); }
-
-.age-refinement-0 {
-  background-image: url("../../../design/stories/images/age-refinement-0.jpg"); }
-
 .basic {
   text-align: center; }
 
@@ -475,14 +494,14 @@ picture {
   border-top: 1px solid #5d5853;
   bottom: 0;
   left: 0;
-  position: fixed;
   width: 100%;
   background: #65605a;
   display: inline-block;
   padding: 0.8em; }
   @media screen and (min-width: 53.75em) {
     .footer {
-      height: 80px; } }
+      height: 80px;
+      position: fixed; } }
   .footer ul {
     line-height: 1.5em; }
     @media screen and (min-width: 53.75em) {
@@ -516,6 +535,7 @@ picture {
       font-size: 0.8em; }
 
 body {
+  background-color: #fff4e4;
   margin: 0;
   padding: 0; }
 
@@ -533,29 +553,67 @@ body {
     .content-wrapper {
       padding: 3.2em 1.6em; } }
 
-.content-wrapper-cover {
-  padding-top: 50px; }
+.content-wrapper-wide {
+  margin-top: 50px;
+  overflow-y: none;
+  overflow-x: scroll;
+  width: -webkit-calc(100vw + 100vw);
+  width: calc(100vw + 100vw);
+  height: -webkit-calc(100vh - 130px);
+  height: calc(100vh - 130px); }
+
+.content-wrapper--narrative {
+  float: left;
+  position: relative;
+  width: 100vw;
+  height: auto; }
+
+.content-wrapper--digdeeper {
+  height: auto;
+  margin-left: 100vw;
+  padding-top: 1.6em;
+  width: auto; }
+
+.image-panel {
+  background-size: cover;
+  padding: 1.6em;
+  position: relative;
+  width: 100%; }
+  @media screen and (min-width: 53.75em) {
+    .image-panel {
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 70%; } }
+
+.image-panel--caption {
+  background-color: rgba(101, 96, 90, 0.8);
+  color: #fff4e4;
+  font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+  font-size: 0.8em;
+  padding: 0.8em;
+  position: absolute;
+  bottom: 1.6em;
+  left: 1.6em;
+  width: 300px; }
 
 .text-panel {
   background-color: #65605a;
   color: #fff4e4;
-  height: 100vh;
   padding: 1.6em;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
   width: 100%; }
-  .text-panel:last-child {
-    margin-right: 0; }
   @media screen and (min-width: 53.75em) {
     .text-panel {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 25.36421%;
-      margin-right: 0; }
-      .text-panel:last-child {
-        margin-right: 0; } }
+      width: 30%;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0; } }
 
 .intro-text {
   font-size: 1.15em; }
@@ -576,46 +634,12 @@ body {
 
 .chapter-text--scroll {
   background-color: #5d5853;
+  border: 1px solid black;
   font-size: 0.86957em;
-  height: 70%;
+  height: 75%;
   margin-bottom: 0.8em;
-  overflow-y: scroll; }
-
-.image-panel {
-  background-size: cover;
-  height: 100vh;
-  padding: 1.6em;
-  position: relative;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .image-panel:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 53.75em) {
-    .image-panel {
-      float: right;
-      display: block;
-      margin-left: 2.35765%;
-      width: 74.41059%;
-      margin: 0; }
-      .image-panel:last-child {
-        margin-left: 0; } }
-
-.image-panel--caption {
-  background-color: rgba(101, 96, 90, 0.8);
-  bottom: 140px;
-  color: #fff4e4;
-  font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
-  font-size: 0.8em;
   padding: 0.8em;
-  position: absolute;
-  float: left;
-  display: block;
-  margin-right: 3.16844%;
-  width: 28.35525%; }
-  .image-panel--caption:last-child {
-    margin-right: 0; }
+  overflow-y: scroll; }
 
 .top-navigation {
   background-color: #d2cdba;
