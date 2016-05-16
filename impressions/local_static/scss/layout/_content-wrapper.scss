@@ -1,10 +1,11 @@
 // content wrapper
 
-// jj-is this already taken care of by normalize??
-body { 
+body {
 	background-color: $base-background-color;
-	margin:0; 
-	padding:0; 
+
+	&.horiz-scroll	{
+		overflow-y: hidden;
+	}
 }
 
 .content-wrapper { 
@@ -20,25 +21,27 @@ body {
 
 // for wide, scrolling pages such as story chapters
 .content-wrapper-wide {
-	margin-top: $top-navigation-height;
-	overflow-y: none;
-	overflow-x: scroll; 
-	//this is a hack - how can I make the width be determined by how wide the content happens to be?
-	@include calc(width, "100vw + 100vw");
-	@include calc(height, "100vh - #{$top-plus-bottom}");
+  overflow-x: auto;
+  table-layout: fixed;
+  width: 100%;
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: top;
 }
 
 .content-wrapper--narrative {
-	float: left;
-	position: relative;
+  background-color: red;
 	width: 100vw;
-	height: auto;
+	height: 100vh;
 }
 
-.content-wrapper--digdeeper {
-	height: auto;
-	margin-left: 100vw;
-	padding-top: $base-spacing;	
-	//this is also wrong - width should be determined by how wide the content is
-	width: auto;
-}
+// .content-wrapper--digdeeper {
+// 	height: auto;
+// 	margin-left: 100vw;
+// 	padding-top: $base-spacing;	
+// 	//this is also wrong - width should be determined by how wide the content is
+// 	width: auto;
+// }

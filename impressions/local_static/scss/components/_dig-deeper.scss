@@ -1,35 +1,56 @@
 // Dig Deeper Gallery
 
-.digdeeper {
-	height: 40vh;
-	margin: 0 0 $base-spacing 0;
+.deeper .table-cell {
+  padding: 0 1em;/* this adds left & right padding to images in deeper gallery */
+  height: calc(50vh - 1rem);/* shouldn't need this once it's in neat environment */
+	
+	img {
+		border: 1px solid $base-border-color;
+		width: 100%;
+		height: auto;
+		padding: 2px;
 
-		li {
-			display: inline-block;
-			margin-right: $base-spacing;
+		&.oval {
+			border-radius: 50%;	
 		}
+	}
 }
 
-.top-row, .bottom-row {
-		li {
-			display: inline-block;
-			margin-right: $base-spacing;
-
-				img {
-					border: 1px solid $base-border-color;
-					padding: 2px;
-
-					&.oval {
-						border-radius: 50%;	
-					}
-				}
-		}
+.table.bottom .table-cell {
+  vertical-align: bottom;
+  padding-bottom: 1rem;
 }
 
-.bottom-row li {
-	vertical-align: top;
-}
+// .digdeeper {
+// 	height: 40vh;
+// 	margin: 0 0 $base-spacing 0;
 
-.top-row li {
-	vertical-align: bottom;
-}
+// 		li {
+// 			display: inline-block;
+// 			margin-right: $base-spacing;
+// 		}
+// }
+
+// .top-row, .bottom-row {
+// 		li {
+// 			display: inline-block;
+// 			margin-right: $base-spacing;
+
+// 				img {
+// 					border: 1px solid $base-border-color;
+// 					padding: 2px;
+
+// 					&.oval {
+// 						border-radius: 50%;	
+// 					}
+// 				}
+// 		}
+// }
+
+// .bottom-row li {
+// 	vertical-align: top;
+// }
+
+// .top-row li {
+// 	vertical-align: bottom;
+// }

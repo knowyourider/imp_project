@@ -389,27 +389,22 @@ picture {
   margin: 0;
   max-width: 100%; }
 
-.digdeeper {
-  height: 40vh;
-  margin: 0 0 1.6em 0; }
-  .digdeeper li {
-    display: inline-block;
-    margin-right: 1.6em; }
-
-.top-row li, .bottom-row li {
-  display: inline-block;
-  margin-right: 1.6em; }
-  .top-row li img, .bottom-row li img {
+.deeper .table-cell {
+  padding: 0 1em;
+  /* this adds left & right padding to images in deeper gallery */
+  height: calc(50vh - 1rem);
+  /* shouldn't need this once it's in neat environment */ }
+  .deeper .table-cell img {
     border: 1px solid #b3aa98;
+    width: 100%;
+    height: auto;
     padding: 2px; }
-    .top-row li img.oval, .bottom-row li img.oval {
+    .deeper .table-cell img.oval {
       border-radius: 50%; }
 
-.bottom-row li {
-  vertical-align: top; }
-
-.top-row li {
-  vertical-align: bottom; }
+.table.bottom .table-cell {
+  vertical-align: bottom;
+  padding-bottom: 1rem; }
 
 .expanding-world-0 {
   background-image: url("../../../design/stories/images/expanding-world-0.jpg"); }
@@ -535,9 +530,9 @@ picture {
       font-size: 0.8em; }
 
 body {
-  background-color: #fff4e4;
-  margin: 0;
-  padding: 0; }
+  background-color: #fff4e4; }
+  body.horiz-scroll {
+    overflow-y: hidden; }
 
 .content-wrapper {
   max-width: 1200px;
@@ -554,25 +549,19 @@ body {
       padding: 3.2em 1.6em; } }
 
 .content-wrapper-wide {
-  margin-top: 50px;
-  overflow-y: none;
-  overflow-x: scroll;
-  width: -webkit-calc(100vw + 100vw);
-  width: calc(100vw + 100vw);
-  height: -webkit-calc(100vh - 130px);
-  height: calc(100vh - 130px); }
+  overflow-x: auto;
+  table-layout: fixed;
+  width: 100%;
+  display: table; }
+
+.table-cell {
+  display: table-cell;
+  vertical-align: top; }
 
 .content-wrapper--narrative {
-  float: left;
-  position: relative;
+  background-color: red;
   width: 100vw;
-  height: auto; }
-
-.content-wrapper--digdeeper {
-  height: auto;
-  margin-left: 100vw;
-  padding-top: 1.6em;
-  width: auto; }
+  height: 100vh; }
 
 .image-panel {
   background-size: cover;
@@ -584,7 +573,7 @@ body {
       height: -webkit-calc(100vh - 130px);
       height: calc(100vh - 130px);
       position: absolute;
-      top: 0;
+      top: 50px;
       right: 0;
       bottom: 0;
       width: 70%; } }
@@ -608,10 +597,9 @@ body {
   @media screen and (min-width: 53.75em) {
     .text-panel {
       width: 30%;
-      height: -webkit-calc(100vh - 130px);
-      height: calc(100vh - 130px);
+      height: 100vh;
       position: absolute;
-      top: 0;
+      top: 50px;
       bottom: 0;
       left: 0; } }
 

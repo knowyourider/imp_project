@@ -1,0 +1,44 @@
+    body {
+      margin: 0;
+      overflow-y: hidden;
+    }
+
+    .table {
+      overflow-x: auto;
+      table-layout: fixed;
+      width: 100%;
+      display: table;
+    }
+
+    .table-cell {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .text-panel {
+      background-color: blue;
+      width: 20%;
+      height: 100vh;
+    }
+
+    .main {
+      background-color: red;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .deeper .table-cell {
+      padding: 0 1em;/* this adds left & right padding to images in deeper gallery */
+      height: calc(50vh - 1rem);/* shouldn't need this once it's in neat environment */
+    }
+
+    .table.bottom .table-cell {
+      vertical-align: bottom;
+      padding-bottom: 1rem;
+    }
+
+    .image {
+      background-image: url("../images/expanding-world-0.jpg");
+      background-size: cover;
+    }
+  </style>
