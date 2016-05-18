@@ -1,6 +1,6 @@
 // per http://leafletjs.com/examples/layers-control.html
 
-// define markers
+// ---- define markers ----
 
 // create array for sites and populate with sitesJson defined in html header
 var sites = [];
@@ -35,13 +35,43 @@ var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.layers[0]),
 var siteMarkers = L.layerGroup(sites);
 var geostuff = L.layerGroup([cragrock, coal]);
 
- var southWest = L.latLng(41.211, -73.225), 
-                northEast = L.latLng(42.747, -72.294),
-                mybounds = L.latLngBounds(southWest, northEast);
+// ----- define vector layers -----
 
-// define base layers
-var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+/* from: http://leafletjs.com/examples/geojson.html
+var geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+        "name": "Coors Field",
+        "amenity": "Baseball Stadium",
+        "popupContent": "This is where the Rockies play!"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-104.99404, 39.75621]
+    }
+};
+*/
+
+var myLines = [{
+    "type": "LineString",
+    "coordinates": [[-72.4, 42.1], [-72.5, 42.2], [-72.6, 42.3]]
+}, {
+    "type": "LineString",
+    "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
+}];
+var vectorLines = L.layerGroup([myLines]);
+
+// ----- define bounds ------
+var southWest = L.latLng(41.211, -73.225), 
+    northEast = L.latLng(42.747, -72.294),
+    mybounds = L.latLngBounds(southWest, northEast);
+
+// ----- define base layers ----- 
+var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png' +
+    '?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> ' +
+        'contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     bounds: mybounds,
     minZoom: 9,
     maxZoom: 18,
@@ -49,8 +79,11 @@ var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
     id: 'mapbox.mapbox-terrain-v2',
     accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 }),
-satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', 
+    {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
+    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
+    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     bounds: mybounds,
     minZoom: 9,
     maxZoom: 18,
@@ -58,7 +91,9 @@ satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
     accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 }),
 streets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
+    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     bounds: mybounds,
     minZoom: 8,
     maxZoom: 18,
@@ -104,8 +139,9 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Sites": siteMarkers //,
-    //"Geo Stuff": geostuff
+    "Sites": siteMarkers,
+    //"Vectors": vectorLines,
+    "Geo Stuff": geostuff
 };
 
 var map = L.map('map', {
@@ -116,3 +152,5 @@ var map = L.map('map', {
 });
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+//L.geoJson(myLines).addTo(map);
