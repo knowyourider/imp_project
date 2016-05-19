@@ -1,19 +1,33 @@
 // Dig Deeper Gallery
 
+.deeper {
+	padding-top: $top-navigation-height;
+
+	h2 {
+		color: $action-color;
+		margin: $base-spacing 0 0 $base-spacing;
+		text-transform: uppercase;
+	}
+}
+
 .deeper .table-cell {
   padding: 0 1em;/* this adds left & right padding to images in deeper gallery */
-  height: calc(50vh - 1rem);/* shouldn't need this once it's in neat environment */
+  //height: calc(50vh - 1rem);/* shouldn't need this once it's in neat environment */
 	
 	img {
 		border: 1px solid $base-border-color;
-		width: 100%;
-		height: auto;
+		display: block;
+		max-width: none;
 		padding: 2px;
 
 		&.oval {
 			border-radius: 50%;	
 		}
 	}
+}
+
+.deeper-row {
+	height: 30vh;
 }
 
 .table.bottom .table-cell {

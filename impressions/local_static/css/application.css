@@ -389,18 +389,26 @@ picture {
   margin: 0;
   max-width: 100%; }
 
+.deeper {
+  padding-top: 50px; }
+  .deeper h2 {
+    color: #d94a38;
+    margin: 1.6em 0 0 1.6em;
+    text-transform: uppercase; }
+
 .deeper .table-cell {
   padding: 0 1em;
-  /* this adds left & right padding to images in deeper gallery */
-  height: calc(50vh - 1rem);
-  /* shouldn't need this once it's in neat environment */ }
+  /* this adds left & right padding to images in deeper gallery */ }
   .deeper .table-cell img {
     border: 1px solid #b3aa98;
-    width: 100%;
-    height: auto;
+    display: block;
+    max-width: none;
     padding: 2px; }
     .deeper .table-cell img.oval {
       border-radius: 50%; }
+
+.deeper-row {
+  height: 30vh; }
 
 .table.bottom .table-cell {
   vertical-align: bottom;
