@@ -72,7 +72,16 @@ function hideBox() {
 
 // jQuery Ajax
 function getURL(theURL, contentDiv) {
-  contentDiv.load(theURL);
+  //contentDiv.load(theURL);
+  // using .get instead of .load so that I can catch errors, especially 404
+  // requestData,?
+  $.get(theURL, function(data) {  
+    contentDiv.html(data); 
+  }).fail(function(jqXHR) {
+    contentDiv.html('<div id="slimpop-wrapper">' + '<p>SlimPop error: ' + 
+      jqXHR.status + '</p></div>')
+    .append(jqXHR.responseText);
+  });
 }
 
 // ---------- NAVIGATION ----------

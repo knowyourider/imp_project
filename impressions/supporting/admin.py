@@ -9,11 +9,11 @@ class ContextAdmin(admin.ModelAdmin):
              'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes'], 'classes': ['collapse']}),
+            'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'status_num')
+    list_display = ('id', 'title', 'slug', 'status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
-    #list_filter     = ['augmented'] # , 'edit_date'
+    list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(Context, ContextAdmin)
@@ -35,11 +35,11 @@ class EvidenceItemAdmin(admin.ModelAdmin):
             'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes'], 'classes': ['collapse']}),
+            'edit_date', 'notes']}),
     ]
     #inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('title',  'slug', 'evidence_type', 'creation_year', 'status_num')
-    list_filter     = ['evidence_type'] # , 'edit_date'
+    list_display = ('id', 'title',  'slug', 'evidence_type', 'creation_year', 'status_num')
+    list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
     filter_horizontal = ['people', 'evidence', 'contexts']    
     search_fields = ['title', 'slug']
 
@@ -52,11 +52,11 @@ class FastFactAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title', 'slug', 'has_image',
             'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
-            'edit_date', 'notes'], 'classes': ['collapse']}),
+            'edit_date', 'notes']}),
     ]
     #inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('title',  'slug', 'has_image')
-    #list_filter     = ['evidence_type'] # , 'edit_date'
+    list_display = ('id', 'title',  'slug', 'has_image')
+    list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(FastFact, FastFactAdmin)
@@ -70,9 +70,9 @@ class PersonAdmin(admin.ModelAdmin):
             'menu_blurb', 'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes'], 'classes': ['collapse']}),
+            'edit_date', 'notes']}),
     ]
-    list_display = ('last_name', 'first_name', 'slug', 'status_num')
+    list_display = ('id', 'last_name', 'first_name', 'slug', 'status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
     #list_filter     = ['augmented'] # , 'edit_date'
     search_fields = ['last_name', 'first_name', 'slug']

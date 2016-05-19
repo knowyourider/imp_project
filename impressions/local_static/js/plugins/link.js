@@ -351,7 +351,8 @@
 
       // don change placeholder text to short name
       if (editor.opts.linkText) {
-        input_layer += '<div class="fr-input-line"><input name="shortnametext" type="text" class="fr-link-attr" placeholder="' + editor.language.translate('Enter short name here') + '" tabIndex="' + (++tab_idx) + '"></div>';
+        input_layer += '<div class="fr-input-line"><input name="shortnametext" type="text" class="fr-link-attr" placeholder="' + 
+        editor.language.translate('Enter short name (or id for placeholder)') + '" tabIndex="' + (++tab_idx) + '"></div>';
       }
 
       // Add any additional fields.

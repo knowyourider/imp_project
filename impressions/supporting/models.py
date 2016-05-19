@@ -1,7 +1,20 @@
 from django.db import models
 from core.models import ContentType, CommonModel, AssociationMixin
 
-class Context(AssociationMixin, CommonModel):
+class CommonSupportingModel(CommonModel):
+    STATUS_NUMS = (
+        (1,'1 - Place Holder'),
+        (2,'2 - Real Shortname'),
+        (3,'3 - Candidate for Publication'),
+        (4,'4 - Published'),
+    )
+    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
+
+    class Meta:
+        abstract = True
+
+
+class Context(AssociationMixin, CommonSupportingModel):
     CONTEXT_CONTENT_TYPE_ID = 5
     content_type = models.ForeignKey('core.ContentType', default=CONTEXT_CONTENT_TYPE_ID)
     title = models.CharField(max_length=128)
@@ -12,8 +25,8 @@ class Context(AssociationMixin, CommonModel):
 
 class EvidenceType(models.Model):
     """docstring for EvidenceType"""
-    is_document_oriented = models.BooleanField('Document-oriented: can have pages \
-        and/or transcripts')
+    is_document_oriented = models.BooleanField('Document-oriented: can have pages ' + 
+        'and or transcripts')
     title = models.CharField(max_length=32)
     slug = models.SlugField(max_length=16, unique=True)
     ordinal = models.IntegerField('Order in Menu', default=99)
@@ -25,7 +38,7 @@ class EvidenceType(models.Model):
         return self.title       
 
 
-class EvidenceItem(AssociationMixin, CommonModel):
+class EvidenceItem(AssociationMixin, CommonSupportingModel):
     """
     EvidenceItem
     ContentType is defined in Admin in Core > ContentTypes
@@ -43,7 +56,7 @@ class EvidenceItem(AssociationMixin, CommonModel):
     materials = models.CharField(max_length=128, blank=True, default='')
 
 
-class FastFact(CommonModel):
+class FastFact(CommonSupportingModel):
     """
     FastFact
     ContentType is defined in Admin in Core > ContentTypes
@@ -55,7 +68,7 @@ class FastFact(CommonModel):
     has_image = models.BooleanField(default=False)
 
 
-class Person(AssociationMixin, CommonModel):
+class Person(AssociationMixin, CommonSupportingModel):
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', default=PERSON_CONTENT_TYPE_ID)
     first_name = models.CharField(max_length=32, blank=True, default='')
