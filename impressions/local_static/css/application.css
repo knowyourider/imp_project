@@ -403,12 +403,10 @@ picture {
     border: 1px solid #b3aa98;
     display: block;
     max-width: none;
+    max-height: 70%;
     padding: 2px; }
     .deeper .table-cell img.oval {
       border-radius: 50%; }
-
-.deeper-row {
-  height: 30vh; }
 
 .table.bottom .table-cell {
   vertical-align: bottom;

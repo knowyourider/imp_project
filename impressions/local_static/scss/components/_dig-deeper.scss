@@ -18,6 +18,7 @@
 		border: 1px solid $base-border-color;
 		display: block;
 		max-width: none;
+		max-height: 70%;
 		padding: 2px;
 
 		&.oval {
@@ -27,7 +28,7 @@
 }
 
 .deeper-row {
-	height: 30vh;
+	//height: 30vh;
 }
 
 .table.bottom .table-cell {
