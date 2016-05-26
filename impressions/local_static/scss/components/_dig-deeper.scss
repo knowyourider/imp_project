@@ -1,19 +1,27 @@
-// Dig Deeper Gallery
+// Dig Deeper Gallery - CLEAN THIS UP!
 
 .deeper {
-	padding-top: $top-navigation-height;
+	font-size: $smallish-font-size;
+	// when viewport is less than or equal to em(860), show at top of gallery
+	@include media(max-width $large-screen) {
+		padding: $base-spacing;
+	}
+
+	padding-top: $large-spacing;
 
 	h2 {
 		color: $action-color;
+		font-size: $medlarge-font-size;
+		letter-spacing: 0.25em;
 		margin: $base-spacing 0 0 $base-spacing;
 		text-transform: uppercase;
 	}
 }
 
+//to make the gallery of images responsive, at tablet size img max-height 50%, at phone size stack page vertically
 .deeper .table-cell {
   padding: 0 1em;/* this adds left & right padding to images in deeper gallery */
-  //height: calc(50vh - 1rem);/* shouldn't need this once it's in neat environment */
-	
+
 	img {
 		border: 1px solid $base-border-color;
 		display: block;
@@ -28,44 +36,38 @@
 }
 
 .deeper-row {
-	//height: 30vh;
+	display: inline-table;
 }
 
-.table.bottom .table-cell {
+.go-to-deeper {
+		// when viewport is less than or equal to em(860), show at top of gallery
+		@include media(max-width $large-screen) {
+			display: none;
+		}
+
+		//for large displays:
+	  @include media($large-screen) {
+			@include position(absolute, 0 -100% null null ); 
+			background-color: $transparent-dark-taupe;
+			height: 80px;
+			letter-spacing: 0.25em;
+			padding: $base-spacing;
+			text-transform: uppercase;
+			transform: rotate(90deg);
+			transform-origin: left top 0;
+			width: 100%;
+
+				a:link, a:visited {
+					color: $light-font-color;
+				}
+
+				a:hover {
+					color: $accent-color;
+				}
+		}	
+}
+
+.table.toprow .table-cell {
   vertical-align: bottom;
   padding-bottom: 1rem;
 }
-
-// .digdeeper {
-// 	height: 40vh;
-// 	margin: 0 0 $base-spacing 0;
-
-// 		li {
-// 			display: inline-block;
-// 			margin-right: $base-spacing;
-// 		}
-// }
-
-// .top-row, .bottom-row {
-// 		li {
-// 			display: inline-block;
-// 			margin-right: $base-spacing;
-
-// 				img {
-// 					border: 1px solid $base-border-color;
-// 					padding: 2px;
-
-// 					&.oval {
-// 						border-radius: 50%;	
-// 					}
-// 				}
-// 		}
-// }
-
-// .bottom-row li {
-// 	vertical-align: top;
-// }
-
-// .top-row li {
-// 	vertical-align: bottom;
-// }

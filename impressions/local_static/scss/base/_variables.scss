@@ -9,6 +9,7 @@ $utility-font-family: $lucida-grande;
 
 // Font Sizes
 $base-font-size: 1em;
+$smallish-font-size: 0.9em;
 $small-font-size: 0.8em;
 $medlarge-font-size: 1.5em;
 $large-font-size: 2em;
@@ -32,6 +33,7 @@ $medium-gray: #999;
 $light-gray: #ddd;
 $light-taupe: #b3aa98;
 $dark-taupe: #65605a;
+$transparent-dark-taupe: transparentize($dark-taupe, 0.4);
 
 // Font Colors
 $base-font-color: $dark-gray !default;
@@ -81,6 +83,5 @@ $top-navigation-item-padding: 1em;
 $top-navigation-submenu-padding: 1em;
 $top-navigation-submenu-width: 16em;
 $top-navigation-item-nudge: 2.2em;
-$horizontal-bar-mode: $large-screen;
 $bottom-navigation-height: 80px;
 $top-plus-bottom: $top-navigation-height + $bottom-navigation-height;

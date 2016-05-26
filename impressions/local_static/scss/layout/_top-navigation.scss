@@ -22,7 +22,7 @@
       padding: .8em 0;
     }
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       display: none;
     }
   }
@@ -38,7 +38,7 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       display: none;
     }
 
@@ -71,7 +71,7 @@
       display: block;
     }
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       display: block;
       text-align: center;
     }
@@ -80,7 +80,7 @@
   // The nav items
 
   .nav-link:first-child {
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       margin-left: $top-navigation-item-nudge;
     }
   }
@@ -108,7 +108,7 @@
       }
     }
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       background: transparent;
       display: inline;
       line-height: $top-navigation-height;
@@ -194,7 +194,7 @@
       display: block;
     }
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       padding-right: $top-navigation-submenu-padding;
       position: relative;
     }
@@ -205,14 +205,14 @@
     padding-left: 0;
     box-shadow: $drop-shadow;
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       left: -$top-navigation-submenu-padding;
       position: absolute;
       top: 2em;
     }
 
     .submenu {
-      @include media($horizontal-bar-mode) {
+      @include media($large-screen) {
         left: $top-navigation-submenu-width - 0.2em;
         top: 0;
       }
@@ -222,7 +222,7 @@
       display: block;
       padding-right: 0;
 
-      @include media($horizontal-bar-mode) {
+      @include media($large-screen) {
         line-height: $top-navigation-height / 2.5;
 
         &:first-child > a {
@@ -247,7 +247,7 @@
         text-decoration: none;
         width: 100%;
 
-        @include media($horizontal-bar-mode) {
+        @include media($large-screen) {
           background-color: $top-nav-background-color;
           padding: .75em 1em;
           text-align: left;

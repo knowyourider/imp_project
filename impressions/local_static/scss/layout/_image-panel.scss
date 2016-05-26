@@ -1,11 +1,11 @@
 //images for stories and themes, works with _side-panel.scss
 .image-panel {
-	//need to fix this so image is tall enough at mobile sizes
 	background-size: cover;
 	padding: $base-spacing;
 	position: relative;
 	// for small displays
 	width: 100%;
+	height: 500px;
 
 	//for large displays:
   @include media($large-screen) {
@@ -16,7 +16,7 @@
 }
 
 .image-panel--caption {
-	background-color: rgba(101, 96, 90, 0.8);
+	background-color: $transparent-dark-taupe;
 	color: $light-font-color;
 	font-family: $utility-font-family;
 	font-size: $small-font-size;

@@ -390,9 +390,15 @@ picture {
   max-width: 100%; }
 
 .deeper {
-  padding-top: 50px; }
+  font-size: 0.9em;
+  padding-top: 3.2em; }
+  @media screen and (max-width: 53.75em) {
+    .deeper {
+      padding: 1.6em; } }
   .deeper h2 {
     color: #d94a38;
+    font-size: 1.5em;
+    letter-spacing: 0.25em;
     margin: 1.6em 0 0 1.6em;
     text-transform: uppercase; }
 
@@ -408,7 +414,31 @@ picture {
     .deeper .table-cell img.oval {
       border-radius: 50%; }
 
-.table.bottom .table-cell {
+.deeper-row {
+  display: inline-table; }
+
+@media screen and (max-width: 53.75em) {
+  .go-to-deeper {
+    display: none; } }
+@media screen and (min-width: 53.75em) {
+  .go-to-deeper {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background-color: rgba(101, 96, 90, 0.6);
+    height: 80px;
+    letter-spacing: 0.25em;
+    padding: 1.6em;
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+    width: 100%; }
+    .go-to-deeper a:link, .go-to-deeper a:visited {
+      color: #fff4e4; }
+    .go-to-deeper a:hover {
+      color: #d94a38; } }
+
+.table.toprow .table-cell {
   vertical-align: bottom;
   padding-bottom: 1rem; }
 
@@ -539,6 +569,9 @@ body {
   background-color: #fff4e4; }
   body.horiz-scroll {
     overflow-y: hidden; }
+    @media screen and (max-width: 53.75em) {
+      body.horiz-scroll {
+        overflow-y: scroll; } }
 
 .content-wrapper {
   max-width: 1200px;
@@ -555,25 +588,33 @@ body {
       padding: 3.2em 1.6em; } }
 
 .content-wrapper-wide {
+  display: table;
   overflow-x: auto;
   table-layout: fixed;
-  width: 100%;
-  display: table; }
+  width: 100%; }
 
 .table-cell {
   display: table-cell;
   vertical-align: top; }
+  @media screen and (max-width: 53.75em) {
+    .table-cell {
+      display: block; } }
 
 .content-wrapper--narrative {
-  background-color: red;
-  width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  padding-top: 50px;
+  width: 100vw; }
+  @media screen and (max-width: 53.75em) {
+    .content-wrapper--narrative {
+      width: auto;
+      height: auto; } }
 
 .image-panel {
   background-size: cover;
   padding: 1.6em;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  height: 500px; }
   @media screen and (min-width: 53.75em) {
     .image-panel {
       height: -webkit-calc(100vh - 130px);
@@ -585,7 +626,7 @@ body {
       width: 70%; } }
 
 .image-panel--caption {
-  background-color: rgba(101, 96, 90, 0.8);
+  background-color: rgba(101, 96, 90, 0.6);
   color: #fff4e4;
   font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
   font-size: 0.8em;

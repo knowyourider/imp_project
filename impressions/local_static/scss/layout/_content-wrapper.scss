@@ -3,7 +3,13 @@
 body {
 	background-color: $base-background-color;
 
+
 	&.horiz-scroll	{
+		// when viewport is less than or equal to em(860), change layout to vertical
+		@include media(max-width $large-screen) {
+			overflow-y: scroll;
+		}
+		
 		overflow-y: hidden;
 	}
 }
@@ -21,19 +27,30 @@ body {
 
 // for wide, scrolling pages such as story chapters
 .content-wrapper-wide {
+  display: table;
   overflow-x: auto;
   table-layout: fixed;
   width: 100%;
-  display: table;
 }
 
 .table-cell {
-  display: table-cell;
+	// when viewport is less than or equal to em(860), change layout to vertical
+	@include media(max-width $large-screen) {
+		display: block;
+	}
+
+	display: table-cell;
   vertical-align: top;
 }
 
 .content-wrapper--narrative {
-  background-color: red;
-	width: 100vw;
+	// when viewport is less than or equal to em(860), change layout to vertical
+	@include media(max-width $large-screen) {
+		width: auto;
+		height: auto;
+	}
+
 	height: 100vh;
+	padding-top: $top-navigation-height;
+	width: 100vw;
 }
