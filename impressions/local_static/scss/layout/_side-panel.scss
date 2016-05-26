@@ -10,8 +10,8 @@
   @include media($large-screen) {
 		width: 30%;
     height: 100vh;
-		//@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, $top-navigation-height null 0 0); 
+		@include calc(height, "100vh - #{$top-plus-bottom}");
+		@include position(absolute, 50px null 0 0); 
 	}
 }
 

@@ -10,7 +10,7 @@
 	//for large displays:
   @include media($large-screen) {
 		@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, $top-navigation-height 0 0 null); 
+		@include position(absolute, 50px 0 0 null); /* why 100px and not $top-navigation-height??? */
 		width: 70%;
 	}
 }

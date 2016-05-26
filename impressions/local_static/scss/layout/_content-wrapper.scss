@@ -16,7 +16,7 @@ body {
 
 .content-wrapper { 
 	@include outer-container;
-	overflow: auto; 
+	overflow: auto;
 	padding: $large-spacing 0 $xlarge-spacing 0; 
 
 // when viewport is less than or equal to 1200px, add side padding
@@ -50,7 +50,7 @@ body {
 		height: auto;
 	}
 
-	height: 100vh;
-	padding-top: $top-navigation-height;
+//	height: 100vh;
+	position: relative;
 	width: 100vw;
 }

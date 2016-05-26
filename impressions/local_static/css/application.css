@@ -392,18 +392,18 @@ picture {
 .deeper {
   font-size: 0.9em;
   padding-top: 3.2em; }
-  @media screen and (max-width: 53.75em) {
-    .deeper {
-      padding: 1.6em; } }
   .deeper h2 {
     color: #d94a38;
     font-size: 1.5em;
     letter-spacing: 0.25em;
     margin: 1.6em 0 0 1.6em;
     text-transform: uppercase; }
+  @media screen and (max-width: 53.75em) {
+    .deeper {
+      padding: 1.6em; } }
 
 .deeper .table-cell {
-  padding: 0 1em;
+  padding: 1.6em;
   /* this adds left & right padding to images in deeper gallery */ }
   .deeper .table-cell img {
     border: 1px solid #b3aa98;
@@ -601,8 +601,7 @@ body {
       display: block; } }
 
 .content-wrapper--narrative {
-  height: 100vh;
-  padding-top: 50px;
+  position: relative;
   width: 100vw; }
   @media screen and (max-width: 53.75em) {
     .content-wrapper--narrative {
@@ -623,6 +622,7 @@ body {
       top: 50px;
       right: 0;
       bottom: 0;
+      /* why 100px and not $top-navigation-height??? */
       width: 70%; } }
 
 .image-panel--caption {
@@ -645,6 +645,8 @@ body {
     .text-panel {
       width: 30%;
       height: 100vh;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px);
       position: absolute;
       top: 50px;
       bottom: 0;

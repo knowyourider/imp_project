@@ -2,11 +2,6 @@
 
 .deeper {
 	font-size: $smallish-font-size;
-	// when viewport is less than or equal to em(860), show at top of gallery
-	@include media(max-width $large-screen) {
-		padding: $base-spacing;
-	}
-
 	padding-top: $large-spacing;
 
 	h2 {
@@ -16,11 +11,17 @@
 		margin: $base-spacing 0 0 $base-spacing;
 		text-transform: uppercase;
 	}
+		
+	// when viewport is less than or equal to em(860), show at top of gallery
+	@include media(max-width $large-screen) {
+		padding: $base-spacing;
+
+	}
 }
 
 //to make the gallery of images responsive, at tablet size img max-height 50%, at phone size stack page vertically
 .deeper .table-cell {
-  padding: 0 1em;/* this adds left & right padding to images in deeper gallery */
+  padding: $base-spacing;/* this adds left & right padding to images in deeper gallery */
 
 	img {
 		border: 1px solid $base-border-color;
