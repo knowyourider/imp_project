@@ -15,8 +15,15 @@ class CommonSupportingModel(CommonModel):
 
 
 class Context(AssociationMixin, CommonSupportingModel):
+    CONTEXT_TYPE = (
+        ('Background','Background'),
+        ('Institution','Institution'),
+    )
     CONTEXT_CONTENT_TYPE_ID = 5
-    content_type = models.ForeignKey('core.ContentType', default=CONTEXT_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', 
+        default=CONTEXT_CONTENT_TYPE_ID)
+    context_type = models.CharField(max_length=24, default='Background', 
+        choices=CONTEXT_TYPE)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
@@ -44,7 +51,8 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     EVIDENCE_CONTENT_TYPE_ID = 4
-    content_type = models.ForeignKey('core.ContentType', default=EVIDENCE_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', 
+        default=EVIDENCE_CONTENT_TYPE_ID)
     evidence_type = models.ForeignKey('supporting.EvidenceType')
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128, blank=True, default='')
@@ -62,7 +70,8 @@ class FastFact(CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     FASTFACT_CONTENT_TYPE_ID = 6
-    content_type = models.ForeignKey('core.ContentType', default=FASTFACT_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', 
+        default=FASTFACT_CONTENT_TYPE_ID)
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
@@ -70,7 +79,8 @@ class FastFact(CommonSupportingModel):
 
 class Person(AssociationMixin, CommonSupportingModel):
     PERSON_CONTENT_TYPE_ID = 3
-    content_type = models.ForeignKey('core.ContentType', default=PERSON_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', 
+        default=PERSON_CONTENT_TYPE_ID)
     first_name = models.CharField(max_length=32, blank=True, default='')
     middle_name = models.CharField(max_length=32, blank=True, default='')
     last_name = models.CharField(max_length=32, blank=True, default='')

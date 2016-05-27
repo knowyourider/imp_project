@@ -17,7 +17,7 @@ class Story(CommonModel):
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
 
     class Meta:
-        ordering = ['ordinal']
+        ordering = ['title']
 
 
 class Chapter(AssociationMixin, models.Model):

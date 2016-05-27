@@ -5,13 +5,13 @@ from .models import Context, EvidenceType, EvidenceItem, FastFact, Person
 class ContextAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/context_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'menu_blurb',
+        (None,  {'fields': ['title', 'slug', 'context_type', 'menu_blurb',
              'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('id', 'title', 'slug', 'status_num')
+    list_display = ('title', 'id', 'slug', 'context_type', 'status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
@@ -38,7 +38,7 @@ class EvidenceItemAdmin(admin.ModelAdmin):
             'edit_date', 'notes']}),
     ]
     #inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('id', 'title',  'slug', 'evidence_type', 'creation_year', 'status_num')
+    list_display = ('title', 'id',  'slug', 'evidence_type', 'creation_year', 'status_num')
     list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
     filter_horizontal = ['people', 'evidence', 'contexts']    
     search_fields = ['title', 'slug']
@@ -55,7 +55,7 @@ class FastFactAdmin(admin.ModelAdmin):
             'edit_date', 'notes']}),
     ]
     #inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('id', 'title',  'slug', 'has_image')
+    list_display = ('title', 'id',  'slug', 'has_image')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
@@ -72,7 +72,7 @@ class PersonAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('id', 'last_name', 'first_name', 'slug', 'status_num')
+    list_display = ('last_name', 'first_name', 'id', 'slug', 'status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
     #list_filter     = ['augmented'] # , 'edit_date'
     search_fields = ['last_name', 'first_name', 'slug']
