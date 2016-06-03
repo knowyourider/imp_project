@@ -3,11 +3,22 @@ import datetime
 
 class ContentType(models.Model):
     """docstring for ContentType"""
+    MENU_LEVELS = (
+        (1,'Main Menu'),
+        (2,'Supporting Menu'),
+        (3,'Not on menu'),
+    )
     slug = models.SlugField('Content type short name', max_length=16, unique=True)
     app_namespace = models.CharField(max_length=16)
     singular_title = models.CharField(max_length=32, blank=True, default='')
     plural_title = models.CharField(max_length=32, blank=True, default='')
+    menu_level = models.IntegerField(default=1, choices=MENU_LEVELS)
+    ordinal = models.IntegerField('Order in Menu', default=99)
     
+    class Meta:
+        ordering = ['menu_level', 'ordinal']
+
+
 class CommonModel(models.Model):
     """
     Abstract class for fields common to Artifacts, Documents,
