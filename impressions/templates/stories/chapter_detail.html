@@ -7,7 +7,7 @@
 {% block stylesheets %}
   {{ block.super }}
   <style>
-    .image-panel { background-image: url("{% static 'stories/chappics/' %}{{ object.slug }}-{{ chapter.image_name }}.jpg"); }
+    .image-panel { background-image: url("{% static 'stories/' %}{{ object.slug }}/{{ chapter.image_name }}.jpg"); }
   </style>
 {% endblock stylesheets %}
 
