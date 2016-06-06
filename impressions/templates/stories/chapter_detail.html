@@ -35,15 +35,19 @@
 
       <div class="chapter-text--scroll">
         {{ chapter.narrative|safe }}
-      </div><!--/chapter-text-scroll-->
-
-      <p class="next-chapter">Next chapter: <a href="#">[not dynamic yet. List follows: ]</a>
-      <!-- temp -->
+        <!-- temp -->
+        <ul>
         {% for chapter in object.chapter_set.all %}
+          <li>
             <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
               {{ chapter.chapter_num }} {{ chapter.title|safe }}
-            </a> || 
+            </a>
+          </li>
          {% endfor %}
+        </ul>
+      </div><!--/chapter-text-scroll-->
+
+      <p class="next-chapter">Next chapter: <a href="#">[not dynamic yet. See list at bottom of scrolling text. ]</a>
       </p>
     </article><!--/text-panel-->
   </div><!--/content-wrapper-narrative-->
@@ -54,7 +58,7 @@
 
       <div class="deeper-row">
       {% for person in chapter.people.all %}
-        <div class="table-cell pop_item">
+        <div class="pop_item">
           <a href="{% url 'supporting:person_detail' person.slug %}">
           <img src="{% static 'supporting/person/thumbpics/' %}{{ person.slug }}.jpg" class="oval" alt="image of {{ person.slug}}">
             {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}

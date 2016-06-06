@@ -32,25 +32,17 @@
 
       <ul class="intro-nav">
           <li>
-            Previous Story: <a href="../age-refinement/">Edward and Orra Hitchcock in the  Age of Refinement</a>
+            Previous Story: <a href="#">Edward and Orra Hitchcock in the  Age of Refinement</a>
           </li>
           <li>
-            <a href="expanding-world-1.html">Read This Story</a>
+            <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
           </li>
           <li>
-            Next Story: <a href="../imprints-culture/">Imprints on the Culture</a>
+            Next Story: <a href="#">Imprints on the Culture</a>
           </li>
       </ul>
 
-      <p>
-        {% for chapter in object.chapter_set.all %}
-            <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
-              <!-- chapter.chapter_number -->
-              {{ chapter.chapter_num }} {{ chapter.title|safe }}
-            </a> ||
-        {% endfor %}
-      </p>
-    </article>
+     </article>
 
   </div><!--/content-wrapper--narrative -->
   <!-- Chapter layout has another div here - deeper table-cell -->
