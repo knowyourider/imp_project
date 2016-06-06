@@ -58,7 +58,7 @@
 
       <div class="deeper-row">
       {% for person in chapter.people.all %}
-        <div class="pop_item">
+        <div class="table-cell pop_item">
           <a href="{% url 'supporting:person_detail' person.slug %}">
           <img src="{% static 'supporting/person/thumbpics/' %}{{ person.slug }}.jpg" class="oval" alt="image of {{ person.slug}}">
             {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
