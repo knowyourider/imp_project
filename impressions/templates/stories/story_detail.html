@@ -6,7 +6,7 @@
 {% block stylesheets %}
   {{ block.super }}
   <style>
-    .image-panel { background-image: url("{% static 'stories/' %}{{ object.slug }}/intro-{{ object.image_name }}.jpg"); }
+    .image-panel { background-image: url("{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg"); }
   </style>
 {% endblock stylesheets %}
 
