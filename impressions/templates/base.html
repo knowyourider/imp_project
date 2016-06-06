@@ -11,7 +11,8 @@
   <title>{% block title %}Impressioins{% endblock %}</title>
 
 	{% block stylesheets %}
-    <link rel="stylesheet" href="{% static 'css/temp_pop.css' %}" type="text/css"/>
+    <!-- <link rel="stylesheet" href="{% static 'css/temp_pop.css' %}" type="text/css"/> -->
+    <link rel="stylesheet" href="{% static 'css/application.css' %}" type="text/css"/>
   {% endblock stylesheets %}
 
   {% block javascript %}
@@ -22,30 +23,78 @@
 </head>
 
 <body>
-
 {% block full_page %}
 
-<p>
-	<a href="/">Home</a> |
-	<a href="{% url 'stories:story_list' %}">Stories</a> |
-	Map | Timeline
-</p>
-<hr />
+<header class="top-navigation" role="banner">
 
-{% block title_area %}
-	title area
-{% endblock title_area %}
+  <div class="top-navigation-wrapper">
 
-{% block content_area %}
-	content goes here
-{% endblock content_area %}
+    <a href=/" class="mobile-logo">
+      <img src="/design/local_static_sym/images/footmark-logo.png" alt="Logo image">
+    </a>
 
-<hr />
-<p>
-	<a href="{% url 'supporting:person_list' %}">People</a> |
-  <a href="{% url 'supporting:evidenceitem_list' %}">Evidence</a> | 
-	<a href="{% url 'supporting:context_list' %}">Context</a>  
-</p>
+    <a href="javascript:void(0)" id="js-top-navigation-mobile-menu" class="top-navigation-mobile-menu">MENU</a>
+
+    <nav role="navigation">
+
+      <ul id="js-top-navigation-menu" class="top-navigation-menu show">
+
+        <li class="nav-link logo">
+          <a href="/" class="logo">
+            <img src="{% static 'images/footmark-logo.png' %}" alt="Logo image">
+          </a>
+        </li>
+
+        <li class="nav-link {% if object.content_type.id == 1 %}more{% endif %}">
+          <a href="{% url 'stories:story_list' %}">Stories</a>
+          {% if object.content_type.id == 1 %}
+            <ul class="submenu">
+              <li><a href="{% url 'stories:story_detail' 'whose-discovery' %}">Whose Discovery Was It?</a></li>
+              <li><a href="../whose-discovery/">Need dynamic list from View</a></li>
+            </ul>
+          {% endif %}
+        </li>
+        <li class="nav-link"><a href="{% url 'map:map_list' %}">Map</a></li>
+        <li class="nav-link"><a href="#">Timeline</a></li>
+        <li class="nav-link"><a href="#">Primary People</a></li>
+        <li class="nav-link"><a href="#">Themes</a></li>
+      </ul>
+    </nav>
+  </div>
+
+</header>
+
+<div class={% block wrapper_class %}"content-wrapper"{% endblock wrapper_class %}>
+
+  {% block title_area %}
+  {% endblock title_area %}
+
+  {% block content_area %}
+    content goes here
+  {% endblock content_area %}
+
+  {% block deeper %}
+  {% endblock deeper %}
+  
+</div>
+
+<footer class="footer">
+
+  <ul class="footer-primary">
+    <li><a href="{% url 'supporting:person_list' %}">People</a></li>
+    <li><a href="{% url 'supporting:evidenceitem_list' %}">Evidence</a></li>
+    <li><a href="{% url 'supporting:context_list' %}">Context</a></li>
+    <li><a href="#">Special Features</a></li>
+  </ul>
+
+  <ul class="footer-secondary">
+    <li><a href="#">About This Site</a></li>
+    <li><a href="#">Suggested Reading</a></li>
+    <li><a href="#">Suggested Viewing</a></li>
+    <li><a href="#">Teacher Resources</a></li>
+  </ul>
+
+</footer>
 
 {% endblock full_page %}
 

@@ -3,28 +3,57 @@
 
 {% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
 
+{% block stylesheets %}
+  {{ block.super }}
+  <style>
+    .image-panel { background-image: url("{% static 'stories/intropics/' %}{{ object.slug }}-{{ object.image_name }}.jpg"); }
+  </style>
+{% endblock stylesheets %}
+
+
+{% block wrapper_class %}"content-wrapper-cover"{% endblock wrapper_class %}
+
 {% block title_area %}
-	<p>
-		<a href="/">Home</a> >
-		<a href="{% url 'stories:story_list' %}">Stories</a> 
-	</p>
-	<h1>{{ object.title|safe }}</h1> 
+  <section class="image-panel">
+  	<p class="breadcrumbs">
+  		<a href="/">Home</a> >
+  		<a href="{% url 'stories:story_list' %}">Story Menu</a> 
+      {{ object.title|safe }}
+  	</p>
+    <h1 class="story-title">{{ object.title|safe }}</h1> 
+  	<h2 class="story-subtitle">{{ object.subtitle|safe }}</h2> 
+  </section>
 {% endblock title_area %}
 
 {% block content_area %}
+  <article class="text-panel intro-text">
+    <h2>Introduction debug - contentTypeID: {{ object.content_type.id }} </h2>
+    {{ object.introduction|safe }}
 
-<img src="{% static 'stories/fullpics/' %}{{ object.image_name }}.jpg"  alt="image of {{ object.image_name}}">
+    <ul class="intro-nav">
+        <li>
+          Previous Story: <a href="../age-refinement/">Edward and Orra Hitchcock in the  Age of Refinement</a>
+        </li>
+        <li>
+          <a href="expanding-world-1.html">Read This Story</a>
+        </li>
+        <li>
+          Next Story: <a href="../imprints-culture/">Imprints on the Culture</a>
+        </li>
+    </ul>
 
-<p>Intro: {{ object.introduction|safe }}</p>
+    <ul>
+      {% for chapter in object.chapter_set.all %}
+        <li>
+          <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
+            <!-- chapter.chapter_number -->
+            {{ chapter.chapter_num }} {{ chapter.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
 
-<ul>
-  {% for chapter in object.chapter_set.all %}
-    <li>
-      <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
-	      <!-- chapter.chapter_number -->
-        {{ chapter.chapter_num }} {{ chapter.title|safe }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+ 
+
 {% endblock content_area %}
