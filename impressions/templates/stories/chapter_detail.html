@@ -13,81 +13,78 @@
 
 {% block wrapper_class %}"content-wrapper-wide"{% endblock wrapper_class %}
 
-{% block title_area %}
-  <section class="image-panel">
-    <p class="breadcrumbs">
-      <a href="/">Home</a> >
-      <a href="{% url 'stories:story_list' %}">Story Menu</a> 
-      <a href="{% url 'stories:story_detail' object.slug %}">{{ object.title|safe }}</a>
-    </p>
-    <h4>{{ object.title|safe }}</h4>  
-    <h2 class="story-subtitle">Chapter {{ chapter.chapter_num }}: {{ chapter.title|safe }}</h2> 
-    <p class="image-panel--caption">Caption goes here -- we don't have a field for that yet.</p>
-
-    <p class="go-to-deeper"><a href="">Dig Deeper</a></p>
-
-  </section>
-{% endblock title_area %}
-
 
 {% block content_area %}
-  <article class="table-cell text-panel chapter-text">
-    <h2>Chapter 1</h2>
+  <div class="table-cell content-wrapper--narrative">
+    <section class="image-panel">
+      <p class="breadcrumbs">
+        <a href="/">Home</a> >
+        <a href="{% url 'stories:story_list' %}">Story Menu</a> 
+        <a href="{% url 'stories:story_detail' object.slug %}">{{ object.title|safe }}</a>
+      </p>
+      <h4>{{ object.title|safe }}</h4>  
+      <h2 class="story-subtitle">Chapter {{ chapter.chapter_num }}: {{ chapter.title|safe }}</h2> 
+      <p class="image-panel--caption">Caption goes here -- we don't have a field for that yet.</p>
 
-    <div class="chapter-text--scroll">
-      {{ chapter.narrative|safe }}
-    </div><!--/chapter-text-scroll-->
+      <p class="go-to-deeper"><a href="">Dig Deeper</a></p>
 
-    <p class="next-chapter">Next chapter: <a href="#">[not dynamic yet. List follows: ]</a>
-    <!-- temp -->
-      {% for chapter in object.chapter_set.all %}
-          <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
-            {{ chapter.chapter_num }} {{ chapter.title|safe }}
-          </a> || 
-       {% endfor %}
-    </p>
+    </section>
 
-  </article><!--/text-panel-->
-{% endblock content_area %}
+    <article class="table-cell text-panel chapter-text">
+      <h2>Chapter 1</h2>
 
-{% block deeper %}
-<div class="deeper table-cell">
-  <div class="table deeper toprow">
-    <h2>Dig Deeper</h2>
+      <div class="chapter-text--scroll">
+        {{ chapter.narrative|safe }}
+      </div><!--/chapter-text-scroll-->
 
-    <div class="deeper-row">
-    {% for person in chapter.people.all %}
-      <div class="table-cell pop_item">
-        <a href="{% url 'supporting:person_detail' person.slug %}">
-        <img src="{% static 'supporting/person/thumbpics/' %}{{ person.slug }}.jpg" class="oval" alt="image of {{ person.slug}}">
-          {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
-        </a>
-      </div>
-    {% endfor %}
-    </div><!-- </deeper-row>-->
-  </div><!-- </table deeper toprow>-->
+      <p class="next-chapter">Next chapter: <a href="#">[not dynamic yet. List follows: ]</a>
+      <!-- temp -->
+        {% for chapter in object.chapter_set.all %}
+            <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
+              {{ chapter.chapter_num }} {{ chapter.title|safe }}
+            </a> || 
+         {% endfor %}
+      </p>
+    </article><!--/text-panel-->
+  </div><!--/content-wrapper-narrative-->
 
-  <div class="table deeper">
-    <div class="deeper-row">
-    {% for evidenceitem in chapter.evidence.all %}
-      <div class="table-cell pop_item">
-        <a href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
-        <img src="{% static 'supporting/evidenceitem/thumbpics/' %}{{ evidenceitem.slug }}.jpg" class="oval" alt="image of {{ evidenceitem.slug }}">
-          {{ evidenceitem.title }}
-        </a>
-      </div>
-    {% endfor %}
+  <div class="deeper table-cell">
+    <div class="table deeper toprow">
+      <h2>Dig Deeper</h2>
 
-    {% for context in chapter.contexts.all %}
-      <div class="table-cell pop_item">
-        <a href="{% url 'supporting:context_detail' context.slug %}">
-        <img src="{% static 'supporting/context/thumbpics/' %}{{ context.slug }}.jpg" class="oval" alt="image of {{ context.slug }}">
-          {{ context.title }}
-        </a>
-      </div>
-    {% endfor %}
-    </div><!-- </deeper-row>-->
-  </div><!-- </table deeper>-->
-</div><!--/deeper table-cell-->
+      <div class="deeper-row">
+      {% for person in chapter.people.all %}
+        <div class="table-cell pop_item">
+          <a href="{% url 'supporting:person_detail' person.slug %}">
+          <img src="{% static 'supporting/person/thumbpics/' %}{{ person.slug }}.jpg" class="oval" alt="image of {{ person.slug}}">
+            {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
+          </a>
+        </div>
+      {% endfor %}
+      </div><!-- </deeper-row>-->
+    </div><!-- </table deeper toprow>-->
+
+    <div class="table deeper">
+      <div class="deeper-row">
+      {% for evidenceitem in chapter.evidence.all %}
+        <div class="table-cell pop_item">
+          <a href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+          <img src="{% static 'supporting/evidenceitem/thumbpics/' %}{{ evidenceitem.slug }}.jpg" class="oval" alt="image of {{ evidenceitem.slug }}">
+            {{ evidenceitem.title }}
+          </a>
+        </div>
+      {% endfor %}
+
+      {% for context in chapter.contexts.all %}
+        <div class="table-cell pop_item">
+          <a href="{% url 'supporting:context_detail' context.slug %}">
+          <img src="{% static 'supporting/context/thumbpics/' %}{{ context.slug }}.jpg" class="oval" alt="image of {{ context.slug }}">
+            {{ context.title }}
+          </a>
+        </div>
+      {% endfor %}
+      </div><!-- </deeper-row>-->
+    </div><!-- </table deeper>-->
+  </div><!--/deeper table-cell-->
     
-{% endblock deeper %}
+{% endblock content_area %}
