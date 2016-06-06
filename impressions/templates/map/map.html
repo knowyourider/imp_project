@@ -5,6 +5,13 @@
 
 {% block stylesheets %}
   {{ block.super }}
+  <style>
+    #map { 
+      height: 600px; 
+      width: 800px;
+    }
+  </style>
+
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
 {% endblock stylesheets %}
 
