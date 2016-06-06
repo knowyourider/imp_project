@@ -73,7 +73,7 @@
       {% for evidenceitem in chapter.evidence.all %}
         <div class="table-cell pop_item">
           <a href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
-          <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" class="oval" alt="image of {{ evidenceitem.slug }}">
+          <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title }}
           </a>
         </div>
@@ -82,7 +82,7 @@
       {% for context in chapter.contexts.all %}
         <div class="table-cell pop_item">
           <a href="{% url 'supporting:context_detail' context.slug %}">
-          <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" class="oval" alt="image of {{ context.slug }}">
+          <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
             {{ context.title }}
           </a>
         </div>
