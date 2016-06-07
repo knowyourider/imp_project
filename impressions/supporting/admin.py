@@ -7,7 +7,7 @@ class ContextAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'context_type', 'menu_blurb',
              'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
@@ -33,7 +33,7 @@ class EvidenceItemAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title', 'slug', 'evidence_type',
             'creator', 'dimensions', 'materials', 'creation_year', 'menu_blurb',
             'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
@@ -68,7 +68,7 @@ class PersonAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title_prefix', 'first_name', 'middle_name', 
             'last_name', 'suffix', 'slug', 'birth_year', 'death_year',
             'menu_blurb', 'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]

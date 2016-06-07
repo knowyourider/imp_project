@@ -3,10 +3,16 @@ $(document).ready(function(){
   // ------- SLIM POPS ------
 
   // enable click event on menu items and text links
-  $('.pop_item').click(function(event){
+  // $('.pop_item').click(function(event){
+  $(document).on("click", ".pop_item", function(event){
     event.preventDefault();
     // get href
-    var chosen_href = $(event.target).attr('href');
+    if ($(event.target).is('img')) {
+      alert("target is img ");
+    }
+    // use closest -- target may be image in dig deeper gallery
+    var chosen_href = $(event.target).closest('a').attr('href');
+    //var thistarget = $(event.target)
     // call ajax for the slim pop. 
     slimPop(chosen_href, 'slimpop-basicsize');
   });
