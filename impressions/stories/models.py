@@ -16,6 +16,14 @@ class Story(CommonModel):
     introduction = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
 
+   # next story, empty if none
+    @property
+    def next_chapter(self):
+        #chapter_list = self.objects.all()
+        next_chapter_num = int(self.chapter_num) + 1
+        # print("debug - self: pk: " + str(self.story.pk) + " chap: " + str(next_chapter_num))
+        return Chapter.objects.get(story=self.story.pk, chapter_num=next_chapter_num)
+
     class Meta:
         ordering = ['title']
 
@@ -26,6 +34,14 @@ class Chapter(AssociationMixin, models.Model):
     chapter_num = models.CharField(max_length=8)
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
+
+   # next chapter, empty if none
+    @property
+    def next_chapter(self):
+        #chapter_list = self.objects.all()
+        next_chapter_num = int(self.chapter_num) + 1
+        print("debug - self: pk: " + str(self.story.pk) + " chap: " + str(next_chapter_num))
+        return Chapter.objects.get(story=self.story.pk, chapter_num=next_chapter_num)
     
     class Meta:
         ordering = ['story', 'chapter_num']

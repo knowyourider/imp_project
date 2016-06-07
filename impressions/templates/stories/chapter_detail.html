@@ -31,23 +31,13 @@
     </section>
 
     <article class="table-cell text-panel chapter-text">
-      <h2>Chapter 1</h2>
+      <h2>Chapter {{ chapter.chapter_num }}</h2>
 
       <div class="chapter-text--scroll">
         {{ chapter.narrative|safe }}
-        <!-- temp -->
-        <ul>
-        {% for chapter in object.chapter_set.all %}
-          <li>
-            <a href="{% url 'stories:chapter_detail' object.slug chapter.chapter_num %}">
-              {{ chapter.chapter_num }} {{ chapter.title|safe }}
-            </a>
-          </li>
-         {% endfor %}
-        </ul>
       </div><!--/chapter-text-scroll-->
 
-      <p class="next-chapter">Next chapter: <a href="#">[not dynamic yet. See list at bottom of scrolling text. ]</a>
+      <p class="next-chapter">Next chapter: <a href="{% url 'stories:chapter_detail' object.slug chapter.next_chapter.chapter_num %}">{{ chapter.next_chapter.chapter_num }} {{ chapter.next_chapter.title|safe }}</a>
       </p>
     </article><!--/text-panel-->
   </div><!--/content-wrapper-narrative-->

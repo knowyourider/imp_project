@@ -31,11 +31,14 @@ class ChapterDetailView(DetailView):
         # get story object from detail view
         self.object = super(ChapterDetailView, self).get_object()
         # chapter_num will come from parameters
-        # chapter_num = self.kwargs['chapter_num']
+        chapter_num_arg = self.kwargs['chapter_num']
         # get the chapter object
         chapter = get_object_or_404(Chapter, story_id=self.object.id, 
-            chapter_num=self.kwargs['chapter_num'])
-        # set the context
+            chapter_num=chapter_num_arg)
+        # set the chapter object in the context
         context['chapter'] = chapter
+        # We need next and previous chapter numbers for navigation
+        # next_chapter set by property in Chapter model
+
         return context
     
