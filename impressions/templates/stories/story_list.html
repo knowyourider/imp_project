@@ -1,20 +1,33 @@
-{% extends "base_list.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block title_area %}
-  <h1>Stories</h1>
-{% endblock title_area %}
+{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
 
+{% block content_area %}
 
-{% block menu %}
-  <ul>
+  <p class="breadcrumbs">
+    <a href="./">Home</a> | 
+    Story Menu
+  </p>
+
+  <h1 class="main-title">Story Menu</h1>
+
+  <p>
+ [Currently no admin for menu blurb (Don will add to ContentType/Menu)] Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <ul class="menu-gallery">
   {% for object in object_list %}
     <li>
       <a href="{% url 'stories:story_detail' object.slug %}">
-        {{ object.title|safe }}: {{ object.subtitle|safe }}
-      </a> - {{ object.menu_blurb|safe }}
+      <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
+      <span>{{ object.title|safe }}:<br/>{{ object.subtitle|safe }}</span>
+      </a>
+      {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
-  </ul>     
-{% endblock menu %}
+  </ul>  
+
+
+{% endblock content_area %}

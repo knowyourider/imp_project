@@ -7,9 +7,6 @@ $(document).ready(function(){
   $(document).on("click", ".pop_item", function(event){
     event.preventDefault();
     // get href
-    if ($(event.target).is('img')) {
-      alert("target is img ");
-    }
     // use closest -- target may be image in dig deeper gallery
     var chosen_href = $(event.target).closest('a').attr('href');
     //var thistarget = $(event.target)
