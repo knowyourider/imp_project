@@ -185,5 +185,13 @@ We're in Apace version 2.2.21
 	        Options +Includes +ExecCGI
 	</Directory>
 	~            	
-    
+ 
+Rich text editing
+-------------------
+We're using Froala (https://www.froala.com/wysiwyg-editor)
+We decided not to use django-froala-editor -- that required using FroalaField in models -- doesn't seem right. Integrated "by hand": 
+- put the required css and js in local_static, 
+- add script calls in our local templates/admin/change_field.html
+- created per-app, per-field calls in admin -- inspired by py Danny's wysiwyg package.
+
 
