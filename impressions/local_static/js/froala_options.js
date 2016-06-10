@@ -32,6 +32,12 @@ var froalaChapter = {
 	toolbarButtons: ['fullscreen', 'italic', 'superscript',  
 		'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
 		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsMD: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsSM: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote', 'insertLink', 
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
@@ -45,6 +51,12 @@ var froalaSlim = {
 	toolbarButtons: ['fullscreen', 'italic', 'superscript',  
 		'paragraphFormat', 'formatOL', 'quote',  
 		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsMD: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsSM: ['fullscreen', 'italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
 
@@ -52,6 +64,10 @@ var froalaIntro = {
 	heightMin: 200,
 	pastePlain: true,
 	toolbarButtons: ['fullscreen', 'italic', 'quote',
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsMD: ['fullscreen', 'italic', 'quote',
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsSM: ['fullscreen', 'italic', 'quote',
 		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
 	width: '800'
 }
@@ -61,6 +77,10 @@ var froalaBlurb = {
 	pastePlain: true,
 	placeholderText: 'Single (short) paragraph only.',
 	toolbarButtons: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 
+		'selectAll', 'html'],
+	toolbarButtonsMD: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 
+		'selectAll', 'html'],
+	toolbarButtonsSM: ['fullscreen', 'italic', '|', 'undo', 'redo', 'clearFormatting', 
 		'selectAll', 'html'],
 	width: '400'
 }
