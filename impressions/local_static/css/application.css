@@ -453,13 +453,43 @@ picture {
     margin-right: 0; }
   .menu-gallery li:nth-child(4n+1) {
     clear: left; }
-  .menu-gallery li a:link {
-    font-style: italic; }
   .menu-gallery li img {
     padding: 2px;
     border: double #b3aa98; }
+.menu-gallery .preview {
+  position: relative;
+  display: inline-block;
+  font-style: italic; }
+.menu-gallery .preview p {
+  font-size: 0.8em;
+  font-style: normal;
+  visibility: hidden;
+  width: 250px;
+  background-color: #65605a;
+  color: #fff4e4;
+  text-align: center;
+  padding: 0.8em;
+  border: double #b3aa98;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -125px;
+  z-index: 1; }
+.menu-gallery .preview:hover p {
+  visibility: visible; }
 
-.menu-blurb {
+.menu-home li {
+  display: inline-block;
+  margin-right: 3.2em;
+  padding-top: 6.4em; }
+  .menu-home li a {
+    font-size: 1.5em; }
+  .menu-home li img {
+    padding: 2px;
+    border: double #b3aa98; }
+
+.secondary {
+  clear: left;
   font-size: 0.8em; }
 
 /* temp css */

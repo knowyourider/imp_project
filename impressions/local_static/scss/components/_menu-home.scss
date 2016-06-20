@@ -1,0 +1,22 @@
+// Menus for Stories, Themes
+.menu-home {
+	li {
+	  display: inline-block;
+	  margin-right: $large-spacing;
+		padding-top: $xlarge-spacing;
+
+	  a { 
+	  font-size: $medlarge-font-size;
+		}
+
+  	img {
+  		padding: 2px;
+  		border: $double-border;
+  	}
+  }
+}
+
+.secondary	{
+	clear: left;
+	font-size: $small-font-size;
+}

@@ -4,17 +4,36 @@
 	  @include span-columns(3);
 	  @include omega(4n);
 
-	  	a:link {
-	  		font-style: italic;
-	  	}
-
-	  	img {
-	  		padding: 2px;
-	  		border: $double-border;
-	  	}
+  	img {
+  		padding: 2px;
+  		border: $double-border;
+  	}
+  }
+  	
+	.preview {
+		position: relative;
+		display: inline-block;
+		font-style: italic;
 	}
-}
 
-.menu-blurb {
-	font-size: $small-font-size;
+	.preview p {
+		font-size: $small-font-size;
+		font-style: normal;
+	  visibility: hidden;
+	  width: 250px;
+	  background-color: $dark-taupe;
+	  color: $light-font-color;
+	  text-align: center;
+	  padding: $small-spacing;
+	  border: $double-border;
+	  position: absolute;
+    top: 60%;
+    left: 50%; 
+    margin-left: -125px; 
+    z-index: 1;				
+	}
+
+	.preview:hover p {
+		visibility: visible;
+	}
 }
