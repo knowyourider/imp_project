@@ -409,8 +409,11 @@ picture {
     border: 1px solid #b3aa98;
     display: block;
     max-width: none;
-    max-height: 70%;
+    max-height: 25vh;
     padding: 2px; }
+    @media screen and (max-height: 790px) {
+      .deeper .table-cell img {
+        max-height: 18vh; } }
     .deeper .table-cell img.oval {
       border-radius: 50%; }
 
