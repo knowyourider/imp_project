@@ -13,10 +13,20 @@
 		@include calc(height, "100vh - #{$top-plus-bottom}");
 		@include position(absolute, 50px null 0 0); 
 	}
+
+	a:link, a:visited {
+		color: transparentize($light-font-color, 0.4);
+	}
+	
+	a:hover {
+		color: $light-font-color;
+		text-decoration: underline;
+	}
+
 }
 
 .intro-text {
-	font-size: $base-font-size * 1.15;
+	font-size: $base-font-size;
 }
 
 .intro-nav {

@@ -672,9 +672,14 @@ body {
       top: 50px;
       bottom: 0;
       left: 0; } }
+  .text-panel a:link, .text-panel a:visited {
+    color: rgba(255, 244, 228, 0.6); }
+  .text-panel a:hover {
+    color: #fff4e4;
+    text-decoration: underline; }
 
 .intro-text {
-  font-size: 1.15em; }
+  font-size: 1em; }
 
 .intro-nav {
   font-size: 0.8em; }
