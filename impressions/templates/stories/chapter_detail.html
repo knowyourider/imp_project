@@ -17,11 +17,6 @@
 {% block content_area %}
   <div class="table-cell content-wrapper--narrative">
     <section class="image-panel">
-      <p class="breadcrumbs">
-        <a href="/">Home</a> >
-        <a href="{% url 'stories:story_list' %}">Story Menu</a> 
-        <a href="{% url 'stories:story_detail' object.slug %}">{{ object.title|safe }}</a>
-      </p>
       <h4>{{ object.title|safe }}</h4>  
       <h2 class="story-subtitle">Chapter {{ chapter.chapter_num }}: {{ chapter.title|safe }}</h2> 
       <p class="image-panel--caption">Caption goes here -- we don't have a field for that yet.</p>
