@@ -17,11 +17,6 @@
   <div class="content-wrapper--narrative">
 
     <section class="image-panel">
-    	<p class="breadcrumbs">
-    		<a href="/">Home</a> >
-    		<a href="{% url 'stories:story_list' %}">Story Menu</a> 
-        {{ object.title|safe }}
-    	</p>
       <h1 class="story-title">{{ object.title|safe }}</h1> 
     	<h2 class="story-subtitle">{{ object.subtitle|safe }}</h2> 
     </section>
