@@ -2,19 +2,21 @@
 
 .deeper {
 	font-size: $smallish-font-size;
-	padding-top: $large-spacing;
 
 	h2 {
 		color: $action-color;
 		font-size: $medlarge-font-size;
 		letter-spacing: 0.25em;
-		margin: $base-spacing 0 0 $base-spacing;
+		margin-left: $base-spacing;
+		padding-top: $large-spacing;
 		text-transform: uppercase;
+		width: 100%;
 	}
 		
 	// when viewport is less than or equal to em(860), show at top of gallery
 	@include media(max-width $large-screen) {
-		padding: $base-spacing;
+		margin-top: -$base-spacing;
+		padding: 0 $base-spacing $base-spacing $base-spacing;
 	}
 }
 
@@ -31,8 +33,14 @@
 
 	// when viewport is less than or equal to 790px tall, make images smaller
 	@include media(max-height 790px) {
-				max-height: 18vh;
+				max-height: 20vh;
 	}
+
+	// when viewport is less than or equal to em(860), make images smaller
+	@include media(max-width $large-screen) {
+				max-height: none;
+	}
+
 		&.oval {
 			border-radius: 50%;	
 		}
@@ -52,8 +60,8 @@
 		//for large displays:
 	  @include media($large-screen) {
 			@include position(absolute, 0 -100% null null ); 
-			background-color: $transparent-dark-taupe;
-			height: 80px;
+			background-color: transparentize($accent-color, 0.4);
+			height: 70px;
 			letter-spacing: 0.25em;
 			padding: $base-spacing;
 			text-transform: uppercase;
@@ -72,6 +80,6 @@
 }
 
 .table.toprow .table-cell {
-  vertical-align: bottom;
+  //vertical-align: bottom; not working due to wrapping text links
   padding-bottom: 1rem;
 }

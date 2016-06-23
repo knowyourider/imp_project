@@ -390,17 +390,19 @@ picture {
   max-width: 100%; }
 
 .deeper {
-  font-size: 0.9em;
-  padding-top: 3.2em; }
+  font-size: 0.9em; }
   .deeper h2 {
     color: #d94a38;
     font-size: 1.5em;
     letter-spacing: 0.25em;
-    margin: 1.6em 0 0 1.6em;
-    text-transform: uppercase; }
+    margin-left: 1.6em;
+    padding-top: 3.2em;
+    text-transform: uppercase;
+    width: 100%; }
   @media screen and (max-width: 53.75em) {
     .deeper {
-      padding: 1.6em; } }
+      margin-top: -1.6em;
+      padding: 0 1.6em 1.6em 1.6em; } }
 
 .deeper .table-cell {
   padding: 1.6em;
@@ -413,7 +415,10 @@ picture {
     padding: 2px; }
     @media screen and (max-height: 790px) {
       .deeper .table-cell img {
-        max-height: 18vh; } }
+        max-height: 20vh; } }
+    @media screen and (max-width: 53.75em) {
+      .deeper .table-cell img {
+        max-height: none; } }
     .deeper .table-cell img.oval {
       border-radius: 50%; }
 
@@ -428,8 +433,8 @@ picture {
     position: absolute;
     top: 0;
     right: -100%;
-    background-color: rgba(101, 96, 90, 0.6);
-    height: 80px;
+    background-color: rgba(217, 74, 56, 0.6);
+    height: 70px;
     letter-spacing: 0.25em;
     padding: 1.6em;
     text-transform: uppercase;
@@ -442,7 +447,6 @@ picture {
       color: #d94a38; } }
 
 .table.toprow .table-cell {
-  vertical-align: bottom;
   padding-bottom: 1rem; }
 
 .menu-gallery li {
@@ -480,6 +484,56 @@ picture {
   z-index: 1; }
 .menu-gallery .preview:hover p {
   visibility: visible; }
+
+.control-panel {
+  background-color: #d2cdba;
+  color: #d94a38;
+  padding: 1.6em;
+  width: 100%; }
+  @media screen and (min-width: 53.75em) {
+    .control-panel {
+      width: 30%;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px);
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+      left: 0; } }
+
+.menu-grid--area {
+  padding: 1.6em;
+  position: relative;
+  width: 100%;
+  height: 500px; }
+  @media screen and (min-width: 53.75em) {
+    .menu-grid--area {
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px);
+      position: absolute;
+      top: 50px;
+      right: 0;
+      bottom: 0;
+      /* why 100px and not $top-navigation-height??? */
+      width: 70%; } }
+
+.menu-grid li {
+  font-size: 0.9em;
+  line-height: 1.2;
+  margin-bottom: 1.6em;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%; }
+  .menu-grid li:last-child {
+    margin-right: 0; }
+  .menu-grid li:nth-child(6n) {
+    margin-right: 0; }
+  .menu-grid li:nth-child(6n+1) {
+    clear: left; }
+  .menu-grid li img {
+    padding: 2px;
+    border: double #b3aa98;
+    max-width: 100%; }
 
 .menu-home li {
   display: inline-block;
@@ -653,9 +707,14 @@ body {
   font-size: 0.8em;
   padding: 0.8em;
   position: absolute;
+  right: 1.6em;
   bottom: 1.6em;
-  left: 1.6em;
   width: 300px; }
+  @media screen and (min-width: 53.75em) {
+    .image-panel--caption {
+      position: absolute;
+      right: 6.4em;
+      bottom: 1.6em; } }
 
 .text-panel {
   background-color: #65605a;
@@ -697,9 +756,9 @@ body {
 
 .chapter-text--scroll {
   background-color: #5d5853;
-  border: 1px solid black;
+  border: 1px solid #4f4b47;
   font-size: 0.86957em;
-  height: 75%;
+  height: 80%;
   margin-bottom: 0.8em;
   padding: 0.8em;
   overflow-y: scroll; }

@@ -21,6 +21,11 @@
 	font-family: $utility-font-family;
 	font-size: $small-font-size;
 	padding: $small-spacing;
-	@include position(absolute, null null $base-spacing $base-spacing); 
+	@include position(absolute, null $base-spacing $base-spacing null); 
 	width: 300px;
+
+	//for large displays:
+  @include media($large-screen) {	
+  		@include position(absolute, null $xlarge-spacing $base-spacing null); 
+	}
 }

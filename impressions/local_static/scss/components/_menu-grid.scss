@@ -1,0 +1,49 @@
+// Menus for Evidence, Context
+.control-panel {
+	background-color: $top-nav-background-color;
+	color: $accent-color;
+	padding: $base-spacing;
+	// for small displays
+	width: 100%;
+
+	//for large displays:
+  @include media($large-screen) {
+		width: 30%;
+    //height: 100vh;
+		@include calc(height, "100vh - #{$top-plus-bottom}");
+		@include position(absolute, 50px null 0 0);
+	}
+}
+
+.menu-grid--area {
+	padding: $base-spacing;
+	position: relative;
+	// for small displays
+	width: 100%;
+	height: 500px;
+
+	//for large displays:
+  @include media($large-screen) {
+		@include calc(height, "100vh - #{$top-plus-bottom}");
+		@include position(absolute, 50px 0 0 null); /* why 100px and not $top-navigation-height??? */
+		width: 70%;
+	}
+
+}
+
+.menu-grid {
+	li {
+		font-size: $smallish-font-size;
+		line-height: $heading-line-height;
+		margin-bottom: $base-spacing;
+		
+	  @include span-columns(2);
+	  @include omega(6n);
+
+  	img {
+  		padding: 2px;
+  		border: $double-border;
+  		max-width: 100%;
+  	}
+  }
+}
