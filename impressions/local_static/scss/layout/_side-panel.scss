@@ -39,10 +39,20 @@
 		}
 }
 
-.chapter-text {
+.chapter-text, .intro-text {
 	h2 {
-		font-size: $medlarge-font-size;
+
+		@include media(max-width 1100px) {
+			font-size: $base-font-size;
+		}
 	}
+
+	h4 {
+
+		@include media(max-width 1100px) {
+			font-size: $small-font-size;
+		}
+	}	
 }
 
 .chapter-text--scroll {
@@ -53,4 +63,31 @@
 	margin-bottom: $small-spacing;
 	padding: $small-spacing;
 	overflow-y: scroll;
+
+	//when viewport is shorter than 750px reduce height of text area
+	@include media(max-height 750px) {
+		height: 70%;
+	}
+
+	//when viewport is narrower than 1200px reduce height of text area
+	@include media(max-width 1200px) {
+		height: 70%;
+	}
+}
+
+.chapter-nav {
+	li {
+		display: inline;
+		padding-right: $small-spacing;
+		
+		@include media(max-width 1100px) {
+			font-size: $small-font-size;
+		}
+	}
+
+	p {
+		@include media(max-width 1100px) {
+			font-size: $small-font-size;
+		}		
+	}	
 }
