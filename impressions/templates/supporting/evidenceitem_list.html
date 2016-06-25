@@ -1,20 +1,41 @@
-{% extends "base_list.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title_area %}
-  <h1>Evidence</h1>
-{% endblock title_area %}
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
+{% block wrapper_class %}"content-wrapper--intro"{% endblock wrapper_class %}
 
-{% block menu %}
-  <ul>
-  {% for object in object_list %}
-    <li>
-        <img src="{% static 'supporting/evidenceitem/thumbpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" width="100" height="100">       
-      <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
-        {{ object.title|safe }}</a>
-        {{ object.menu_blurb|safe }}
-    </li>
-  {% endfor %}
-  </ul>     
-{% endblock menu %}
+{% block content_area %}
+
+  <div>
+  
+    <section class="menu-grid--area">
+      <h2>Showing: All, xx items</h2>
+      <ul class="menu-grid">
+      
+      {% for object in object_list %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
+            <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">         
+            <em>{{ object.title|safe }}</em>
+            </a>
+        </li>
+      {% endfor %}
+      </ul>   
+
+    </section>
+    
+    <section class="control-panel">
+      <h1>Evidence: Artifacts &amp; Documents</h1>
+      <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+      </ul>
+  
+    </section>
+
+  </div>
+
+{% endblock content_area %}
