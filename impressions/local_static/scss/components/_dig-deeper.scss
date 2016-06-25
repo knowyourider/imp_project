@@ -59,15 +59,17 @@
 
 		//for large displays:
 	  @include media($large-screen) {
-			@include position(absolute, 0 -100% null null ); 
+			position: absolute; 
 			background-color: transparentize($accent-color, 0.4);
 			height: 70px;
 			letter-spacing: 0.25em;
 			padding: $base-spacing;
+			right: calc(-100vh + 50px);
 			text-transform: uppercase;
+			top: 0;
 			transform: rotate(90deg);
 			transform-origin: left top 0;
-			width: 100%;
+			width: calc(100vh - 50px);
 
 				a:link, a:visited {
 					color: $light-font-color;
