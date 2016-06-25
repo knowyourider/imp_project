@@ -50,8 +50,9 @@
           <a href="{% url 'stories:story_list' %}">Stories</a>
           {% if object.content_type.id == 1 %}
             <ul class="submenu">
-              <li><a href="{% url 'stories:story_detail' 'whose-discovery' %}">Whose Discovery Was It?</a></li>
-              <li><a href="../whose-discovery/">Need dynamic list from View</a></li>
+              {% for story in object.story_list %}
+                <li><a href="{% url 'stories:story_detail' story.slug %}">{{ story.title|safe }}</a></li>
+              {% endfor %}
             </ul>
           {% endif %}
         </li>

@@ -16,13 +16,23 @@ class Story(CommonModel):
     introduction = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
 
-   # next story, empty if none
-    @property
-    def next_chapter(self):
-        #chapter_list = self.objects.all()
-        next_chapter_num = int(self.chapter_num) + 1
-        # print("debug - self: pk: " + str(self.story.pk) + " chap: " + str(next_chapter_num))
-        return Chapter.objects.get(story=self.story.pk, chapter_num=next_chapter_num)
+    # next, prev story, false if none
+    def get_next(self):
+        next = Story.objects.filter(status_num__gt=1, title__gt=self.title)
+        print('self.ordinal: ' + str(self.ordinal))
+        if next:
+            return next.first()
+        return False
+
+    def get_prev(self):
+        prev = Story.objects.filter(status_num__gt=1, 
+            title__lt=self.title).order_by('-title')
+        if prev:
+            return prev.first()
+        return False
+
+    def story_list(self):
+        return Story.objects.filter(status_num__gt=1)
 
     class Meta:
         ordering = ['title']
@@ -31,18 +41,25 @@ class Story(CommonModel):
 class Chapter(AssociationMixin, models.Model):
     story = models.ForeignKey('stories.Story')
     title = models.CharField(max_length=64)
-    chapter_num = models.CharField(max_length=8)
+    chapter_num = models.IntegerField(default=0)
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
 
-   # next chapter, empty if none
-    @property
-    def next_chapter(self):
-        #chapter_list = self.objects.all()
-        next_chapter_num = int(self.chapter_num) + 1
-        print("debug - self: pk: " + str(self.story.pk) + " chap: " + str(next_chapter_num))
-        return Chapter.objects.get(story=self.story.pk, chapter_num=next_chapter_num)
-    
+    # next chapter, empty if none
+    def get_next(self):
+        next = Chapter.objects.filter(story_id=self.story_id, 
+            chapter_num__gt=self.chapter_num)
+        if next:
+            return next.first()
+        return False
+
+    def get_prev(self):
+        prev = Chapter.objects.filter(story_id=self.story_id, 
+            chapter_num__lt=self.chapter_num).order_by('-chapter_num')
+        if prev:
+            return prev.first()
+        return False
+
     class Meta:
         ordering = ['story', 'chapter_num']
 

@@ -27,13 +27,25 @@
 
       <ul class="intro-nav">
           <li>
-            Previous Story: <a href="#">[not yet dynamic]</a>
+            {% if object.get_prev %}
+              Previous Story: <a href="{% url 'stories:story_detail' object.get_prev.slug %}">
+                {{object.get_prev.title|safe}}
+              </a>
+            {% else %}
+              Prev
+            {% endif %}
           </li>
           <li>
             <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
           </li>
           <li>
-            Next Story: <a href="#">[not yet dynamic]</a>
+            {% if object.get_next %}
+              Next Story: <a href="{% url 'stories:story_detail' object.get_next.slug %}">
+                {{object.get_next.title|safe}}
+              </a>
+            {% else %}
+              Next
+            {% endif %}
           </li>
       </ul>
 
@@ -42,3 +54,20 @@
   </div><!--/content-wrapper--narrative -->
   <!-- Chapter layout has another div here - deeper table-cell -->
 {% endblock content_area %}
+
+
+      <p class="next-chapter">
+      {% if chapter.get_prev %}
+          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_prev.chapter_num %}"> 
+          Prev</a>
+      {% else %}
+        Prev
+      {% endif %}
+      |
+      {% if chapter.get_next %}
+          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_next.chapter_num %}">
+          Next: {{ chapter.get_next.title|safe }}</a>
+      {% else %}
+        Next
+      {% endif %}
+      </p>

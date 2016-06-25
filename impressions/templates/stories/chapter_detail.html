@@ -31,8 +31,22 @@
         {{ chapter.narrative|safe }}
       </div><!--/chapter-text-scroll-->
 
-      <p class="next-chapter">Next chapter: <a href="{% url 'stories:chapter_detail' object.slug chapter.next_chapter.chapter_num %}">{{ chapter.next_chapter.chapter_num }} {{ chapter.next_chapter.title|safe }}</a>
+      <p class="next-chapter">
+      {% if chapter.get_prev %}
+          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_prev.chapter_num %}"> 
+          Prev</a>
+      {% else %}
+        Prev
+      {% endif %}
+      |
+      {% if chapter.get_next %}
+          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_next.chapter_num %}">
+          Next: {{ chapter.get_next.title|safe }}</a>
+      {% else %}
+        Next
+      {% endif %}
       </p>
+      
     </article><!--/text-panel-->
   </div><!--/content-wrapper-narrative-->
 

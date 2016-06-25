@@ -19,26 +19,27 @@ class ChapterDetailView(DetailView):
     """
     Two parameters are sent: slug and chapter_num
     Slug finds the story. From there we just have to find the right chapter
+    (We're not going directly by chapter pk, and chapters don't have slugs)
     """
     model = Story
     # context_object_name = 'object'
     template_name = 'stories/chapter_detail.html'
-    # get data for this menu type
-    
+
+    # get the actual chapter    
     def get_context_data(self, **kwargs):
         # get context
         context = super(ChapterDetailView, self).get_context_data(**kwargs)
         # get story object from detail view
-        self.object = super(ChapterDetailView, self).get_object()
+        story_object = super(ChapterDetailView, self).get_object()
         # chapter_num will come from parameters
         chapter_num_arg = self.kwargs['chapter_num']
         # get the chapter object
-        chapter = get_object_or_404(Chapter, story_id=self.object.id, 
+        chapter = get_object_or_404(Chapter, story_id=story_object.id, 
             chapter_num=chapter_num_arg)
         # set the chapter object in the context
         context['chapter'] = chapter
         # We need next and previous chapter numbers for navigation
-        # next_chapter set by property in Chapter model
+        # get_next, get_prev set by properties in Chapter model
 
         return context
     

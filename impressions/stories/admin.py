@@ -34,6 +34,6 @@ class ChapterAdmin(admin.ModelAdmin):
     #search_fields = ['title']
     list_display = ('title',  'chapter_num', 'story')
     list_filter     = ['story'] # , 'edit_date'
-    search_fields = ['title', 'slug']
+    search_fields = ['title']
 
 admin.site.register(Chapter, ChapterAdmin)
