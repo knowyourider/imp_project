@@ -14,7 +14,6 @@ class Layer(AssociationMixin, models.Model):
     sites = models.ManyToManyField('map.Site', 
         verbose_name='Sites relevant to this layer', blank=True)
 
-
     def __str__(self):
         return self.title
 
@@ -27,6 +26,8 @@ class Site(models.Model):
     SITE_TYPES = (
         ('evidenceitem','Evidence'),
         ('context','Context'),
+        ('place','Place of Interest'),
+        ('special','Special Feature'),
     )
     site_type = models.CharField(max_length=16, choices=SITE_TYPES)
     short_name = models.CharField('Short name of the evidence, context, etc.', max_length=48)

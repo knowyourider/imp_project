@@ -3,6 +3,7 @@ from core.models import ContentType, CommonModel, AssociationMixin
 
 class CommonSupportingModel(CommonModel):
     STATUS_NUMS = (
+        (0,'0 - Initial Entry'),
         (1,'1 - Place Holder'),
         (2,'2 - Real Shortname'),
         (3,'3 - Candidate for Publication'),
@@ -28,10 +29,13 @@ class Context(AssociationMixin, CommonSupportingModel):
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
     narrative = models.TextField('Description / Label', blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class EvidenceType(models.Model):
-    """docstring for EvidenceType"""
+    """docstring for EvidenceType
+    Site admin access only -- not the table for evidence items themselves
+    """
     is_document_oriented = models.BooleanField('Document-oriented: can have pages ' + 
         'and or transcripts')
     title = models.CharField(max_length=32)
@@ -62,6 +66,7 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     creation_year = models.IntegerField(blank=True, null=True)
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class FastFact(CommonSupportingModel):
@@ -69,12 +74,19 @@ class FastFact(CommonSupportingModel):
     FastFact
     ContentType is defined in Admin in Core > ContentTypes
     """
+    FASTFACT_TYPES = (
+        ('definition','Definition'),
+        ('moreinfo','More Info'),
+    )
     FASTFACT_CONTENT_TYPE_ID = 6
     content_type = models.ForeignKey('core.ContentType', 
         default=FASTFACT_CONTENT_TYPE_ID)
+    fastfact_type = models.CharField(max_length=32, default='moreinfo', 
+        choices=FASTFACT_TYPES)
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
+    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class Person(AssociationMixin, CommonSupportingModel):
@@ -89,7 +101,46 @@ class Person(AssociationMixin, CommonSupportingModel):
     birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='')
 
     class Meta:
         ordering = ['last_name']
-        
+
+
+class Place(CommonSupportingModel):
+    """
+    Place of interest
+    ContentType is defined in Admin in Core > ContentTypes
+    """
+    PLACE_CONTENT_TYPE_ID = 9
+    content_type = models.ForeignKey('core.ContentType', 
+        default=PLACE_CONTENT_TYPE_ID)
+    title = models.CharField(max_length=128)
+    narrative = models.TextField('Description / Label', blank=True, default='')
+    # has_image = models.BooleanField(default=False)
+    caption = models.CharField(max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = "Place of Interest"
+
+
+class Special(CommonSupportingModel):
+    """
+    Special Features
+    ContentType is defined in Admin in Core > ContentTypes
+    """
+    SPECIAL_TYPES = (
+        ('animation','Animation'),
+        ('slideshow','Slide Show'),
+    )
+    SPECIAL_CONTENT_TYPE_ID = 8
+    content_type = models.ForeignKey('core.ContentType', 
+        default=SPECIAL_CONTENT_TYPE_ID)
+    special_type = models.CharField(max_length=32, default='animation', 
+        choices=SPECIAL_TYPES)
+    title = models.CharField(max_length=128)
+    narrative = models.TextField('Description / Label', blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='')
+
+    class Meta:
+        verbose_name = "Special Feature"
