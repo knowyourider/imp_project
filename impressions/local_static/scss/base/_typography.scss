@@ -30,7 +30,12 @@ h6 {
 .main-title {
   font-size: $title-font-size;
   color: $accent-color;
-}  
+}
+
+.subtitle {
+  font-size: $medlarge-font-size;
+  color: $accent-color;
+}
 
 .story-title {
   font-size: $title-font-size;
@@ -43,6 +48,11 @@ h6 {
   color: $light-font-color;
   text-shadow: $title-shadow;
 }  
+
+.heading {
+  font-variant: small-caps;
+  letter-spacing: .05em;
+}
 
 p {
   margin: 0 0 $small-spacing;

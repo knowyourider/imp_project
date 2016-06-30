@@ -1,5 +1,7 @@
 // Menus for Stories, Themes
 .menu-gallery {
+	text-align: center;
+	
 	li {
 	  @include span-columns(3);
 	  @include omega(4n);

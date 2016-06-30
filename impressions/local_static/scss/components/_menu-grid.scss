@@ -9,21 +9,32 @@
 	//for large displays:
   @include media($large-screen) {
 		width: 30%;
-    //height: 100vh;
+    height: 100vh;
 		@include calc(height, "100vh - #{$top-plus-bottom}");
 		@include position(absolute, 50px null 0 0);
+	}
+
+	ul {
+		margin-bottom: $base-spacing;
+
+		li {
+			font-size: $smallish-font-size;
+			font-weight: normal;
+		}
 	}
 }
 
 .menu-grid--area {
-	padding: $base-spacing;
+	overflow: auto;
+	padding: $large-spacing $base-spacing;
 	position: relative;
 	// for small displays
 	width: 100%;
-	height: 500px;
+	//height: 800px;
 
 	//for large displays:
   @include media($large-screen) {
+		padding: $base-spacing;
 		@include calc(height, "100vh - #{$top-plus-bottom}");
 		@include position(absolute, 50px 0 0 null); /* why 100px and not $top-navigation-height??? */
 		width: 70%;
@@ -33,17 +44,43 @@
 
 .menu-grid {
 	li {
-		font-size: $smallish-font-size;
+		font-size: $small-font-size;
 		line-height: $heading-line-height;
 		margin-bottom: $base-spacing;
-		
-	  @include span-columns(2);
-	  @include omega(6n);
 
   	img {
-  		padding: 2px;
+  		display: block;
   		border: $double-border;
+  		margin-bottom: $tiny-spacing;
+  		padding: 2px;
   		max-width: 100%;
   	}
   }
+}
+
+.squares {
+
+	li {
+
+	  @include span-columns(1.5);
+	  @include omega(7n);
+	}
+}
+.ovals {
+
+	li {
+
+		// when viewport is less than or equal to em(860), fewer columns
+		@include media(max-width $large-screen) {
+		  @include span-columns(2);
+		  @include omega(5n);
+	  }
+
+	  @include span-columns(12/10);
+	  @include omega(10n);
+	 } 
+
+	img {
+		border-radius: 50%;	
+	}
 }
