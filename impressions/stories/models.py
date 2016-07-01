@@ -3,6 +3,7 @@ from core.models import ContentType, CommonModel, AssociationMixin
 
 class Story(CommonModel):
     STATUS_NUMS = (
+        (0,'0 - Initial Entry'),
         (1,'1 - In Admin Only'),
         (2,'2 - Development (Wireframe)'),
         (3,'3 - Candidate for Publication'),
@@ -15,11 +16,11 @@ class Story(CommonModel):
     image_name = models.CharField(max_length=32, blank=True, default='')
     introduction = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
+    caption = models.CharField(max_length=255, blank=True, default='')
 
     # next, prev story, false if none
     def get_next(self):
         next = Story.objects.filter(status_num__gt=1, title__gt=self.title)
-        print('self.ordinal: ' + str(self.ordinal))
         if next:
             return next.first()
         return False
@@ -44,6 +45,7 @@ class Chapter(AssociationMixin, models.Model):
     chapter_num = models.IntegerField(default=0)
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='')
 
     # next chapter, empty if none
     def get_next(self):

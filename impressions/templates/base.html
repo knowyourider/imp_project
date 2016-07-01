@@ -58,7 +58,16 @@
         </li>
         <li class="nav-link"><a href="{% url 'map:map_list' %}">Map</a></li>
         <li class="nav-link"><a href="#">Timeline</a></li>
-        <li class="nav-link"><a href="#">Themes</a></li>
+        <li class="nav-link {% if object.content_type.id == 2 %}more{% endif %}">
+          <a href="{% url 'themes:theme_list' %}">Themes</a>
+          {% if object.content_type.id == 2 %}
+            <ul class="submenu">
+              {% for theme in object.theme_list %}
+                <li><a href="{% url 'themes:theme_detail' theme.slug %}">{{ theme.title|safe }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
       </ul>
     </nav>
   </div>

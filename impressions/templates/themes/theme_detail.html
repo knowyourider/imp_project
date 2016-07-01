@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
+
+
+{% block content_area %}
+
+  <p>
+    <a href="/">Home</a> >
+    <a href="{% url 'themes:theme_list' %}">Themes</a> >
+  </p>
+
+  <h2>{{ object.title|safe }}</h2> 
+
+  {{ object.narrative|safe }}
+
+  <p>Related People and Evidence</p>
+  <ul>
+    {% for person in object.people.all %}
+      <li>
+        <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+          {{ person.first_name }} {{ person.first_name }}
+        </a>
+      </li>
+    {% endfor %}
+    {% for evidenceitem in object.evidence.all %}
+      <li>
+        <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+          {{ evidenceitem.title }}
+        </a>
+      </li>
+    {% endfor %}
+    
+</ul>
+{% endblock content_area %}

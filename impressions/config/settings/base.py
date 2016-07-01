@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'map',
     'stories',
     'supporting',
+    'themes',
 )
 
 MIDDLEWARE_CLASSES = (

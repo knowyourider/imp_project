@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^map/', include('map.urls', namespace='map')),
     url(r'^stories/', include('stories.urls', namespace='stories')),
     url(r'^supporting/', include('supporting.urls', namespace='supporting')),
+    url(r'^themes/', include('themes.urls', namespace='themes')),
 ]

@@ -17,7 +17,7 @@
 {% block content_area %}
   <div class="table-cell content-wrapper--narrative">
     <section class="image-panel">
-      <p class="image-panel--caption">Caption goes here -- we don't have a field for that yet.</p>
+      <p class="image-panel--caption">{{ chapter.caption|safe }}</p>
 
       <p class="go-to-deeper"><a href="">Dig Deeper</a></p>
 

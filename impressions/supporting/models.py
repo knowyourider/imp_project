@@ -10,6 +10,7 @@ class CommonSupportingModel(CommonModel):
         (4,'4 - Published'),
     )
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
+    caption = models.CharField(max_length=255, blank=True, default='')
 
     class Meta:
         abstract = True
@@ -29,7 +30,6 @@ class Context(AssociationMixin, CommonSupportingModel):
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
     narrative = models.TextField('Description / Label', blank=True, default='')
-    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class EvidenceType(models.Model):
@@ -66,7 +66,6 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     creation_year = models.IntegerField(blank=True, null=True)
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
-    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class FastFact(CommonSupportingModel):
@@ -86,7 +85,6 @@ class FastFact(CommonSupportingModel):
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
-    caption = models.CharField(max_length=255, blank=True, default='')
 
 
 class Person(AssociationMixin, CommonSupportingModel):
@@ -101,7 +99,6 @@ class Person(AssociationMixin, CommonSupportingModel):
     birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
-    caption = models.CharField(max_length=255, blank=True, default='')
 
     class Meta:
         ordering = ['last_name']
@@ -118,7 +115,6 @@ class Place(CommonSupportingModel):
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     # has_image = models.BooleanField(default=False)
-    caption = models.CharField(max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = "Place of Interest"
@@ -140,7 +136,6 @@ class Special(CommonSupportingModel):
         choices=SPECIAL_TYPES)
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
-    caption = models.CharField(max_length=255, blank=True, default='')
 
     class Meta:
         verbose_name = "Special Feature"
