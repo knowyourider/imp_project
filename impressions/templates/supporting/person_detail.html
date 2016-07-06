@@ -9,7 +9,8 @@
 
 {% block slim_content%}
 
-<img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+<img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="oval double-border">
+<p class="caption slim-caption">[Image caption goes here.] Photo courtesy of [source goes here].</p>
 
 {{ object.narrative|safe }}
 

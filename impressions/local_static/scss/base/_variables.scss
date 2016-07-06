@@ -38,8 +38,11 @@ $transparent-dark-taupe: transparentize($dark-taupe, 0.4);
 // Font Colors
 $base-font-color: $dark-gray !default;
 $light-font-color: #fff4e4;
-$accent-color: #d94a38;
-$action-color: #d94a38;
+//$accent-color: #d94a38;
+$accent-color: #b12b00;
+//$action-color: #d94a38;
+$action-color: $accent-color;
+$hover-color: #d94a38;
 $footer-color: $light-font-color;
 $footer-link-color: transparentize($footer-color, 0.6);
 $footer-disclaimer-color: transparentize($footer-color, 0.6);

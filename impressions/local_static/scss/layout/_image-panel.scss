@@ -15,12 +15,10 @@
 	}
 }
 
+// basic caption styles are in typography.scss
 .image-panel--caption {
 	background-color: $transparent-dark-taupe;
 	color: $light-font-color;
-	font-family: $utility-font-family;
-	font-size: $small-font-size;
-	padding: $small-spacing;
 	@include position(absolute, null $base-spacing $base-spacing null); 
 	width: 300px;
 
