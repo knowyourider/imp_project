@@ -15,6 +15,7 @@ class ContextDetailView(DetailView):
 
 class EvidenceItemListView(ListView):
     model = EvidenceItem
+    #queryset = EvidenceItem.objects.filter(status_num__gte=settings.STATUS_LEVEL)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
 

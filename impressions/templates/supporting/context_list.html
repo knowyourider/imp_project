@@ -1,19 +1,74 @@
 {% extends "base_list.html" %}
 {% load staticfiles %}
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block title_area %}
-  <h1>Contexts</h1>
-{% endblock title_area %}
+{% block wrapper_class %}{% endblock wrapper_class %}
 
+{% block content_area %}
 
-{% block menu %}
-  <ul>
+<section class="menu-grid--area">
+  <h1 class="main-title">Context</h1>
+
+  <ul class="menu-grid squares">
   {% for object in object_list %}
-    <li>
-      <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
-        {{ object.title|safe }} {{ object.subtitle|safe }}</a>
-        {{ object.menu_blurb|safe }}
+
+    <li><a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
+      <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">{{ object.title|safe }} {{ object.subtitle|safe }}
+      </a>
     </li>
   {% endfor %}
   </ul>     
-{% endblock menu %}
+</section>
+
+<section class="control-panel">
+  <h2>Showing: All, 163 items</h2>
+  <h4 class="heading">Narrow by Topic</h4>
+  
+  <ul id="id_topic">
+    <li>
+      <label for="id_0">
+        <input id="id_0" name="topic" type="checkbox" value="paleontology" /> Paleontolgy &amp; Ichnology
+      </label>
+    </li>
+    <li>
+      <label for="id_1">
+        <input id="id_1" name="topic" type="checkbox" value="religion" /> Religion &amp; Philosophy
+      </label>
+    </li>
+    <li>
+      <label for="id_2">
+        <input id="id_2" name="topic" type="checkbox" value="geology" /> Geology &amp; Geography
+      </label>
+    </li>
+    <li>
+      <label for="id_3">
+        <input id="id_3" name="topic" type="checkbox" value="art" /> Art &amp; Literature
+      </label>
+    </li>
+    <li>
+      <label for="id_4">
+        <input id="id_4" name="topic" type="checkbox" value="history" /> History &amp; Politics
+      </label>
+    </li>
+    <li>
+      <label for="id_5">
+        <input id="id_5" name="topic" type="checkbox" value="technology" /> Technology &amp; Industry
+      </label>
+    </li>
+    <li>
+      <label for="id_6">
+        <input id="id_6" name="topic" type="checkbox" value="culture" /> Culture &amp; Education
+      </label>
+    </li>
+  </ul>
+
+  <h4 class="heading">Search by Keyword</h4>
+  <input type="search" name="q" value="" id="id_q" 
+  placeholder="Search" class="search-field"/>
+  
+  <input type="submit" value="Go" />
+  <span id="clear"><a href="#">clear search</a></span>
+
+</section>
+
+{% endblock content_area %}

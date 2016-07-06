@@ -67,6 +67,9 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
 
+    def __str__(self):
+        return self.title       
+
 
 class FastFact(CommonSupportingModel):
     """
@@ -85,6 +88,9 @@ class FastFact(CommonSupportingModel):
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title       
 
 
 class Person(AssociationMixin, CommonSupportingModel):
@@ -119,6 +125,9 @@ class Place(CommonSupportingModel):
     class Meta:
         verbose_name = "Place of Interest"
 
+    def __str__(self):
+        return self.title       
+
 
 class Special(CommonSupportingModel):
     """
@@ -139,3 +148,7 @@ class Special(CommonSupportingModel):
 
     class Meta:
         verbose_name = "Special Feature"
+        
+    def __str__(self):
+        return self.title       
+

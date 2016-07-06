@@ -1,21 +1,25 @@
 {% extends "base_list.html" %}
 {% load staticfiles %}
 
-{% block title_area %}
-  <h1>People</h1>
-{% endblock title_area %}
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
+{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
 
-{% block menu %}
-  <ul>
+{% block content_area %}
+
+  <h1 class="main-title">People</h1>
+
+  <ul class="menu-grid ovals">
+
   {% for object in object_list %}
-    <li>
-      <a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}">
-        <img src="{% static 'supporting/person/thumbpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" width="100" height="100">       
-        {{ object.title_prefix|safe }} {{ object.first_name|safe }} 
-        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}</a>
-        {{ object.menu_blurb|safe }}
-    </li>
+
+    <li><a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}"><img src="{% static 'supporting/person/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" ><em>{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
+        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}</em></a></li>
+
   {% endfor %}
-  </ul>     
-{% endblock menu %}
+
+  </ul>   
+
+
+
+{% endblock content_area %}
