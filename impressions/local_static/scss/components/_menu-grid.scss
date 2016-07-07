@@ -66,6 +66,7 @@
 	  @include omega(7n);
 	}
 }
+
 .ovals {
 
 	li {
@@ -78,7 +79,7 @@
 
 	  @include span-columns(12/10);
 	  @include omega(10n);
-	 } 
+	} 
 
 	img {
 		border-radius: 50%;	

@@ -1,15 +1,79 @@
 /* temp css */
 
 #slimpop-wrapper {
-  background-color: white;
-  border: 1px solid #999;
+  background-color: $base-background-color;
+  border: 1px solid $base-border-color;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
   overflow: auto;
-  padding: 1.5em;
+  padding: 3px;
+}
+
+.slim-border {
+  padding: $base-spacing $large-spacing $large-spacing $large-spacing;
+  border: 1px solid $base-border-color;
 }
 
 .slimpop-close {/* for the close link */
   float: right;
+}
+
+//for people slim
+.double-border {
+  border: $double-border;
+}
+
+.slim-title {
+  color: $accent-color;
+  font-size: $medlarge-font-size;
+  margin-bottom: $tiny-spacing;
+}
+
+.slim-subhead {
+  color: $accent-color;
+  margin: 0 0 $tiny-spacing 0;
+}
+
+.slim-caption {
+  color: $light-taupe;
+}
+
+// for curatorial info on evidence pages
+dl.slim-curatorial {
+  margin-bottom: $small-spacing;
+
+  dt {
+    float: left;
+    margin-right: 5%;
+    margin-top: 0;
+    //margin-bottom: 1em;
+    max-width: 25%;
+  }
+  
+  dd {
+    margin-left: 30%;
+    //margin-bottom: .5em;
+  }
+  
+  dd::after {
+    content: " ";
+    display: block;
+    clear: left;
+  }  
+}
+
+.slim-deeper {
+  border-top: 1px solid $base-border-color;
+  color: $accent-color;
+  padding-top: $tiny-spacing;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-weight: bold;
+      margin: $base-spacing 0 $tiny-spacing 0;
+    }
 }
 
 .hidden {
@@ -43,6 +107,6 @@
   position: fixed; /* this positions the slimpop relative to viewport, it won't scroll with the page */
   right: 0;
   top: 0;
-  width: 500px;
+  width: 550px;
   z-index: 100;
 }

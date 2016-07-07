@@ -10,8 +10,8 @@
   <div>
   
     <section class="menu-grid--area">
-      <h2>Showing: All, xx items</h2>
-      <ul class="menu-grid">
+      <h1 class="main-title">Evidence: Artifacts &amp; Documents</h1>
+      <ul class="menu-grid squares">
       
       {% for object in object_list %}
         <li>
@@ -26,13 +26,43 @@
     </section>
     
     <section class="control-panel">
-      <h1>Evidence: Artifacts &amp; Documents</h1>
-      <ul>
-        <li>list item 1</li>
-        <li>list item 2</li>
-        <li>list item 3</li>
-        <li>list item 4</li>
+      <h2>Showing: All, xx items</h2>
+      <h4 class="heading">Narrow by Item Type</h4>
+      <ul id="id_type">
+        <li>
+          <label for="id_0">
+            <input id="id_0" name="type" type="checkbox" value="objects" /> Objects
+          </label>
+        </li>
+        <li>
+          <label for="id_1">
+            <input id="id_1" name="type" type="checkbox" value="manuscripts" /> Manuscripts
+          </label>
+        </li>
+        <li>
+          <label for="id_2">
+            <input id="id_2" name="type" type="checkbox" value="printed" /> Printed Material
+          </label>
+        </li>
+        <li>
+          <label for="id_3">
+            <input id="id_3" name="type" type="checkbox" value="maps" /> Maps
+          </label>
+        </li>
+        <li>
+          <label for="id_4">
+            <input id="id_4" name="type" type="checkbox" value="pictures" /> Pictures &amp; Paintings
+          </label>
+        </li>
+
       </ul>
+
+      <h4 class="heading">Search by Keyword</h4>
+      <input type="search" name="q" value="" id="id_q" 
+      placeholder="Search" class="search-field"/>
+      
+      <input type="submit" value="Go" />
+      <span id="clear"><a href="#">clear search</a></span>
   
     </section>
 

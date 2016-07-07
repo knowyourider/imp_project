@@ -6,6 +6,9 @@
 
 {% block slim_content%}
 
+<img src="{% static 'supporting/context/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+<p class="caption slim-caption">[Image caption goes here.] Photo courtesy of [source goes here].</p>
+
 {{ object.narrative|safe }}
 
 {% endblock slim_content %}

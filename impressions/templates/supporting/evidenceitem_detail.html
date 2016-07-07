@@ -9,19 +9,19 @@
 
 {% block slim_content%}
 
-<img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+<img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
 
-<dl>
+{{ object.narrative|safe }}
+
+<dl class="slim-curatorial">
   <dt>Creator:</dt>
   <dd>{{ object.creator }}</dd>
-  <dt>Year:</dt>
+  <dt>Date:</dt>
   <dd>{{ object.creation_year }}</dd>
   <dt>Dimensions:</dt>
   <dd>{{ object.dimensions }}</dd>
   <dt>Materials:</dt>
   <dd>{{ object.materials }}</dd>
 </dl>
-
-{{ object.narrative|safe }}
 
 {% endblock slim_content %}
