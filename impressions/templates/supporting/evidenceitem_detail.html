@@ -14,14 +14,18 @@
 {{ object.narrative|safe }}
 
 <dl class="slim-curatorial">
-  <dt>Creator:</dt>
-  <dd>{{ object.creator }}</dd>
-  <dt>Date:</dt>
-  <dd>{{ object.creation_year }}</dd>
-  <dt>Dimensions:</dt>
-  <dd>{{ object.dimensions }}</dd>
-  <dt>Materials:</dt>
-  <dd>{{ object.materials }}</dd>
+		<dt>Creator:</dt>
+		<dd>{{ object.creator }}</dd>
+		<dt>Date:</dt>
+		<dd>{{ object.creation_year }}</dd>
+	{% if object.dimensions %}
+		<dt>Dimensions:</dt>
+		<dd>{{ object.dimensions }}</dd>
+	{% endif %}
+	{% if object.materials %}
+		<dt>Materials:</dt>
+		<dd>{{ object.materials }}</dd>
+	{% endif %}
 </dl>
 
 {% endblock slim_content %}
