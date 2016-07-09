@@ -10,7 +10,7 @@
 {% block slim_content%}
 
 <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
-
+<p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p>
 {{ object.narrative|safe }}
 
 <dl class="slim-curatorial">

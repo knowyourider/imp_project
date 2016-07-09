@@ -6,7 +6,7 @@ class StoryAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/story_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'subtitle', 'slug', 'image_name',
-            'caption','menu_blurb', 'introduction']}),
+            'caption', 'source', 'menu_blurb', 'introduction']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}), # , 'classes': ['collapse']
     ]
@@ -20,7 +20,7 @@ class ChapterAdmin(admin.ModelAdmin):
     change_form_template = 'stories/admin/chapter_change_form.html'
     fieldsets = [
         (None,  {'fields': ['story', 'chapter_num', 'title', 'image_name',
-            'caption','narrative']}),
+            'caption', 'source', 'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
     ]
     filter_horizontal = ['people', 'evidence', 'contexts']    

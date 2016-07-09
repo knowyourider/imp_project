@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import ContentType, CommonModel, AssociationMixin
+from core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class CommonSupportingModel(CommonModel):
     STATUS_NUMS = (
@@ -9,8 +9,10 @@ class CommonSupportingModel(CommonModel):
         (3,'3 - Candidate for Publication'),
         (4,'4 - Published'),
     )
+    # source id 1 - "Source not defined"
+    source = models.ForeignKey('core.Source', default=1)
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
-    caption = models.CharField(max_length=255, blank=True, default='')
+    caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
 
     class Meta:
         abstract = True

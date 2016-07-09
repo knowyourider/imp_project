@@ -5,7 +5,7 @@ from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place
 class ContextAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_blurb_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'context_type', 'caption',
+        (None,  {'fields': ['title', 'slug', 'context_type', 'caption', 'source',
              'menu_blurb', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
@@ -30,8 +30,8 @@ admin.site.register(EvidenceType, EvidenceTypeAdmin)
 class EvidenceItemAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_blurb_change_form.html'
     fieldsets = [
-        (None,            {'fields': ['title', 'slug', 'evidence_type', 'caption',
-            'creator', 'dimensions', 'materials', 'creation_year', 'menu_blurb',
+        (None,            {'fields': ['title', 'slug', 'evidence_type', # 'caption',
+            'source','creator', 'dimensions', 'materials', 'creation_year', 'menu_blurb',
             'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
@@ -49,7 +49,7 @@ class FastFactAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/fastfact_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'slug', 'fastfact_type', 'has_image',
-            'caption', 'narrative']}),
+            'caption', 'source', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
@@ -65,7 +65,7 @@ class PersonAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title_prefix', 'first_name', 'middle_name', 
             'last_name', 'suffix', 'slug', 'birth_year', 'death_year',
-            'caption', 'menu_blurb', 'narrative']}),
+            'caption', 'source', 'menu_blurb', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
@@ -81,7 +81,7 @@ admin.site.register(Person, PersonAdmin)
 class PlaceAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_blurb_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'caption', 
+        (None,  {'fields': ['title', 'slug', 'caption', 'source', 
             'menu_blurb', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
@@ -100,7 +100,7 @@ class SpecialAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_blurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
-            'menu_blurb', 'narrative']}),
+            'source', 'menu_blurb', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]

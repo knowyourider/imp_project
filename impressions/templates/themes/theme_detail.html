@@ -13,6 +13,9 @@
 
   <h2>{{ object.title|safe }}</h2> 
 
+  <img src="{% static 'themes/fullpics/' %}{{ object.image_name }}.jpg"  alt="image of {{ object.slug}}">
+  <p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+
   {{ object.narrative|safe }}
 
   <p>Related People and Evidence</p>

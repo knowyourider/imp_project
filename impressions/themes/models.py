@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import ContentType, CommonModel, AssociationMixin
+from core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class Theme(AssociationMixin, CommonModel):
     """
@@ -22,6 +22,8 @@ class Theme(AssociationMixin, CommonModel):
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
+    caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
+    source = models.ForeignKey('core.Source', default=1)
 
     # next, prev theme, false if none
     def get_next(self):

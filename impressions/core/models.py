@@ -50,3 +50,16 @@ class AssociationMixin(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Source(models.Model):
+    """docstring for Source"""
+    institution = models.CharField(max_length=128)
+    slug = models.SlugField('short name', max_length=48, unique=True)
+    contact = models.CharField(max_length=128, blank=True, default='')
+    notes = models.TextField(blank=True, default='')
+
+    def __str__(self):
+        return self.slug
+
+        

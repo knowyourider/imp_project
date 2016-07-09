@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContentType
+from .models import ContentType, Source
 
 class ContentTypeAdmin(admin.ModelAdmin):
     """docstring for ContentTypeAdmin"""
@@ -9,3 +9,18 @@ class ContentTypeAdmin(admin.ModelAdmin):
     	'menu_level', 'ordinal')
             
 admin.site.register(ContentType, ContentTypeAdmin)
+
+
+class SourceAdmin(admin.ModelAdmin):
+    change_form_template = 'core/admin/notes_change_form.html'
+    fieldsets = [
+        (None,  {'fields': ['institution', 'slug']}),
+        ('Behind the scenes',   {'fields': ['contact', 'notes']}),
+    ]
+    list_display = ('institution', 'slug', 'contact')
+    #filter_horizontal = ['people', 'evidence', 'contexts']    
+    search_fields = ['institution', 'slug']
+
+admin.site.register(Source, SourceAdmin)
+
+

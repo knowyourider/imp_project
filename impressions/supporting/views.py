@@ -3,7 +3,8 @@ from django.views.generic import ListView, DetailView
 from .models import Context, EvidenceItem, FastFact, Person
 
 class ContextListView(ListView):
-    model = Context
+    # model = Context
+    queryset = Context.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
 
@@ -14,8 +15,8 @@ class ContextDetailView(DetailView):
 
 
 class EvidenceItemListView(ListView):
-    model = EvidenceItem
-    #queryset = EvidenceItem.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+    # model = EvidenceItem
+    queryset = EvidenceItem.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
 
@@ -32,7 +33,8 @@ class FastFactDetailView(DetailView):
 
 
 class PersonListView(ListView):
-    model = Person
+    #model = Person
+    queryset = Person.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
 

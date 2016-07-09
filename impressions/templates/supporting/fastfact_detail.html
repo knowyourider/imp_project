@@ -9,7 +9,10 @@
 
 {% block slim_content%}
 
-<p>[Image will appear here, if appropriate]</p>
+	{% if object.has_image %}
+		<img src="{% static 'supporting/fastfact/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+		<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+	{% endif %}
 
 {{ object.narrative|safe }}
 

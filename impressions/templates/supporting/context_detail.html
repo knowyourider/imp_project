@@ -7,7 +7,7 @@
 {% block slim_content%}
 
 <img src="{% static 'supporting/context/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
-<p class="caption slim-caption">{{ object.caption }} Photo courtesy of [source goes here].</p>
+<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
 {{ object.narrative|safe }}
 
