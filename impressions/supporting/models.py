@@ -32,6 +32,7 @@ class Context(AssociationMixin, CommonSupportingModel):
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
     narrative = models.TextField('Description / Label', blank=True, default='')
+    map_blurb = models.TextField(blank=True, default='')
 
 
 class EvidenceType(models.Model):
@@ -68,6 +69,7 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     creation_year = models.IntegerField(blank=True, null=True)
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
+    map_blurb = models.TextField(blank=True, default='')
 
     def __str__(self):
         return self.title       
@@ -123,6 +125,7 @@ class Place(CommonSupportingModel):
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     # has_image = models.BooleanField(default=False)
+    map_blurb = models.TextField(blank=True, default='')
 
     class Meta:
         verbose_name = "Place of Interest"
@@ -147,6 +150,7 @@ class Special(CommonSupportingModel):
         choices=SPECIAL_TYPES)
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
+    map_blurb = models.TextField(blank=True, default='')
 
     class Meta:
         verbose_name = "Special Feature"

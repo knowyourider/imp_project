@@ -49,7 +49,7 @@ class Site(models.Model):
         # and get subset using a comprehension
         # http://stackoverflow.com/questions/5352546/
         # best-way-to-extract-subset-of-key-value-pairs-from-python-dictionary-object
-        site_info = dict((k, supporting_object.__dict__[k]) for k in ('title', 'narrative')) 
+        site_info = dict((k, supporting_object.__dict__[k]) for k in ('title', 'map_blurb')) 
         # and get subset
         return site_info
 

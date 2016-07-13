@@ -19,9 +19,13 @@ for (var i = 0; i < sitesJson.length; i++) {
 } // end for    
 */
 for (var i = 0; i < sitesJson.length; i++) {
+    // create popup
     var popHtml = "<p>" + sitesJson[i].site_type + "<br />" +
         "<strong>" + sitesJson[i].site_info.title + "</strong> </p>" +
-        "<p>" + sitesJson[i].site_info.narrative + "</p>";
+        // don't know why, but src attribute needs to not be quoted
+        "<img src=/static/supporting/" + sitesJson[i].site_type + "/menupics/" + 
+            sitesJson[i].short_name  + ".jpg>" +
+        "<p>" + sitesJson[i].site_info.map_blurb + "</p>";
 
     sites.push(L.marker([sitesJson[i].latitude, 
         sitesJson[i].longitude]).bindPopup(popHtml));

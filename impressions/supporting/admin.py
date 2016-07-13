@@ -3,10 +3,10 @@ from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place
 
 
 class ContextAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_blurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'context_type', 'caption', 'source',
-             'menu_blurb', 'narrative']}),
+             'map_blurb', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
@@ -28,10 +28,10 @@ admin.site.register(EvidenceType, EvidenceTypeAdmin)
 
 
 class EvidenceItemAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_blurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'slug', 'evidence_type', # 'caption',
-            'source','creator', 'dimensions', 'materials', 'creation_year', 'menu_blurb',
+            'source','creator', 'dimensions', 'materials', 'creation_year', 'map_blurb',
             'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
@@ -61,11 +61,11 @@ admin.site.register(FastFact, FastFactAdmin)
 
 
 class PersonAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_blurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title_prefix', 'first_name', 'middle_name', 
             'last_name', 'suffix', 'slug', 'birth_year', 'death_year',
-            'caption', 'source', 'menu_blurb', 'narrative']}),
+            'caption', 'source', 'narrative']}), #'menu_blurb', 
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
@@ -79,37 +79,37 @@ admin.site.register(Person, PersonAdmin)
 
 
 class PlaceAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_blurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'caption', 'source', 
-            'menu_blurb', 'narrative']}),
+            'map_blurb', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'truncated_menu_blurb')
+    list_display = ('title', 'slug', 'truncated_map_blurb')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
-    def truncated_menu_blurb(self, obj):
-        return obj.menu_blurb[:30] + "..."
+    def truncated_map_blurb(self, obj):
+        return obj.map_blurb[:30] + "..."
 
 admin.site.register(Place, PlaceAdmin)
 
 
 class SpecialAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_blurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
-            'source', 'menu_blurb', 'narrative']}),
+            'source', 'map_blurb', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'truncated_menu_blurb')
+    list_display = ('title', 'slug', 'truncated_map_blurb')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
-    def truncated_menu_blurb(self, obj):
-        return obj.menu_blurb[:30] + "..."
+    def truncated_map_blurb(self, obj):
+        return obj.map_blurb[:30] + "..."
 
 admin.site.register(Special, SpecialAdmin)
 

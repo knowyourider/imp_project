@@ -21,6 +21,9 @@
   <!-- JavaScript variables from Django -->
   <script type="text/javascript">
     //var sitesJson = {{ sites_json|safe }};
+    // sitesJson will be picked up by js/map.js
+    // site_values is a list of the "site_info" for each site. Site info is grabbed from
+    // respective evidence, context, place, special objects 
     var sitesJson = {{ site_values|safe }};
     var map_params = {
       "layers": [
