@@ -19,6 +19,7 @@ class Theme(AssociationMixin, CommonModel):
     content_type = models.ForeignKey('core.ContentType', default=THEME_CONTENT_TYPE_ID)
     title = models.CharField(max_length=64)
     subtitle = models.CharField(max_length=64, blank=True, default='')
+    author = models.CharField(max_length=128, blank=True, default='')
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)

@@ -25,6 +25,20 @@ $(document).ready(function(){
     getURL(chosen_href, $('#slimpop-container'));
   });
 
+  // scroll right for dig deeper
+  $(document).on("click", ".go-to-deeper", function(event){
+    event.preventDefault();
+
+    //window.scrollTo(500, 0);
+    var xscroll = 100;
+    var scrollspeed = 20;
+    // window.scrollBy(0,-9000);//initial scroll to the top of the page
+    for (var iscroll=0; iscroll < xscroll; iscroll++){
+        setTimeout('window.scrollBy(' + iscroll + ', 0)',scrollspeed * iscroll);
+    }
+
+  });
+
 }); // end doc ready
 
 /* 

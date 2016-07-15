@@ -12,6 +12,7 @@
   </p>
 
   <h2>{{ object.title|safe }}</h2> 
+  <p>Author: {{ object.author|safe }} </p>
 
   <img src="{% static 'themes/fullpics/' %}{{ object.image_name }}.jpg"  alt="image of {{ object.slug}}">
   <p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>

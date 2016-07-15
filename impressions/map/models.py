@@ -1,7 +1,7 @@
 from django.db import models
 from core.models import AssociationMixin
 from django.apps import apps
-
+from django.core.exceptions import ObjectDoesNotExist
 
 class Layer(AssociationMixin, models.Model):
     """
@@ -44,14 +44,17 @@ class Site(models.Model):
         SupportingModel = apps.get_model(app_label="supporting", 
                 model_name=suppporting_type)
         # get object (move this outside of property for multiple?)
-        supporting_object = SupportingModel.objects.get(slug=self.short_name)
-        # need to convert object to json-type dictionary
-        # and get subset using a comprehension
-        # http://stackoverflow.com/questions/5352546/
-        # best-way-to-extract-subset-of-key-value-pairs-from-python-dictionary-object
-        site_info = dict((k, supporting_object.__dict__[k]) for k in ('title', 'map_blurb')) 
-        # and get subset
-        return site_info
+        try:
+            supporting_object = SupportingModel.objects.get(slug=self.short_name)
+            # need to convert object to json-type dictionary
+            # and get subset using a comprehension
+            # http://stackoverflow.com/questions/5352546/
+            # best-way-to-extract-subset-of-key-value-pairs-from-python-dictionary-object
+            site_info = dict((k, supporting_object.__dict__[k]) for k in ('title', 'map_blurb')) 
+            return site_info
+        except ObjectDoesNotExist:
+            return {'title': 'error on: ' + self.short_name, 'map_blurb': 'no ' + 
+                suppporting_type + ' with that short name.'}
 
     def __str__(self):
         return self.site_type + ": " + self.short_name

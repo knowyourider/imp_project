@@ -13,8 +13,9 @@
   {% for object in object_list %}
     <li>
       <a href="{% url 'themes:theme_detail' object.slug %}">
-        {{ object.title|safe }}
-      </a> menu blurb: {{ object.menu_blurb|safe }}
+        {{ object.title|safe }} </a> <br>
+        by {{ object.author }}
+        menu blurb: {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>     
