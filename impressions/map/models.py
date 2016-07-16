@@ -8,11 +8,16 @@ class Layer(AssociationMixin, models.Model):
     Info for each layer
     """
     title = models.CharField(max_length=128)
+    slug = models.SlugField('Layer short name', max_length=32) # , unique=True
+    layer_index = models.IntegerField(default=0)
     layer_identifier = models.CharField(max_length=64, blank=True, default='')  
     layer_blurb = models.TextField(blank=True, default='')
     # evidence, contexts, people from AssociationMixin
     sites = models.ManyToManyField('map.Site', 
         verbose_name='Sites relevant to this layer', blank=True)
+
+    def layer_list(self):
+        return Layer.objects.all()
 
     def __str__(self):
         return self.title

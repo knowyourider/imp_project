@@ -4,20 +4,6 @@
 
 // create array for sites and populate with sitesJson defined in html header
 var sites = [];
-/*
-for (var i = 0; i < sitesJson.length; i++) {
-    sites.push(L.marker([sitesJson[i].fields.latitude, 
-        sitesJson[i].fields.longitude]).bindPopup(sitesJson[i].fields.site_type + 
-        ": " + sitesJson[i].fields.short_name));
-} // end for    
-
-for (var i = 0; i < sitesJson.length; i++) {
-    sites.push(L.marker([sitesJson[i].latitude, 
-        sitesJson[i].longitude]).bindPopup(sitesJson[i].site_type + 
-        ": " + sitesJson[i].site_info.title));
-        //sitesJson[i].short_name));
-} // end for    
-*/
 for (var i = 0; i < sitesJson.length; i++) {
     // create popup
     var popHtml = "<p>" + sitesJson[i].site_type + "<br />" +
@@ -32,10 +18,9 @@ for (var i = 0; i < sitesJson.length; i++) {
         //sitesJson[i].short_name));
 } // end for    
 
-var cragrock = L.marker([42.19, -72.592089]).bindPopup(map_params.layers[0]),
-    coal    = L.marker([42.31	, -72.562724]).bindPopup(map_params.layers[1]);
+var cragrock = L.marker([42.19, -72.592089]).bindPopup("craig rock"),
+    coal    = L.marker([42.31	, -72.562724]).bindPopup("coal");
 
-//var siteMarkers = L.layerGroup([bigfoot, fossil, bone]);
 var siteMarkers = L.layerGroup(sites);
 var geostuff = L.layerGroup([cragrock, coal]);
 
@@ -94,7 +79,7 @@ satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 }),
-streets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+today   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -135,26 +120,33 @@ baseMaps[name1] = satellite;
 baseMaps[name2] = hitchcock;
 */
 
+// This defines the list used by built-in layer interface (upper right popup)
+/* */
 var baseMaps = {
     "Glacier": satellite,
     "Hitchcock's Era": hitchcock,
-    "Today": streets,
+    "Today": today,
     "Jurassic": terrain
 };
 
+var mapArray = [today, hitchcock, terrain, satellite, terrain];
+
+// defines checbox options in upper right built-in
+/* */
 var overlayMaps = {
-    "Sites": siteMarkers,
-    //"Vectors": vectorLines,
+    //"Sites": siteMarkers,
+    "Vectors": vectorLines,
     "Geo Stuff": geostuff
 };
+
 
 var map = L.map('map', {
     center: [42.26, -72.59],
     zoom: 10,
     //layers: [streets, sites]
-    layers: [hitchcock, siteMarkers]
+    layers: [mapArray[map_params.layerIndex], siteMarkers] // hitchcock
 });
 
-L.control.layers(baseMaps, overlayMaps).addTo(map);
+//L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 //L.geoJson(myLines).addTo(map);
