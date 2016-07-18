@@ -8,7 +8,7 @@
   <style>
     #map { 
       height: 600px; 
-      width: 800px;
+      width: 600px;
     }
   </style>
 
@@ -36,34 +36,68 @@
   </script>
 {% endblock javascript %}
 
+{% block wrapper_class %}"content-wrapper-map"{% endblock wrapper_class %}
 
 {% block content_area %}
 
-  <h1>Map Era showing: {{ object.title }} </h1>
+  <div class="map-wrapper">
+    <section class="map-control-panel">
+      <h2 class="heading">Map Eras [Overlays]</h2>
+      <p>Select era</p>
+      
+      <ul class="map-layers">
+      {% for layer in object.layer_list %}
+        {% if layer.slug = object.slug %}
+          <li class="map-layers--item">{{ layer.title|safe }} - {{ layer.era_description|safe }}</li>
+        {% else %}
+          <li><a href="{% url 'map:map_detail' layer.slug %}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </section>
 
-  <ul>
-  {% for layer in object.layer_list %}
-    {% if layer.slug = object.slug %}
-      <li>{{ layer.title|safe }}</li>
-    {% else %}
-      <li><a href="{% url 'map:map_detail' layer.slug %}">{{ layer.title|safe }}</a></li>
-    {% endif %}
-  {% endfor %}
-  </ul>     
+    <section class="map-area">
+      <div id="map"></div>
+      <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
+    </section>
+  </div><!--map-wrapper-->
 
-  <div id="map"></div>
+  <section class="map-about-panel">
+    <h2 class="heading">About This Map</h2>
+    {{ object.layer_blurb|safe}}
 
-  <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
+    <h2 class="heading">Sites</h2>
+    <ul class="map-sites">
+    {% for site in object.sites.all %} {# site_values #}
+        <li>- {{ site.site_type }}: {{ site.site_info.title }}</li>    
+    {% endfor %}
+    </ul>
 
-  <p>Sites -- 
+    <h2 class="heading">Dig Deeper</h2>
+    <ul class="map-deeper">
+      {% for person in object.people.all %}
+      <li>
+        <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+          {{ person.first_name }} {{ person.last_name }}
+        </a>
+      </li>
+      {% endfor %}
+      {% for evidenceitem in object.evidence.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+            {{ evidenceitem.title }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for context in object.contexts.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
+            {{ context.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>      
+  </section>
 
-  {% for site in object.sites.all %} {# site_values #}
-        {{ site.site_type }}: {{ site.site_info.title }} |
-  {% endfor %}
-  </p>  
-
-  <p>&nbsp;</p>
-
-  <!-- <p>site_values: { site_values|safe }</p> -->  
 
 {% endblock content_area %}

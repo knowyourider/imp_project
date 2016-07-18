@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Layer, Site
 
 class LayerAdmin(admin.ModelAdmin):
+    change_form_template = 'map/admin/layer_blurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'era_description', 'layer_blurb']}), 
         ('Sites',   {'fields': ['sites']}),
@@ -10,7 +11,7 @@ class LayerAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['layer_index']}), #layer_identifier
     ]
     filter_horizontal = ['people', 'evidence', 'contexts', 'sites']    
-    list_display = ('title', 'slug', 'layer_index', 'layer_blurb')
+    list_display = ('title', 'era_description', 'slug', 'layer_index' )
 
 admin.site.register(Layer, LayerAdmin)
 

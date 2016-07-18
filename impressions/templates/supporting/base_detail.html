@@ -24,22 +24,21 @@
 		        {{ person.first_name }} {{ person.last_name }}
 		      </a>
 		    </li>
-		  {% endfor %}
-		  {% for evidenceitem in object.evidence.all %}
-		    <li>
-		      <a class="swap_pop" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
-		        {{ evidenceitem.title }}
-		      </a>
-		    </li>
-		  {% endfor %}
-		  {% for context in object.contexts.all %}
-		    <li>
-		      <a class="swap_pop" href="{% url 'supporting:context_detail' context.slug %}">
-		        {{ context.title }}
-		      </a>
-		    </li>
-		  {% endfor %}
-		  
+			  {% endfor %}
+			  {% for evidenceitem in object.evidence.all %}
+			    <li>
+			      <a class="swap_pop" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+			        {{ evidenceitem.title }}
+			      </a>
+			    </li>
+			  {% endfor %}
+			  {% for context in object.contexts.all %}
+			    <li>
+			      <a class="swap_pop" href="{% url 'supporting:context_detail' context.slug %}">
+			        {{ context.title }}
+			      </a>
+			    </li>
+			  {% endfor %}
 			</ul>
 
 			<h3>Related Stories:</h3>

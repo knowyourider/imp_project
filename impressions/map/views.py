@@ -25,6 +25,7 @@ class MapDetailView(DetailView):
         # don't need to convert
         # sites_json_dict = json.dumps(site_values)
         # for loop version easier to read, works, but comprehension might be faster
+        # site_info defined in Sites model
         for idx, row in enumerate(site_values):
             row['site_info'] = site_list[idx].site_info
             #row.update( { "test": "test" } )
