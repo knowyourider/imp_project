@@ -337,12 +337,13 @@ td,
 th {
   vertical-align: middle; }
 
+html {
+  background-color: #fff4e4; }
+
 body {
-  background-color: #fff4e4;
   color: #7d7664;
   font-family: "Libre Baskerville", serif;
   font-size: 1em;
-  height: 100vh;
   line-height: 1.6; }
 
 h1,
@@ -698,6 +699,59 @@ dl.slim-curatorial {
   width: 550px;
   z-index: 100; }
 
+.map-control-panel {
+  background-color: #65605a;
+  color: #fff4e4;
+  padding: 1.6em;
+  width: 100%; }
+  @media screen and (min-width: 53.75em) {
+    .map-control-panel {
+      display: block;
+      float: left;
+      width: 30%;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px); } }
+  .map-control-panel a:link, .map-control-panel a:visited {
+    color: rgba(255, 244, 228, 0.6); }
+  .map-control-panel a:hover {
+    color: #fff4e4;
+    text-decoration: underline; }
+
+.map-layers--item label {
+  font-size: 0.8em; }
+
+.map-sites, .map-deeper {
+  margin-bottom: 1.6em; }
+  .map-sites li a:link, .map-sites li a:visited, .map-deeper li a:link, .map-deeper li a:visited {
+    color: #fff4e4; }
+
+.map-area {
+  background-color: #5d5853; }
+  @media screen and (min-width: 53.75em) {
+    .map-area {
+      display: block;
+      margin-left: 30%;
+      width: 70%;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px); } }
+
+.map-wrapper {
+  float: left;
+  width: 75%; }
+
+.map-about-panel {
+  background-color: #65605a;
+  color: #fff4e4;
+  padding: 1.6em;
+  width: 100%; }
+  @media screen and (min-width: 53.75em) {
+    .map-about-panel {
+      display: block;
+      margin-left: 75%;
+      width: 25%;
+      height: -webkit-calc(100vh - 130px);
+      height: calc(100vh - 130px); } }
+
 .basic {
   text-align: center; }
 
@@ -745,13 +799,11 @@ dl.slim-curatorial {
     .footer .footer-secondary li {
       font-size: 0.8em; }
 
-body {
-  background-color: #fff4e4; }
-  body.horiz-scroll {
-    overflow-y: hidden; }
-    @media screen and (max-width: 53.75em) {
-      body.horiz-scroll {
-        overflow-y: scroll; } }
+body.horiz-scroll {
+  overflow-y: hidden; }
+  @media screen and (max-width: 53.75em) {
+    body.horiz-scroll {
+      overflow-y: scroll; } }
 
 .content-wrapper {
   max-width: 1200px;
@@ -766,6 +818,9 @@ body {
   @media screen and (max-width: 1200px) {
     .content-wrapper {
       padding: 3.2em 1.6em; } }
+
+.content-wrapper-map {
+  margin-top: 50px; }
 
 .content-wrapper-wide {
   display: table;

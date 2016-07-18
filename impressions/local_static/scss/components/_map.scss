@@ -1,0 +1,77 @@
+//Map
+
+
+//left side panel
+.map-control-panel {
+	background-color: $dark-taupe;
+	color: $light-font-color;
+	padding: $base-spacing;
+	
+	// for small displays
+	width: 100%;
+
+	//for large displays:
+  @include media($large-screen) {
+		display: block;
+		float: left;
+		width: 30%;
+		@include calc(height, "100vh - 130px");
+	}
+
+	a:link, a:visited {
+		color: transparentize($light-font-color, 0.4);
+	}
+	
+	a:hover {
+		color: $light-font-color;
+		text-decoration: underline;
+	}
+}
+
+.map-layers--item {
+	label {
+		font-size: $small-font-size;
+	}
+}
+
+.map-sites, .map-deeper {
+	margin-bottom: $base-spacing;
+
+	li a:link, li a:visited {
+		color: $light-font-color;
+	}
+}
+
+//map central area
+.map-area {
+	background-color: $panel-darken-color;
+	//for large displays:
+  @include media($large-screen) {
+		display: block;
+		margin-left: 30%;
+		width: 70%;
+		@include calc(height, "100vh - 130px");
+	}
+}
+
+.map-wrapper {
+	float: left;
+	width: 75%;
+}
+
+//right side panel
+.map-about-panel {
+	background-color: $dark-taupe;
+	color: $light-font-color;
+	padding: $base-spacing;
+	// for small displays
+	width: 100%;
+
+	//for large displays:
+  @include media($large-screen) {
+		display: block;
+		margin-left: 75%;
+		width: 25%;
+		@include calc(height, "100vh - 130px");
+	}
+}	
