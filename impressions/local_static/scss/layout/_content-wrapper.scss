@@ -1,7 +1,6 @@
 // content wrapper
 body {
-	background-color: $base-background-color;
-
+	
 	&.horiz-scroll	{
 		// when viewport is less than or equal to em(860), change layout to vertical
 		@include media(max-width $large-screen) {
@@ -25,6 +24,10 @@ body {
 
 .content-wrapper--intro {
 	//this is a bogus class to keep template stucture parallel with chapter
+}
+
+.content-wrapper-map {
+	margin-top: $top-navigation-height;
 }
 
 // for wide, scrolling pages such as story chapters

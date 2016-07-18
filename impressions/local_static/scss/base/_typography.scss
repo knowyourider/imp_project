@@ -1,9 +1,11 @@
-body {
+html {
   background-color: $base-background-color;
+}
+
+body {
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  height: 100vh;
   line-height: $base-line-height;
 }
 
