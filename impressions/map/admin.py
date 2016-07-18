@@ -3,10 +3,11 @@ from .models import Layer, Site
 
 class LayerAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'layer_index', 'layer_blurb']}), #layer_identifier
+        (None,  {'fields': ['title', 'slug', 'era_description', 'layer_blurb']}), 
         ('Sites',   {'fields': ['sites']}),
         ('Related supporting (like Dig Deeper)',   {'fields': ['people', 'evidence', 
             'contexts']}),
+        ('Behind the scenes',   {'fields': ['layer_index']}), #layer_identifier
     ]
     filter_horizontal = ['people', 'evidence', 'contexts', 'sites']    
     list_display = ('title', 'slug', 'layer_index', 'layer_blurb')
