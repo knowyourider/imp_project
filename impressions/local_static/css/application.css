@@ -735,6 +735,11 @@ dl.slim-curatorial {
       height: -webkit-calc(100vh - 130px);
       height: calc(100vh - 130px); } }
 
+#map {
+  height: 100%;
+  width: 100%;
+  z-index: 85; }
+
 .map-wrapper {
   float: left;
   width: 75%; }

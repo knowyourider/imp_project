@@ -54,6 +54,12 @@
 	}
 }
 
+#map { 
+  height: 100%; 
+  width: 100%;
+  z-index: 85;
+}
+
 .map-wrapper {
 	float: left;
 	width: 75%;

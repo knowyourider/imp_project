@@ -4,15 +4,9 @@
 {% block title %}Map View{% endblock %}
 
 {% block stylesheets %}
-  {{ block.super }}
-  <style>
-    #map { 
-      height: 600px; 
-      width: 600px;
-    }
-  </style>
 
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
+  {{ block.super }}
 {% endblock stylesheets %}
 
 {% block javascript %}
