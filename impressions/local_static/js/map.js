@@ -141,7 +141,7 @@ var overlayMaps = {
 
 
 var map = L.map('map', {
-    center: [42.26, -72.59],
+    center: [42.35, -72.59],
     zoom: 10,
     //layers: [streets, sites]
     layers: [mapArray[map_params.layerIndex], siteMarkers] // hitchcock
