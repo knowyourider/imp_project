@@ -14,8 +14,8 @@ class Layer(AssociationMixin, models.Model):
     layer_identifier = models.CharField(max_length=64, blank=True, default='')  
     layer_index = models.IntegerField('Base layer index', default=0)
     # evidence, contexts, people from AssociationMixin
-    sites = models.ManyToManyField('map.Site', 
-        verbose_name='Sites relevant to this layer', blank=True)
+    sites = models.ManyToManyField('map.Site', blank=True)
+    # verbose_name='Sites for this layer', 
 
     def layer_list(self):
         return Layer.objects.all()
@@ -42,6 +42,11 @@ class Site(models.Model):
     longitude = models.FloatField(blank=True, null=True,
         help_text="Decimal degrees, U.S. negative")
 
+    # return verbose site type
+    @property
+    def site_type_verbose(self):
+        return dict(Site.SITE_TYPES)[self.site_type]
+
     # return object related to this site
     @property
     def site_info(self):
@@ -61,6 +66,9 @@ class Site(models.Model):
         except ObjectDoesNotExist:
             return {'title': 'error on: ' + self.short_name, 'map_blurb': 'no ' + 
                 suppporting_type + ' with that short name.'}
+
+    class Meta:
+        ordering = ['site_type', 'short_name']
 
     def __str__(self):
         return self.site_type + ": " + self.short_name

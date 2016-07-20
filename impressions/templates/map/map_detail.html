@@ -41,7 +41,7 @@
       
       <ul class="map-layers">
       {% for layer in object.layer_list %}
-        {% if layer.slug = object.slug %}
+        {% if layer.slug == object.slug %}
           <li class="map-layers--item">{{ layer.title|safe }} - {{ layer.era_description|safe }}</li>
         {% else %}
           <li><a href="{% url 'map:map_detail' layer.slug %}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
@@ -63,7 +63,7 @@
     <h2 class="heading">Sites</h2>
     <ul class="map-sites">
     {% for site in object.sites.all %} {# site_values #}
-        <li>- {{ site.site_type }}: {{ site.site_info.title }}</li>    
+        <li>- {{ site.site_info.title }}</li>    
     {% endfor %}
     </ul>
 

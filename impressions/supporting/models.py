@@ -71,6 +71,9 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     materials = models.CharField(max_length=128, blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
+    class Meta:
+        ordering = ['title']
+
     def __str__(self):
         return self.title       
 

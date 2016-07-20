@@ -82,7 +82,7 @@ class PlaceAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'caption', 'source', 
-            'map_blurb', 'narrative']}),
+            'map_blurb']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]

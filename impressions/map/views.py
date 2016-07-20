@@ -20,21 +20,30 @@ class MapDetailView(DetailView):
         # get the detail layer object and its list of sites
         site_list = self.object.sites.all()   
         # use values() to create dictionary so we can iterate
-        site_values = site_list.values()
-        # values() creates a list of dictionaries - same as json
-        # don't need to convert
-        # sites_json_dict = json.dumps(site_values)
-        # for loop version easier to read, works, but comprehension might be faster
+        site_list_dict = site_list.values()
+
+        print('site_list_dict: ' + str(site_list_dict))
+
+        # values() creates a list of dictionaries - same as json -- don't need to convert
+        # the conversion not needed: sites_json_dict = json.dumps(site_list_dict)
+        # for-loop version easier to read, works, but comprehension might be faster
         # site_info defined in Sites model
-        for idx, row in enumerate(site_values):
-            row['site_info'] = site_list[idx].site_info
+        for idx, row in enumerate(site_list_dict):
+            # print('site_list_dict[' + str(idx) + ']: ' + site_list_dict[idx]['short_name'] + ' site_info: ' + site_list[idx].site_info['title'])
+            # print('row id:' + str(row['id']))
+            # was: row['site_info'] = site_list[idx].site_info
+            # don't depend on index - insure that we get the site info for this row in the enumeration
+            site_object = Site.objects.get(pk=row['id'])
+            # add the corresponding site_info (defined in model) to this row
+            row['site_info'] = site_object.site_info
+            row['site_type_verbose'] = site_object.site_type_verbose
             #row.update( { "test": "test" } )
 
         # comprehension version
         # first, creat the function that will generate the new value
         # Looks like we can't use assignment inside comprehension. Tabling this
-        #site_values_plus = [row['site_info'] = site_list[1].site_info for row in site_values]
+        #site_list_dict_plus = [row['site_info'] = site_list[1].site_info for row in site_list_dict]
 
-        context['site_values'] = site_values
+        context['site_values'] = site_list_dict
 
         return context
