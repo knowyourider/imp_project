@@ -8,7 +8,7 @@ class LayerAdmin(admin.ModelAdmin):
         ('Sites',   {'fields': ['sites']}),
         ('Related supporting (like Dig Deeper)',   {'fields': ['people', 'evidence', 
             'contexts']}),
-        ('Behind the scenes',   {'fields': ['layer_index']}), #layer_identifier
+        ('Behind the scenes',   {'fields': ['ordinal', 'layer_index']}), #layer_identifier
     ]
     filter_horizontal = ['people', 'evidence', 'contexts', 'sites']    
     list_display = ('title', 'era_description', 'slug', 'layer_index' )

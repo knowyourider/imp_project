@@ -1,0 +1,32 @@
+<h2 class="heading">About This Map</h2>
+{{ object.layer_blurb|safe}}
+
+<h2 class="heading">Sites</h2>
+
+<div id="site_list"><p>site list will come from JS</p></div>
+
+
+<h2 class="heading">Dig Deeper</h2>
+<ul class="map-deeper">
+  {% for person in object.people.all %}
+  <li>
+    <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
+      {{ person.first_name }} {{ person.last_name }}
+    </a>
+  </li>
+  {% endfor %}
+  {% for evidenceitem in object.evidence.all %}
+    <li>
+      <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+        {{ evidenceitem.title }}
+      </a>
+    </li>
+  {% endfor %}
+  {% for context in object.contexts.all %}
+    <li>
+      <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
+        {{ context.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>      

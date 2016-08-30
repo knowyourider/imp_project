@@ -7,27 +7,18 @@
 
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
+  <style>
+    .selecteddb {
+      color: #ffffff;
+    }
+
+  </style>
+
 {% endblock stylesheets %}
 
 {% block javascript %}
   {{ block.super }}
   <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script>
-  <!-- JavaScript variables from Django -->
-  <script type="text/javascript">
-    //var sitesJson = {{ sites_json|safe }};
-    // sitesJson will be picked up by js/map.js
-    // site_values is a list of the "site_info" for each site. Site info is grabbed from
-    // respective evidence, context, place, special objects 
-    var sitesJson = {{ site_values|safe }};
-    var map_params = {
-      "layerIndex": {{ object.layer_index }}
-      /*"layers": [
-      {% for layer in object.layer_list %}
-        "{{layer.title}}"{% if not forloop.last %}, {% endif %}       
-      {% endfor %}            
-      ] */
-    };
-  </script>
 {% endblock javascript %}
 
 {% block wrapper_class %}"content-wrapper-map"{% endblock wrapper_class %}
@@ -41,13 +32,12 @@
       
       <ul class="map-layers">
       {% for layer in object.layer_list %}
-        {% if layer.slug == object.slug %}
-          <li class="map-layers--item">{{ layer.title|safe }} - {{ layer.era_description|safe }}</li>
-        {% else %}
-          <li><a href="{% url 'map:map_detail' layer.slug %}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
-        {% endif %}
+          <li class="map-layers--item"><a href="{{ layer.slug }}/{{ layer.layer_index }}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
       {% endfor %}
       </ul>
+      <hr/>
+    <!-- <div id="layer_list"><p>layer choice will come from JS</p></div> -->
+
     </section>
 
     <section class="map-area">
@@ -61,11 +51,9 @@
     {{ object.layer_blurb|safe}}
 
     <h2 class="heading">Sites</h2>
-    <ul class="map-sites">
-    {% for site in object.sites.all %} {# site_values #}
-        <li>- {{ site.site_info.title }}</li>    
-    {% endfor %}
-    </ul>
+
+    <div id="site_list"><p>site list will come from JS</p></div>
+
 
     <h2 class="heading">Dig Deeper</h2>
     <ul class="map-deeper">
