@@ -97,10 +97,10 @@ admin.site.register(Place, PlaceAdmin)
 
 
 class SpecialAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
+    change_form_template = 'supporting/admin/narr_m_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
-            'source', 'map_blurb', 'narrative']}),
+            'source', 'menu_blurb', 'map_blurb', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]

@@ -18,7 +18,7 @@
     	<img src="{% static 'supporting/special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
     	<span class="menu-header">{{ object.special_type }}</span>{{ object.title|safe }}
     	</a>
-    	{{ object.menu_blurb }}
+    	{{ object.menu_blurb|safe }}
 	</li>
 
   {% endfor %}
