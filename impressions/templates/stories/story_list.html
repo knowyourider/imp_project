@@ -9,15 +9,14 @@
 
   <h1 class="main-title">Story Menu</h1>
 
-  <p>
- [Currently no admin for menu blurb (Don will add to ContentType/Menu)] Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>These stories tell about the discovery of the dinosaur footprints and about the lives of the discoverers.</p>
 
   <ul class="menu-gallery">
   {% for object in object_list %}
-    <li class="preview">
+    <li>
       <a href="{% url 'stories:story_detail' object.slug %}">
       <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
-      <span>{{ object.title|safe }}:<br/>{{ object.subtitle|safe }}</span>
+      <span class="menu-header">{{ object.title|safe }}</span>{{ object.subtitle|safe }}</span>
       </a>
       {{ object.menu_blurb|safe }}
     </li>
