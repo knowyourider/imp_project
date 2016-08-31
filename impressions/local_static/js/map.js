@@ -167,18 +167,13 @@ function getSiteList(theURL) { //, contentDiv
 	});
 }
 
-	// -------- MARKER SECTION ---------
+// -------- MARKER SECTION ---------
 
 
-	// create array for site Markers and populate with siteListOfDicts defined in html header
+// create array for site Markers and populate with siteListOfDicts defined in html header
 function setSites(siteListJson) {
-
-	// var siteListJson = $.parseJSON( siteListOfDicts );
-
 	// console.log("site list in setSites: " + String(siteListOfDicts));
-	console.log("siteListJson[0].short_name: " + siteListJson[0].short_name);
-	// console.log("siteListJson[0].longitude: " + String(siteListJson[0].longitude));
-
+	// console.log("siteListJson[0].short_name: " + siteListJson[0].short_name);
 
 	var siteLinks = '<ul class="map-sites">';
 	markerList = [];

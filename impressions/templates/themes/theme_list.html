@@ -1,22 +1,30 @@
-{% extends "base_list.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}{{ object.title }}{% endblock %}
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block title_area %}
-  <h1>Themes</h1>
-{% endblock title_area %}
+{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
 
+{% block content_area %}
 
-{% block menu %}
-  <ul>
+  <h1 class="main-title">Themes</h1>
+
+  <p>
+  These short essays set the events related to the 19th century discovery of dinosaur footprint in a wider historical and intellectual context. How did this discovery fit into and expand 19th century thinking and culture.
+ [Currently no admin for menu blurb (Don will add to ContentType/Menu)] </p>
+
+  <ul class="menu-gallery">
   {% for object in object_list %}
-    <li>
+    <li class="preview">
       <a href="{% url 'themes:theme_detail' object.slug %}">
-        {{ object.title|safe }} </a> <br>
-        by {{ object.author }}
-        menu blurb: {{ object.menu_blurb|safe }}
+      <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg">
+      <span>{{ object.title|safe }}:<br/>{{ object.subtitle|safe }}</span>
+      </a>
+      {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
-  </ul>     
-{% endblock menu %}
+  </ul>  
+
+
+{% endblock content_area %}
+
