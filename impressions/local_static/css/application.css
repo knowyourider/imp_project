@@ -476,7 +476,7 @@ picture {
 .menu-gallery {
   text-align: center; }
   .menu-gallery li {
-    font-style: normal;
+    font-style: italic;
     margin-bottom: 1.6em;
     position: relative;
     float: left;
@@ -497,8 +497,8 @@ picture {
       border: double #b3aa98;
       color: #fff4e4;
       display: inline-block;
-      font-size: 0.9em;
-      font-style: italic;
+      font-size: 0.8em;
+      font-style: normal;
       left: 50%;
       letter-spacing: .05em;
       margin-left: -125px;
@@ -513,6 +513,7 @@ picture {
     visibility: visible; }
   .menu-gallery .menu-header {
     display: block;
+    font-style: normal;
     font-variant: small-caps; }
 
 .control-panel {

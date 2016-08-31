@@ -3,7 +3,7 @@
 	text-align: center;
 	
 	li {
-		font-style: normal;
+		font-style: italic;
 		margin-bottom: $base-spacing;
 		position: relative;
 	  @include span-columns(3);
@@ -11,7 +11,6 @@
 
   	img {
   		border: $double-border;
-  		//display: block;
   		padding: 2px;
   	}
 		
@@ -20,8 +19,8 @@
 		  border: $double-border;
 		  color: $light-font-color;
 			display: inline-block;
-			font-size: $smallish-font-size;
-			font-style: italic;
+			font-size: $small-font-size;
+			font-style: normal;
 	    left: 50%;
 	    letter-spacing: .05em;
 	    margin-left: -125px; 
@@ -41,6 +40,7 @@
 
 	.menu-header {
 		display: block;
+		font-style: normal;
 		font-variant: small-caps;
 	}
 }

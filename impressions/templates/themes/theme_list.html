@@ -9,15 +9,14 @@
 
   <h1 class="main-title">Themes</h1>
 
-  <p>
-  These short essays set the events related to the 19th century discovery of dinosaur footprint in a wider historical and intellectual context. How did this discovery fit into and expand 19th century thinking and culture.</p>
+  <p>These short essays set the events related to the 19th century discovery of dinosaur footprint in a wider historical and intellectual context. How did this discovery fit into and expand 19th century thinking and culture.</p>
 
   <ul class="menu-gallery">
   {% for object in object_list %}
     <li>
       <a href="{% url 'themes:theme_detail' object.slug %}">
       <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg">
-      <span class="menu-header">{{ object.title|safe }}</span>{{ object.subtitle|safe }}</span>
+      <span class="menu-header">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
       </a>
       {{ object.menu_blurb|safe }}
     </li>
