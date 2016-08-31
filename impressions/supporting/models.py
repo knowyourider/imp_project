@@ -143,8 +143,12 @@ class Special(CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     SPECIAL_TYPES = (
-        ('animation','Animation'),
+        ('audio','Audio'),
+        ('interactive','Interactive'),
+        ('looking','Looking - Seeing'),
         ('slideshow','Slide Show'),
+        ('then','Then and Now'),
+        ('video','Video'),
     )
     SPECIAL_CONTENT_TYPE_ID = 8
     content_type = models.ForeignKey('core.ContentType', 

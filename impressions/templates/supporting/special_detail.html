@@ -1,0 +1,14 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<img src="{% static 'supporting/special/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}
