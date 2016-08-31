@@ -476,6 +476,9 @@ picture {
 .menu-gallery {
   text-align: center; }
   .menu-gallery li {
+    font-style: normal;
+    margin-bottom: 1.6em;
+    position: relative;
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -487,29 +490,30 @@ picture {
     .menu-gallery li:nth-child(4n+1) {
       clear: left; }
     .menu-gallery li img {
-      padding: 2px;
-      border: double #b3aa98; }
-  .menu-gallery .preview {
-    position: relative;
-    display: inline-block;
-    font-style: italic; }
-  .menu-gallery .preview p {
-    font-size: 0.8em;
-    font-style: normal;
-    visibility: hidden;
-    width: 250px;
-    background-color: #65605a;
-    color: #fff4e4;
-    text-align: center;
-    padding: 0.8em;
-    border: double #b3aa98;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin-left: -125px;
-    z-index: 1; }
-  .menu-gallery .preview:hover p {
+      border: double #b3aa98;
+      padding: 2px; }
+    .menu-gallery li p {
+      background-color: #65605a;
+      border: double #b3aa98;
+      color: #fff4e4;
+      display: inline-block;
+      font-size: 0.9em;
+      font-style: italic;
+      left: 50%;
+      letter-spacing: .05em;
+      margin-left: -125px;
+      padding: 0.8em;
+      position: absolute;
+      text-align: center;
+      top: 5%;
+      visibility: hidden;
+      width: 250px;
+      z-index: 1; }
+  .menu-gallery li:hover p {
     visibility: visible; }
+  .menu-gallery .menu-header {
+    display: block;
+    font-variant: small-caps; }
 
 .control-panel {
   background-color: #d2cdba;
