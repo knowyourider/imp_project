@@ -28,9 +28,19 @@
 	}
 }
 
-.map-layers--item {
-	label {
-		font-size: $small-font-size;
+.map-layers {
+
+	li {
+
+		label {
+			font-size: $small-font-size;
+		}
+  }
+
+  li.selected {
+		label {
+			color: $light-font-color;
+		}
 	}
 }
 

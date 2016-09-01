@@ -722,8 +722,10 @@ dl.slim-curatorial {
     color: #fff4e4;
     text-decoration: underline; }
 
-.map-layers--item label {
+.map-layers li label {
   font-size: 0.8em; }
+.map-layers li.selected label {
+  color: #fff4e4; }
 
 .map-sites, .map-deeper {
   margin-bottom: 1.6em; }
