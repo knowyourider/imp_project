@@ -7,9 +7,21 @@
 {% block slim_content%}
 
 <img src="{% static 'supporting/special/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
-<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
-{{ object.narrative|safe }}
+<section>
+	
+	<ul class="activities-controls">
+		<li>found: 1 of 4</li>
+		<li><a href="">&lArr; previous</a></li>
+		<li><a href="">show me</a></li>
+		<li><a href="">next &rArr;</a></li>
+	</ul>
+
+</section>
+
+<p>Click on the footprint(s) in the image above. Click "show me" to reveal all the footprints. Click next to proceed.</p>
+
+
 
 {% endblock slim_content %}
 

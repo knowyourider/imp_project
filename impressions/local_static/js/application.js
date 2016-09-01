@@ -9,9 +9,10 @@ $(document).ready(function(){
     // get href
     // use closest -- target may be image in dig deeper gallery
     var chosen_href = $(event.target).closest('a').attr('href');
-    //var thistarget = $(event.target)
-    // call ajax for the slim pop. 
-    slimPop(chosen_href, 'slimpop-basicsize');
+    var href_split = chosen_href.split('/');    
+    // href_split[2] = person, evidence, fastfact, special
+    // call ajax for the slim pop. (href, size class)
+    slimPop(chosen_href, href_split[2]);
   });
 
   // enable click event on slim that's already up
@@ -44,7 +45,7 @@ $(document).ready(function(){
 /* 
 *  used by popBox() and..
 */
-function slimPop(theURL, displayClass) { 
+function slimPop(theURL, sizeClass) { 
   // append divs if not present
   if (!$('#slimpop-overlay').length > 0) { // overlay html doesn't exist
     //create HTML markup for lightbox window
@@ -63,7 +64,7 @@ function slimPop(theURL, displayClass) {
   // assign contentDiv for further use
   var contentDiv = $('#slimpop-container');
   // contentDiv will be unhidden by specific classes 
-  contentDiv.removeClass().addClass(displayClass).addClass("poobah"); 
+  contentDiv.removeClass().addClass("slimpop-basic").addClass(sizeClass); 
   // call Ajax
   getURL(theURL, contentDiv);
 }
