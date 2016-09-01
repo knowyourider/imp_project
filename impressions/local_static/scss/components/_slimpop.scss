@@ -76,6 +76,18 @@ dl.slim-curatorial {
     }
 }
 
+/* For controls on Activities popups */
+.activities-controls {
+  margin-bottom: $base-spacing;
+
+  li {
+    color: $accent-color;
+    display: inline;
+    font-variant: small-caps;
+    margin: $small-spacing;
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -96,17 +108,25 @@ dl.slim-curatorial {
 }
 
 /* JavaScript assigns this (or .hidden) to slimpop-container */
-.slimpop-basicsize {
+.slimpop-basic {
   bottom: 0;
   display: block;
   left: 0;
   margin: auto;
-  max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed; /* this positions the slimpop relative to viewport, it won't scroll with the page */
   right: 0;
   top: 0;
-  width: 550px;
   z-index: 100;
+}
+
+.person, .context, .evidenceitem, .fastfact {
+  max-height: 600px;
+  width: 550px;
+}
+
+.special {
+  max-height: 550px;
+  width: 700px;
 }

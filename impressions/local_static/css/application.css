@@ -581,7 +581,7 @@ picture {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 7.87811%; }
+  width: 14.70196%; }
   @media screen and (max-width: 53.75em) {
     .ovals li {
       float: left;
@@ -590,15 +590,15 @@ picture {
       width: 14.70196%; }
       .ovals li:last-child {
         margin-right: 0; }
-      .ovals li:nth-child(5n) {
+      .ovals li:nth-child(6n) {
         margin-right: 0; }
-      .ovals li:nth-child(5n+1) {
+      .ovals li:nth-child(6n+1) {
         clear: left; } }
   .ovals li:last-child {
     margin-right: 0; }
-  .ovals li:nth-child(10n) {
+  .ovals li:nth-child(6n) {
     margin-right: 0; }
-  .ovals li:nth-child(10n+1) {
+  .ovals li:nth-child(6n+1) {
     clear: left; }
 .ovals img {
   border-radius: 50%; }
@@ -672,6 +672,15 @@ dl.slim-curatorial {
     font-weight: bold;
     margin: 1.6em 0 0.4em 0; }
 
+/* For controls on Activities popups */
+.activities-controls {
+  margin-bottom: 1.6em; }
+  .activities-controls li {
+    color: #b12b00;
+    display: inline;
+    font-variant: small-caps;
+    margin: 0.8em; }
+
 .hidden {
   display: none; }
 
@@ -689,20 +698,26 @@ dl.slim-curatorial {
   z-index: 99; }
 
 /* JavaScript assigns this (or .hidden) to slimpop-container */
-.slimpop-basicsize {
+.slimpop-basic {
   bottom: 0;
   display: block;
   left: 0;
   margin: auto;
-  max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
   /* this positions the slimpop relative to viewport, it won't scroll with the page */
   right: 0;
   top: 0;
-  width: 550px;
   z-index: 100; }
+
+.person, .context, .evidenceitem, .fastfact {
+  max-height: 600px;
+  width: 550px; }
+
+.special {
+  max-height: 550px;
+  width: 700px; }
 
 .map-control-panel {
   background-color: #65605a;

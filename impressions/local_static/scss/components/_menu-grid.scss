@@ -74,11 +74,11 @@
 		// when viewport is less than or equal to em(860), fewer columns
 		@include media(max-width $large-screen) {
 		  @include span-columns(2);
-		  @include omega(5n);
+		  @include omega(6n);
 	  }
 
-	  @include span-columns(12/10);
-	  @include omega(10n);
+	  @include span-columns(2);
+	  @include omega(6n);
 	} 
 
 	img {
