@@ -7,7 +7,7 @@
 
 {% block content_area %}
 
-  <h1 class="main-title">Activites</h1>
+  <h1 class="main-title">Activities</h1>
 
   <p>Interactive features to help you engage more actively in the ideas, images and themes of this website.</p>
 
@@ -16,7 +16,7 @@
     <li>
     	<a class="pop_item" href="{% url 'supporting:special_detail' object.slug %}">
     	<img src="{% static 'supporting/special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
-    	<span class="menu-header">{{ object.special_type }}</span>{{ object.title|safe }}
+    	<span class="menu-header">{{ object.get_special_type_display|safe }}</span>{{ object.title|safe }}
     	</a>
     	{{ object.menu_blurb|safe }}
 	</li>

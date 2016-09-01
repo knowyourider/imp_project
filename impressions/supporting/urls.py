@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), name='person_detail'),
 
     url(r'^special/$', views.SpecialListView.as_view(), name='special_list'),
-    url(r'^special/(?P<slug>\S+)/$', views.SpecialDetailView.as_view(), name='special_detail'),
+    # url(r'^special/(?P<slug>\S+)/$', views.SpecialDetailView.as_view(), name='special_detail'),
+    url(r'^special/(?P<slug>\S+)/$', views.special_detail, name='special_detail'),    
 ]

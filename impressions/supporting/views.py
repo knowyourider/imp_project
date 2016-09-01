@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Context, EvidenceItem, FastFact, Person, Special
 
@@ -49,8 +49,15 @@ class SpecialListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'supporting/special_list.html' 
 
-class SpecialDetailView(DetailView):
-    model = Special
-    # context_object_name = 'object'
-    # template_name = 'supporting/special_detail.html'
+def special_detail(request, slug):
+    object = get_object_or_404(Special, slug=slug)
+    # if object.special_type == "interactive"
+    template_name = "supporting/special_detail/" + object.special_type + ".html"
+    return render(request, template_name, {'object': object})
+
+# class SpecialDetailView(DetailView):
+#     model = Special
+#     # context_object_name = 'object'
+#     # template_name = 'supporting/special_detail.html'
+
 

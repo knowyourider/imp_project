@@ -63,7 +63,7 @@ function slimPop(theURL, displayClass) {
   // assign contentDiv for further use
   var contentDiv = $('#slimpop-container');
   // contentDiv will be unhidden by specific classes 
-  contentDiv.removeClass().addClass(displayClass); 
+  contentDiv.removeClass().addClass(displayClass).addClass("poobah"); 
   // call Ajax
   getURL(theURL, contentDiv);
 }

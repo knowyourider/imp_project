@@ -34,6 +34,9 @@ class Context(AssociationMixin, CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
+    class Meta:
+        ordering = ['ordinal']
+
 
 class EvidenceType(models.Model):
     """docstring for EvidenceType
@@ -72,7 +75,7 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     map_blurb = models.TextField(blank=True, default='')
 
     class Meta:
-        ordering = ['title']
+        ordering = ['ordinal']
 
     def __str__(self):
         return self.title       
@@ -143,12 +146,12 @@ class Special(CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     SPECIAL_TYPES = (
-        ('audio','Audio'),
+        ('audio','Voices'),
         ('interactive','Interactive'),
-        ('looking','Looking - Seeing'),
-        ('slideshow','Slide Show'),
-        ('then','Then and Now'),
-        ('video','Video'),
+        ('looking','Looking &amp; Seeing'),
+        ('slideshow','Slideshow'),
+        ('then','Then &amp; Now'),
+        ('video','Video Story'),
     )
     SPECIAL_CONTENT_TYPE_ID = 8
     content_type = models.ForeignKey('core.ContentType', 
@@ -161,6 +164,7 @@ class Special(CommonSupportingModel):
 
     class Meta:
         verbose_name = "Special Feature"
+        ordering = ['ordinal']
         
     def __str__(self):
         return self.title       

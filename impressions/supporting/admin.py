@@ -101,7 +101,7 @@ class SpecialAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
             'source', 'menu_blurb', 'map_blurb', 'narrative']}),
-        ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
+        ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
     list_display = ('title', 'slug', 'special_type', 'status_num')
