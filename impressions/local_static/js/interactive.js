@@ -14,28 +14,34 @@ $(document).ready(function(){
     // get name attribute
     var chosenCorrectness = chosen.attr('name'); // xlink:href
     // tally
-    if (chosenCorrectness=="correct") {
+    if (chosenCorrectness=="correct" && numCorrect < numOfCorrect) {
       numCorrect++;
     }
     // conditional feedback
     if (numCorrect >= numOfCorrect) {
-      // conslole.log("got all: " +  numCorrect); 
+      // console.log("got all: " +  numCorrect); 
       score.html("found: " + numCorrect + " of " + numOfCorrect);
       feedback.html("Found them all! ");
     } else {
-      // conslole.log("got one: " + chosenCorrectness + " numCorrect: " + $("#feedback").html()); 
+      // console.log("got one: " + chosenCorrectness + " numCorrect: " + $("#feedback").html()); 
+      // console.log("index of this element: " + chosen.index()); 
       score.html("found: " + numCorrect + " of " + numOfCorrect);
       feedback.html("found one! ");
     }
     // can't use addClass for svg, use attr
-    chosen.attr("class", "hotspot hotspot_correct");
+    // highlight the footprint, offset by the numOfCorrect
+    var indexOffset = chosen.index() - numOfCorrect + 1;
+    $("#hotspot_group path:nth-child(" + indexOffset + ")").attr("class", 
+        "footprint footprint_correct");
+    // chosen.attr("class", "hotspot hotspot_correct");
 
   });
 
   $(document).on("click", ".show", function(event){
     event.preventDefault();
     // can't use addClass for svg, use attr
-    $("#hotspot_group").children().attr("class", "hotspot hotspot_correct");
+    // $("#hotspot_group").children().attr("class", "footprint footprint_correct");
+    $("#hotspot_group path").attr("class", "footprint footprint_correct");
   });
 
   $(document).on("click", "#document", function(event){

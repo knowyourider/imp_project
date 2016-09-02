@@ -1,4 +1,4 @@
-.hotspot {
+/*.hotspot {
   fill: #b12b00;
   fill-opacity: 0.01; }
 
@@ -6,3 +6,15 @@
   stroke: #b12b00;
     fill: #b12b00;
     fill-opacity: 0.1; }
+*/
+
+.footprint {
+  fill: #b12b00;
+  fill-opacity: 0; }
+
+.footprint_correct {
+  stroke: #FFFF00;
+    fill: #F9FD00;
+    fill-opacity: 0.1; }
+
+
