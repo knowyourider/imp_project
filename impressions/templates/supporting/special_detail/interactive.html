@@ -17,34 +17,26 @@
 	<g id="hotspot_group"> 
 	  <image id="document" x="0" y="0" xlink:href="{% static 'supporting/special/fullpics/' %}{{ object.slug }}.jpg" 
 	  width="1000" height="750" class="double-border"/>
-
 	  <ellipse class="hotspot" name="correct" cx="330" cy="340" rx="60" ry="60"/>
 
 	  <ellipse class="hotspot" name="correct" cx="660" cy="415" rx="65" ry="55"/>
 
-	  <ellipse class="hotspot" name="correct" cx="375" cy="525" rx="75" ry="60"/>
-	   
+	  <ellipse class="hotspot" name="correct" cx="375" cy="525" rx="75" ry="60"/>	   
 	</g>
 </svg>
 
-
-
 <section>
-	
+
 	<ul class="activities-controls">
+		<li id="feedback"></li>
 		<li id="score">found: 0 of 4</li>
 		<li>&lArr; previous</li>
 		<li><a class="show" href="#">show me</a></li>
 		<li>next &rArr;</li>
 	</ul>
-
 </section>
 
 <p>Click on the footprint(s) in the image above. Click "show me" to reveal all the footprints. Click next to proceed.</p>
-
-<p id="feedback"></p>
-
-
 
 {% endblock slim_content %}
 
