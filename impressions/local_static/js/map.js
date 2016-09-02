@@ -49,7 +49,7 @@ $(document).ready(function(){
 		//id: 'mapbox.mapbox-terrain-v2',
 		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 	}),
-	hitchcock   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	hitchcockOld   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 		attribution: 'Hitchcock map',
 		bounds: mybounds,
 		minZoom: 10,
@@ -57,11 +57,20 @@ $(document).ready(function(){
 		id: 'donaldo.d51bywq4',
 		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 	});
+	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
+		attribution: 'Hitchcock map',
+		bounds: mybounds,
+		minZoom: 8,
+		maxZoom: 13,
+        tms: true
+	});
 	// Set array of objects defined above
 	var baseLayerObjects = [today, hitchcock, satellite, satellite];
 	// era short names. Will come from ajax
 
 	setLayer('today');
+	// better place to do this?
+    $(".map-layers li:nth-child(1)").addClass('selected');
 	var layerIndex = 0;
 
 	map = L.map('map', {
@@ -75,29 +84,21 @@ $(document).ready(function(){
 	// Set click action on the layer links
 	// call utility function because I may want to change several overlays
 	$(".map-layers li a").on('click', function(event) {
-    event.preventDefault();
-    // get element index for highlight
-    //var elementIndex = $(event.target).index();
-    //console.log(" map-layers target index: " + $(this).index());
+	    event.preventDefault();
 
-    // come back to this after I have highlight style from Juliet
+	    // remove class from all li's then add highlight to this one
+	    $(".map-layers li").removeClass('selected');
+	    $(this).parent().attr('class', 'selected');
 
-    //console.log(" map-layers target index: " + $(this).parent().attr("class"));
-
-    // remove class from all li's then add highlight to this one
-    //$(".map-layers li").removeClass('map-layers--item');
-    //$(this).parent().attr('class', 'map-layers--item');
-    //console.log(" $(this).parent().attr('class')): " + $(this).parent().attr('class'));
-
-    // get params for switch
-    var url_params = $(event.target).attr('href');
-    var href_split = url_params.split('/');    
-    // console.log(" lmap-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
-    // href_split[0] = layer.short_name
-    // href_split[1] = layer.layer_index
-    // siteMarkers is the layerGroup (not the list)
-    switchLayer(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
-  });
+	    // get params for switch
+	    var url_params = $(event.target).attr('href');
+	    var href_split = url_params.split('/');    
+	    // console.log(" lmap-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
+	    // href_split[0] = layer.short_name
+	    // href_split[1] = layer.layer_index
+	    // siteMarkers is the layerGroup (not the list)
+	    switchLayer(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
+	  });
    
 
 }); // end doc ready

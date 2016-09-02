@@ -18,3 +18,7 @@
     fill-opacity: 0.1; }
 
 
+.map-layers li a {
+  font-size: 0.8em; }
+.map-layers li.selected a {
+  color: #fff4e4; }

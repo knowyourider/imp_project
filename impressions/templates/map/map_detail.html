@@ -32,7 +32,7 @@
       
       <ul class="map-layers">
       {% for layer in object.layer_list %}
-          <li class="map-layers--item"><a href="{{ layer.slug }}/{{ layer.layer_index }}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
+          <li><a href="{{ layer.slug }}/{{ layer.layer_index }}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
       {% endfor %}
       </ul>
       <hr/>
