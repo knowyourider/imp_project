@@ -62,7 +62,7 @@ $(document).ready(function(){
 		bounds: mybounds,
 		minZoom: 8,
 		maxZoom: 13,
-        tms: true
+        tms: false
 	});
 	// Set array of objects defined above
 	var baseLayerObjects = [today, hitchcock, satellite, satellite];
