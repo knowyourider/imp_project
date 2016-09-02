@@ -680,6 +680,8 @@ dl.slim-curatorial {
     display: inline;
     font-variant: small-caps;
     margin: 0.8em; }
+    .activities-controls li.feedback {
+      font-variant: normal; }
 
 .hidden {
   display: none; }
@@ -716,8 +718,8 @@ dl.slim-curatorial {
   width: 550px; }
 
 .special {
-  max-height: 550px;
-  width: 700px; }
+  max-height: 650px;
+  width: 1000px; }
 
 .map-control-panel {
   background-color: #65605a;
