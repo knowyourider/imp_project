@@ -9,8 +9,9 @@
 }
 
 .slim-border {
-  padding: $base-spacing $large-spacing $large-spacing $large-spacing;
   border: 1px solid $base-border-color;
+  overflow: auto;
+  padding: $base-spacing $large-spacing $large-spacing $large-spacing;
 }
 
 .slimpop-close {/* for the close link */
@@ -76,20 +77,40 @@ dl.slim-curatorial {
     }
 }
 
-/* For controls on Activities popups */
+/* For controls on Interactive popups */
 .activities-controls {
   margin-bottom: $base-spacing;
 
   li {
     color: $accent-color;
-    display: inline;
     font-variant: small-caps;
-    margin: $small-spacing;
+    margin: $small-spacing 0;
   
-    &.feedback {
+    &#feedback {
+      font-style: italic;
       font-variant: normal;
     }
   }
+}
+
+.activity-controls-col {
+  @include span-columns (2.5);
+}
+
+.activity-col {
+  @include span-columns (9.5);
+}
+
+// for svg highlights
+.hotspot {
+  fill: #b12b00;
+  fill-opacity: 0.01;
+}
+
+.hotspot_correct {
+  stroke: #b12b00;
+    fill: #b12b00;
+    fill-opacity: 0.1;
 }
 
 .hidden {
@@ -131,6 +152,6 @@ dl.slim-curatorial {
 }
 
 .special {
-  max-height: 650px;
-  width: 1000px;
+  max-height: 85%;
+  width: 75%;
 }

@@ -626,8 +626,9 @@ picture {
   padding: 3px; }
 
 .slim-border {
-  padding: 1.6em 3.2em 3.2em 3.2em;
-  border: 1px solid #b3aa98; }
+  border: 1px solid #b3aa98;
+  overflow: auto;
+  padding: 1.6em 3.2em 3.2em 3.2em; }
 
 .slimpop-close {
   /* for the close link */
@@ -672,16 +673,41 @@ dl.slim-curatorial {
     font-weight: bold;
     margin: 1.6em 0 0.4em 0; }
 
-/* For controls on Activities popups */
+/* For controls on Interactive popups */
 .activities-controls {
   margin-bottom: 1.6em; }
   .activities-controls li {
     color: #b12b00;
-    display: inline;
     font-variant: small-caps;
-    margin: 0.8em; }
-    .activities-controls li.feedback {
+    margin: 0.8em 0; }
+    .activities-controls li#feedback {
+      font-style: italic;
       font-variant: normal; }
+
+.activity-controls-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 18.96686%; }
+  .activity-controls-col:last-child {
+    margin-right: 0; }
+
+.activity-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 78.67549%; }
+  .activity-col:last-child {
+    margin-right: 0; }
+
+.hotspot {
+  fill: #b12b00;
+  fill-opacity: 0.01; }
+
+.hotspot_correct {
+  stroke: #b12b00;
+  fill: #b12b00;
+  fill-opacity: 0.1; }
 
 .hidden {
   display: none; }
@@ -718,8 +744,8 @@ dl.slim-curatorial {
   width: 550px; }
 
 .special {
-  max-height: 650px;
-  width: 1000px; }
+  max-height: 85%;
+  width: 75%; }
 
 .map-control-panel {
   background-color: #65605a;
