@@ -1,0 +1,16 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Video {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RsqpM0BIfBQ" frameborder="0" allowfullscreen></iframe>
+<p class="caption slim-caption">{{ object.caption }} Video courtesy of {{ object.source.institution|safe }}.</p>
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}

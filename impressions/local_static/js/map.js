@@ -26,7 +26,7 @@ $(document).ready(function(){
 			'contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 9,
+		minZoom: 8,
 		maxZoom: 18,
 		//id: 'mapbox.streets',
 		id: 'mapbox.mapbox-terrain-v2',
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 9,
+		minZoom: 8,
 		maxZoom: 18,
 		id: 'mapbox.satellite',
 		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 9,
+		minZoom: 8,
 		maxZoom: 18,
 		id: 'mapbox.streets',
 		//id: 'mapbox.mapbox-terrain-v2',
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		bounds: tempbounds, //mybounds
-		minZoom: 9,
+		minZoom: 8,
 		maxZoom: 13,
 		//opacity: .7,
         tms: false
@@ -128,14 +128,17 @@ function openPopUpFromSide (markerIndex) {
 }
 
 function switchLayer(baseLayerObjects, layerShortName, layerIndex) {
-		//map.removeLayer(baseLayerObjects[prevLayerIndex]);
+	if (prevLayerIndex > 0) { // leave base terrain intact
+		map.removeLayer(baseLayerObjects[prevLayerIndex]);		
+	}
+	if (layerIndex > 0) { // don't need to add 0, it has stayed put
 		map.addLayer(baseLayerObjects[layerIndex]);
-		prevLayerIndex = layerIndex;
+	}
+	prevLayerIndex = layerIndex;
 
-
-		// Remove site markers before calling switch
-		map.removeLayer(siteMarkers);		
-		setLayer(layerShortName);
+	// Remove site markers before calling switch
+	map.removeLayer(siteMarkers);		
+	setLayer(layerShortName);
 }
 
 function setLayer(layerShortName) {
