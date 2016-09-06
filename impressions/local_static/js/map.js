@@ -10,9 +10,14 @@ $(document).ready(function(){
 
 	// ------------ BASE LAYER SECTION -------------
 	// ----- define bounds ------
-	var southWest = L.latLng(41.211, -73.225), 
-		northEast = L.latLng(42.747, -72.294),
+	var southWest = L.latLng(41.225, -72.98), 
+		northEast = L.latLng(42.71, -72.42), // -72.37
 		mybounds = L.latLngBounds(southWest, northEast);
+
+	// ----- define bounds ------
+	var southWest = L.latLng(41.225, -72.98), 
+		northEast = L.latLng(42.71, -72.5), // -72.37
+		tempbounds = L.latLngBounds(southWest, northEast);
 
 	// ----- define base layers ----- 
 	var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png' +
@@ -43,7 +48,7 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 8,
+		minZoom: 9,
 		maxZoom: 18,
 		id: 'mapbox.streets',
 		//id: 'mapbox.mapbox-terrain-v2',
@@ -59,9 +64,10 @@ $(document).ready(function(){
 	});
 	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
-		bounds: mybounds,
-		minZoom: 8,
+		bounds: tempbounds, //mybounds
+		minZoom: 9,
 		maxZoom: 13,
+		//opacity: .7,
         tms: false
 	});
 	// Set array of objects defined above
@@ -74,8 +80,8 @@ $(document).ready(function(){
 	var layerIndex = 0;
 
 	map = L.map('map', {
-		center: [42.35, -72.59],
-		zoom: 10,
+		center: [42.0, -72.45],
+		zoom: 9,
 		//layers: [streets, markerList]
 		layers: [baseLayerObjects[layerIndex]] //, siteMarkers hitchcock
 	});
@@ -122,7 +128,7 @@ function openPopUpFromSide (markerIndex) {
 }
 
 function switchLayer(baseLayerObjects, layerShortName, layerIndex) {
-		map.removeLayer(baseLayerObjects[prevLayerIndex]);
+		//map.removeLayer(baseLayerObjects[prevLayerIndex]);
 		map.addLayer(baseLayerObjects[layerIndex]);
 		prevLayerIndex = layerIndex;
 
