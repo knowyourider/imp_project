@@ -59,11 +59,12 @@
 
 		//for large displays:
 	  @include media($large-screen) {
-			position: absolute; 
+			background: no-repeat $small-spacing top url("../images/pointing-hand-dig.png");
 			background-color: transparentize($accent-color, 0.4);
 			height: 70px;
 			letter-spacing: 0.25em;
-			padding: $base-spacing;
+			padding: $base-spacing $large-spacing;
+			position: absolute; 
 			right: calc(-100vh + 50px);
 			text-transform: uppercase;
 			top: 0;

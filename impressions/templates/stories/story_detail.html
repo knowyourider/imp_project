@@ -28,23 +28,23 @@
       <ul class="intro-nav">
           <li>
             {% if object.get_prev %}
-              Previous Story: <a href="{% url 'stories:story_detail' object.get_prev.slug %}">
+              &lArr; Previous <a href="{% url 'stories:story_detail' object.get_prev.slug %}">
                 {{object.get_prev.title|safe}}
               </a>
             {% else %}
-              Prev
+              &lArr; Prev
             {% endif %}
           </li>
-          <li>
+          <li class="read-this">
             <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
           </li>
           <li>
             {% if object.get_next %}
-              Next Story: <a href="{% url 'stories:story_detail' object.get_next.slug %}">
+              Next &rArr; <a href="{% url 'stories:story_detail' object.get_next.slug %}">
                 {{object.get_next.title|safe}}
               </a>
             {% else %}
-              Next
+              Next &rArr;
             {% endif %}
           </li>
       </ul>

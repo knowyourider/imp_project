@@ -30,12 +30,18 @@
 
 .intro-nav {
 	font-size: $small-font-size;
+	text-align: center;
 		
 		li {
 			display: inline;
 
 			@include span-columns (1 of 3)
 		}
+}
+
+.read-this {
+	background: no-repeat bottom url("../images/pointing-hand-down.png");
+	height: 85px;
 }
 
 .chapter-text, .intro-text {
