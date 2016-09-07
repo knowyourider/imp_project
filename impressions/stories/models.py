@@ -48,8 +48,11 @@ class Chapter(AssociationMixin, models.Model):
     narrative = models.TextField(blank=True, default='')
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
     source = models.ForeignKey('core.Source', default=1)
+    # contexts, people and evidence manys supplied by Association Mixin
     fastfacts = models.ManyToManyField('supporting.FastFact', 
         verbose_name='Fast Facts related to this item', blank=True)
+    special_features = models.ManyToManyField('supporting.Special', 
+        verbose_name='Special Features related to this item', blank=True)
 
     # next chapter, empty if none
     def get_next(self):

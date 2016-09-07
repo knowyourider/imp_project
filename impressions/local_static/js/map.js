@@ -48,6 +48,8 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
+		//maxBounds: mybounds,
+		//maxBoundsViscosity: 1.0,
 		minZoom: 9,
 		maxZoom: 18,
 		id: 'mapbox.streets',

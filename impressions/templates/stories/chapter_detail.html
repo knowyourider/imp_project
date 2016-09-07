@@ -92,6 +92,15 @@
         </div>
       {% endfor %}
       
+      {% for special in chapter.special_features.all %}
+        <div class="table-cell">
+          <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
+          <img src="{% static 'supporting/special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
+            {{ special.title|safe }}
+          </a>
+        </div>
+      {% endfor %}
+      
       {% for fastfact in chapter.fastfacts.all %}
         <div class="table-cell">
           <a class="pop_item" href="{% url 'supporting:fastfact_detail' fastfact.slug %}">
