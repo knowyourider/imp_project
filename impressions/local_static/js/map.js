@@ -76,26 +76,6 @@ $(document).ready(function(){
 	var baseLayerObjects = [today, hitchcock, satellite, satellite];
 	// era short names. Will come from ajax
 
-	// --------- SLIDER ----------
-	$("#basemapslider").slider({
-		animate: true,
-		value: 1,
-		orientation: "vertical",
-		min: 0,
-		max: 1,
-		step: 0.1,
-		slide: function (event, ui) {
-		    baseLayerObjects[0].setOpacity(ui.value);
-		}
-	});
-
-	$('#basemapslider').mousedown(function(){
-		map.dragging.disable();
-	})
-
-	$('#basemapslider').mouseup(function(){
-		map.dragging.enable();
-	})
 
 	// --------- SET THINGS IN MOTION ----------
 
