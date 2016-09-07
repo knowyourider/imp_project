@@ -773,6 +773,10 @@ dl.slim-curatorial {
 
 .map-sites, .map-deeper {
   margin-bottom: 1.6em; }
+  .map-sites li, .map-deeper li {
+    font-size: 0.8em;
+    line-height: 1.2;
+    margin-bottom: 0.8em; }
   .map-sites li a:link, .map-sites li a:visited, .map-deeper li a:link, .map-deeper li a:visited {
     color: #fff4e4; }
 
