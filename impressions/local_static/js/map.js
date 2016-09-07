@@ -26,7 +26,7 @@ $(document).ready(function(){
 			'contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 8,
+		minZoom: 9,
 		maxZoom: 18,
 		//id: 'mapbox.streets',
 		id: 'mapbox.mapbox-terrain-v2',
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 8,
+		minZoom: 9,
 		maxZoom: 18,
 		id: 'mapbox.satellite',
 		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		bounds: mybounds,
-		minZoom: 8,
+		minZoom: 9,
 		maxZoom: 18,
 		id: 'mapbox.streets',
 		//id: 'mapbox.mapbox-terrain-v2',
@@ -64,11 +64,11 @@ $(document).ready(function(){
 	});
 	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
-		bounds: tempbounds, //mybounds
-		minZoom: 8,
+		bounds: mybounds, //tempbounds
+		minZoom: 9,
 		maxZoom: 13,
 		//opacity: .7,
-        tms: false
+        tms: true
 	});
 	// Set array of objects defined above
 	var baseLayerObjects = [today, hitchcock, satellite, satellite];
