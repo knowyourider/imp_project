@@ -7,18 +7,34 @@
 
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
-  <style>
+
+  <style type="text/css">
     .selecteddb {
       color: #ffffff;
     }
+    #basemapslidercontainer {
+      position: absolute;
+      top: 200px;
+      right: 50px;
+      z-index: 1000;
+    }
 
+    #basemapslider{
+      font-size:62.5%;
+      margin: 14px;
+      height: 125px;
+      width:7px;
+    }
   </style>
 
 {% endblock stylesheets %}
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script>
+  <!-- <script src="{% static 'js/leaflet.js' %}" type="text/javascript"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
 {% endblock javascript %}
 
 {% block wrapper_class %}"content-wrapper-map"{% endblock wrapper_class %}
@@ -36,13 +52,19 @@
       {% endfor %}
       </ul>
       <hr/>
-    <!-- <div id="layer_list"><p>layer choice will come from JS</p></div> -->
+        <div id="basemapslidercontainer">
+          <div id="basemapslider">
+        </div>    
 
     </section>
 
     <section class="map-area">
-      <div id="map"></div>
+      <div id="map">
+
+
+      </div>
       <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
+      </div>
     </section>
   </div><!--map-wrapper-->
 

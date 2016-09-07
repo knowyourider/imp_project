@@ -76,6 +76,29 @@ $(document).ready(function(){
 	var baseLayerObjects = [today, hitchcock, satellite, satellite];
 	// era short names. Will come from ajax
 
+	// --------- SLIDER ----------
+	$("#basemapslider").slider({
+		animate: true,
+		value: 1,
+		orientation: "vertical",
+		min: 0,
+		max: 1,
+		step: 0.1,
+		slide: function (event, ui) {
+		    baseLayerObjects[0].setOpacity(ui.value);
+		}
+	});
+
+	$('#basemapslider').mousedown(function(){
+		map.dragging.disable();
+	})
+
+	$('#basemapslider').mouseup(function(){
+		map.dragging.enable();
+	})
+
+	// --------- SET THINGS IN MOTION ----------
+
 	setLayer('today');
 	// better place to do this?
     $(".map-layers li:nth-child(1)").addClass('selected');
@@ -107,6 +130,7 @@ $(document).ready(function(){
 	    // siteMarkers is the layerGroup (not the list)
 	    switchLayer(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
 	  });
+
    
 
 }); // end doc ready
@@ -200,11 +224,10 @@ function setSites(siteListJson) {
 
 		markerList.push(L.marker([siteListJson[i].latitude, 
 			siteListJson[i].longitude]).bindPopup(popHtml));
-			//siteListJson[i].short_name));
 
 		// create HTML for site list links
 		// since we're creating the array all we need is the index in order to pop it up
-		siteLinks += '<li><a href="' + i + '">' + siteListJson[i].short_name + "</a></li>" // site_info.title
+		siteLinks += '<li><a href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
 
 	} // end for 
 	siteLinks += "</ul>";
