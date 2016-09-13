@@ -58,6 +58,8 @@ function slimPop(theURL, sizeClass) {
     $('#slimpop-overlay').click(function(event){
       hideBox();    
     });
+  } else { // clear the container -- otherwise previous content flashes by
+    $('#slimpop-overlay').html = " ";
   }
   // unhide overlay
   $('#slimpop-overlay').removeClass().addClass('unhidden');

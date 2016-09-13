@@ -169,3 +169,21 @@ class Special(CommonSupportingModel):
     def __str__(self):
         return self.title       
 
+
+class Slide(models.Model):
+    special = models.ForeignKey('supporting.Special')
+    slide_num = models.IntegerField()
+    """
+    help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
+    "short_name_1, short_name_2, etc.")
+    """
+    image_name = models.CharField(max_length=32, blank=True, default='')
+    credit_line = models.CharField(max_length=128, blank=True, default='',
+            help_text="For each slide -- Slides ignore Credit Line at top of form.")
+    narrative = models.TextField('Caption', blank=True, default='',
+            help_text="caption for each slide -- slides ignore Narrative at top of form.")
+    num_correct = models.IntegerField(null=True, blank=True)
+         
+    def __str__(self):
+        return self.special.slug + "_" + str(self.slide_num) + "_" + self.image_name
+

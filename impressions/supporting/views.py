@@ -52,6 +52,8 @@ class SpecialListView(ListView):
 def special_detail(request, slug):
     object = get_object_or_404(Special, slug=slug)
     # if object.special_type == "interactive"
+    # Currently "interactive" is find-footprints.
+    # In future we could sub-type and say interactive_find-footprints.html
     template_name = "supporting/special_detail/" + object.special_type + ".html"
     return render(request, template_name, {'object': object})
 
@@ -59,5 +61,10 @@ def special_detail(request, slug):
 #     model = Special
 #     # context_object_name = 'object'
 #     # template_name = 'supporting/special_detail.html'
+
+def special_footprint(request, image_name):
+
+    template_name = "supporting/special_detail/interactive_includes/_" + image_name + ".html"
+    return render(request, template_name, {'dummy': 'dummy'})
 
 

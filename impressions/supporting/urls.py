@@ -24,5 +24,6 @@ urlpatterns = [
 
     url(r'^special/$', views.SpecialListView.as_view(), name='special_list'),
     # url(r'^special/(?P<slug>\S+)/$', views.SpecialDetailView.as_view(), name='special_detail'),
+    url(r'^special/find-footprints/(?P<image_name>\S+)/$', views.special_footprint, name='special_footprint'),    
     url(r'^special/(?P<slug>\S+)/$', views.special_detail, name='special_detail'),    
 ]

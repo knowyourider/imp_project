@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, Special
+from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, Special, Slide
 
 
 class ContextAdmin(admin.ModelAdmin):
@@ -95,6 +95,9 @@ class PlaceAdmin(admin.ModelAdmin):
 
 admin.site.register(Place, PlaceAdmin)
 
+class SlideInline(admin.TabularInline):
+    model = Slide
+    extra = 2
 
 class SpecialAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_m_mblurb_change_form.html'
@@ -104,12 +107,10 @@ class SpecialAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
+    inlines = [SlideInline]
     list_display = ('title', 'slug', 'special_type', 'status_num')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
-
-    def truncated_map_blurb(self, obj):
-        return obj.map_blurb[:30] + "..."
 
 admin.site.register(Special, SpecialAdmin)
 

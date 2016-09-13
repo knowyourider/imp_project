@@ -1,11 +1,16 @@
 $(document).ready(function(){
 
   var numCorrect = 0;
-  var numOfCorrect = 3;
+  var numOfCorrect = 3; // needs to be correct number for image included by template
   var feedback = $("#feedback");
   var score = $("#score");
 
   score.html("found: " + numCorrect + " of " + numOfCorrect);
+
+  // set initial image
+  // currently set by include in template instead
+  // getURL("/supporting/special/find-footprints/grallator/", $('#svg_wrapper'));
+
 
   $(document).on("click", ".hotspot", function(event){
     // event.preventDefault();
@@ -57,6 +62,25 @@ $(document).ready(function(){
     // feedback.html("NAFP. eventPageX: " + eventPageX + " baseImage x: " + baseImageX + 
     //   " doc-area css: "); // + $(.doc-area).css());
 
+  });
+
+
+  $(document).on("click", ".switch_interactive", function(event){
+    event.preventDefault();
+    // get target href
+    var chosen_href = $(event.target).attr('href');
+    var href_split = chosen_href.split('/');    
+    console.log('href_split[0]: ' +  href_split[0]);
+    // e.g. /grallator/3
+    // clear num correct
+    numCorrect = 0;
+    numOfCorrect = href_split[1];
+    // reset score and feedback text
+    feedback.html("Feedback..."); 
+    score.html("found: " + numCorrect + " of " + numOfCorrect);    // get href
+    // call ajax for the slim pop. 
+    getURL("/supporting/special/find-footprints/" + href_split[0] + "/", $('#svg_wrapper'));
+   
   });
 
 
