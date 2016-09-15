@@ -1,7 +1,11 @@
+// switching slides is handled by the regular "swap_pop" in application.js
+// the whole pop is replaced and this script starts anew.
+
 $(document).ready(function(){
 
   var numCorrect = 0;
-  var numOfCorrect = 3; // needs to be correct number for image included by template
+  // numOfCorrect declared in HTML before calling this script
+  // var numOfCorrect = 3; // needs to be correct number for image included by template
   var feedback = $("#feedback");
   var score = $("#score");
 
@@ -64,25 +68,25 @@ $(document).ready(function(){
 
   });
 
-
+  /*
   $(document).on("click", ".switch_interactive", function(event){
     event.preventDefault();
     // get target href
     var chosen_href = $(event.target).attr('href');
     var href_split = chosen_href.split('/');    
     console.log('href_split[0]: ' +  href_split[0]);
-    // e.g. /grallator/3
-    // clear num correct
-    numCorrect = 0;
-    numOfCorrect = href_split[1];
+    // e.g. /grallator/1/
+    //      /image_name/slide_num/
+    //      /split[0] /split[1]  
     // reset score and feedback text
+    numCorrect = 0;
+    // numOfCorrect is set in calling HTML
     feedback.html("Feedback..."); 
     score.html("found: " + numCorrect + " of " + numOfCorrect);    // get href
-    // call ajax for the slim pop. 
-    getURL("/supporting/special/find-footprints/" + href_split[0] + "/", $('#svg_wrapper'));
-   
+    // call ajax for to replace the whole slimpop container
+    getURL(chosen_href, $('#slimpop-container'));
   });
-
+  */
 
 
 }); // end doc ready

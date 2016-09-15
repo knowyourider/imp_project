@@ -184,6 +184,22 @@ class Slide(models.Model):
             help_text="caption for each slide -- slides ignore Narrative at top of form.")
     num_correct = models.IntegerField(null=True, blank=True)
          
+    # next, prev slide, false if none
+    def get_next(self):
+        next = Slide.objects.filter(special_id=self.special_id, slide_num__gt=self.slide_num)
+        if next:
+            return next.first()
+        return False
+
+    def get_prev(self):
+        prev = Slide.objects.filter(slide_num__lt=self.slide_num).order_by('-slide_num')
+        if prev:
+            return prev.first()
+        return False
+
+    class Meta:
+        ordering = ['slide_num']
+        
     def __str__(self):
         return self.special.slug + "_" + str(self.slide_num) + "_" + self.image_name
 
