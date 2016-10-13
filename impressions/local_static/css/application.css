@@ -955,13 +955,14 @@ body.horiz-scroll {
     text-decoration: underline; }
 
 .intro-text {
-  font-size: 1em; }
+  font-size: 0.9em; }
 
 .intro-nav {
   font-size: 0.8em;
   text-align: center; }
   .intro-nav li {
     display: inline;
+    margin-bottom: 1.6em;
     float: left;
     display: block;
     margin-right: 10.1484%;
