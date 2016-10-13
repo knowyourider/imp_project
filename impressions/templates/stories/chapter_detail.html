@@ -27,10 +27,6 @@
       <h4>{{ object.title|safe }}</h4>  
       <h2 class="story-subtitle">Chapter {{ chapter.chapter_num }}: {{ chapter.title|safe }}</h2> 
 
-      <div class="chapter-text--scroll">
-        {{ chapter.narrative|safe }}
-      </div><!--/chapter-text-scroll-->
-
 
       <nav  class="chapter-nav">
         <ul>
@@ -48,10 +44,15 @@
             Next &rArr;
           {% endif %}
          </ul>
-          {% if chapter.get_next %}
+<!--           {% if chapter.get_next %}
             <p>Next chapter: <em>{{ chapter.get_next.title|safe }}</em></p>          
-          {% endif %}   
+          {% endif %}    -->
       </nav>
+
+      
+      <div class="chapter-text--scroll">
+        {{ chapter.narrative|safe }}
+      </div><!--/chapter-text-scroll-->
 
     </article><!--/text-panel-->
   </div><!--/content-wrapper-narrative-->

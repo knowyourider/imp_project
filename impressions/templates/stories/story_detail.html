@@ -22,18 +22,16 @@
     </section>
 
     <article class="text-panel intro-text">
-      <h2 class="story-subtitle">Introduction</h2>
 
-      {{ object.introduction|safe }}
 
       <ul class="intro-nav">
           <li>
             {% if object.get_prev %}
-              &lArr; Previous <a href="{% url 'stories:story_detail' object.get_prev.slug %}">
-                {{object.get_prev.title|safe}}
+              <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr; Prev Story 
+                <em>{{object.get_prev.title|safe}}</em>
               </a>
             {% else %}
-              &lArr; Prev
+              &lArr; Previous Story
             {% endif %}
           </li>
           <li class="read-this">
@@ -41,14 +39,19 @@
           </li>
           <li>
             {% if object.get_next %}
-              Next &rArr; <a href="{% url 'stories:story_detail' object.get_next.slug %}">
-                {{object.get_next.title|safe}}
+              <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next Story &rArr; 
+                <em>{{object.get_next.title|safe}}</em>
               </a>
             {% else %}
-              Next &rArr;
+              Next Story &rArr;
             {% endif %}
           </li>
       </ul>
+
+      <h2 class="story-subtitle">Introduction</h2>
+
+      {{ object.introduction|safe }}
+
 
      </article>
 
