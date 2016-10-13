@@ -21,9 +21,9 @@ class ChapterAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,  {'fields': ['story', 'chapter_num', 'title', 'image_name',
             'caption', 'source', 'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 'fastfacts', 'special_features']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 'special_features']}),
     ]
-    filter_horizontal = ['people', 'evidence', 'contexts', 'fastfacts', 'special_features']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'special_features']    
     #search_fields = ['title']
     list_display = ('title',  'chapter_num', 'story')
     list_filter     = ['story'] # , 'edit_date'

@@ -101,15 +101,6 @@
         </div>
       {% endfor %}
       
-      {% for fastfact in chapter.fastfacts.all %}
-        <div class="table-cell">
-          <a class="pop_item" href="{% url 'supporting:fastfact_detail' fastfact.slug %}">
-          <img src="{% static 'supporting/fastfact/menupics/' %}{{ fastfact.slug }}.jpg" alt="image of {{ fastfact.slug }}">
-            {{ fastfact.title }}
-          </a>
-        </div>
-      {% endfor %}
-      
       </div><!-- </deeper-row>-->
     </div><!-- </table deeper>-->
   </div><!--/deeper table-cell-->

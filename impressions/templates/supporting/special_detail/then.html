@@ -7,21 +7,32 @@
 {% block slim_content%}
 
 
-<!-- <script src="{% static 'js/d3.min.js' %}" type="text/javascript"></script>
- -->
+
+{# as of Oct 13, 2016 this is in progress. 
+The d3.js isn't being seen, probably need to be in head.
+There's the lingering problem of the legacy the XMLHttpRequest on the main thread #}
+
+
+<script src="{% static 'js/d3.min.js' %}" type="text/javascript"></script>
+
 <svg width="100%" height="100%" viewbox="0 0 900 1400"> 
 <g transform="translate(5,5)">
   <!-- <clipPath id="clip">
     <circle cx="333" cy="127.5" r="100"></circle>
   </clipPath> -->
-  <image x="0" y="0" xlink:href="{% static 'supporting/special/then/fullpics/' %}{{ slide.image_name }}.jpg" width="900" height="1400"/>
+  <image x="0" y="0" xlink:href="
+  	{% static 'supporting/special/then/fullpics/' %}{{ slide.image_name }}.jpg" 
+  	width="900" height="1400"/>
 
-  <image xlink:href="{% static 'supporting/special/then/fullpics/' %}{{ slide.get_next.image_name }}.jpg" width="900" height="1400" x="30" y="30" id="doc-image" />
+  <image xlink:href=
+  	"{% static 'supporting/special/then/fullpics/' %}{{ slide.get_next.image_name }}.jpg" 
+  	width="900" height="1400" x="30" y="30" 
+  	id="doc-image" />
 
 
 </g>
 </svg>
-<!-- <script src="js/lens-d3.min.js" type="text/javascript"></script> -->
+<script src="js/lens-d3.min.js" type="text/javascript"></script>
 
 
 <p class="caption slim-caption">{{ object.caption }} Image courtesy of 

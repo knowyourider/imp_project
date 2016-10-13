@@ -99,6 +99,9 @@ class FastFact(CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = "In Brief"
+
     def __str__(self):
         return self.title       
 
