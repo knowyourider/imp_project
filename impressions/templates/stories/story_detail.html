@@ -24,6 +24,8 @@
     <article class="text-panel intro-text">
       <h2 class="story-subtitle">Introduction</h2>
 
+      {{ object.introduction|safe }}
+
       <ul class="intro-nav">
           <li>
             {% if object.get_prev %}
@@ -47,9 +49,6 @@
             {% endif %}
           </li>
       </ul>
-
-      
-      {{ object.introduction|safe }}
 
      </article>
 
