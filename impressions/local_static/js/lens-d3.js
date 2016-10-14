@@ -1,6 +1,6 @@
 // magic lens JS
-var lw = 300; // lens width
-var lh = 200;
+var lw = 400; // lens width
+var lh = 787;
 var lsx = 160; // lens start x
 var lsy = 25; 
 
@@ -48,8 +48,8 @@ var clip = d3.select("svg g").append("svg:clipPath")
     .append("svg:rect")
     .attr('x', lsx)
     .attr('y', lsy)
-    .attr('rx', 15)
-    .attr('ry', 15)
+    //.attr('rx', 15) // full height, don't need rounded
+    //.attr('ry', 15)
     .attr('width', lw)
     .attr('height', lh)
     ;
