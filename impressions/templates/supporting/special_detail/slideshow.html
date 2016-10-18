@@ -1,7 +1,7 @@
 {% extends "supporting/base_detail.html" %}
 {% load staticfiles %}
 
-{% block heading %}{{ object.content_type.plural_title }} {% endblock %}
+{% block heading %}{{ object.content_type.plural_title }} - Slideshow {% endblock %}
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
@@ -23,15 +23,15 @@
 	<ul class="activities-controls">
 		<li>
           {% if slide.get_prev %}
-            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug slide.get_prev.slide_num %}">&lArr; prev</a>
+            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
           {% else %}
-            &lArr; prev
+            <span class="no-more">&lArr; Previous</span>
           {% endif %}
-         |
+         &diams;
           {% if slide.get_next %}
-            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug slide.get_next.slide_num %}">next &rArr;</a>
+            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug slide.get_next.slide_num %}">Next &rArr;</a>
           {% else %}
-            next &rArr;
+            <span class="no-more">Next &rArr;</span>
           {% endif %}
 		</li>
 	</ul>

@@ -618,7 +618,6 @@ picture {
   clear: left;
   font-size: 0.8em; }
 
-/* temp css */
 #slimpop-wrapper {
   background-color: #fff4e4;
   border: 1px solid #b3aa98;
@@ -684,6 +683,8 @@ dl.slim-curatorial {
     .activities-controls li#feedback {
       font-style: italic;
       font-variant: normal; }
+    .activities-controls li span.no-more {
+      color: #999; }
 
 .slideshow-col {
   float: left;

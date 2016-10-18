@@ -1,4 +1,4 @@
-/* temp css */
+///Slim pop styles
 
 #slimpop-wrapper {
   background-color: $base-background-color;
@@ -18,7 +18,7 @@
   float: right;
 }
 
-//for people slim
+//for images in slims
 .double-border {
   border: $double-border;
 }
@@ -89,6 +89,10 @@ dl.slim-curatorial {
     &#feedback {
       font-style: italic;
       font-variant: normal;
+    }
+
+    span.no-more {
+      color: $medium-gray;
     }
   }
 }
