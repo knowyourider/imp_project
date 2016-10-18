@@ -93,12 +93,18 @@ dl.slim-curatorial {
   }
 }
 
-.activity-controls-col {
-  @include span-columns (2.5);
+.activity-col {
+ // @include span-columns (9.5);
+ float: left;
+ //width: 73%;
+ margin-right: 2%;
 }
 
-.activity-col {
-  @include span-columns (9.5);
+.activity-controls-col {
+ // @include span-columns (2.5);
+ //float: right;
+ //width: 25%;
+ //margin-left: 77%;
 }
 
 // for svg highlights
@@ -109,8 +115,8 @@ dl.slim-curatorial {
 
 .hotspot_correct {
   stroke: #b12b00;
-    fill: #b12b00;
-    fill-opacity: 0.1;
+  fill: #b12b00;
+  fill-opacity: 0.1;
 }
 
 .hidden {
@@ -152,6 +158,13 @@ dl.slim-curatorial {
 }
 
 .special {
+  max-width: 85%;
   max-height: 85%;
-  width: fit-content;
+  //height: inherit !important;
+}
+
+#svg_wrapper {
+  img {
+    max-height: 600px;
+  }
 }
