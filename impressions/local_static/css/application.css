@@ -685,9 +685,25 @@ dl.slim-curatorial {
       font-style: italic;
       font-variant: normal; }
 
+.slideshow-col {
+  float: left;
+  margin-right: 1.6em; }
+
 .activity-col {
   float: left;
-  margin-right: 2%; }
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%; }
+  .activity-col:last-child {
+    margin-right: 0; }
+
+.activity-controls-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  .activity-controls-col:last-child {
+    margin-right: 0; }
 
 .hotspot {
   fill: #b12b00;
@@ -736,7 +752,7 @@ dl.slim-curatorial {
   max-width: 85%;
   max-height: 85%; }
 
-#svg_wrapper img {
+#slideshow-image img {
   max-height: 600px; }
 
 .map-control-panel {
