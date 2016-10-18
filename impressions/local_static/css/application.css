@@ -685,21 +685,9 @@ dl.slim-curatorial {
       font-style: italic;
       font-variant: normal; }
 
-.activity-controls-col {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 18.96686%; }
-  .activity-controls-col:last-child {
-    margin-right: 0; }
-
 .activity-col {
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 78.67549%; }
-  .activity-col:last-child {
-    margin-right: 0; }
+  margin-right: 2%; }
 
 .hotspot {
   fill: #b12b00;
@@ -745,8 +733,11 @@ dl.slim-curatorial {
   width: 550px; }
 
 .special {
-  max-height: 85%;
-  width: fit-content; }
+  max-width: 85%;
+  max-height: 85%; }
+
+#svg_wrapper img {
+  max-height: 600px; }
 
 .map-control-panel {
   background-color: #65605a;
