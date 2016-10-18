@@ -2,7 +2,7 @@
 var lw = 400; // lens width
 var lh = 787;
 var lsx = 160; // lens start x
-var lsy = 25; 
+var lsy = 0; 
 
 
 // drag border and clip with it
@@ -10,10 +10,10 @@ var drag = d3.drag()
     .on("drag", function() {
         var clippy = d3.select('#clip rect');
         clippy.attr('x', +clippy.attr('x') + d3.event.dx);
-        clippy.attr('y', +clippy.attr('y') + d3.event.dy);
+        //clippy.attr('y', +clippy.attr('y') + d3.event.dy);
         var border = d3.select('#lens-border');
         border.attr('x', +border.attr('x') + d3.event.dx);
-        border.attr('y', +border.attr('y') + d3.event.dy);
+        //border.attr('y', +border.attr('y') + d3.event.dy);
     });
 
 /*
@@ -32,8 +32,8 @@ d3.select("svg g").append("svg:rect")
     .attr('y', lsy)
     .attr('width', lw)
     .attr('height', lh)
-    .attr('rx', 15)
-    .attr('ry', 15)
+    //.attr('rx', 15)
+    //.attr('ry', 15)
     .style("fill-opacity", 0)
     .style("stroke", "#7d7664")
     .style("stroke-width", 1)
