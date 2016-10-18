@@ -7,15 +7,15 @@
 {% block slim_content%}
 	
 
-<section class="activity-col">
-	<div id="svg_wrapper">
+<section class="slideshow-col">
+	<div id="slideshow-image">
 
 		<img src="{% static 'supporting/special/slideshow/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
 
 	</div> <!-- svg_wrapper -->
 </section>
 
-<section class="activity-controls-col">
+<section class="slideshow-controls-col">
 
 	<h4 class="heading slim-subhead">About this image:</h4>
   <p>{{ slide.narrative}}</p>

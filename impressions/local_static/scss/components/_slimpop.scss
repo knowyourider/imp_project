@@ -93,18 +93,25 @@ dl.slim-curatorial {
   }
 }
 
-.activity-col {
- // @include span-columns (9.5);
- float: left;
- //width: 73%;
- margin-right: 2%;
+//for slideshows
+.slideshow-col {
+  float: left;
+  margin-right: $base-spacing;
 }
 
-.activity-controls-col {
- // @include span-columns (2.5);
+.slideshow-controls-col {
  //float: right;
  //width: 25%;
  //margin-left: 77%;
+}
+
+//for interactives
+.activity-col {
+  @include span-columns (9);
+}
+
+.activity-controls-col {
+  @include span-columns (3);
 }
 
 // for svg highlights
@@ -163,7 +170,7 @@ dl.slim-curatorial {
   //height: inherit !important;
 }
 
-#svg_wrapper {
+#slideshow-image {
   img {
     max-height: 600px;
   }
