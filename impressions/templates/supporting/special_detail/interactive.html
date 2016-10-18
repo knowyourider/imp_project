@@ -8,7 +8,13 @@
 <script type="text/javascript">
 	var numOfCorrect = {{slide.num_correct}};
 </script>
-<script src="{% static 'js/interactive.js' %}" type="text/javascript"></script>
+
+<!-- <script src="{% static 'js/interactive.js' %}" type="text/javascript"></script> -->
+
+<script type="text/javascript">
+	// since this is in a slim called by ajax we can't just list the script directly
+	$.getScript('{% static 'js/interactive.js' %}');
+</script>
 
 <section class="activity-col">
 	<!-- <div id="svg_wrapper"> -->

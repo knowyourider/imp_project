@@ -1,0 +1,23 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Audio {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+ <script>
+  $( function() {
+    $( "#slider" ).slider();
+  } );
+  </script>
+
+  <div id="slider"></div>
+
+<p class="caption slim-caption">{{ object.caption }} Test slider {{ object.source.institution|safe }}.</p>
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}
