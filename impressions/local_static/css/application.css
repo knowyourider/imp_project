@@ -683,6 +683,8 @@ dl.slim-curatorial {
     .activities-controls li#feedback {
       font-style: italic;
       font-variant: normal; }
+    .activities-controls li span.no-more {
+      color: #999; }
 
 .slideshow-col {
   float: left;
