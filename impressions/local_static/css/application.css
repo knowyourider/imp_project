@@ -385,7 +385,7 @@ h6 {
   font-variant: small-caps;
   letter-spacing: .05em; }
 
-.caption, .image-panel--caption, .slim-caption {
+.caption, .image-panel--caption {
   font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
   font-size: 0.8em;
   padding: 0.8em; }
