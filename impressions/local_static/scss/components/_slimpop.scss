@@ -138,6 +138,20 @@ dl.slim-curatorial {
   display: block;
 }
 
+// for Voices
+.voices blockquote {
+  margin-left: 0;
+
+  p {
+    font-style: italic;
+  }
+
+  cite {
+    font-family: $utility-font-family;
+    font-style: normal;
+  }
+}
+
 #slimpop-overlay {
   background: url(../images/overlay.png) repeat;
   cursor: pointer;
