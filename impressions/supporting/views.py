@@ -49,7 +49,7 @@ class SpecialListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'supporting/special_list.html' 
 
-def special_detail(request, slug, slide_num_arg=1):
+def special_detail(request, slug, slide_num_arg=0):
     """
     Lots of "special" cases, so opting for a def.
     The urls need to stay consistent with other supporting types, so info about sub-types
@@ -58,18 +58,34 @@ def special_detail(request, slug, slide_num_arg=1):
     """
     object = get_object_or_404(Special, slug=slug)
     # each type has its own template
-    template_name = "supporting/special_detail/" + object.special_type + ".html"
+    # template_name = "supporting/special_detail/" + object.special_type + ".html"
+    special_type = object.special_type
+
+    # print("special_type: " + special_type)
+
     # interactives and slideshows share the slide structure
     # In both cases re-loding the whole page -- not much that would stay in place if
     # I used AJAX
-    if object.special_type == "interactive" or object.special_type == "slideshow" or object.special_type == "then":
+    if special_type == "interactive" or special_type == "slideshow" or special_type == "then":
         slide = get_object_or_404(Slide, special_id=object.id, 
             slide_num=slide_num_arg)
         # Currently "interactive" is find-footprints.
         # In future we could sub-type and say interactive_find-footprints.html
-        return render(request, template_name, {'object': object, 'slide': slide})
+
+        # for interactive and slideshow slide = 0 add intro to special type
+        # when slide_num_arg is passed as param it's a string, so convert to be sure
+        slide_num_arg = int(slide_num_arg)
+        # add intro for interactive and slideshow, but not for then and now
+        if (slide_num_arg==0 and special_type != "then"):
+            special_type += "_intro"
+
+        # print("special_type in slideshow: " + special_type)
+
+        return render(request, "supporting/special_detail/" + special_type + ".html", 
+            {'object': object, 'slide': slide})
     else:
-        return render(request, template_name, {'object': object})
+        return render(request, "supporting/special_detail/" + special_type + ".html", 
+            {'object': object})
         
 def special_footprint(request, image_name):
 

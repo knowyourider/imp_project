@@ -149,7 +149,7 @@ class Special(CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     SPECIAL_TYPES = (
-        ('audio','Voices'),
+        ('voices','Voices'),
         ('interactive','Interactive'),
         ('looking','Looking &amp; Seeing'),
         ('slideshow','Slideshow'),
@@ -180,10 +180,11 @@ class Slide(models.Model):
     help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
     "short_name_1, short_name_2, etc.")
     """
-    image_name = models.CharField(max_length=32, blank=True, default='')
-    credit_line = models.CharField(max_length=128, blank=True, default='',
-            help_text="For each slide -- Slides ignore Credit Line at top of form.")
-    narrative = models.TextField('Caption', blank=True, default='',
+    image_name = models.CharField('image short name', max_length=32, blank=True, default='')
+    caption = models.CharField(max_length=255, blank=True, default='',
+            help_text="For each slide -- Slides ignore Caption at top of form.")
+    source = models.ForeignKey('core.Source', default=1)
+    narrative = models.TextField(blank=True, default='',
             help_text="caption for each slide -- slides ignore Narrative at top of form.")
     num_correct = models.IntegerField(null=True, blank=True)
          
@@ -195,9 +196,11 @@ class Slide(models.Model):
         return False
 
     def get_prev(self):
-        prev = Slide.objects.filter(slide_num__lt=self.slide_num).order_by('-slide_num')
-        if prev:
-            return prev.first()
+        prev_list = Slide.objects.filter(slide_num__lt=self.slide_num).order_by('-slide_num')
+        if prev_list:
+            prev = prev_list.first()
+            if prev.slide_num > 0:
+                return prev_list.first()
         return False
 
     class Meta:

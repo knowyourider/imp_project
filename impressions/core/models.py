@@ -59,7 +59,10 @@ class Source(models.Model):
     contact = models.CharField(max_length=128, blank=True, default='')
     notes = models.TextField(blank=True, default='')
 
+    class Meta:
+        ordering = ['institution']
+
     def __str__(self):
-        return self.slug
+        return self.institution
 
         

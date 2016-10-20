@@ -109,7 +109,7 @@ class SpecialAdmin(admin.ModelAdmin):
     ]
     inlines = [SlideInline]
     list_display = ('title', 'slug', 'special_type', 'status_num')
-    list_filter     = ['status_num'] 
+    list_filter     = ['special_type', 'status_num'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(Special, SpecialAdmin)
