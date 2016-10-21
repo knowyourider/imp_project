@@ -16,23 +16,23 @@
 	$.getScript('{% static 'js/interactive.js' %}');
 </script>
 
-<section class="slideshow-col">
+<section class="activity-col">
 	<div id="slideshow-image">
 
 		<img src="{% static 'supporting/special/interactive/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
     <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
 
-	</div> <!-- svg_wrapper -->
+	</div> <!-- #slideshow-image -->
 </section>
 
 <section class="activity-controls-col">
 
-	<h4 class="heading slim-subhead">How to:</h4>
+	<h4 class="heading slim-subhead">About this interactive</h4>
   <p>{{ slide.narrative}}</p>
 	
 	<ul class="activities-controls">
 		<li>
-            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug 1 %}">Try Activity</a>
+      <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
 		</li>
 	</ul>
 

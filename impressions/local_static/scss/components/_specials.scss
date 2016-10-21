@@ -32,8 +32,6 @@
  //margin-left: 77%;
 }
 
-// is this being used??
-
 #slideshow-image {
   img {
     max-height: 600px;
@@ -70,19 +68,22 @@
 }
 
 // Voices
-.voices blockquote {
+.voices {
+	width: 50vw;
+
+	blockquote {
   margin-left: 0;
 
-  p {
-    font-style: italic;
-  }
+	  p {
+	    font-style: italic;
+	  }
 
-  cite {
-    font-family: $utility-font-family;
-    font-style: normal;
-  }
+	  cite {
+	    font-family: $utility-font-family;
+	    font-style: normal;
+	  }
+	}
 }
-
 // Looking...Seeing (from Codrops)
 .audio-slideshow {
 	width: 640px;
@@ -185,3 +186,7 @@
 	z-index: 100;
 }
 
+// Video
+#video-content {
+	width: 500px;
+}

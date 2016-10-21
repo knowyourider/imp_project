@@ -668,13 +668,15 @@ picture {
 .unhidden {
   display: block; }
 
-.voices blockquote {
-  margin-left: 0; }
-  .voices blockquote p {
-    font-style: italic; }
-  .voices blockquote cite {
-    font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
-    font-style: normal; }
+.voices {
+  width: 50vw; }
+  .voices blockquote {
+    margin-left: 0; }
+    .voices blockquote p {
+      font-style: italic; }
+    .voices blockquote cite {
+      font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+      font-style: normal; }
 
 .audio-slideshow {
   width: 640px;
@@ -763,6 +765,9 @@ picture {
 .marker:hover span {
   opacity: 1;
   z-index: 100; }
+
+#video-content {
+  width: 500px; }
 
 #slimpop-wrapper {
   background-color: #fff4e4;

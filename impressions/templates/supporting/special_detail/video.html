@@ -6,10 +6,15 @@
 
 {% block slim_content%}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RsqpM0BIfBQ" frameborder="0" allowfullscreen></iframe>
-<p class="caption slim-caption">{{ object.caption }} Video courtesy of {{ object.source.institution|safe }}.</p>
+<div id="video-content">
 
-{{ object.narrative|safe }}
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/RsqpM0BIfBQ" frameborder="0" allowfullscreen></iframe>
+
+	<p class="caption slim-caption">{{ object.caption }} Video courtesy of {{ object.source.institution|safe }}.</p>
+
+	{{ object.narrative|safe }}
+	
+</div><!-- /video-content -->
 
 {% endblock slim_content %}
 
