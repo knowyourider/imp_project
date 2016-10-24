@@ -1,0 +1,58 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Looking &amp; Seeing {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+
+  {{ object.menu_blurb|safe }}
+  
+  <!-- from Cod Rops -->
+
+  <div class="audio-slideshow" data-audio="{% static 'supporting/special/looking/media/' %}{{ object.slug }}.m4a" data-audio-duration="102">
+    
+    <div class="audio-slides">
+    {% for slide in object.slide_set.all %}
+      <img src="{% static 'supporting/special/looking/fullpics/' %}{{ slide.image_name }}.jpg" data-thumbnail="{% static 'supporting/special/looking/thumbpics/' %}{{ slide.image_name }}.jpg" data-slide-time="{{ slide.num_correct }}">
+
+    {% endfor %}
+    </div><!-- /audio-slides -->
+
+    <div class="audio-control-interface">
+
+      <div class="play-pause-container">
+        <a href="javascript:;" class="audio-play" tabindex="1">Play</a>
+        <a href="javascript:;" class="audio-pause" tabindex="1">Pause</a>
+      </div><!-- /play-pause-container -->
+
+      <div class="time-container">
+        <span class="play-time"></span> / <span class="total-time"></span>
+      </div><!-- /time-container -->
+
+      <div class="timeline">
+        <div class="timeline-controls"></div>
+        <div class="playhead"></div>
+      </div><!-- /timeline -->
+
+      <div class="jplayer"></div>
+
+    </div><!-- /audio-control-interface -->
+
+  </div><!-- /audio-slideshow -->
+
+  <!-- /from Cod Rops -->
+
+  <script type="text/javascript">
+    // since this is in a slim called by ajax we can't just list the script directly
+    $.getScript('{% static "js/jquery.audioslideshow.js" %}', function() {
+      // Call custom function defined in script
+      $('.audio-slideshow').audioSlideshow();
+    });
+
+  </script>
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}
