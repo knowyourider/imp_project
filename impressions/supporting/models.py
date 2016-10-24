@@ -162,7 +162,8 @@ class Special(CommonSupportingModel):
     special_type = models.CharField(max_length=32, default='animation', 
         choices=SPECIAL_TYPES)
     title = models.CharField(max_length=128)
-    narrative = models.TextField('Description / Label', blank=True, default='')
+    description = models.TextField(blank=True, default='')
+    narrative = models.TextField('Narrative / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
     class Meta:

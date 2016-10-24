@@ -75,10 +75,9 @@ function slimPop(theURL, sizeClass) {
 */
 function hideBox() {
   // test for existence of audioPlayer element 
-  //if (document.getElementById("audioPlayer")) { 
-  //  document.getElementById("audioPlayer").pause();     
-  //}   
-    
+  if ($('audio')) {
+    $('audio').trigger("pause");
+  }
   var contentDiv = $('#slimpop-container');
   // empty content div so it won't briefly show old content on new pop
   contentDiv.html = " ";  
@@ -86,6 +85,7 @@ function hideBox() {
   contentDiv.removeClass().addClass('hidden');
   // ..and darkening overlay
   $('#slimpop-overlay').removeClass().addClass('hidden');
+
 }
 
 // ----------- AJAX ----------

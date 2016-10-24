@@ -103,7 +103,7 @@ class SpecialAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_m_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
-            'source', 'menu_blurb', 'map_blurb', 'narrative']}),
+            'source', 'menu_blurb', 'map_blurb', 'description', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
