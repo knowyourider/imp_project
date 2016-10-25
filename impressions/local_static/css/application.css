@@ -676,6 +676,7 @@ picture {
       font-style: italic; }
     .voices blockquote cite {
       font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+      font-size: 0.9em;
       font-style: normal; }
 
 .audio-slideshow {
@@ -704,8 +705,7 @@ picture {
   position: absolute;
   bottom: 25px;
   height: 18px;
-  font-weight: bold;
-  color: #777;
+  color: #7d7664;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); }
 
 .audio-slideshow .play-pause-container a {

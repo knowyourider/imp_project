@@ -80,11 +80,12 @@
 
 	  cite {
 	    font-family: $utility-font-family;
+	    font-size: $smallish-font-size;
 	    font-style: normal;
 	  }
 	}
 }
-// Looking...Seeing (from Codrops)
+// Looking...Seeing (from Codrops - http://tympanus.net/Development/AudioSlideshow/ )
 .audio-slideshow {
 	width: 640px;
 	height: 520px;
@@ -114,8 +115,8 @@
 	position: absolute;
 	bottom: 25px;
 	height: 18px;
-	font-weight: bold;
-	color: #777;
+	//font-weight: bold;
+	color: $base-font-color;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
