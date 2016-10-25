@@ -5,20 +5,16 @@ var froalaChapter = {
 	linkAutoPrefix: '',
 	linkList: [
 		{
-			displayText: 'evidence',
-			href: '/supporting/evidenceitem/'
-		},
-		{
-			displayText: 'person',
-			href: '/supporting/person/'
-		},
-		{
-			displayText: 'context',
-			href: '/supporting/context/'
-		},
-		{
-			displayText: 'fast fact',
+			displayText: 'In Brief',
 			href: '/supporting/fastfact/'
+		},
+		{
+			displayText: 'Special (Voices)',
+			href: '/supporting/special/'
+		},
+		{
+			displayText: 'Context',
+			href: '/supporting/context/'
 		}
 	],
 	linkStyles: {

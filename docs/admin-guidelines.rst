@@ -13,8 +13,10 @@ Then and Now
 - forground (new) image is slide 1
 
 Looking and Seeing
+- description at top from description
 - seconds for slide - use num_correct field
 
 Voices
 - Transcription goes in narrative
 - Description at top from description
+- Citation comes from caption field
