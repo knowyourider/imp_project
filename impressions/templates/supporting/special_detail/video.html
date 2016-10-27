@@ -8,7 +8,11 @@
 
 <div id="video-content">
 
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/RsqpM0BIfBQ" frameborder="0" allowfullscreen></iframe>
+	<video width="560" height="315" controls="controls">
+		<source src="{% static 'supporting/special/video/media/' %}{{ object.slug}}.webm" type="video/webm">
+		<source src="{% static 'supporting/special/video/media/' %}{{ object.slug}}.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
 
 	<p class="caption slim-caption">{{ object.caption }} Video courtesy of {{ object.source.institution|safe }}.</p>
 

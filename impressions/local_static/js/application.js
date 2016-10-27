@@ -78,6 +78,9 @@ function hideBox() {
   if ($('audio')) {
     $('audio').trigger("pause");
   }
+  if ($('video')) {
+    $('video').trigger("pause");
+  }
   var contentDiv = $('#slimpop-container');
   // empty content div so it won't briefly show old content on new pop
   contentDiv.html = " ";  
@@ -96,7 +99,9 @@ function getURL(theURL, contentDiv) {
   // using .get instead of .load so that I can catch errors, especially 404
   // requestData,?
   $.get(theURL, function(data) {  
-    contentDiv.html(data); 
+    contentDiv.html(data);
+    // make sure we're scrolled to the top
+    contentDiv.animate({ scrollTop: 0 }, 0);
   }).fail(function(jqXHR) {
     contentDiv.html('<div id="slimpop-wrapper">' + '<p>SlimPop error: ' + 
       jqXHR.status + '</p></div>')
