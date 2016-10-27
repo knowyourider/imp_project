@@ -2,8 +2,8 @@
 
 .footer {
   border-top: 1px solid $panel-darken-color;
-  bottom: 0; 
-  left: 0; 
+  //bottom: 0; 
+  //left: 0; 
   width: 100%; 
   background: $footer-background-color;
   display: inline-block;
@@ -12,7 +12,7 @@
 // if viewport is larger than 860em, make bottom nav height 80px
   @include media($large-screen) {
     height: $bottom-navigation-height;
-    position: fixed; 
+    //position: fixed; 
 }
 
   ul {

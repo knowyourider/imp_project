@@ -10,7 +10,6 @@
   z-index: 9999;
 
   // Mobile view
-
   .mobile-logo {
     display: inline;
     float: left;
@@ -38,6 +37,7 @@
     text-decoration: none;
     text-transform: uppercase;
 
+    // don't show at large screen sizes
     @include media ($large-screen) {
       display: none;
     }
@@ -49,7 +49,6 @@
   }
 
   // Nav menu
-
   .top-navigation-wrapper {
     @include outer-container;
     @include clearfix;
@@ -67,6 +66,10 @@
     width: 100%;
     z-index: 99999;
 
+    li.nav-link img {
+      display: none;
+    }
+
     &.show {
       display: block;
     }
@@ -74,21 +77,29 @@
     @include media ($large-screen) {
       display: block;
       text-align: center;
+      
+      li.nav-link img {
+        display: inline-block;
+        width: 30px;
+        height: auto;
+      }
     }
   }
 
   // The nav items
-
   .nav-link:first-child {
     @include media($large-screen) {
       margin-left: $top-navigation-item-nudge;
     }
   }
 
-  // top menu links
+  // menu links
   ul li.nav-link {
     background: $top-nav-background-color;
     display: block;
+    font-size: $base-font-size * 1.25;
+    font-variant: small-caps;
+    letter-spacing: 0.15em;
     line-height: $top-navigation-height;
     overflow: hidden;
     padding-right: $top-navigation-submenu-padding;
@@ -116,7 +127,20 @@
       a {
         padding-right: $top-navigation-item-padding;
       }
+
+//      img {
+//       display: inline-block;
+//        width: 30px;
+//        height: auto;
+//      }
     }
+  }
+
+  ul.supporting-menu li.nav-link {
+//need to apply the border to ul not li
+    border-top: 1px solid $light-taupe;
+    font-size: $base-font-size;
+    letter-spacing: normal;
   }
 
   li.logo.nav-link {
@@ -161,6 +185,7 @@
     > a:after {
       @include position(absolute, auto -0.4em auto auto);
       color: $top-navigation-color;
+      //small down pointing triangle
       content: "\25BE";
     }
   }
