@@ -37,7 +37,34 @@ $(document).ready(function(){
     for (var iscroll=0; iscroll < xscroll; iscroll++){
         setTimeout('window.scrollBy(' + iscroll + ', 0)',scrollspeed * iscroll);
     }
+  });
 
+  // ---------- NAVIGATION ----------
+  // Assign var menuToggle to stand for the element js-top-navigation-mobile-menu
+  var menuToggle = $('#js-top-navigation-mobile-menu').unbind();
+  // Here, on page load, we're going to remove the class show
+  // (Though I, Don, don't know why -- seems to make no difference whether its' in or out)
+  $('#js-top-navigation-menu').removeClass("show");
+  
+  // this adds click "listener" to the mobile MENU link
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    // toggle the primary mobile menu down (if it's up) and up (if already down)
+    $('#js-top-navigation-menu').slideToggle(function(){
+      // if css media query has hidden the full menu, then remove "full" style
+      // so that we get the plain list for mobile
+      if($('#js-top-navigation-menu').is(':hidden')) {
+        $('#js-top-navigation-menu').removeAttr('style');
+      }
+    });
+    // toggle the secondary mobile menu down (if it's up) and up (if already down)
+    $('#js-2nd-navigation-menu').slideToggle(function(){
+      // if css media query has hidden the full menu, then remove "full" style
+      // so that we get the plain list for mobile
+      if($('#js-2nd-navigation-menu-navigation-menu').is(':hidden')) {
+        $('#js-2nd-navigation-menu').removeAttr('style');
+      }
+    });
   });
 
 }); // end doc ready
@@ -108,18 +135,3 @@ function getURL(theURL, contentDiv) {
     .append(jqXHR.responseText);
   });
 }
-
-// ---------- NAVIGATION ----------
-$(document).ready(function() {
-  var menuToggle = $('#js-top-navigation-mobile-menu').unbind();
-  $('#js-top-navigation-menu').removeClass("show");
-  
-  menuToggle.on('click', function(e) {
-    e.preventDefault();
-    $('#js-top-navigation-menu').slideToggle(function(){
-      if($('#js-top-navigation-menu').is(':hidden')) {
-        $('#js-top-navigation-menu').removeAttr('style');
-      }
-    });
-  });
-});
