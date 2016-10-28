@@ -64,14 +64,18 @@
 
       <ul id="js-top-navigation-menu" class="top-navigation-menu show">
 
-        <li class="nav-link logo">
-          <a href="/" class="logo">
-            <img src="{% static 'images/footmark-logo.png' %}" alt="Logo image">
-          </a>
+        <li class="nav-link">
+          <img src="/static/images/nav-trackways-first.png">
+        </li>
+
+        <li class="nav-link">
+          <a href="/">Home</a>
+          <img src="/static/images/nav-trackways-home.png">
         </li>
 
         <li class="nav-link {% if object.content_type.id == 1 %}more{% endif %}">
           <a href="{% url 'stories:story_list' %}">Stories</a>
+          <img src="/static/images/nav-trackways-stories.png">
           {% if object.content_type.id == 1 %}
             <ul class="submenu">
               {% for story in object.story_list %}
@@ -80,10 +84,10 @@
             </ul>
           {% endif %}
         </li>
-        <li class="nav-link"><a href="{% url 'map:map_detail' 'today' %}">Map</a></li>
-        <li class="nav-link"><a href="#">Timeline</a></li>
+
         <li class="nav-link {% if object.content_type.id == 2 %}more{% endif %}">
           <a href="{% url 'themes:theme_list' %}">Themes</a>
+          <img src="/static/images/nav-trackways-themes.png">
           {% if object.content_type.id == 2 %}
             <ul class="submenu">
               {% for theme in object.theme_list %}
@@ -92,12 +96,23 @@
             </ul>
           {% endif %}
         </li>
+
+        <li class="nav-link">
+          <a href="{% url 'map:map_detail' 'today' %}">Map</a>
+          <img src="/static/images/nav-trackways-map.png">
+        </li>
+
+        <li class="nav-link">
+          <a href="#">Timeline</a>
+          <img src="/static/images/nav-trackways-timeline.png">
+        </li>
+
       </ul>
 
       <ul id="js-2nd-navigation-menu" class="top-navigation-menu supporting-menu show">
         <li class="nav-link"><a href="{% url 'supporting:person_list' %}">People</a></li>
-        <li class="nav-link"><a href="{% url 'supporting:evidenceitem_list' %}">Evidence</a></li>
-        <li class="nav-link"><a href="{% url 'supporting:context_list' %}">Context</a></li>
+        <li class="nav-link"><a href="{% url 'supporting:evidenceitem_list' %}">Artifacts &amp; Documents</a></li>
+        <li class="nav-link"><a href="{% url 'supporting:context_list' %}">Backdrops</a></li>
         <li class="nav-link"><a href="{% url 'supporting:special_list' %}">Special Features</a></li>
       </ul>
 

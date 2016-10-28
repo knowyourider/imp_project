@@ -99,13 +99,13 @@
     display: block;
     font-size: $base-font-size * 1.25;
     font-variant: small-caps;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     line-height: $top-navigation-height;
     overflow: hidden;
     padding-right: $top-navigation-submenu-padding;
     text-align: right;
     width: 100%;
-    z-index: 9999;
+    //z-index: 9999;
 
     a {
       color: $top-navigation-color;
@@ -127,34 +127,31 @@
       a {
         padding-right: $top-navigation-item-padding;
       }
-
-//      img {
-//       display: inline-block;
-//        width: 30px;
-//        height: auto;
-//      }
     }
   }
 
-  ul.supporting-menu li.nav-link {
-//need to apply the border to ul not li
+  ul.supporting-menu {
     border-top: 1px solid $light-taupe;
-    font-size: $base-font-size;
-    letter-spacing: normal;
-  }
+    z-index: 1;
 
-  li.logo.nav-link {
-    display: none;
-    line-height: 0;
-
-    @include media($large-screen) {
-      display: inline;
+    li.nav-link {
+      font-size: $base-font-size;
+      letter-spacing: normal;
     }
-  }
 
-  .logo img {
-    margin-bottom: -$top-navigation-logo-height / 3;
-    max-height: $top-navigation-logo-height;
+    li.logo.nav-link {
+      display: none;
+      line-height: 0;
+
+      @include media($large-screen) {
+        display: inline;
+      }
+    }
+
+    .logo img {
+      margin-bottom: -$top-navigation-logo-height / 3;
+      max-height: $top-navigation-logo-height;
+    }
   }
 
   // Sub menus
@@ -193,6 +190,7 @@
   li.more {
     overflow: visible;
     padding-right: 0;
+    z-index: 9999;
 
     a {
       padding-right: $top-navigation-submenu-padding;
@@ -229,35 +227,26 @@
     display: none;
     padding-left: 0;
     box-shadow: $drop-shadow;
+    //can't figure out how to get the dropdown submenus to be on top of 2nd menu!!
+    z-index: 9999 !important;
 
     @include media($large-screen) {
       left: -$top-navigation-submenu-padding;
       position: absolute;
-      top: 2em;
-    }
-
-    .submenu {
-      @include media($large-screen) {
-        left: $top-navigation-submenu-width - 0.2em;
-        top: 0;
-      }
+      top: $top-navigation-height;
     }
 
     li {
       display: block;
+      font-size: $base-font-size;
+      font-variant: normal;
+      letter-spacing: normal;
       padding-right: 0;
 
       @include media($large-screen) {
-        line-height: $top-navigation-height / 2.5;
-
-        &:first-child > a {
-          border-top-left-radius: $base-border-radius;
-          border-top-right-radius: $base-border-radius;
-        }
+        line-height: $heading-line-height;
 
         &:last-child > a {
-          border-bottom-left-radius: $base-border-radius;
-          border-bottom-right-radius: $base-border-radius;
           padding-bottom: .7em;
         }
       }
@@ -267,7 +256,6 @@
         border-bottom: $base-border;
         display: inline-block;
         font-size: $small-font-size;
-        //padding: .25em 1em .25em 0;
         text-align: right;
         text-decoration: none;
         width: 100%;
@@ -277,6 +265,7 @@
           padding: .75em 1em;
           text-align: left;
           width: $top-navigation-submenu-width;
+          z-index: 9999;
         }
       }
     }
