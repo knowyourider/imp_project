@@ -43,8 +43,9 @@ $(document).ready(function(){
   // Assign var menuToggle to stand for the element js-top-navigation-mobile-menu
   var menuToggle = $('#js-top-navigation-mobile-menu').unbind();
   // Here, on page load, we're going to remove the class show
-  // (Though I, Don, don't know why -- seems to make no difference whether its' in or out)
+  // the following re-show the menus after transition from mobile to large screen
   $('#js-top-navigation-menu').removeClass("show");
+  $('#js-2nd-navigation-menu').removeClass("show");
   
   // this adds click "listener" to the mobile MENU link
   menuToggle.on('click', function(e) {
