@@ -40,10 +40,12 @@ $(document).ready(function(){
   });
 
   // ---------- NAVIGATION ----------
+  // This is happening on page load
   // Assign var menuToggle to stand for the element js-top-navigation-mobile-menu
+  // and remove (unbind) any previous event handler
   var menuToggle = $('#js-top-navigation-mobile-menu').unbind();
   // Here, on page load, we're going to remove the class show
-  // the following re-show the menus after transition from mobile to large screen
+  // .. if we happen to be in mobile mode, this will make sure the menu isn't dropped down
   $('#js-top-navigation-menu').removeClass("show");
   $('#js-2nd-navigation-menu').removeClass("show");
   
@@ -60,9 +62,7 @@ $(document).ready(function(){
     });
     // toggle the secondary mobile menu down (if it's up) and up (if already down)
     $('#js-2nd-navigation-menu').slideToggle(function(){
-      // if css media query has hidden the full menu, then remove "full" style
-      // so that we get the plain list for mobile
-      if($('#js-2nd-navigation-menu-navigation-menu').is(':hidden')) {
+      if($('#js-2nd-navigation-menu').is(':hidden')) {
         $('#js-2nd-navigation-menu').removeAttr('style');
       }
     });
