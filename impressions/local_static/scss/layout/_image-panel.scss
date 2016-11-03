@@ -1,29 +1,46 @@
-//images for stories and themes, works with _side-panel.scss
+// //images for stories and themes, works with _side-panel.scss
+// .image-panel {
+// 	background-size: cover;
+// 	padding: $base-spacing;
+// 	position: relative;
+	
+// 	// for small displays
+// 	width: 100%;
+// 	height: 500px;
+
+// 	//for large displays:
+//   @include media($large-screen) {
+// 		@include calc(height, "100vh - #{$top-plus-bottom}");
+// 		@include position(absolute, 50px 0 0 null); why 100px and not $top-navigation-height???
+// 		width: 70%;
+// 	}
+// }
+
+ // basic caption styles are in typography.scss
+ .image-panel--caption {
+ 	color: $light-font-color;
+ 	//@include position(relative, null $base-spacing $base-spacing null); 
+ 	//width: 300px;
+
+ 	//for large displays:
+  @include media($large-screen) {	
+   	//@include position(absolute, null $xlarge-spacing $base-spacing null); 
+ 	}
+ }
+
 .image-panel {
-	background-size: cover;
-	padding: $base-spacing;
-	position: relative;
 	// for small displays
 	width: 100%;
-	height: 500px;
+	height: auto;
 
 	//for large displays:
-  @include media($large-screen) {
-		@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, 50px 0 0 null); /* why 100px and not $top-navigation-height??? */
-		width: 70%;
+	@include media($large-screen) {
+		@include span-columns(8);
+		//float: right;
+		//width: 70%
 	}
 }
 
-// basic caption styles are in typography.scss
-.image-panel--caption {
-	background-color: $transparent-dark-taupe;
-	color: $light-font-color;
-	@include position(absolute, null $base-spacing $base-spacing null); 
-	width: 300px;
-
-	//for large displays:
-  @include media($large-screen) {	
-  		@include position(absolute, null $xlarge-spacing $base-spacing null); 
-	}
+.chapter-image {
+	width: 60%
 }

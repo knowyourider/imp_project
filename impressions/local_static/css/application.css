@@ -364,20 +364,20 @@ h6 {
   margin-bottom: 0.4em; }
 
 .main-title {
-  font-size: 2.5em;
+  font-size: 2.25em;
   color: #b12b00; }
 
 .subtitle {
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #b12b00; }
 
 .story-title {
-  font-size: 2.5em;
+  font-size: 2.25em;
   color: #fff4e4;
   text-shadow: 1px 1px 2px black; }
 
 .story-subtitle {
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #fff4e4;
   text-shadow: 1px 1px 2px black; }
 
@@ -413,66 +413,15 @@ picture {
   max-width: 100%; }
 
 .deeper {
-  font-size: 0.9em; }
-  .deeper h2 {
-    color: #b12b00;
-    font-size: 1.5em;
-    letter-spacing: 0.25em;
-    margin-left: 1.6em;
-    padding-top: 3.2em;
-    text-transform: uppercase;
-    width: 100%; }
-  @media screen and (max-width: 53.75em) {
+  border: 1px solid red; }
+  @media screen and (min-width: 53.75em) {
     .deeper {
-      margin-top: -1.6em;
-      padding: 0 1.6em 1.6em 1.6em; } }
-
-.deeper .table-cell {
-  padding: 1.6em;
-  /* this adds left & right padding to images in deeper gallery */ }
-  .deeper .table-cell img {
-    border: 1px solid #b3aa98;
-    display: block;
-    max-width: none;
-    max-height: 25vh;
-    padding: 2px; }
-    @media screen and (max-height: 790px) {
-      .deeper .table-cell img {
-        max-height: 20vh; } }
-    @media screen and (max-width: 53.75em) {
-      .deeper .table-cell img {
-        max-height: none; } }
-
-.oval {
-  border-radius: 50%; }
-
-.deeper-row {
-  display: inline-table; }
-
-@media screen and (max-width: 53.75em) {
-  .go-to-deeper {
-    display: none; } }
-@media screen and (min-width: 53.75em) {
-  .go-to-deeper {
-    background: no-repeat 0.8em top url("../images/pointing-hand-dig.png");
-    background-color: rgba(177, 43, 0, 0.6);
-    height: 70px;
-    letter-spacing: 0.25em;
-    padding: 1.6em 3.2em;
-    position: absolute;
-    right: calc(-100vh + 50px);
-    text-transform: uppercase;
-    top: 0;
-    transform: rotate(90deg);
-    transform-origin: left top 0;
-    width: calc(100vh - 50px); }
-    .go-to-deeper a:link, .go-to-deeper a:visited {
-      color: #fff4e4; }
-    .go-to-deeper a:hover {
-      color: #b12b00; } }
-
-.table.toprow .table-cell {
-  padding-bottom: 1rem; }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 6.17215%; }
+      .deeper:last-child {
+        margin-right: 0; } }
 
 .menu-gallery {
   text-align: center; }
@@ -609,7 +558,7 @@ picture {
   margin-right: 3.2em;
   padding-top: 6.4em; }
   .menu-home li a {
-    font-size: 1.5em; }
+    font-size: 1.25em; }
   .menu-home li img {
     padding: 2px;
     border: double #b3aa98; }
@@ -790,7 +739,7 @@ picture {
 
 .slim-title {
   color: #b12b00;
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin-bottom: 0.4em; }
 
 .slim-subhead {
@@ -984,6 +933,10 @@ body.horiz-scroll {
     .content-wrapper {
       padding: 3.2em 1.6em; } }
 
+.content-wrapper--intro {
+  background-color: #65605a;
+  overflow: auto; }
+
 .content-wrapper-map {
   margin-top: 40px; }
 
@@ -1008,59 +961,41 @@ body.horiz-scroll {
       width: auto;
       height: auto; } }
 
+.image-panel--caption {
+  color: #fff4e4; }
+
 .image-panel {
-  background-size: cover;
-  padding: 1.6em;
-  position: relative;
   width: 100%;
-  height: 500px; }
+  height: auto; }
   @media screen and (min-width: 53.75em) {
     .image-panel {
-      height: -webkit-calc(100vh - 120px);
-      height: calc(100vh - 120px);
-      position: absolute;
-      top: 50px;
-      right: 0;
-      bottom: 0;
-      /* why 100px and not $top-navigation-height??? */
-      width: 70%; } }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .image-panel:last-child {
+        margin-right: 0; } }
 
-.image-panel--caption {
-  background-color: rgba(101, 96, 90, 0.6);
-  color: #fff4e4;
-  position: absolute;
-  right: 1.6em;
-  bottom: 1.6em;
-  width: 300px; }
-  @media screen and (min-width: 53.75em) {
-    .image-panel--caption {
-      position: absolute;
-      right: 6.4em;
-      bottom: 1.6em; } }
+.chapter-image {
+  width: 60%; }
 
 .text-panel {
-  background-color: #65605a;
   color: #fff4e4;
   padding: 1.6em;
   width: 100%; }
   @media screen and (min-width: 53.75em) {
     .text-panel {
-      width: 30%;
-      height: 100vh;
-      height: -webkit-calc(100vh - 120px);
-      height: calc(100vh - 120px);
-      position: absolute;
-      top: 50px;
-      bottom: 0;
-      left: 0; } }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .text-panel:last-child {
+        margin-right: 0; } }
   .text-panel a:link, .text-panel a:visited {
     color: rgba(255, 244, 228, 0.6); }
   .text-panel a:hover {
     color: #fff4e4;
     text-decoration: underline; }
-
-.intro-text {
-  font-size: 0.9em; }
 
 .intro-nav {
   font-size: 0.8em;
@@ -1074,14 +1009,24 @@ body.horiz-scroll {
     width: 26.56773%; }
     .intro-nav li:last-child {
       margin-right: 0; }
+  .intro-nav li.previous {
+    text-align: left; }
+    .intro-nav li.previous a {
+      font-style: italic;
+      letter-spacing: 0.05em; }
+  .intro-nav li.next {
+    text-align: right; }
+    .intro-nav li.next a {
+      font-style: italic;
+      letter-spacing: 0.05em; }
 
 .read-this {
   background: no-repeat bottom url("../images/pointing-hand-down.png");
   height: 85px; }
 
-@media screen and (max-width: 1100px) {
-  .chapter-text h2, .intro-text h2 {
-    font-size: 1em; } }
+@media screen and (min-width: 53.75em) {
+  .chapter-text h1, .intro-text h1 {
+    font-size: 1.75em; } }
 .chapter-text h4, .intro-text h4 {
   font-size: 0.8em;
   line-height: 1.6; }
@@ -1119,7 +1064,6 @@ body.horiz-scroll {
   border-bottom: 1px solid #c0b99e;
   left: 0;
   min-height: 40px;
-  position: fixed;
   top: 0;
   width: 100%;
   z-index: 9999; }

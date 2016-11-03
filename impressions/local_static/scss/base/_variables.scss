@@ -6,14 +6,15 @@ $large-screen: em(860) !default;
 $base-font-family: $libre-baskerville;
 $heading-font-family: $base-font-family;
 $utility-font-family: $lucida-grande;
+$italic-letter-spacing: 0.05em;
 
 // Font Sizes
 $base-font-size: 1em;
 $smallish-font-size: 0.9em;
 $small-font-size: 0.8em;
-$medlarge-font-size: 1.5em;
-$large-font-size: 2em;
-$title-font-size: 2.5em;
+$medlarge-font-size: 1.25em;
+$large-font-size: 1.75em;
+$title-font-size: 2.25em;
 
 // Line height
 $base-line-height: 1.6;

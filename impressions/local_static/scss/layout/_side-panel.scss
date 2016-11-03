@@ -1,6 +1,5 @@
 //side panel layout for text, works with _image-panel.scss
 .text-panel {
-	background-color: $dark-taupe;
 	color: $light-font-color;
 	padding: $base-spacing;
 	// for small displays
@@ -8,10 +7,8 @@
 
 	//for large displays:
   @include media($large-screen) {
-		width: 30%;
-    height: 100vh;
-		@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, 50px null 0 0); 
+		@include span-columns(3);
+		//overflow: auto;
 	}
 
 	a:link, a:visited {
@@ -25,19 +22,37 @@
 }
 
 .intro-text {
-	font-size: $smallish-font-size;
+	//font-size: $smallish-font-size;
 }
 
 .intro-nav {
 	font-size: $small-font-size;
 	text-align: center;
 		
-		li {
-			display: inline;
-			margin-bottom: $base-spacing;
+	li {
+		display: inline;
+		margin-bottom: $base-spacing;
 
-			@include span-columns (1 of 3)
+		@include span-columns (1 of 3)
+	}
+
+	li.previous {
+		text-align: left;
+		
+		a {
+			font-style: italic;
+			letter-spacing: $italic-letter-spacing;
 		}
+	}
+
+	li.next {
+		text-align: right;
+		
+		a {
+			font-style: italic;
+			letter-spacing: $italic-letter-spacing;
+		}
+	}
 }
 
 .read-this {
@@ -46,11 +61,26 @@
 }
 
 .chapter-text, .intro-text {
-	h2 {
+	h1 {
+		//for mobile sizes
+		// when viewport is less than or equal to em(860), change font size
+		//@include media(max-width $large-screen) {
+		//	font-size: $medlarge-font-size;
+		//}
+		//for mid-sized screens
+		// when viewport is greater than or equal to em(860), change font size
+		@include media(min-width $large-screen) {
+			font-size: $large-font-size;
+		}		
+		//for large screens
+		//leave it as $title-font-size which is set in .story-title
+	}
 
-		@include media(max-width 1100px) {
-			font-size: $base-font-size;
-		}
+	h2 {
+		// when viewport is greater than or equal to 1100, change font size
+		//@include media(max-width 1100px) {
+		//	font-size: $base-font-size;
+		//}
 	}
 
 	h4 {
