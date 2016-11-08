@@ -3,69 +3,67 @@
 
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block wrapper_class %}"content-wrapper--intro"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper--full"{% endblock wrapper_class %}
 
 {% block content_area %}
-
-  <div>
-  
-    <section class="menu-grid--area">
-      <h1 class="main-title">Evidence: Artifacts &amp; Documents</h1>
-      <ul class="menu-grid squares">
-      
-      {% for object in object_list %}
-        <li>
-          <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
-            <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">         
-            <em>{{ object.title|safe }}</em>
-            </a>
-        </li>
-      {% endfor %}
-      </ul>   
-
-    </section>
     
-    <section class="control-panel">
-      <h2>Showing: All, xx items</h2>
-      <h4 class="heading">Narrow by Item Type</h4>
-      <ul id="id_type">
-        <li>
-          <label for="id_0">
-            <input id="id_0" name="type" type="checkbox" value="objects" /> Objects
-          </label>
-        </li>
-        <li>
-          <label for="id_1">
-            <input id="id_1" name="type" type="checkbox" value="manuscripts" /> Manuscripts
-          </label>
-        </li>
-        <li>
-          <label for="id_2">
-            <input id="id_2" name="type" type="checkbox" value="printed" /> Printed Material
-          </label>
-        </li>
-        <li>
-          <label for="id_3">
-            <input id="id_3" name="type" type="checkbox" value="maps" /> Maps
-          </label>
-        </li>
-        <li>
-          <label for="id_4">
-            <input id="id_4" name="type" type="checkbox" value="pictures" /> Pictures &amp; Paintings
-          </label>
-        </li>
+  <section class="control-panel">
+    <h1 class="main-title">Evidence: Artifacts &amp; Documents</h1>
 
-      </ul>
+    <h2>Showing: All, xx items</h2>
+    <h4 class="heading">Narrow by Item Type</h4>
+    <ul id="id_type">
+      <li>
+        <label for="id_0">
+          <input id="id_0" name="type" type="checkbox" value="objects" /> Objects
+        </label>
+      </li>
+      <li>
+        <label for="id_1">
+          <input id="id_1" name="type" type="checkbox" value="manuscripts" /> Manuscripts
+        </label>
+      </li>
+      <li>
+        <label for="id_2">
+          <input id="id_2" name="type" type="checkbox" value="printed" /> Printed Material
+        </label>
+      </li>
+      <li>
+        <label for="id_3">
+          <input id="id_3" name="type" type="checkbox" value="maps" /> Maps
+        </label>
+      </li>
+      <li>
+        <label for="id_4">
+          <input id="id_4" name="type" type="checkbox" value="pictures" /> Pictures &amp; Paintings
+        </label>
+      </li>
+    </ul>
 
-      <h4 class="heading">Search by Keyword</h4>
-      <input type="search" name="q" value="" id="id_q" 
-      placeholder="Search" class="search-field"/>
+    <h4 class="heading">Search by Keyword</h4>
+    <input type="search" name="q" value="" id="id_q" 
+    placeholder="Search" class="search-field"/>
+    
+    <input type="submit" value="Go" />
+    <span id="clear"><a href="#">clear search</a></span>
+
+  </section>
+
+  <section class="menu-grid--area">
       
-      <input type="submit" value="Go" />
-      <span id="clear"><a href="#">clear search</a></span>
-  
-    </section>
+    <ul class="menu-grid squares">
+    
+    {% for object in object_list %}
+      <li>
+        <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
+          <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">         
+          <em>{{ object.title|safe }}</em>
+          </a>
+      </li>
+    {% endfor %}
+    </ul>   
 
-  </div>
+  </section>
+
 
 {% endblock content_area %}

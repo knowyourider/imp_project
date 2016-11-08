@@ -3,7 +3,7 @@
 
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
 
 {% block content_area %}
 
@@ -11,14 +11,14 @@
 
   <p>Interactive features to help you engage more actively in the ideas, images and themes of this website.</p>
 
-  <ul class="menu-gallery">
+  <ul class="menu-gallery four-across">
   {% for object in object_list %}
     <li>
     	<a class="pop_item" href="{% url 'supporting:special_detail' object.slug %}">
-    	<img src="{% static 'supporting/special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
-    	<span class="menu-header">{{ object.get_special_type_display|safe }}</span>{{ object.title|safe }}
-    	</a>
-    	{{ object.menu_blurb|safe }}
+    	 <img src="{% static 'supporting/special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
+    	 <span class="menu-title">{{ object.get_special_type_display|safe }}</span>{{ object.title|safe }}
+    	 {{ object.menu_blurb|safe }}
+      </a>
 	</li>
 
   {% endfor %}

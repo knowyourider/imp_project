@@ -5,7 +5,7 @@
 
 {% block full_page %}
 
-<div class="content-wrapper basic">
+<div class="content-wrapper menus">
   <h1 class="main-title">Impressions From a Lost World</h1>
   <p>How the discovery of dinosaur tracks in New England changed 19th century America.</p>
   <p>Please note that this site is still under construction.</p>
@@ -20,8 +20,8 @@
 
   <ul class="menu-home secondary">
     <li><a href="{% url 'supporting:person_list' %}">People</a></li>
-    <li><a href="{% url 'supporting:evidenceitem_list' %}">Evidence</a></li>
-    <li><a href="{% url 'supporting:context_list' %}">Context</a></li>
+    <li><a href="{% url 'supporting:evidenceitem_list' %}">Artifacts &amp; Documents</a></li>
+    <li><a href="{% url 'supporting:context_list' %}">Backdrops</a></li>
     <li><a href="{% url 'supporting:special_list' %}">Special Features</a></li>
   </ul>
 
@@ -29,7 +29,7 @@
 
 <footer class="footer">
 
-  <ul class="footer-secondary">
+  <ul class="footer-primary">
     <li><a href="#">About This Site</a></li>
     <li><a href="#">Suggested Reading</a></li>
     <li><a href="#">Suggested Viewing</a></li>

@@ -569,19 +569,15 @@ picture {
 .menu-grid--area {
   overflow: auto;
   padding: 3.2em 1.6em;
-  position: relative;
   width: 100%; }
   @media screen and (min-width: 55em) {
     .menu-grid--area {
-      padding: 1.6em;
-      height: -webkit-calc(100vh - 120px);
-      height: calc(100vh - 120px);
-      position: absolute;
-      top: 50px;
-      right: 0;
-      bottom: 0;
-      /* why 100px and not $top-navigation-height??? */
-      width: 70%; } }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .menu-grid--area:last-child {
+        margin-right: 0; } }
 
 .menu-grid {
   max-width: 1200px;
@@ -1062,6 +1058,9 @@ dl.slim-curatorial {
 .content-wrapper-map {
   margin-top: 40px; }
 
+.content-wrapper--full {
+  overflow: auto; }
+
 .image-panel {
   width: 100%;
   height: auto; }
@@ -1107,14 +1106,12 @@ dl.slim-curatorial {
   width: 100%; }
   @media screen and (min-width: 55em) {
     .control-panel {
-      width: 30%;
-      height: 100vh;
-      height: -webkit-calc(100vh - 120px);
-      height: calc(100vh - 120px);
-      position: absolute;
-      top: 50px;
-      bottom: 0;
-      left: 0; } }
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .control-panel:last-child {
+        margin-right: 0; } }
   .control-panel ul {
     margin-bottom: 1.6em; }
     .control-panel ul li {

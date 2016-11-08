@@ -64,17 +64,14 @@
 .menu-grid--area {
 	overflow: auto;
 	padding: $large-spacing $base-spacing;
-	position: relative;
+	//position: relative;
 	// for small displays
 	width: 100%;
 	//height: 800px;
 
-	//for large displays:
-  @include media($large-screen) {
-		padding: $base-spacing;
-		@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, 50px 0 0 null); /* why 100px and not $top-navigation-height??? */
-		width: 70%;
+	//for large displays (works with control-panel):
+	@include media($large-screen) {
+		@include span-columns(8);
 	}
 }
 

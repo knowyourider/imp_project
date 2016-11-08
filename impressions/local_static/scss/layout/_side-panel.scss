@@ -32,10 +32,8 @@
 
 	//for large displays:
   @include media($large-screen) {
-		width: 30%;
-    height: 100vh;
-		@include calc(height, "100vh - #{$top-plus-bottom}");
-		@include position(absolute, 50px null 0 0);
+		@include span-columns(4);
+		//height: 90vh;
 	}
 
 	ul {

@@ -3,7 +3,7 @@
 
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
 
 {% block content_area %}
 
@@ -11,14 +11,14 @@
 
   <p>These short essays set the events related to the 19th century discovery of dinosaur footprint in a wider historical and intellectual context. How did this discovery fit into and expand 19th century thinking and culture.</p>
 
-  <ul class="menu-gallery">
+  <ul class="menu-gallery four-across">
   {% for object in object_list %}
     <li>
       <a href="{% url 'themes:theme_detail' object.slug %}">
-      <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg">
-      <span class="menu-header">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
+        <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg">
+        <span class="menu-title">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
+        {{ object.menu_blurb|safe }}
       </a>
-      {{ object.menu_blurb|safe }}
     </li>
   {% endfor %}
   </ul>  

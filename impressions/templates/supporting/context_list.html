@@ -1,74 +1,81 @@
 {% extends "base_list.html" %}
 {% load staticfiles %}
+
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block wrapper_class %}{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper--full"{% endblock wrapper_class %}
 
 {% block content_area %}
 
-<section class="menu-grid--area">
-  <h1 class="main-title">Context</h1>
+  <section class="control-panel">
 
-  <ul class="menu-grid squares">
-  {% for object in object_list %}
-
-    <li><a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
-      <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">{{ object.title|safe }} {{ object.subtitle|safe }}
-      </a>
-    </li>
-  {% endfor %}
-  </ul>     
-</section>
-
-<section class="control-panel">
-  <h2>Showing: All, 163 items</h2>
-  <h4 class="heading">Narrow by Topic</h4>
+    <h1 class="main-title">Backdrops</h1>
   
-  <ul id="id_topic">
-    <li>
-      <label for="id_0">
-        <input id="id_0" name="topic" type="checkbox" value="paleontology" /> Paleontolgy &amp; Ichnology
-      </label>
-    </li>
-    <li>
-      <label for="id_1">
-        <input id="id_1" name="topic" type="checkbox" value="religion" /> Religion &amp; Philosophy
-      </label>
-    </li>
-    <li>
-      <label for="id_2">
-        <input id="id_2" name="topic" type="checkbox" value="geology" /> Geology &amp; Geography
-      </label>
-    </li>
-    <li>
-      <label for="id_3">
-        <input id="id_3" name="topic" type="checkbox" value="art" /> Art &amp; Literature
-      </label>
-    </li>
-    <li>
-      <label for="id_4">
-        <input id="id_4" name="topic" type="checkbox" value="history" /> History &amp; Politics
-      </label>
-    </li>
-    <li>
-      <label for="id_5">
-        <input id="id_5" name="topic" type="checkbox" value="technology" /> Technology &amp; Industry
-      </label>
-    </li>
-    <li>
-      <label for="id_6">
-        <input id="id_6" name="topic" type="checkbox" value="culture" /> Culture &amp; Education
-      </label>
-    </li>
-  </ul>
+    <h2>Showing: All, XX items</h2>
+    <h4 class="heading">Narrow by Topic</h4>
+    
+    <ul id="id_topic">
+      <li>
+        <label for="id_0">
+          <input id="id_0" name="topic" type="checkbox" value="paleontology" /> Paleontolgy &amp; Ichnology
+        </label>
+      </li>
+      <li>
+        <label for="id_1">
+          <input id="id_1" name="topic" type="checkbox" value="religion" /> Religion &amp; Philosophy
+        </label>
+      </li>
+      <li>
+        <label for="id_2">
+          <input id="id_2" name="topic" type="checkbox" value="geology" /> Geology &amp; Geography
+        </label>
+      </li>
+      <li>
+        <label for="id_3">
+          <input id="id_3" name="topic" type="checkbox" value="art" /> Art &amp; Literature
+        </label>
+      </li>
+      <li>
+        <label for="id_4">
+          <input id="id_4" name="topic" type="checkbox" value="history" /> History &amp; Politics
+        </label>
+      </li>
+      <li>
+        <label for="id_5">
+          <input id="id_5" name="topic" type="checkbox" value="technology" /> Technology &amp; Industry
+        </label>
+      </li>
+      <li>
+        <label for="id_6">
+          <input id="id_6" name="topic" type="checkbox" value="culture" /> Culture &amp; Education
+        </label>
+      </li>
+    </ul>
 
-  <h4 class="heading">Search by Keyword</h4>
-  <input type="search" name="q" value="" id="id_q" 
-  placeholder="Search" class="search-field"/>
-  
-  <input type="submit" value="Go" />
-  <span id="clear"><a href="#">clear search</a></span>
+    <h4 class="heading">Search by Keyword</h4>
+    <input type="search" name="q" value="" id="id_q" 
+    placeholder="Search" class="search-field"/>
+    
+    <input type="submit" value="Go" />
+    <span id="clear"><a href="#">clear search</a></span>
 
-</section>
+  </section> 
+
+  <section class="menu-grid--area">
+
+    <ul class="menu-grid squares">
+    {% for object in object_list %}
+
+      <li>
+        <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
+          <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+          {{ object.title|safe }} {{ object.subtitle|safe }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+
+  </section>
+
 
 {% endblock content_area %}

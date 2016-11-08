@@ -3,18 +3,25 @@
 
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
-{% block wrapper_class %}"content-wrapper basic"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
 
 {% block content_area %}
 
   <h1 class="main-title">People</h1>
 
-  <ul class="menu-grid ovals">
+  <p>These short biographies are arranged in three groups: The Hitchcocks, primary characters and related people.</p>
+
+  <ul class="menu-grid people-secondary">
 
   {% for object in object_list %}
 
-    <li><a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}"><img src="{% static 'supporting/person/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" ><em>{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
-        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}</em></a></li>
+    <li>
+    	<a class="pop_item" href="{% url 'supporting:person_detail' object.slug %}">
+    		<img src="{% static 'supporting/person/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
+    		<em>{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
+        {{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}</em>
+      </a>
+    </li>
 
   {% endfor %}
 
