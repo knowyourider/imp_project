@@ -1,37 +1,29 @@
 // bottom navigation
-
 .footer {
   border-top: 1px solid $panel-darken-color;
-  //bottom: 0; 
-  //left: 0; 
   width: 100%; 
   background: $footer-background-color;
-  display: inline-block;
+  height: $bottom-navigation-height;
   padding: $small-spacing;
+  text-align: center;
 
-// if viewport is larger than 860em, make bottom nav height 80px
+// if viewport is larger than 880em, make more space at bottom
   @include media($large-screen) {
-    height: $bottom-navigation-height;
-    //position: fixed; 
+    padding-bottom: $xlarge-spacing;
+  }
 }
 
-  ul {
-    line-height: 1.5em;
-    
-    @include media($large-screen) {
-      line-height: 1.8em;
-    }
-  }
-
-  ul li {
+.footer-primary {
+  li {
+    display: inline;
     padding-right: $base-spacing;
-
-    @include media($large-screen) {
-      display: inline;
-    }
+  }
+    
+  @include media($large-screen) {
+    //float: none;
   }
 
-  ul li a {
+  li a {
     color: $footer-link-color;
     text-decoration: none;
 
@@ -40,29 +32,7 @@
       color: transparentize($footer-color, 0);
     }
   }
-
-  .footer-primary {
-    float: left;
-    margin: 0 $large-spacing;
-    text-align: left;
-    
-    @include media($large-screen) {
-      float: none;
-      text-align: center;
-    }
-  }
-
-  .footer-secondary {
-    text-align: left;
-
-    @include media($large-screen) {
-      float: none;
-      text-align: center;
-    }
-
-    li {
-      font-size: 0.8em;
-    }
+}
 
     // ul.footer-social {
     //   margin: 1em 0 0 0;
@@ -95,5 +65,3 @@
       //   }
       // }
       //}
-  }
-}

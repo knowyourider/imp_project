@@ -5,15 +5,13 @@
 @import "base/base";
 
 @import "components/dig-deeper";
-//@import "components/image-panel-images";
-@import "components/menu-gallery";
-@import "components/menu-grid";
+@import "components/map";
+@import "components/menus";
 @import "components/menu-home";
+@import "components/narratives";
 @import "components/specials";
 @import "components/slimpop";
-@import "components/map";
 
-@import "layout/menu-basic";
 @import "layout/bottom-navigation";
 @import "layout/content-wrapper";
 @import "layout/image-panel";

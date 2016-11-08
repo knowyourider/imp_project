@@ -19,13 +19,12 @@ h6 {
   font-size: $base-font-size;
   font-weight: normal;
   line-height: $heading-line-height;
-  margin: 0 0 $small-spacing;
+  margin: 0 0 $small-spacing 0;
 }
 
-//main titles on menu pages, story intro pages SASSIFY THIS
+//main titles on menu pages, story intro pages
 .main-title, .story-title, .story-subtitle {
   font-style: italic;
-  font-weight: normal;
   margin-bottom: $tiny-spacing;
 }
 

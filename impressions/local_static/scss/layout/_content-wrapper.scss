@@ -1,25 +1,9 @@
 // content wrapper
-body {
-	
-	&.horiz-scroll	{
-		// when viewport is less than or equal to em(860), change layout to vertical
-		@include media(max-width $large-screen) {
-			overflow-y: scroll;
-		}
-		
-		overflow-y: hidden;
-	}
-}
 
 .content-wrapper { 
 	@include outer-container;
 	overflow: auto;
-	padding: 100px 0 $xlarge-spacing 0; 
-
-// when viewport is less than or equal to 1200px, add side padding
-	@include media(max-width $max-width) {
-		padding: $large-spacing $base-spacing;
-	}
+	padding: $small-spacing $base-spacing $xlarge-spacing $base-spacing;
 }
 
 .content-wrapper--intro {
@@ -29,34 +13,4 @@ body {
 
 .content-wrapper-map {
 	margin-top: $top-navigation-height;
-}
-
-// for wide, scrolling pages such as story chapters
-.content-wrapper-wide {
-  display: table;
-  overflow-x: auto;
-  table-layout: fixed;
-  width: 100%;
-}
-
-.table-cell {
-	// when viewport is less than or equal to em(860), change layout to vertical
-	@include media(max-width $large-screen) {
-		display: block;
-	}
-
-	display: table-cell;
-  vertical-align: top;
-}
-
-.content-wrapper--narrative {
-	// when viewport is less than or equal to em(860), change layout to vertical
-	@include media(max-width $large-screen) {
-		width: auto;
-		height: auto;
-	}
-
-//height: 100vh;
-	position: relative;
-	width: 100vw;
 }

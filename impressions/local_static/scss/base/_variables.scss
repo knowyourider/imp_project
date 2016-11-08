@@ -1,6 +1,6 @@
 // Breakpoints
 $medium-screen: em(640) !default;
-$large-screen: em(860) !default;
+$large-screen: em(880) !default;
 
 // Typography
 $base-font-family: $libre-baskerville;
@@ -34,7 +34,7 @@ $medium-gray: #999;
 $light-gray: #ddd;
 $light-taupe: #b3aa98;
 $dark-taupe: #65605a;
-$transparent-dark-taupe: transparentize($dark-taupe, 0.4);
+$transparent-dark-taupe: transparentize($dark-taupe, 0.2);
 
 // Font Colors
 $base-font-color: $dark-gray !default;
@@ -45,7 +45,7 @@ $accent-color: #b12b00;
 $action-color: $accent-color;
 $hover-color: #d94a38;
 $footer-color: $light-font-color;
-$footer-link-color: transparentize($footer-color, 0.6);
+$footer-link-color: transparentize($footer-color, 0.3);
 $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
 // Background Colors

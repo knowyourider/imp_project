@@ -1,0 +1,134 @@
+// Stories, Themes
+.intro-text {
+	h1 {
+		@include media(min-width $large-screen) {
+			font-size: $large-font-size;
+	}		
+}
+
+	h2 {
+	}
+
+	h4 {
+		font-size: $small-font-size;
+		line-height: $base-line-height;
+
+		@include media(max-width 1100px) {
+			font-size: $small-font-size;
+		}
+	}	
+}
+
+.intro-nav {
+	background-color: $panel-darken-color;
+	font-size: $smallish-font-size;
+	margin-bottom: $tiny-spacing;
+	@include outer-container;
+	text-align: center;
+		
+	li {
+		display: inline;
+		margin-bottom: $base-spacing;
+
+		@include span-columns (1.3 of 4);
+
+		a {
+			display: block;
+			font-style: italic;
+			letter-spacing: $italic-letter-spacing;
+		}
+	}
+
+	li.previous {
+		text-align: left;
+	}
+
+	li.next {
+		text-align: right;
+	}
+}
+
+.read-this {
+	background: no-repeat bottom url("../images/pointing-hand-down.png");
+	height: 60px;
+}
+
+.chapter {
+	// for small displays
+	width: 100%;
+
+ 	//for large displays:
+  @include media($large-screen) {
+  	@include span-columns(8);
+		@include shift(4);
+		margin-bottom: $large-spacing;
+	}
+}
+
+.chapter-image {
+	// for small displays
+	width: 100%;
+	height: auto;
+
+	img {
+		border: $double-border;
+		padding: 2px;
+	}
+
+ 	//for large displays:
+  @include media($large-screen) {	
+ 		@include span-columns(8 of 8);
+		@include shift(-4);
+	}
+}
+
+.chapter-nav {
+	li {
+		display: inline;
+		padding-right: $small-spacing;
+	  position: relative;
+	
+		//@include media(max-width 1100px) {
+		//	font-size: $small-font-size;
+		//}
+	}
+
+	li.chapter-nav--dropdown:hover {
+  	//background: $light-taupe;
+	}
+}
+
+.chapter-subnav {
+  box-shadow: $drop-shadow;
+  display: none;  
+  left: 0;
+	position: absolute;
+  opacity: 0;
+  top: 20px;
+  visibility: hidden;
+  width: 300px;
+
+  li {
+  	font-variant: normal;
+  	font-style: italic;
+  	letter-spacing: 0;
+	  border-top: 1px solid $top-nav-background-color;
+	  background-color: $base-background-color; 
+	  display: block;
+	  padding: $tiny-spacing;
+	}
+}
+
+ul.chapter-nav li ol.chapter-subnav li.selected { 
+	background-color: $top-nav-background-color;
+}
+
+ul.chapter-nav li ol.chapter-subnav li:hover { 
+	background-color: $top-nav-background-color;
+}
+
+ul.chapter-nav li:hover ol.chapter-subnav {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
