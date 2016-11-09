@@ -1,5 +1,24 @@
 // option settings for Froala
 
+var froalaSlim = {
+	heightMin: 200,
+	paragraphFormat: {
+		N: 'Normal',
+		H2: 'Subheading - h2'
+	},
+	pastePlain: true,
+	toolbarButtons: ['italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsMD: ['italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	toolbarButtonsSM: ['italic', 'superscript',  
+		'paragraphFormat', 'formatOL', 'quote',  
+		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+	width: '800'
+}
+
 var froalaChapter = {
 	heightMin: 200,
 	linkAutoPrefix: '',
@@ -37,24 +56,6 @@ var froalaChapter = {
 	width: '800'
 }
 
-var froalaSlim = {
-	heightMin: 200,
-	paragraphFormat: {
-		N: 'Normal',
-		H2: 'Subheading - h2'
-	},
-	pastePlain: true,
-	toolbarButtons: ['italic', 'superscript',  
-		'paragraphFormat', 'formatOL', 'quote',  
-		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-	toolbarButtonsMD: ['italic', 'superscript',  
-		'paragraphFormat', 'formatOL', 'quote',  
-		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-	toolbarButtonsSM: ['italic', 'superscript',  
-		'paragraphFormat', 'formatOL', 'quote',  
-		'|', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-	width: '800'
-}
 
 var froalaIntro = {
 	heightMin: 200,

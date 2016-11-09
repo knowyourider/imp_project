@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, Special, Slide
+from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, \
+    Special, Slide
 
 
 class ContextAdmin(admin.ModelAdmin):
@@ -11,7 +12,7 @@ class ContextAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'context_type', 'status_num')
+    list_display = ('title', 'slug', 'context_type','status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
@@ -67,12 +68,12 @@ class PersonAdmin(admin.ModelAdmin):
             'last_name', 'suffix', 'slug', 'birth_year', 'death_year',
             'caption', 'source', 'narrative']}), #'menu_blurb', 
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
-        ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
+        ('Behind the scenes',   {'fields': ['person_level', 'status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('last_name', 'first_name', 'slug', 'status_num')
+    list_display = ('last_name', 'first_name', 'slug', 'person_level',  'status_num')
     filter_horizontal = ['people', 'evidence', 'contexts']    
-    #list_filter     = ['augmented'] # , 'edit_date'
+    list_filter     = ['person_level']
     search_fields = ['last_name', 'first_name', 'slug']
 
 admin.site.register(Person, PersonAdmin)

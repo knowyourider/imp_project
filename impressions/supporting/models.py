@@ -107,6 +107,11 @@ class FastFact(CommonSupportingModel):
 
 
 class Person(AssociationMixin, CommonSupportingModel):
+    PERSON_LEVEL = (
+        (0,'Related'),
+        (1,'Important'),
+        (2,'Hitchcocks'),
+    )
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', 
         default=PERSON_CONTENT_TYPE_ID)
@@ -118,6 +123,16 @@ class Person(AssociationMixin, CommonSupportingModel):
     birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
+    person_level = models.IntegerField(default=0, choices=PERSON_LEVEL)
+
+    def hitchcock_person_list(self):
+        return Person.objects.filter(person_level=2)
+
+    def important_person_list(self):
+        return Person.objects.filter(person_level=1)
+
+    def related_person_list(self):
+        return Person.objects.filter(person_level=0)
 
     class Meta:
         ordering = ['last_name']

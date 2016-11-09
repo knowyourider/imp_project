@@ -5,6 +5,7 @@ $(document).ready(function(){
   // enable click event on menu items and text links
   // $('.pop_item').click(function(event){
   $(document).on("click", ".pop_item", function(event){
+    //console.log("got to pop_item");
     event.preventDefault();
     // get href
     // use closest -- target may be image in dig deeper gallery

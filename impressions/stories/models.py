@@ -36,6 +36,9 @@ class Story(CommonModel):
     def story_list(self):
         return Story.objects.filter(status_num__gt=1)
 
+    def chapter_list(self):
+        return Chapter.objects.filter(story_id=self.id)
+
     class Meta:
         ordering = ['title']
 

@@ -3,75 +3,57 @@
 
 {% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
 
-{% block stylesheets %}
-  {{ block.super }}
-  <style>
-    .image-panel { background-image: url("{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg"); }
-  </style>
-{% endblock stylesheets %}
 
-
-{% block wrapper_class %}"content-wrapper-intro"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper--intro"{% endblock wrapper_class %}
 
 {% block content_area %}
-  <div class="content-wrapper--narrative">
 
-    <section class="image-panel">
-      <h1 class="story-title">{{ object.title|safe }}</h1> 
-    	<h2 class="story-subtitle">{{ object.subtitle|safe }}</h2> 
-    </section>
+  <section class="image-panel">
 
-    <article class="text-panel intro-text">
+    <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg">
+    <p class="image-panel--caption">Hi there At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+
+  </section><!--/image-panel-->
+
+  <article class="text-panel">
+    
+    <ul class="intro-nav">
+
+      <li>
+        {% if object.get_prev %}
+          &lArr;&nbsp;Previous <a href="{% url 'stories:story_detail' object.get_prev.slug %}">{{object.get_prev.title|safe}}</a>     
+        {% else %}
+          &lArr; Previous
+        {% endif %}
+      </li>
+
+      <li class="read-this">
+        <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
+      </li>
+
+      <li class="next">
+
+        {% if object.get_next %}
+          Next&nbsp;&rArr; <a href="{% url 'stories:story_detail' object.get_next.slug %}">{{object.get_next.title|safe}}</a>     
+        {% else %}
+          Next Story &rArr;
+        {% endif %}
+
+      </li>
+
+    </ul>
+
+    <h1 class="story-title">{{ object.title|safe }}</h1>
+    
+    <h2 class="story-subtitle">{{ object.subtitle|safe }}</h2>  
+
+    {{ object.introduction|safe }}
+
+  </article>
 
 
-      <ul class="intro-nav">
-          <li>
-            {% if object.get_prev %}
-              <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr; Prev Story 
-                <em>{{object.get_prev.title|safe}}</em>
-              </a>
-            {% else %}
-              &lArr; Previous Story
-            {% endif %}
-          </li>
-          <li class="read-this">
-            <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
-          </li>
-          <li>
-            {% if object.get_next %}
-              <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next Story &rArr; 
-                <em>{{object.get_next.title|safe}}</em>
-              </a>
-            {% else %}
-              Next Story &rArr;
-            {% endif %}
-          </li>
-      </ul>
 
-      <h2 class="story-subtitle">Introduction</h2>
-
-      {{ object.introduction|safe }}
-
-
-     </article>
-
-  </div><!--/content-wrapper--narrative -->
   <!-- Chapter layout has another div here - deeper table-cell -->
 {% endblock content_area %}
 
 
-      <p class="next-chapter">
-      {% if chapter.get_prev %}
-          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_prev.chapter_num %}"> 
-          Prev</a>
-      {% else %}
-        Prev
-      {% endif %}
-      |
-      {% if chapter.get_next %}
-          <a href="{% url 'stories:chapter_detail' object.slug chapter.get_next.chapter_num %}">
-          Next: {{ chapter.get_next.title|safe }}</a>
-      {% else %}
-        Next
-      {% endif %}
-      </p>
