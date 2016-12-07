@@ -22,7 +22,7 @@ Or, run script from local which accesses remote:
 Transfer to local via FTP pvma root.
 ::
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
-	wget --user=pvma --password='pocumtuckvma$1860' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
+	wget --user=pvma --password='[by hand]' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
 
 In either case:
 ::

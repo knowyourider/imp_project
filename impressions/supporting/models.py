@@ -196,7 +196,8 @@ class Slide(models.Model):
     help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
     "short_name_1, short_name_2, etc.")
     """
-    image_name = models.CharField('image short name', max_length=32, blank=True, default='')
+    image_name = models.CharField('image short name', max_length=32, blank=True, 
+        default='')
     caption = models.CharField(max_length=255, blank=True, default='',
             help_text="For each slide -- Slides ignore Caption at top of form.")
     source = models.ForeignKey('core.Source', default=1)
@@ -206,13 +207,16 @@ class Slide(models.Model):
          
     # next, prev slide, false if none
     def get_next(self):
-        next = Slide.objects.filter(special_id=self.special_id, slide_num__gt=self.slide_num)
-        if next:
-            return next.first()
+        next_list = Slide.objects.filter(special_id=self.special_id, 
+            slide_num__gt=self.slide_num)
+        if next_list:
+            return next_list.first()
         return False
 
+    # Special condition added to prevent going back to slide 0 which is the intro
     def get_prev(self):
-        prev_list = Slide.objects.filter(slide_num__lt=self.slide_num).order_by('-slide_num')
+        prev_list = Slide.objects.filter(special_id=self.special_id, 
+            slide_num__lt=self.slide_num).order_by('-slide_num')
         if prev_list:
             prev = prev_list.first()
             if prev.slide_num > 0:
