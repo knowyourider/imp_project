@@ -10,13 +10,16 @@ urlpatterns = [
     url(r'^evidenceitem/$', views.EvidenceItemListView.as_view(), name='evidenceitem_list'),
     url(r'^evidenceitem/(?P<pk>[0-9]+)/$', views.EvidenceItemDetailView.as_view(), 
     	name='evidenceitem_detail_pk'),
-    url(r'^evidenceitem/(?P<slug>\S+)/$', views.EvidenceItemDetailView.as_view(), 
-    	name='evidenceitem_detail'),
+
+    # url(r'^evidenceitem/(?P<slug>\S+)/$', views.EvidenceItemDetailView.as_view(), 
+    # 	name='evidenceitem_detail'),
+    url(r'^evidenceitem/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', views.evidenceitem_detail, name='evidenceitem_detail'),    
+    url(r'^evidenceitem/(?P<slug>\S+)/$', views.evidenceitem_detail, name='evidenceitem_detail'),    
 
     url(r'^fastfact/(?P<pk>[0-9]+)/$', views.FastFactDetailView.as_view(), 
-    	name='fastfact_detail_pk'),
+        name='fastfact_detail_pk'),
     url(r'^fastfact/(?P<slug>\S+)/$', views.FastFactDetailView.as_view(), 
-    	name='fastfact_detail'),
+        name='fastfact_detail'),
     
     url(r'^person/$', views.PersonListView.as_view(), name='person_list'),
     url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), name='person_detail_pk'),

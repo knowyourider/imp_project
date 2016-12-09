@@ -81,6 +81,51 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
         return self.title       
 
 
+class Page(models.Model):
+    """
+    Patterned after Slide class
+    help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
+    "short_name_1, short_name_2, etc.")
+    """
+    evidenceitem = models.ForeignKey('supporting.EvidenceItem')
+    page_num = models.IntegerField('page order')
+    page_suffix = models.CharField('filename suffix', max_length=64, blank=True, default='')
+    page_label = models.CharField('page label', max_length=64, blank=True, default='')
+    # image_name = models.CharField('image short name', max_length=32, blank=True, 
+    #     default='')
+    # caption = models.CharField(max_length=255, blank=True, default='',
+    #         help_text="For each page -- Pages ignore Caption at top of form.")
+    # source = models.ForeignKey('core.Source', default=1)
+    transcript = models.TextField(blank=True, default='',
+            help_text="Transcription per page")
+         
+    """
+    # next, prev page, false if none
+    def get_next(self):
+        next_list = Page.objects.filter(evidenceitem_id=self.evidenceitem_id, 
+            page_num__gt=self.page_num)
+        if next_list:
+            return next_list.first()
+        return False
+
+    # Special condition added to prevent going back to page 0 which is the intro
+    def get_prev(self):
+        prev_list = Page.objects.filter(evidenceitem_id=self.evidenceitem_id, 
+            page_num__lt=self.page_num).order_by('-page_num')
+        if prev_list:
+            prev = prev_list.first()
+            if prev.page_num > 0:
+                return prev_list.first()
+        return False
+    """
+
+    class Meta:
+        ordering = ['page_num']
+        
+    def __str__(self):
+        return self.evidenceitem.slug + "_" + self.page_label
+
+
 class FastFact(CommonSupportingModel):
     """
     FastFact

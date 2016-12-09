@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, \
-    Special, Slide
+    Special, Slide, Page
 
 
 class ContextAdmin(admin.ModelAdmin):
@@ -28,6 +28,10 @@ class EvidenceTypeAdmin(admin.ModelAdmin):
 admin.site.register(EvidenceType, EvidenceTypeAdmin)
 
 
+class PageInline(admin.TabularInline):
+    model = Page
+    extra = 2
+
 class EvidenceItemAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
@@ -38,6 +42,7 @@ class EvidenceItemAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
+    inlines = [PageInline]
     list_display = ('title', 'slug', 'evidence_type', 'creation_year', 'status_num')
     list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
     filter_horizontal = ['people', 'evidence', 'contexts']    

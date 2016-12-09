@@ -22,3 +22,104 @@
   font-size: 0.8em; }
 .map-layers li.selected a {
   color: #fff4e4; }
+
+/* for zoom */
+#item-image {
+  background-color: #dee3e7;
+  border: 1px solid #94a4b1;
+  height: 25em; }
+
+.error-msg {
+  color: #009900; }
+
+table.trans td {
+  /* for transcriptions in tables */
+  padding: 1px;
+  margin: 1px; }
+
+.item-viewer--tools {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-top: .5em; }
+  .item-viewer--tools::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 68em) {
+    .item-viewer--tools {
+      font-size: 0.85em; } }
+
+#toggle-transcription {
+  margin-top: -6px;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  margin-left: 8.5298%; }
+  #toggle-transcription:last-child {
+    margin-right: 0; }
+  @media print {
+    #toggle-transcription {
+      display: none; } }
+
+#document-paging {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  #document-paging:last-child {
+    margin-right: 0; }
+
+#document-paging--list li {
+  padding: 2px; }
+#document-paging--list li.document-paging--page::after {
+  content: " |"; }
+#document-paging--list li.last::after {
+  content: none; }
+#document-paging--list a:link {
+  text-decoration: underline; }
+#document-paging--list a:hover {
+  background-color: #dee3e7; }
+
+.document-paging--title {
+  float: left;
+  margin: 2px 4px 0 0.0625em; }
+
+.document-paging--selected {
+  font-weight: 600; }
+
+/* button ? */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline; }
+
+button, input {
+  line-height: normal; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+

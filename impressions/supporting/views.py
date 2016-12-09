@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Context, EvidenceItem, FastFact, Person, Special, Slide
+from .models import Context, EvidenceItem, FastFact, Person, Special, Slide, Page
 
 class ContextListView(ListView):
     # model = Context
@@ -24,6 +24,55 @@ class EvidenceItemDetailView(DetailView):
     model = EvidenceItem
     # context_object_name = 'object'
     # template_name = 'supporting/evidenceitem_detail.html'
+
+def evidenceitem_detail(request, slug, page_suffix='default'):
+    """
+    Patterened after special_detail
+    Several evidenceitem types, so opting for a def.
+    The urls need to stay consistent with other evidence types, so info about sub-types
+    has to come from the object itself (not from extra params)
+    The page_suffix is optional, so far for documents
+    """
+    object = get_object_or_404(EvidenceItem, slug=slug)
+    # each type has its own template
+    # template_name = "supporting/special_detail/" + object.special_type + ".html"
+    evidence_type_slug = object.evidence_type.slug
+
+    # print("------  evidence_type_slug: " + evidence_type_slug)
+
+    # ??re-loding the whole (slim) page -- not much that would stay in place if
+    # I used AJAX
+    if evidence_type_slug == "manuscript" or evidence_type_slug == "print":
+
+        
+        # Manuscripts have to have at least one page in order 
+        # if there are pages, 
+        #   if suffix sent use it,
+        #   else use find and use first page
+        # else no page
+        #   send error message
+        # try:  
+        if object.page_set.all():
+            # print("---+++-- page set exists: ")
+            if (page_suffix == 'default'):
+                # i.e. no param sent, use the first page.
+                pages = Page.objects.filter(evidenceitem_id=object.id)
+                page = pages[0]
+            else:
+                # page suffix sent, use it
+                page = get_object_or_404(Page, evidenceitem_id=object.id, 
+                    page_suffix=page_suffix)
+            error_msg = None
+        else:
+            page = None
+            error_msg = "Error: For manuscripts and print at least one page has to be defined in Admin."
+            # print("----- no page set ")
+
+        return render(request, "supporting/evidence_detail/" + evidence_type_slug + ".html", 
+            {'object': object, 'page': page, 'error_msg': error_msg}) 
+    else:
+        return render(request, "supporting/evidenceitem_detail.html", 
+            {'object': object})
 
 
 class FastFactDetailView(DetailView):

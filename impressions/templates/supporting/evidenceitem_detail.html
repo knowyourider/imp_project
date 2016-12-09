@@ -1,5 +1,5 @@
 {% extends "supporting/base_detail.html" %}
-{% load staticfiles %}
+{% load staticfiles image_extras %}
 
 {% block heading %}
 	{{ object.content_type.plural_title }}: {{ object.evidence_type }}
@@ -9,8 +9,25 @@
 
 {% block slim_content%}
 
-<img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+<script type="text/javascript">
+	Z.showImage("item-image", 
+	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}_{{ page.page_suffix}}{% endif %}", 
+	  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
+</script>
+
+	{% if error_msg %}
+		<p class="error-msg">{{ error_msg }}</p>
+	{% else %}
+		<div id="item-image">zoomable artifact image here</div>
+	{% endif %}
+
+	<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
+	
+{% block document_controls %}
+{% endblock document_controls %}
+
 <p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p>
+
 {{ object.narrative|safe }}
 
 <dl class="slim-curatorial">
