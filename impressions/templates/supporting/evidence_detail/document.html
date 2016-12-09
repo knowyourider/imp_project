@@ -1,0 +1,42 @@
+{% extends "supporting/evidenceitem_detail.html" %}
+{% load staticfiles %}
+
+{% block document_text %}
+	<div id="document-text" class="hidden">
+		<div class="document-text--transcription">
+			{{ page.transcript|safe }}
+		</div>
+	</div><!-- /document-text -->
+{% endblock document_text %}
+
+{% block document_controls %}
+<!-- <p>Document controls</p> -->
+<!-- <section id="item-viewer">
+ -->
+	<div class="item-viewer--tools">
+
+		<!-- paging --> 
+		{% if object.page_set.all %} {# add: if length greater than 1 #}
+			<nav id="document-paging">
+				<h5 class="document-paging--title">Page: </h5>
+				<ul id="document-paging--list" class="horiz">
+				{% for nav_page in object.page_set.all %}
+
+					<li class="document-paging--page{% if forloop.last %} last{% endif %}">
+						<a href="{% url 'supporting:evidenceitem_detail' object.slug nav_page.page_suffix %}"
+						class="swap_pop" >
+							{{ nav_page.page_label }}</a>
+					</li>
+				{% endfor %}		
+				</ul>
+			</nav>
+		{% endif %}
+
+		{% if page.transcript %}
+			<!-- show/hide transcription --> 
+			<button id="toggle-transcription">Show Transcription</button>
+		{% endif %}
+
+	</div><!-- /item-viewer--tools -->
+<!-- </section> -->
+{% endblock document_controls %}

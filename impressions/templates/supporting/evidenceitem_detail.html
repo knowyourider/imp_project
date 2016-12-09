@@ -8,23 +8,33 @@
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
+<section id="item-viewer">
 
-<script type="text/javascript">
-	Z.showImage("item-image", 
-	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}_{{ page.page_suffix}}{% endif %}", 
-	  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
-</script>
+	<script type="text/javascript">
+		Z.showImage("item-image", 
+		  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}", 
+		  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
+	</script>
 
-	{% if error_msg %}
-		<p class="error-msg">{{ error_msg }}</p>
-	{% else %}
-		<div id="item-image">zoomable artifact image here</div>
-	{% endif %}
+	<div id="item-viewer--container">
 
-	<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
+		{% if error_msg %}
+			<p class="error-msg">{{ error_msg }}</p>
+		{% else %}
+			<div id="item-image">zoomable artifact image here</div>
+		{% endif %}
+
+		{% block document_text %}
+		{% endblock document_text %}
+
+		<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
+
+	</div> <!-- /item-viewer--container -->
 	
-{% block document_controls %}
-{% endblock document_controls %}
+	{% block document_controls %}
+	{% endblock document_controls %}
+
+</section> <!-- /item-viewer -->
 
 <p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p>
 

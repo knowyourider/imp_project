@@ -68,7 +68,8 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
             error_msg = "Error: For manuscripts and print at least one page has to be defined in Admin."
             # print("----- no page set ")
 
-        return render(request, "supporting/evidence_detail/" + evidence_type_slug + ".html", 
+        # return render(request, "supporting/evidence_detail/" + evidence_type_slug + ".html", 
+        return render(request, "supporting/evidence_detail/document.html", 
             {'object': object, 'page': page, 'error_msg': error_msg}) 
     else:
         return render(request, "supporting/evidenceitem_detail.html", 

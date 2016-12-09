@@ -5,7 +5,7 @@ $(document).ready(function(){
   // enable click event on menu items and text links
   // $('.pop_item').click(function(event){
   $(document).on("click", ".pop_item", function(event){
-    //console.log("got to pop_item");
+    // console.log("--- got to pop_item");
     event.preventDefault();
     // get href
     // use closest -- target may be image in dig deeper gallery
@@ -68,6 +68,23 @@ $(document).ready(function(){
       }
     });
   });
+
+  // ------- Docment text show/hide ------
+  // use .on syntax since element is loaded by ajax
+  $(document).on("click", "#toggle-transcription", function(event){
+  // $("#toggle-transcription").click(function() {
+    // console.log(" -- got to toggle-transcription");
+    $("#document-text").slideToggle();
+    if ( $(this).text() == "Show Transcription") {
+      $(this).text('Hide Transcription') 
+    } else {
+      $(this).text('Show Transcription') 
+    }
+  });
+
+  // ------- Docment paging ------
+  // set first item selected
+
 
 }); // end doc ready
 

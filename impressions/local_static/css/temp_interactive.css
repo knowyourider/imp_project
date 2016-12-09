@@ -90,6 +90,41 @@ table.trans td {
 .document-paging--selected {
   font-weight: 600; }
 
+/* transcript */
+#item-viewer {
+  position: relative; }
+
+#item-viewer--container {
+  margin-top: -1.5em; }
+
+#item-image {
+  background-color: #dee3e7;
+  border: 1px solid #94a4b1;
+  height: 25em; }
+
+#document-text {
+  background-color: #FEECD7;
+  border: 1px solid #fcc98c;
+  color: #222;
+  font-size: 1.5em;
+  height: 400px;
+  line-height: 1.5;
+  opacity: 0.75;
+  overflow: scroll;
+  position: absolute;
+  top: 0px;
+  left: 0px; }
+
+.document-text--transcription {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .document-text--transcription:last-child {
+    margin-right: 0; }
+
+
 /* button ? */
 button,
 input,
