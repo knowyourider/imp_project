@@ -1,5 +1,5 @@
 {% extends "base_list.html" %}
-{% load staticfiles %}
+{% load staticfiles image_extras %}
 
 {% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
 
@@ -68,7 +68,10 @@
 
       <li>
         <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
-          <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+          <!-- <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> -->
+
+          <img src="{% static 'supporting/' %}{{ 'context/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
+          
           {{ object.title|safe }} {{ object.subtitle|safe }}
         </a>
       </li>

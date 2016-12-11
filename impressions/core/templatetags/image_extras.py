@@ -20,10 +20,28 @@ def zoom_exists(filepath):
         # new_filepath = filepath[:index] + '/image.png'
         # return new_filepath
 
+@register.filter(name='supporting_image_exists')
+def file_exists(filepath):
+
+    full_filepath = settings.BASE_DIR + '/supporting/static/supporting/' + filepath # + '.jpg'
+
+    # print("--- filepath: " + filepath)
+    # print("--- full_filepath: " + full_filepath)
+    if default_storage.exists(full_filepath):
+        return filepath
+    else:
+        index = filepath.rfind('pics/')
+        new_filepath = filepath[:index +4] + '/placeholder.jpg'
+        return new_filepath
+
+
 @register.filter(name='file_exists')
 def file_exists(filepath):
-    print("--- filepath: " + filepath)
-    if default_storage.exists(filepath):
+
+    full_filepath = settings.STATIC_ROOT + '/' + filepath
+
+    print("--- full_filepath: " + full_filepath)
+    if default_storage.exists(full_filepath):
         return filepath
     else:
         index = filepath.rfind('pics/')

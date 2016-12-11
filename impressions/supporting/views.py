@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+from django.core.files.storage import default_storage
+from django.conf import settings
 from .models import Context, EvidenceItem, FastFact, Person, Special, Slide, Page
 
 class ContextListView(ListView):
@@ -40,12 +42,16 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
 
     # print("------  evidence_type_slug: " + evidence_type_slug)
 
+    # zoom_exists needs to be set for all cases, so set default in advance
+    _zoom_exists = False
+
     # ??re-loding the whole (slim) page -- not much that would stay in place if
     # I used AJAX
+
+    # Handle document paging
     if evidence_type_slug == "manuscript" or evidence_type_slug == "print":
 
-        
-        # Manuscripts have to have at least one page in order 
+        # Documents (Manuscripts or Prin) have to have at least one page set in admin 
         # if there are pages, 
         #   if suffix sent use it,
         #   else use find and use first page
@@ -53,7 +59,7 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
         #   send error message
         # try:  
         if object.page_set.all():
-            # print("---+++-- page set exists: ")
+            # print("---- page set exists: ")
             if (page_suffix == 'default'):
                 # i.e. no param sent, use the first page.
                 pages = Page.objects.filter(evidenceitem_id=object.id)
@@ -63,6 +69,9 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
                 page = get_object_or_404(Page, evidenceitem_id=object.id, 
                     page_suffix=page_suffix)
             error_msg = None
+            # See if zoom exists, using suffix
+            _zoom_exists = zoom_exists(object.slug + '-' + page.page_suffix)
+
         else:
             page = None
             error_msg = "Error: For manuscripts and print at least one page has to be defined in Admin."
@@ -70,11 +79,21 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
 
         # return render(request, "supporting/evidence_detail/" + evidence_type_slug + ".html", 
         return render(request, "supporting/evidence_detail/document.html", 
-            {'object': object, 'page': page, 'error_msg': error_msg}) 
+            {'object': object, 'page': page, 'error_msg': error_msg, 'zoom_exists': _zoom_exists}) 
     else:
+        # See if zoom exists, (no suffix)
+        _zoom_exists = zoom_exists(object.slug)
         return render(request, "supporting/evidenceitem_detail.html", 
-            {'object': object})
+            {'object': object, 'zoom_exists': _zoom_exists})
 
+def zoom_exists(zoom_dir):
+    full_filepath = settings.BASE_DIR + '/supporting/static/supporting/evidenceitem/zooms/' + zoom_dir 
+    # print("--- zoom_dir: " + zoom_dir)
+    # print("--- full_filepath: " + full_filepath)
+    if default_storage.exists(full_filepath):
+        return True
+    else:
+        return False
 
 class FastFactDetailView(DetailView):
     model = FastFact
