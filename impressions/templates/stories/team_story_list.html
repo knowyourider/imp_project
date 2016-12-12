@@ -1,0 +1,20 @@
+{% extends "base_team.html" %}
+{% load staticfiles %}
+
+{% block content_area %}
+    <h1 class="story-title">Stories</h1>
+    
+  <ul >
+  {% for object in object_list %}
+    <li>
+      <a href="{% url 'stories:team_story_detail' object.slug %}">
+        <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
+        {{ object.title|safe }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>  
+
+
+{% endblock content_area %}
+

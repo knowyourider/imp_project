@@ -1,0 +1,11 @@
+{% extends "base_team.html" %}
+{% load staticfiles %}
+
+{% block content_area %}
+    <h1 class="story-title">{{ object.title|safe }}</h1>
+    
+    <h2 class="story-subtitle">{{ object.subtitle|safe }}</h2>
+{% endblock content_area %}
+
+
+    

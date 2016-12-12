@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <title>{% block title %}Impressions Team site{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/team_styles.css' %}" type="text/css" />
+	<!-- for slimbox -->
+	<!-- <link rel="stylesheet" href="{% static 'common/slimpop.css' %}" type="text/css" />
+	<script src="{% static 'common/scripts.js' %}" type="text/javascript"></script>
+	<script src="{% static 'common/slimpop.js' %}" type="text/javascript"></script> -->
+</head>
+
+<body>
+	
+{% block content_area %}
+	content goes here
+{% endblock content_area %}
+
+
+</body>
+</html>
