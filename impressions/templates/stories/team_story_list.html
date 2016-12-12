@@ -9,7 +9,7 @@
     <li>
       <a href="{% url 'stories:team_story_detail' object.slug %}">
         <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
-        {{ object.title|safe }}
+        <h2>{{ object.title|safe }}</h2>
       </a>
     </li>
   {% endfor %}
