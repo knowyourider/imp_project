@@ -123,7 +123,7 @@ class Page(models.Model):
         ordering = ['page_num']
         
     def __str__(self):
-        return self.evidenceitem.slug + "_" + self.page_label
+        return self.evidenceitem.slug + "-" + self.page_suffix
 
 
 class FastFact(CommonSupportingModel):
