@@ -1,0 +1,16 @@
+{% extends "admin/change_form.html" %}
+
+{% load staticfiles %}
+
+{% block after_related_objects %}
+	{{ block.super }}
+	<!-- Initialize the editor. -->
+	<script>
+		$(function() {
+			// set editor with options for textareas
+			$('#id_transcript').froalaEditor(froalaIntro);
+			// get rid of float for labels
+			$('label[for="id_transcript"]').css('float', 'none');
+		});
+	</script>
+{% endblock after_related_objects %}

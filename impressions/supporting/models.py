@@ -121,7 +121,8 @@ class Page(models.Model):
 
     class Meta:
         ordering = ['page_num']
-        
+        verbose_name = "Document Page"
+       
     def __str__(self):
         return self.evidenceitem.slug + "-" + self.page_suffix
 
