@@ -25,7 +25,7 @@
 
 		      {% for evidenceitem in chapter.evidence.all %}
 		        <li>
-		          Artifacts &amp; Docs: <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+		          Artifacts &amp; Docs - {{ evidenceitem.evidence_type.slug }}: <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
 		            {{ evidenceitem.title|safe }}
 		          </a>
 		        </li>
@@ -41,7 +41,7 @@
 
 		      {% for special in chapter.special_features.all %}
 		        <li>
-		          Special: <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
+		          Special - {{ special.special_type }}: <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
 		            {{ special.title|safe }}
 		          </a>
 		        </li>
