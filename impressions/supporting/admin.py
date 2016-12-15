@@ -51,18 +51,17 @@ class EvidenceItemAdmin(admin.ModelAdmin):
 admin.site.register(EvidenceItem, EvidenceItemAdmin)
 
 
-class PageAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/page_change_form.html'
-    fieldsets = [
-        (None,            {'fields': ['evidenceitem', 'page_num', 'page_suffix', 
-            'page_label','transcript']}),
-    ]
-    list_display = ('evidenceitem', 'page_num', 'page_suffix', 
-            'page_label')
-    list_filter     = ['evidenceitem']
-    #search_fields = ['title', 'slug']
+# class PageAdmin(admin.ModelAdmin):
+#     change_form_template = 'supporting/admin/page_change_form.html'
+#     fieldsets = [
+#         (None,            {'fields': ['evidenceitem', 'page_num', 'page_suffix', 
+#             'page_label','transcript']}),
+#     ]
+#     list_display = ('evidenceitem', 'page_num', 'page_suffix', 
+#             'page_label')
+#     list_filter     = ['evidenceitem']
 
-admin.site.register(Page, PageAdmin)
+# admin.site.register(Page, PageAdmin)
 
 
 class FastFactAdmin(admin.ModelAdmin):

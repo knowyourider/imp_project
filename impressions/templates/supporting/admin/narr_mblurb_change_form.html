@@ -10,6 +10,12 @@
 			// set editor with options for textareas
 			$('#id_narrative').froalaEditor(froalaSlim);
 			$('#id_map_blurb').froalaEditor(froalaBlurb);
+
+			$('.vLargeTextField').froalaEditor(froalaBlurb);
+			// $('.field-transcript:first-child').froalaEditor(froalaBlurb);
+
+			// $("body #page:first-child article.main p#intro em");
+
 			// get rid of float for labels
 			$('label[for="id_narrative"]').css('float', 'none');
 			$('label[for="id_map_blurb"]').css('float', 'none');
