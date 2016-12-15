@@ -10,14 +10,14 @@
 		color: $action-color;
 		font-size: $large-font-size;
 		letter-spacing: 0.25em;
-		margin-top: $base-spacing;
+		//margin-top: $base-spacing;
 		text-transform: uppercase;
 	}
 
 	ul li {
 		@include span-columns(3);
   	@include omega(4n);
-  	//padding: $base-spacing;/* this adds left & right padding to images in deeper gallery */
+  	padding: $base-spacing;/* this adds left & right padding to images in deeper gallery */
 
 		img {
 			border: $double-border;

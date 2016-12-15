@@ -411,6 +411,9 @@ picture {
   margin: 0;
   max-width: 100%; }
 
+blockquote {
+  font-style: italic; }
+
 .dig-deeper {
   clear: left;
   font-size: 0.9em;
@@ -419,13 +422,14 @@ picture {
     color: #b12b00;
     font-size: 1.75em;
     letter-spacing: 0.25em;
-    margin-top: 1.6em;
     text-transform: uppercase; }
   .dig-deeper ul li {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%; }
+    width: 23.23176%;
+    padding: 1.6em;
+    /* this adds left & right padding to images in deeper gallery */ }
     .dig-deeper ul li:last-child {
       margin-right: 0; }
     .dig-deeper ul li:nth-child(4n) {

@@ -3,82 +3,77 @@
 
 {% block title %}{{ object.content_type.singular_title}}: {{object.title }} {% endblock %}
 
-{% block stylesheets %}
-  {{ block.super }}
-  <style>
-    .image-panel { background-image: url("{% static 'themes/fullpics/' %}{{ object.slug }}.jpg"); }
-  </style>
-{% endblock stylesheets %}
-
-{% block wrapper_class %}"content-wrapper-wide"{% endblock wrapper_class %}
-
+{% block wrapper_class %}"content-wrapper"{% endblock wrapper_class %}
 
 {% block content_area %}
 
-  <div class="table-cell content-wrapper--narrative">
-    <section class="image-panel">
-      <p class="image-panel--caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
-      <p class="go-to-deeper"><a href="">Dig Deeper</a></p>
-    </section><!--/image-panel-->
+  <header>
 
-    <article class="table-cell text-panel chapter-text">
-      <h2 class="story-subtitle">{{ object.title|safe }} {{ object.subtitle|safe }}</h2>  
-      <h4 class="byline">By {{ object.author|safe }}</h4> 
+    <h4 class="heading"><a href="{% url 'themes:theme_detail' object.slug %}">{{ object.title|safe }}</a></h4>
+    <h2 class="main-title">{{ object.title|safe }} {{ object.subtitle|safe }}</h2>  
+    <h4 class="byline">By {{ object.author|safe }}</h4> 
 
-      <div class="chapter-text--scroll">
-        {{ object.narrative|safe }}
-      </div><!--/chapter-text-scroll-->
+  </header>
 
-    </article><!--/text-panel-->
-  </div><!--/content-wrapper-narrative-->
+  <section class="chapter">
 
-  <div class="deeper table-cell">
-    <h2>Dig&nbsp;Deeper</h2>
-    <div class="table deeper toprow">
+    <div class="chapter-image">
 
-      <div class="deeper-row">
+      <img src="{% static 'themes/fullpics/' %}{{ object.slug }}.jpg">
+
+      <p class="caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+
+    </div><!--/chapter-image -->
+
+    {{ object.narrative|safe }}
+
+  </section><!--/chapter -->
+  
+  <section class="dig-deeper">
+    
+    <h2>Dig Deeper</h2>
+
+    <ul class="dig-deeper-list">
+
       {% for person in object.people.all %}
-        <div class="table-cell">
+
+        <li>
           <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
           <img class="oval" src="{% static 'supporting/person/menupics/' %}{{ person.slug }}.jpg" alt="image of {{ person.slug}}">
             {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
           </a>
-        </div>
+        </li>
       {% endfor %}
-      </div><!-- </deeper-row>-->
-    </div><!-- </table deeper toprow>-->
 
-    <div class="table deeper">
-      <div class="deeper-row">
       {% for evidenceitem in object.evidence.all %}
-        <div class="table-cell">
+        <li>
           <a class="pop_item"  href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
           <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title }}
           </a>
-        </div>
+        </li>
       {% endfor %}
 
       {% for context in object.contexts.all %}
-        <div class="table-cell">
+        <li>
           <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
           <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
             {{ context.title }}
           </a>
-        </div>
+        </li>
       {% endfor %}
       
-      {% for fastfact in object.fastfacts.all %}
-        <div class="table-cell">
-          <a class="pop_item" href="{% url 'supporting:fastfact_detail' fastfact.slug %}">
-          <img src="{% static 'supporting/fastfact/menupics/' %}{{ fastfact.slug }}.jpg" alt="image of {{ fastfact.slug }}">
-            {{ fastfact.title }}
+      {% for special in object.special_features.all %}
+        <li>
+          <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
+          <img src="{% static 'supporting/special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
+            {{ special.title }}
           </a>
-        </div>
+        </li>
       {% endfor %}
       
-      </div><!-- </deeper-row>-->
-    </div><!-- </table deeper>-->
-  </div><!--/deeper table-cell-->
+      </ul>
+
+  </section><!--/dig-deeper -->
 
 {% endblock content_area %}
