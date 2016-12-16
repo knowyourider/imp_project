@@ -40,7 +40,7 @@ class Story(CommonModel):
         return Chapter.objects.filter(story_id=self.id)
 
     class Meta:
-        ordering = ['title']
+        ordering = ['ordinal']
 
 
 class Chapter(AssociationMixin, models.Model):
