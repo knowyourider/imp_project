@@ -1,0 +1,96 @@
+// for evidence items
+#item-viewer {
+  position: relative;
+}
+
+#item-viewer--container {
+  margin-top: -$base-spacing;
+}
+
+#item-image {
+  background-color: $base-background-color;
+  border: $double-border;
+  height: em(400);
+}
+
+// for document transcriptions
+#document-text {
+  background-color: $base-background-color;
+  border: $double-border;
+  color: $dark-gray;
+  font-size: $smallish-font-size;
+  height: em(400);
+  line-height: $base-line-height;
+  opacity: 0.75;
+  overflow: scroll;
+
+  @include position(absolute, 0px null null 0px );
+
+  p {
+  	opacity: 1.0;
+  }
+}
+
+.document-text--transcription {
+	margin: $base-spacing;
+}
+
+// for document paging
+#document-paging {
+  width: 30%;
+}
+
+#document-paging--list {
+  li {
+    display: inline;
+    padding: 2px;
+  }
+
+  li.document-paging--page::after {
+    content: " |"
+  }
+
+  li.last::after {
+    content: none;
+  }
+
+    a:link {
+      text-decoration: underline;
+    }
+
+    a:hover {
+      background-color: $accent-color;
+    }
+}
+
+.document-paging--title {
+  float: left;
+  margin: 2px 4px 0 em(1);
+}
+
+.document-paging--selected {
+  font-weight: 600;
+}
+
+// transcription toggle button
+#toggle-transcription {
+  background-color: $light-taupe;
+  margin-top: -$base-spacing;
+  float: right;
+  font-size: $small-font-size;
+
+  @media print {
+    display: none;
+  }  
+}
+
+//not sure we need these styles, but just in case
+.item-viewer--tools {
+  @include outer-container;
+  margin-bottom: 1em;
+  margin-top: .5em;
+  
+  @include media(max-width $max-width) {
+    font-size: $base-font-size * 0.85;
+  } 
+}

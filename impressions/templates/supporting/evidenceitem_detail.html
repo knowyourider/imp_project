@@ -30,6 +30,7 @@
 
 		{% endif %}
 
+		<!-- /transcription goes here -->
 		{% block document_text %}
 		{% endblock document_text %}
 
@@ -41,7 +42,8 @@
 
 </section> <!-- /item-viewer -->
 
-<p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p>
+<!-- not sure we need this on evidence pages
+<p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p> -->
 
 {{ object.narrative|safe }}
 
