@@ -20,30 +20,7 @@ $(document).ready(function(){
 		tempbounds = L.latLngBounds(southWest, northEast);
 
 	// ----- define base layers ----- 
-	var terrain = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png' +
-		'?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> ' +
-			'contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		bounds: mybounds,
-		minZoom: 9,
-		maxZoom: 18,
-		//id: 'mapbox.streets',
-		id: 'mapbox.mapbox-terrain-v2',
-		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
-	}),
-	satellite   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', 
-		{
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
-		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
-		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		bounds: mybounds,
-		minZoom: 9,
-		maxZoom: 18,
-		id: 'mapbox.satellite',
-		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
-	}),
-	today   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	var today   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -56,40 +33,49 @@ $(document).ready(function(){
 		//id: 'mapbox.mapbox-terrain-v2',
 		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 	}),
-	hitchcockOld   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-		attribution: 'Hitchcock map',
-		bounds: mybounds,
-		minZoom: 10,
-		maxZoom: 13,
-		id: 'donaldo.d51bywq4',
-		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
-	});
 	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		bounds: mybounds, //tempbounds
 		minZoom: 9,
-		maxZoom: 13,
+		maxZoom: 16,
 		//opacity: .7,
         tms: true
 	});
+
+	var stamen = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.{ext}', {
+		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
+		'<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; ' +
+		'<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+		subdomains: 'abcd',
+		bounds: mybounds,
+		minZoom: 9,
+		maxZoom: 13,
+		ext: 'png'
+	 });
+
+
 	// Set array of objects defined above
-	var baseLayerObjects = [today, hitchcock, satellite, satellite];
+	var baseLayerObjects = [today, hitchcock, stamen];
 	// era short names. Will come from ajax
 
 
 	// --------- SET THINGS IN MOTION ----------
 
-	setLayer('today');
+	// setSiteLayer('today');
 	// better place to do this?
     $(".map-layers li:nth-child(1)").addClass('selected');
-	var layerIndex = 0;
+	// var layerIndex = 0;
+	var layerIndex = 2;
 
 	map = L.map('map', {
 		center: [42.0, -72.45],
 		zoom: 9,
 		//layers: [streets, markerList]
-		layers: [baseLayerObjects[layerIndex]] //, siteMarkers hitchcock
+		// layers: [baseLayerObjects[layerIndex]] //, siteMarkers hitchcock
+		layers: [stamen] //, siteMarkers hitchcock
 	});
+
+
 	// add markers separately -- need to defer until ajax gets json
 
 	// Set click action on the layer links
@@ -108,7 +94,21 @@ $(document).ready(function(){
 	    // href_split[0] = layer.short_name
 	    // href_split[1] = layer.layer_index
 	    // siteMarkers is the layerGroup (not the list)
-	    switchLayer(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
+	    // switchLayer(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
+	    addOverlay(baseLayerObjects, href_split[0], href_split[1], siteMarkers);
+	  });
+
+	// Start separating site markers from from overlays
+	$(".sites").on('click', function(event) {
+	    event.preventDefault();
+
+	    // get params for switch
+	    var url_params = $(event.target).attr('href');
+	    var href_split = url_params.split('/');    
+	    // console.log(" lmap-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
+	    // href_split[0] = layer.short_name
+	    // href_split[1] = layer.layer_index
+	    setSiteLayer(href_split[0]);
 	  });
 
    
@@ -144,10 +144,15 @@ function switchLayer(baseLayerObjects, layerShortName, layerIndex) {
 
 	// Remove site markers before calling switch
 	map.removeLayer(siteMarkers);		
-	setLayer(layerShortName);
+	setSiteLayer(layerShortName);
 }
 
-function setLayer(layerShortName) {
+function addOverlay(baseLayerObjects, layerShortName, layerIndex) {
+	map.addLayer(baseLayerObjects[layerIndex]);
+	//setSiteLayer(layerShortName);
+}
+
+function setSiteLayer(layerShortName) {
 
 		// "Regular" Ajax (in application.js) to re-populate the right column with a template
 		// calls first of two views
