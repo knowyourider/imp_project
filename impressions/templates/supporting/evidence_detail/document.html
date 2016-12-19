@@ -19,7 +19,7 @@
 		{% if object.page_set.all %} {# add: if length greater than 1 #}
 			<nav id="document-paging">
 				<h5 class="document-paging--title">Page: </h5>
-				<ul id="document-paging--list" class="horiz">
+				<ul id="document-paging--list">
 				{% for nav_page in object.page_set.all %}
 
 					<li class="document-paging--page{% if forloop.last %} last{% endif %}">

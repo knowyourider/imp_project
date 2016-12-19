@@ -26,7 +26,7 @@
 .slim-title {
   color: $accent-color;
   font-size: $medlarge-font-size;
-  margin-bottom: $tiny-spacing;
+  margin-bottom: $base-spacing;
 }
 
 .slim-subhead {
@@ -102,9 +102,14 @@ dl.slim-curatorial {
   z-index: 100;
 }
 
-.person, .context, .evidenceitem, .fastfact {
+.person, .context, .fastfact {
   max-height: 600px;
   width: 550px;
+}
+
+.evidenceitem {
+  max-height: 600px;
+  width: 650px;
 }
 
 .special {
