@@ -3,6 +3,8 @@
 var markerList = []; // on a level with map, markers can be accessed by index
 // siteMarkers is a layerGroup - (not the list of markers themselves)
 var siteMarkers ;
+// cheating and making this global, should find way to send to promise
+var _siteLinks = "site links";
 var map = 0;
 var prevLayerIndex = 0;
 
@@ -133,14 +135,9 @@ $(document).ready(function(){
 	    // get params for switch
 	    var url_params = $(event.target).attr('href');
 	    var href_split = url_params.split('/');    
-	    // console.log(" lmap-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
+	    // console.log(" map-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
 	    // href_split[0] = layer.short_name
 	    // href_split[1] = layer.layer_index
-
-	    // remove previous be
-		// map.removeLayer(siteMarkers);		
-
-
 	    setSiteLayer(href_split[0]);
 	  });
 
@@ -148,34 +145,9 @@ $(document).ready(function(){
 
 // --------- UTILITY SECTION ----------
 
-function writeLayerList (layerLinks) {
-	$('#layer_list').html(layerLinks);
-}
-
-function writeSiteList (siteLinks) {
-	// console.log("got to writeSiteList");
-	//var siteListHtml = "<p>site list From js</p>";
-	// write the inner html
-	$('#site_list').html(siteLinks);
-}
-
-function openPopUpFromSide (markerIndex) {
+function openPopUpFromSide(markerIndex) {
 	// console.log("got to open popup. markerIndex: " + markerIndex);
 	markerList[markerIndex].openPopup();
-}
-
-function switchLayer(mapLayerObjects, layerShortName, layerIndex) {
-	if (prevLayerIndex > 0) { // leave base terrain intact
-		map.removeLayer(mapLayerObjects[prevLayerIndex]);		
-	}
-	if (layerIndex > 0) { // don't need to add 0, it has stayed put
-		map.addLayer(mapLayerObjects[layerIndex]);
-	}
-	prevLayerIndex = layerIndex;
-
-	// Remove site markers before calling switch
-	map.removeLayer(siteMarkers);		
-	setSiteLayer(layerShortName);
 }
 
 function addOverlay(mapLayerObjects,layerIndex) { //  layerShortName, 
@@ -190,32 +162,32 @@ function removeOverlay(mapLayerObjects,layerIndex) {
 
 function setSiteLayer(layerShortName) {
 
-		// "Regular" Ajax (in application.js) to re-populate the right column with a template
-		// calls first of two views
-	  getURL("/map/assoc/" + layerShortName + "/", $('#sites_ajax_wrapper'));
+	// Call to "Regular" Ajax (getURL() in application.js) to re-populate the dig deeper box
+	getURL("/map/deeper/" + layerShortName + "/", $('#deeper_ajax_wrapper'));
 
-		// Get site list for this layer
-		// get ansynchronous data via a "promise" per 
-		// http://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-success
-		var siteListPromise = getSiteList("/map/sites/" + layerShortName + "/");
+	// Get site list for this layer
+	// get ansynchronous data via a "promise" per 
+	// http://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-success
+	var siteListPromise = getSiteList("/map/sites/" + layerShortName + "/");
 
-		siteListPromise.success(function (data) {
+	siteListPromise.success(function (data) {
 
-			// remove previous marker layer
-			//console.log("--- siteMarkers length: " + siteMarkers.length);
-			if (siteMarkers != undefined) {
-				map.removeLayer(siteMarkers);				
-			}
+		// remove previous marker layer
+		//console.log("--- siteMarkers length: " + siteMarkers.length);
+		if (siteMarkers != undefined) {
+			map.removeLayer(siteMarkers);				
+		}
 
-			var siteListJson = $.parseJSON( data );
-			// setTempList(data);
-			setSites(siteListJson);
-			// add markers -- need to defer until ajax gets json
-			// siteMarkers is set in setSites
-			map.addLayer(siteMarkers);
+		var siteListJson = $.parseJSON( data );
+		// setSites sets global siteMarkers
+		setSites(siteListJson);
+		// add markers -- need to defer until ajax gets json
+		// siteMarkers is set in setSites
+		map.addLayer(siteMarkers);
+		// writeSiteList();
+		$('#site_list').html(_siteLinks);
 
-
-		});
+	});
 }
 
 // ----------- AJAX ----------
@@ -259,7 +231,9 @@ function setSites(siteListJson) {
 	siteLinks += "</ul>";
 
 	// write slite links to sidebar
-	writeSiteList(siteLinks);
+	// writeSiteList(siteLinks);
+	// need to wait for ajax success
+	_siteLinks = siteLinks;
 
 	  // Need to set new markerList on the map
 	  //var siteMarkers = L.layerGroup(markerList);
@@ -278,5 +252,10 @@ function setSites(siteListJson) {
 	// add in "promisse" above
 
 }
+
+// function writeLayerList(layerLinks) {
+// 	$('#layer_list').html(layerLinks);
+// }
+
 
 

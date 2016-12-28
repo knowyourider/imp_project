@@ -13,10 +13,10 @@ class MapDetailView(DetailView):
     # model supplies site_list_dict
 
 
-class MapAssocView(DetailView):
+class MapDeeperView(DetailView):
     model = Layer
     # context_object_name = 'object'
-    template_name = 'map/_map_assoc.html' 
+    template_name = 'map/_map_deeper.html' 
 
 
 def layer_sites(request, slug):

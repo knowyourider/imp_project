@@ -31,6 +31,8 @@
   <div class="map-wrapper">
     <section class="map-control-panel">
       
+      <h2 class="heading">Show Maps</h2>
+
       <ul class="map-layers"> <!-- js ist tied to children of map-layers -->
         <li>
           <a class="layer_on" href="2/roads">on</a> 
@@ -45,7 +47,7 @@
       <hr/>
 
       <h2 class="heading">About This Map</h2>
-      {{ object.layer_blurb|safe}}
+      <!-- {{ object.layer_blurb|safe}} -->
 
 
 <!--       <h2 class="heading">Map Overlays</h2>
@@ -107,7 +109,6 @@
     <h2 class="heading">Location Sets</h2>
       
     <ul class="map-layers">
-    <li>first in list</li>
     {% for layer in object.layer_list %}
         <li><a class="location-set" href="{{ layer.slug }}">[x]</a> {{ layer.title|safe }}</li>
         <!-- {{ layer.era_description|safe }} -->
@@ -115,10 +116,17 @@
     </ul>
 
     <hr/>
+    <h2 class="heading">Sites</h2>
 
-    <div id="sites_ajax_wrapper">
+    <div id="site_list"><p>site list will come from JS</p></div>
+
+    <hr/>
+
+    <h2 class="heading">Dig Deeper</h2>
+
+    <div id="deeper_ajax_wrapper">
       
-      {% include 'map/_map_assoc.html' %}
+      {% include 'map/_map_deeper.html' %}
 
     </div>
   
