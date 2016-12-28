@@ -18,8 +18,9 @@
 
 {% block javascript %}
   {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/tangram.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/leaflet.js' %}"></script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+  <!-- <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script> -->
 
 {% endblock javascript %}
 
@@ -29,27 +30,22 @@
 
   <div class="map-wrapper">
     <section class="map-control-panel">
-      <h2 class="heading">Map Eras</h2>
-      <p>Select an Era</p>
-      
-      <ul class="map-layers">
-      {% for layer in object.layer_list %}
-          <li><a href="{{ layer.slug }}/{{ layer.layer_index }}">{{ layer.title|safe }} - {{ layer.era_description|safe }}</a></li>
-      {% endfor %}
-      </ul>
-
-      <hr/>
       
       <ul class="map-layers"> <!-- js ist tied to children of map-layers -->
-        <li><a href="hitchcock/1">Hitchcock overlay</a></li>
+        <li>
+          <a class="layer_on" href="2/roads">on</a> 
+          <a class="layer_off" href="2/roads">off</a> 
+          Roads overlay</li>
+        <li>
+          <a class="layer_on" href="1/hitchcock">on</a> 
+          <a class="layer_off" href="1/hitchcock">off</a> 
+          Hitchcock overlay</li>
       </ul>
       
       <hr/>
 
-      <ul> <!-- site layer js has its own class -->
-        <li><a class="sites" href="today/1">Sites - today</a></li>
-        <li><a class="sites" href="hitchcock/2">Sites - hitchcock</a></li>
-      </ul>
+      <h2 class="heading">About This Map</h2>
+      {{ object.layer_blurb|safe}}
 
 
 <!--       <h2 class="heading">Map Overlays</h2>
@@ -107,38 +103,25 @@
   </div><!--map-wrapper-->
 
   <section class="map-about-panel">
-    <h2 class="heading">About This Map</h2>
-    {{ object.layer_blurb|safe}}
 
-    <h2 class="heading">Sites</h2>
+    <h2 class="heading">Location Sets</h2>
+      
+    <ul class="map-layers">
+    <li>first in list</li>
+    {% for layer in object.layer_list %}
+        <li><a class="location-set" href="{{ layer.slug }}">[x]</a> {{ layer.title|safe }}</li>
+        <!-- {{ layer.era_description|safe }} -->
+    {% endfor %}
+    </ul>
 
-    <div id="site_list"><p>site list will come from JS</p></div>
+    <hr/>
 
+    <div id="sites_ajax_wrapper">
+      
+      {% include 'map/_map_assoc.html' %}
 
-    <h2 class="heading">Dig Deeper</h2>
-    <ul class="map-deeper">
-      {% for person in object.people.all %}
-      <li>
-        <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
-          {{ person.first_name }} {{ person.last_name }}
-        </a>
-      </li>
-      {% endfor %}
-      {% for evidenceitem in object.evidence.all %}
-        <li>
-          <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
-            {{ evidenceitem.title }}
-          </a>
-        </li>
-      {% endfor %}
-      {% for context in object.contexts.all %}
-        <li>
-          <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
-            {{ context.title }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>      
+    </div>
+  
   </section>
 
 

@@ -16,7 +16,7 @@ class MapDetailView(DetailView):
 class MapAssocView(DetailView):
     model = Layer
     # context_object_name = 'object'
-    template_name = 'map/map_assoc.html' 
+    template_name = 'map/_map_assoc.html' 
 
 
 def layer_sites(request, slug):

@@ -62,7 +62,7 @@ class Layer(AssociationMixin, models.Model):
         return json.dumps(list(site_list_of_dicts))
 
     class Meta:
-        verbose_name = "Era"
+        verbose_name = "Location Set"
         ordering = ['ordinal']
 
     def __str__(self):
