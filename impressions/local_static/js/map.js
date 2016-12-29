@@ -45,7 +45,9 @@ $(document).ready(function(){
 	}),
     // Adding vector tiled roads via Tangram - layer parameters, source, etc... are defined in scene.yaml file
     roads = Tangram.leafletLayer({
-        scene: '/static/js/map_assets/scene.yaml',
+        // scene: '/static/js/map_assets/cinnabar-style.yaml',
+        scene: '/static/js/map_assets/roads.yaml',
+        // scene: '/static/js/map_assets/scene.yaml',
         attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>',
 		bounds: mybounds,
 		minZoom: 9,
@@ -153,7 +155,8 @@ function openPopUpFromSide(markerIndex) {
 function addOverlay(mapLayerObjects,layerIndex) { //  layerShortName, 
 	map.addLayer(mapLayerObjects[layerIndex]);
 	// mapLayerObjects[layerIndex].addTo(map);
-	//setSiteLayer(layerShortName);
+	// keep roads on top, if present
+	mapLayerObjects[2].bringToFront();
 }
 function removeOverlay(mapLayerObjects,layerIndex) {  
 	map.removeLayer(mapLayerObjects[layerIndex]);		

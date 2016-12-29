@@ -7,10 +7,13 @@ from .models import Layer, Site
 
 
 class MapDetailView(DetailView):
-    model = Layer
+    #model = Layer
     # context_object_name = 'object'
     template_name = 'map/map_detail.html' 
     # model supplies site_list_dict
+    # get default layer
+    def get_object(self):
+        return get_object_or_404(Layer, slug='fossils')
 
 
 class MapDeeperView(DetailView):
