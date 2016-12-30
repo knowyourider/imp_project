@@ -190,6 +190,15 @@ function setSiteLayer(layerShortName) {
 		// writeSiteList();
 		$('#site_list').html(_siteLinks);
 
+		// now that list is in place add event listener
+		// Set click action on the links
+		$(".site_link").on('click', function(event) {
+		    event.preventDefault(); 
+		    console.log("---- link on site_list works");
+		    var markerIndex = $(event.target).attr('href');
+		    openPopUpFromSide(markerIndex)
+		 });
+
 	});
 }
 
@@ -205,7 +214,6 @@ function getSiteList(theURL) { //, contentDiv
 }
 
 // -------- MARKER SECTION ---------
-
 
 // create array for site Markers and populate with siteListOfDicts defined in html header
 function setSites(siteListJson) {
@@ -228,37 +236,19 @@ function setSites(siteListJson) {
 
 		// create HTML for site list links
 		// since we're creating the array all we need is the index in order to pop it up
-		siteLinks += '<li><a href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
+		siteLinks += '<li><a class="site_link" href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
 
 	} // end for 
 	siteLinks += "</ul>";
 
-	// write slite links to sidebar
-	// writeSiteList(siteLinks);
+	// set site links for sidebar
 	// need to wait for ajax success
 	_siteLinks = siteLinks;
 
-	  // Need to set new markerList on the map
-	  //var siteMarkers = L.layerGroup(markerList);
-	// map.addLayer(L.layerGroup(markerList));
-
 	// Set click action on the links
-	$("#site_list li a").on('click', function(event) {
-	    event.preventDefault(); 
-	    //console.log("link on site_list works");
-	    var markerIndex = $(event.target).attr('href');
-	    openPopUpFromSide(markerIndex)
-	 });
-
+	// above in "promise" - setSiteLayer
 	// create layer group
 	siteMarkers = L.layerGroup(markerList);
-	// add in "promisse" above
+	// add in "promise" above
 
 }
-
-// function writeLayerList(layerLinks) {
-// 	$('#layer_list').html(layerLinks);
-// }
-
-
-
