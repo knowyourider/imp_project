@@ -6,14 +6,11 @@ from django.core import serializers
 from .models import Layer, Site
 
 
-class MapDetailView(DetailView):
-    #model = Layer
+class MapListView(ListView):
+    model = Layer
     # context_object_name = 'object'
-    template_name = 'map/map_detail.html' 
-    # model supplies site_list_dict
-    # get default layer
-    def get_object(self):
-        return get_object_or_404(Layer, slug='fossils')
+    template_name = 'map/map_list.html' 
+    # model could supply overlay list
 
 
 class MapDeeperView(DetailView):

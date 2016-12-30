@@ -47,8 +47,6 @@
       <hr/>
 
       <h2 class="heading">About This Map</h2>
-      <!-- {{ object.layer_blurb|safe}} -->
-
 
 <!--       <h2 class="heading">Map Overlays</h2>
       <p>check the boxes below to show/hide map overlays.</p>
@@ -109,7 +107,7 @@
     <h2 class="heading">Location Sets</h2>
       
     <ul class="map-layers">
-    {% for layer in object.layer_list %}
+    {% for layer in object_list %} 
         <li><a class="location-set" href="{{ layer.slug }}">[x]</a> {{ layer.title|safe }}</li>
         <!-- {{ layer.era_description|safe }} -->
     {% endfor %}
