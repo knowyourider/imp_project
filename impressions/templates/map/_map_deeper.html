@@ -1,5 +1,13 @@
 
 <ul class="map-deeper">
+{% if object.slug == "none" %}
+    <li>--</li>
+    <li>--</li>
+    <li>--</li>
+    <li>--</li>
+    <li>--</li>
+{% else %}
+
   {% for person in object.people.all %}
   <li>
     <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
@@ -21,4 +29,5 @@
       </a>
     </li>
   {% endfor %}
+{% endif %}
 </ul>      

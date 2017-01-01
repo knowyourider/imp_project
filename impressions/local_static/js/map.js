@@ -130,18 +130,21 @@ $(document).ready(function(){
 	    removeOverlay(mapLayerObjects, href_split[0]); 
 	  });
 
-	// site markers  are from from overlays
-	$(".location-set").on('click', function(event) {
-	    event.preventDefault();
+	// ----- Location Set Handline -----
 
-	    // get params for switch
-	    var url_params = $(event.target).attr('href');
-	    var href_split = url_params.split('/');    
-	    // console.log(" map-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
-	    // href_split[0] = layer.short_name
-	    // href_split[1] = layer.layer_index
-	    setSiteLayer(href_split[0]);
-	  });
+	// handle click on radio button for location set
+	$("#loc_sets input[name=loc_set]").change(function(event){
+	    // console.log(" --- radio " );
+	    console.log(" --- radio val: " + $('#loc_sets input[name=loc_set]:checked').val());
+	    var layerSlug = $('#loc_sets input[name=loc_set]:checked').val()
+	    setSiteLayer(layerSlug);
+	});
+
+	// set initial state
+	// checked
+	$('#loc_sets input:first').prop("checked", true);
+	// get the first ("none") object
+	// setSiteLayer('none'); // called by script in template with slug for 1st item
 
 }); // end doc ready
 
@@ -183,7 +186,7 @@ function setSiteLayer(layerShortName) {
 
 		var siteListJson = $.parseJSON( data );
 		// setSites sets global siteMarkers
-		setSites(siteListJson);
+		setSites(siteListJson, layerShortName);
 		// add markers -- need to defer until ajax gets json
 		// siteMarkers is set in setSites
 		map.addLayer(siteMarkers);
@@ -216,29 +219,38 @@ function getSiteList(theURL) { //, contentDiv
 // -------- MARKER SECTION ---------
 
 // create array for site Markers and populate with siteListOfDicts defined in html header
-function setSites(siteListJson) {
+function setSites(siteListJson, layerShortName) {
 	// console.log("site list in setSites: " + String(siteListOfDicts));
 	// console.log("siteListJson[0].short_name: " + siteListJson[0].short_name);
 
 	var siteLinks = '<ul class="map-sites">';
-	markerList = [];
-	//var markerList = [];
-	for (var i = 0; i < siteListJson.length; i++) {
-		// create HTML for popup
-		var popHtml = "<p>" + siteListJson[i].site_type_verbose + "<br />" +  
-			"<strong>" + siteListJson[i].site_info.title + "</strong> </p>" + 
-			// don't know why, but src attribute needs to not be quoted
-			"<img src=/static/supporting/" + siteListJson[i].site_type + "/menupics/" + 
-				siteListJson[i].short_name  + ".jpg>" + siteListJson[i].site_info.map_blurb;
+	// if selection is "none" set dummy list
+	if (layerShortName == "none") {
+		siteLinks += '<li>--</li>'
+		siteLinks += '<li>--</li>'
+		siteLinks += '<li>--</li>'
+		siteLinks += '<li>--</li>'
+	} else {
+		// go ahead and set marker list
+		markerList = [];
+		//var markerList = [];
+		for (var i = 0; i < siteListJson.length; i++) {
+			// create HTML for popup
+			var popHtml = "<p>" + siteListJson[i].site_type_verbose + "<br />" +  
+				"<strong>" + siteListJson[i].site_info.title + "</strong> </p>" + 
+				// don't know why, but src attribute needs to not be quoted
+				"<img src=/static/supporting/" + siteListJson[i].site_type + "/menupics/" + 
+					siteListJson[i].short_name  + ".jpg>" + siteListJson[i].site_info.map_blurb;
 
-		markerList.push(L.marker([siteListJson[i].latitude, 
-			siteListJson[i].longitude]).bindPopup(popHtml));
+			markerList.push(L.marker([siteListJson[i].latitude, 
+				siteListJson[i].longitude]).bindPopup(popHtml));
 
-		// create HTML for site list links
-		// since we're creating the array all we need is the index in order to pop it up
-		siteLinks += '<li><a class="site_link" href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
+			// create HTML for site list links
+			// since we're creating the array all we need is the index in order to pop it up
+			siteLinks += '<li><a class="site_link" href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
 
-	} // end for 
+		} // end for 
+	}
 	siteLinks += "</ul>";
 
 	// set site links for sidebar

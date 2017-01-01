@@ -6,11 +6,27 @@ from django.core import serializers
 from .models import Layer, Site
 
 
-class MapListView(ListView):
-    model = Layer
+# class MapListView(ListView):
+#     model = Layer
+#     # context_object_name = 'object'
+#     template_name = 'map/map_list.html' 
+#     # model could supply overlay list
+
+class MapDetailView(DetailView):
+    """
+    Detail view to get the default (first) site location
+    This default object directly determines the Dig Deeper list,
+    and supplies the slug for the JS script in the template that calls the
+    JS function that sets the site list and markers.
+    Model supplies site_list_dict
+    """
+    #model = Layer -- see get_object below
     # context_object_name = 'object'
-    template_name = 'map/map_list.html' 
-    # model could supply overlay list
+    template_name = 'map/map_detail.html' 
+    # get default layer
+    def get_object(self):
+        layers = Layer.objects.all()
+        return layers[0]
 
 
 class MapDeeperView(DetailView):

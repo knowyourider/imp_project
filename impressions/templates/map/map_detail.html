@@ -48,7 +48,7 @@
 
       <h2 class="heading">About This Map</h2>
 
-<!--       <h2 class="heading">Map Overlays</h2>
+      <!--  <h2 class="heading">Map Overlays</h2>
       <p>check the boxes below to show/hide map overlays.</p>
       
       <ul class="map-layers">
@@ -106,12 +106,25 @@
 
     <h2 class="heading">Location Sets</h2>
       
-    <ul class="map-layers">
+<!--     <ul class="map-layers">
     {% for layer in object_list %} 
         <li><a class="location-set" href="{{ layer.slug }}">[x]</a> {{ layer.title|safe }}</li>
-        <!-- {{ layer.era_description|safe }} -->
+        
     {% endfor %}
     </ul>
+ --> <!-- {{ layer.era_description|safe }} -->
+    <hr/>
+
+    <form id="loc_sets" action="#">
+      <ul class="map-layers">
+        {% for layer in object.layer_list %} 
+          <li>
+            <input type="radio" name="loc_set" value="{{ layer.slug }}">{{ layer.title|safe }}
+          </li>
+       {% endfor %}
+      </ul>
+      
+    </form>
 
     <hr/>
     <h2 class="heading">Sites</h2>
@@ -131,15 +144,14 @@
     <h2 class="heading">Dig Deeper</h2>
 
     <div id="deeper_ajax_wrapper">
-      <ul class="map-deeper">
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-      </ul>      
+      {% include 'map/_map_deeper.html' %}
     </div>
   
   </section>
+
+  <script type="text/javascript">
+    // set initial sites -- the first in list, should be "none"
+    setSiteLayer('{{ object.slug }}');
+  </script>
 
 {% endblock content_area %}
