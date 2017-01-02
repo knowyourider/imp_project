@@ -33,30 +33,32 @@
       
       <h2 class="heading">Show Maps</h2>
 
-      <ul class="map-layers"> <!-- js ist tied to children of map-layers -->
-        <li>
-          <a class="layer_on" href="2/roads">on</a> 
-          <a class="layer_off" href="2/roads">off</a> 
-          Roads overlay</li>
-        <li>
-          <a class="layer_on" href="1/hitchcock">on</a> 
-          <a class="layer_off" href="1/hitchcock">off</a> 
-          Hitchcock overlay</li>
-      </ul>
       
       <hr/>
 
-      <h2 class="heading">About This Map</h2>
+      <!-- <p>check the boxes below to show/hide map overlays.</p> -->
+      <form id="overlays" action="#">
+        
+        <ul class="map-layers">
+          <li>
+            <label for="id_0">
+              <input id="id_0" name="overlay" type="checkbox" value="0" /> Today - Roads &amp; Towns
+            </label>
+          </li>
 
-      <!--  <h2 class="heading">Map Overlays</h2>
-      <p>check the boxes below to show/hide map overlays.</p>
-      
-      <ul class="map-layers">
-        <li class="selected"><a href="">
-          <label for="id_0">
-            <input id="id_0" name="map-layers" type="checkbox" value="today-towns" /> Today - Roads &amp; Towns
-          </label></a>
-        </li>
+
+          <li>
+            <label for="id_3">
+              <input id="id_3" name="overlay" type="checkbox" value="1" /> Hitchcock's Era: Geology
+            </label>
+          </li>
+
+        </ul>
+      </form>
+
+
+      <!--  
+
         <li><a href="">
           <label for="id_1">
             <input id="id_1" name="map-layers" type="checkbox" value="today-geo" /> Today: Geology
@@ -67,11 +69,7 @@
             <input id="id_2" name="map-layers" type="checkbox" value="hitchcock-towns" /> Hitchcock's Era: Roads &amp; Towns
           </label></a>
         </li>
-        <li><a href="">
-          <label for="id_3">
-            <input id="id_3" name="map-layers" type="checkbox" value="hitchcock-geology" /> Hitchcock's Era: Geology
-          </label></a>
-        </li>
+
         <li><a href="">
           <label for="id_4">
             <input id="id_4" name="map-layers" type="checkbox" value="lake-hitchcock" /> Lake Hitchcock
@@ -87,8 +85,11 @@
             <input id="id_5" name="topic" type="checkbox" value="pangea" /> Pangea
           </label></a>
         </li>
-      </ul>
  -->
+      <hr/>
+
+      <h2 class="heading">About This Map</h2>
+
 
     </section>
 
@@ -106,13 +107,6 @@
 
     <h2 class="heading">Location Sets</h2>
       
-<!--     <ul class="map-layers">
-    {% for layer in object_list %} 
-        <li><a class="location-set" href="{{ layer.slug }}">[x]</a> {{ layer.title|safe }}</li>
-        
-    {% endfor %}
-    </ul>
- --> <!-- {{ layer.era_description|safe }} -->
     <hr/>
 
     <form id="loc_sets" action="#">
@@ -130,13 +124,7 @@
     <h2 class="heading">Sites</h2>
 
     <div id="site_list">
-      <ul class="map-sites">
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-      </ul>
+      <p>Site list set in JavaScript</p>
     </div>
 
     <hr/>

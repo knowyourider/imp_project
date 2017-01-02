@@ -1,4 +1,8 @@
-// per http://leafletjs.com/examples/layers-control.html
+// Single base layer (stamen) is present for all possible states
+// Location set list is set by Django and template
+// 	JS generates the Sites list, an Ajax template generates the Dig Deeper list
+// Map overlays are set by-hand in this file
+//  overlay index numbers need to correspond to map_blurb indexes set in Admin
 
 var markerList = []; // on a level with map, markers can be accessed by index
 // siteMarkers is a layerGroup - (not the list of markers themselves)
@@ -21,21 +25,8 @@ $(document).ready(function(){
 		northEast = L.latLng(42.71, -72.5), // -72.37
 		tempbounds = L.latLngBounds(southWest, northEast);
 
-	// ----- define layers ----- 
-	var today   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '+
-		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		bounds: mybounds,
-		//maxBounds: mybounds,
-		//maxBoundsViscosity: 1.0,
-		minZoom: 9,
-		maxZoom: 18,
-		id: 'mapbox.streets',
-		//id: 'mapbox.mapbox-terrain-v2',
-		accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
-	}),
-	hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
+	// ----- define overlays ----- 
+	var hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		bounds: mybounds, //tempbounds
 		minZoom: 9,
@@ -43,23 +34,27 @@ $(document).ready(function(){
 		//opacity: .7,
         tms: true
 	}),
-    // Adding vector tiled roads via Tangram - layer parameters, source, etc... are defined in scene.yaml file
+    // Adding vector tiled roads via Tangram - layer parameters, source, etc... 
+    // are defined in scene.yaml file
     roads = Tangram.leafletLayer({
         // scene: '/static/js/map_assets/cinnabar-style.yaml',
         scene: '/static/js/map_assets/roads.yaml',
         // scene: '/static/js/map_assets/scene.yaml',
-        attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>',
+        attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> '
+        + '| &copy; OSM contributors | <a href="https://mapzen.com/" '
+        + 'target="_blank">Mapzen</a>',
 		bounds: mybounds,
 		minZoom: 9,
 		maxZoom: 13
     });
 
-	
-
-	var stamen = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.{ext}', {
-		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
-		'<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; ' +
-		'<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	// ----- define base layer -----
+	var stamen = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-'
+		+ 'background/{z}/{x}/{y}.{ext}', {
+		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, '
+		+ '<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; '
+		+ 'Map data &copy; ' 
+		+ '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		subdomains: 'abcd',
 		bounds: mybounds,
 		minZoom: 9,
@@ -67,17 +62,8 @@ $(document).ready(function(){
 		ext: 'png'
 	 });
 
-	// from Joe, seems the same as the stamen I was using
-    var topobase = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.{ext}', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        subdomains: 'abcd',
-        minZoom: 0,
-        maxZoom: 18,
-        ext: 'png'
-    });
-
 	// Set array of objects defined above
-	var mapLayerObjects = [today, hitchcock, roads]; // , stamen
+	var mapLayerObjects = [roads, hitchcock ]; // , stamen
 	// era short names. Will come from ajax
 
 
@@ -86,8 +72,8 @@ $(document).ready(function(){
 	// setSiteLayer('today');
 	// better place to do this?
     $(".map-layers li:nth-child(1)").addClass('selected');
-	// var layerIndex = 0;
-	var layerIndex = 2;
+	// initial overlay
+	var layerIndex = 0;
 
 	map = L.map('map', {
 		center: [42.0, -72.45],
@@ -97,54 +83,37 @@ $(document).ready(function(){
 		layers: [stamen] // topobase stamen , siteMarkers hitchcock
 	});
 
-    // topobase.addTo(map);
-    // roads.addTo(map);
-
-	// add markers separately -- need to defer until ajax gets json
-
-	// Set click action on the layer links
-	// call utility function because I may want to change several overlays
-	// $(".map-layers li a").on('click', function(event) {
-	$(".layer_on").on('click', function(event) {
-	    event.preventDefault();
-	    // remove class from all li's then add highlight to this one
-	    // $(".map-layers li").removeClass('selected');
-	    // $(this).parent().attr('class', 'selected');
-	    // $(this).attr('class', 'selected');
-
-	    // get params for switch
-	    var url_params = $(event.target).attr('href');
-	    var href_split = url_params.split('/');    
-	    //console.log(" map-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
-	    // href_split[0] = layer.layer_index
-	    // href_split[1] = layer.short_name
-	    addOverlay(mapLayerObjects, href_split[0]); // , href_split[0] , siteMarkers
-	  });
-
-	$(".layer_off").on('click', function(event) {
-	    event.preventDefault();
-	    // get params for switch
-	    var url_params = $(event.target).attr('href');
-	    var href_split = url_params.split('/');    
-	    // console.log(" map-layers href_split[0]: " + href_split[0] + " split[1]: " + href_split[1]);
-	    removeOverlay(mapLayerObjects, href_split[0]); 
-	  });
-
-	// ----- Location Set Handline -----
+	// ----- Location Set Handling -----
 
 	// handle click on radio button for location set
 	$("#loc_sets input[name=loc_set]").change(function(event){
 	    // console.log(" --- radio " );
-	    console.log(" --- radio val: " + $('#loc_sets input[name=loc_set]:checked').val());
-	    var layerSlug = $('#loc_sets input[name=loc_set]:checked').val()
+	    var layerSlug = $(this).val()
+	    // var layerSlug = $('#loc_sets input[name=loc_set]:checked').val()
 	    setSiteLayer(layerSlug);
 	});
 
 	// set initial state
 	// checked
 	$('#loc_sets input:first').prop("checked", true);
-	// get the first ("none") object
 	// setSiteLayer('none'); // called by script in template with slug for 1st item
+	// site_list click event handler set in setSiteLayer after Ajax success
+
+	// ----- Map Overlay checkbox Handling -----
+
+	// 
+	// handle click on checkboxes for overlays
+	$("#overlays input[name=overlay]").change(function(event){
+      // console.log(" --- checbox val: " + $(this).get(0).tagName);
+      // determine whether checked or unchecked
+      var intVal = parseInt($(this).val());
+      if ($(this).is(':checked')) {
+      	addOverlay(mapLayerObjects, intVal);
+      } else { // action was to uncheck
+      	removeOverlay(mapLayerObjects, intVal);
+      }
+	});
+
 
 }); // end doc ready
 
@@ -159,7 +128,7 @@ function addOverlay(mapLayerObjects,layerIndex) { //  layerShortName,
 	map.addLayer(mapLayerObjects[layerIndex]);
 	// mapLayerObjects[layerIndex].addTo(map);
 	// keep roads on top, if present
-	mapLayerObjects[2].bringToFront();
+	mapLayerObjects[0].bringToFront();
 }
 function removeOverlay(mapLayerObjects,layerIndex) {  
 	map.removeLayer(mapLayerObjects[layerIndex]);		
@@ -168,7 +137,8 @@ function removeOverlay(mapLayerObjects,layerIndex) {
 
 function setSiteLayer(layerShortName) {
 
-	// Call to "Regular" Ajax (getURL() in application.js) to re-populate the dig deeper box
+	// Call to "Regular" Ajax (getURL() in application.js) 
+	// to re-populate the dig deeper box
 	getURL("/map/deeper/" + layerShortName + "/", $('#deeper_ajax_wrapper'));
 
 	// Get site list for this layer
@@ -176,11 +146,14 @@ function setSiteLayer(layerShortName) {
 	// http://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-success
 	var siteListPromise = getSiteList("/map/sites/" + layerShortName + "/");
 
+	// this is triggered when we get the json site list back (data)
 	siteListPromise.success(function (data) {
 
 		// remove previous marker layer
-		//console.log("--- siteMarkers length: " + siteMarkers.length);
-		if (siteMarkers != undefined) {
+		// site markers are undefined on initial visit, 
+		// siteMarkers is defined by the time of first radio click, even though 
+		// previous was "none"
+		if (siteMarkers != undefined) { // e.g. if defined
 			map.removeLayer(siteMarkers);				
 		}
 
@@ -189,15 +162,29 @@ function setSiteLayer(layerShortName) {
 		setSites(siteListJson, layerShortName);
 		// add markers -- need to defer until ajax gets json
 		// siteMarkers is set in setSites
-		map.addLayer(siteMarkers);
-		// writeSiteList();
+
+		// only add if defined
+		if (layerShortName != "none") { 
+			siteMarkers.addTo(map);
+		}
+
+		// write site list, but substitue blank list for none
+		if (layerShortName == "none") {
+			_siteLinks = '<ul class="map-sites">';
+			_siteLinks += '<li>--</li>'
+			_siteLinks += '<li>--</li>'
+			_siteLinks += '<li>--</li>'
+			_siteLinks += '<li>--</li>'
+			_siteLinks += "</ul>";
+		}
+
 		$('#site_list').html(_siteLinks);
 
 		// now that list is in place add event listener
 		// Set click action on the links
 		$(".site_link").on('click', function(event) {
 		    event.preventDefault(); 
-		    console.log("---- link on site_list works");
+		    // console.log("---- link on site_list works");
 		    var markerIndex = $(event.target).attr('href');
 		    openPopUpFromSide(markerIndex)
 		 });
@@ -224,33 +211,24 @@ function setSites(siteListJson, layerShortName) {
 	// console.log("siteListJson[0].short_name: " + siteListJson[0].short_name);
 
 	var siteLinks = '<ul class="map-sites">';
-	// if selection is "none" set dummy list
-	if (layerShortName == "none") {
-		siteLinks += '<li>--</li>'
-		siteLinks += '<li>--</li>'
-		siteLinks += '<li>--</li>'
-		siteLinks += '<li>--</li>'
-	} else {
-		// go ahead and set marker list
-		markerList = [];
-		//var markerList = [];
-		for (var i = 0; i < siteListJson.length; i++) {
-			// create HTML for popup
-			var popHtml = "<p>" + siteListJson[i].site_type_verbose + "<br />" +  
-				"<strong>" + siteListJson[i].site_info.title + "</strong> </p>" + 
-				// don't know why, but src attribute needs to not be quoted
-				"<img src=/static/supporting/" + siteListJson[i].site_type + "/menupics/" + 
-					siteListJson[i].short_name  + ".jpg>" + siteListJson[i].site_info.map_blurb;
+	markerList = [];
+	for (var i = 0; i < siteListJson.length; i++) {
+		// create HTML for popup
+		var popHtml = "<p>" + siteListJson[i].site_type_verbose + "<br />" +  
+			"<strong>" + siteListJson[i].site_info.title + "</strong> </p>" + 
+			// don't know why, but src attribute needs to not be quoted
+			"<img src=/static/supporting/" + siteListJson[i].site_type + "/menupics/" + 
+				siteListJson[i].short_name  + ".jpg>" + siteListJson[i].site_info.map_blurb;
 
-			markerList.push(L.marker([siteListJson[i].latitude, 
-				siteListJson[i].longitude]).bindPopup(popHtml));
+		markerList.push(L.marker([siteListJson[i].latitude, 
+			siteListJson[i].longitude]).bindPopup(popHtml));
 
-			// create HTML for site list links
-			// since we're creating the array all we need is the index in order to pop it up
-			siteLinks += '<li><a class="site_link" href="' + i + '">' + siteListJson[i].site_info.title + "</a></li>" // site_info.title
+		// create HTML for site list links
+		// since we're creating the array all we need is the index in order to pop it up
+		siteLinks += '<li><a class="site_link" href="' + i + '">' 
+			+ siteListJson[i].site_info.title + "</a></li>" // site_info.title
 
-		} // end for 
-	}
+	} // end for 
 	siteLinks += "</ul>";
 
 	// set site links for sidebar
