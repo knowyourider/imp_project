@@ -32,18 +32,19 @@
     <section class="map-control-panel">
       
       <h2 class="heading">Show Maps</h2>
+      <p>check the boxes below to show/hide maps.</p>
 
       
       <hr/>
 
-      <!-- <p>check the boxes below to show/hide map overlays.</p> -->
       <form id="overlays" action="#">
-        
+        {# checkbox value and about_map href values have to match order set in map.js #}
         <ul class="map-layers">
           <li>
             <label for="id_0">
               <input id="id_0" name="overlay" type="checkbox" value="0" /> Today - Roads &amp; Towns
             </label>
+            <a class="about_map" href="0">more info</a>
           </li>
 
 
@@ -51,6 +52,7 @@
             <label for="id_3">
               <input id="id_3" name="overlay" type="checkbox" value="1" /> Hitchcock's Era: Geology
             </label>
+            <a class="about_map" href="1">more info</a>
           </li>
 
         </ul>
@@ -90,6 +92,10 @@
 
       <h2 class="heading">About This Map</h2>
 
+      <div id="about_map_ajax_wrapper">
+        <p>--</p>
+        
+      </div>
 
     </section>
 

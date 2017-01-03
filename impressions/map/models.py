@@ -15,7 +15,7 @@ class Layer(AssociationMixin, models.Model):
     layer_blurb = models.TextField(blank=True, default='')
     layer_identifier = models.CharField(max_length=64, blank=True, default='')  
     layer_index = models.IntegerField('Base layer index', default=0)
-    ordinal = models.IntegerField('Order of Eras', default=99)
+    ordinal = models.IntegerField('List order', default=99)
     # evidence, contexts, people from AssociationMixin
     sites = models.ManyToManyField('map.Site', blank=True)
     # verbose_name='Sites for this layer', 
@@ -68,6 +68,23 @@ class Layer(AssociationMixin, models.Model):
     def __str__(self):
         return self.title
 
+class Overlay(models.Model):
+    """
+    Mainly for blurb to accompany each overlay
+    """
+    title = models.CharField(max_length=128)
+    slug = models.SlugField('Overlay short name', max_length=32, unique=True)
+    map_blurb = models.TextField(blank=True, default='')
+    ordinal = models.IntegerField('List order', default=99)
+    layer_index = models.IntegerField('Overlay layer index', default=0)
+
+    class Meta:
+        # verbose_name = "Overlays"
+        ordering = ['ordinal']
+
+    def __str__(self):
+        return self.title
+        
 
 class Site(models.Model):
     """

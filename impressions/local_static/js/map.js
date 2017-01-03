@@ -114,6 +114,19 @@ $(document).ready(function(){
       }
 	});
 
+	// handle link for more map info
+	// Call to "Regular" Ajax (getURL() in application.js) 
+	// to re-populate the About this Map box
+	// The layer_index in the href has to match the index order set in 
+	// var mapLayerObjects above
+	$(document).on("click", ".about_map", function(event){
+		event.preventDefault();
+		// get href
+		var layerIndex = $(event.target).attr('href');
+		// console.log('layerIndex: ' + layerIndex);
+		// call ajax for the slim pop. 
+		getURL("/map/about/" + layerIndex + "/", $('#about_map_ajax_wrapper'));
+	});
 
 }); // end doc ready
 

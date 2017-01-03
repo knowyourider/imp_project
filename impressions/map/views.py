@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.http import JsonResponse, HttpResponse
 # import json
 from django.core import serializers
-from .models import Layer, Site
+from .models import Layer, Overlay, Site
 
 
 # class MapListView(ListView):
@@ -33,6 +33,13 @@ class MapDeeperView(DetailView):
     model = Layer
     # context_object_name = 'object'
     template_name = 'map/_map_deeper.html' 
+
+class MapAboutView(DetailView):
+    # model = Overlay
+    # context_object_name = 'object'
+    template_name = 'map/_map_about.html' 
+    def get_object(self):
+        return get_object_or_404(Overlay, layer_index=self.kwargs['layer_index'])
 
 
 def layer_sites(request, slug):

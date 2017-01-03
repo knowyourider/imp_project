@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Layer, Site
+from .models import Layer, Overlay, Site
 
 class LayerAdmin(admin.ModelAdmin):
     change_form_template = 'map/admin/layer_blurb_change_form.html'
@@ -11,10 +11,16 @@ class LayerAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['ordinal', 'layer_index']}), #layer_identifier
     ]
     filter_horizontal = ['people', 'evidence', 'contexts', 'sites']    
-    list_display = ('title', 'era_description', 'slug', 'layer_index' )
+    list_display = ('title', 'era_description', 'slug' )
 
 admin.site.register(Layer, LayerAdmin)
 
+
+class OverlayAdmin(admin.ModelAdmin):
+    fields = ['title', 'slug', 'map_blurb', 'layer_index', 'ordinal']
+    list_display = ('title', 'slug', 'layer_index', 'ordinal')
+
+admin.site.register(Overlay, OverlayAdmin)
 
 class SiteAdmin(admin.ModelAdmin):
     fields = ['site_type', 'short_name', 'latitude', 'longitude']
