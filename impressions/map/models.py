@@ -23,6 +23,9 @@ class Layer(AssociationMixin, models.Model):
     def layer_list(self):
         return Layer.objects.all()
 
+    def overlay_list(self):
+        return Overlay.objects.all()
+
     def site_list(self):
 
         # info to hand off to JavaScript for map popups
@@ -78,6 +81,16 @@ class Overlay(models.Model):
     ordinal = models.IntegerField('List order', default=99)
     layer_index = models.IntegerField('Overlay layer index', default=0)
 
+    # short goal description
+    @property
+    def short_blurb(self):
+        cutoff = 65
+        display_string = self.map_blurb
+        if len(display_string) > cutoff:
+            return display_string[:cutoff] + "..."
+        else:
+            return display_string
+        
     class Meta:
         # verbose_name = "Overlays"
         ordering = ['ordinal']

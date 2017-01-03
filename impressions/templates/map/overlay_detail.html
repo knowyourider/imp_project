@@ -1,0 +1,20 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}
+	Map Info
+{% endblock %}
+
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+	<img src="{% static 'map/thumbpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+
+{{ object.map_blurb|safe }}
+
+{% endblock slim_content %}
+
+{# supress related items for fast facts #}
+{% block related_items%}{% endblock related_items%}
+

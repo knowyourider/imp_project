@@ -17,6 +17,7 @@ admin.site.register(Layer, LayerAdmin)
 
 
 class OverlayAdmin(admin.ModelAdmin):
+    change_form_template = 'map/admin/map_blurb_change_form.html'
     fields = ['title', 'slug', 'map_blurb', 'layer_index', 'ordinal']
     list_display = ('title', 'slug', 'layer_index', 'ordinal')
 

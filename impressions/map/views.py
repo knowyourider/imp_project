@@ -34,12 +34,19 @@ class MapDeeperView(DetailView):
     # context_object_name = 'object'
     template_name = 'map/_map_deeper.html' 
 
+# class MapAboutView(DetailView):
+#   """ this one was for single ajax about box """
+#     # model = Overlay
+#     # context_object_name = 'object'
+#     template_name = 'map/_map_about.html' 
+#     def get_object(self):
+#         return get_object_or_404(Overlay, layer_index=self.kwargs['layer_index'])
+
+
 class MapAboutView(DetailView):
-    # model = Overlay
+    model = Overlay
     # context_object_name = 'object'
-    template_name = 'map/_map_about.html' 
-    def get_object(self):
-        return get_object_or_404(Overlay, layer_index=self.kwargs['layer_index'])
+    # template_name = 'map/overlay_detail.html' 
 
 
 def layer_sites(request, slug):
