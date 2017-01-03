@@ -1,21 +1,15 @@
 //Map
-
-
-//left side panel
-.map-control-panel {
+// PAGE LAYOUT
+// both side panels
+.map-control-panel, .map-locations-panel {
 	background-color: $dark-taupe;
 	color: $light-font-color;
 	padding: $base-spacing;
-	
 	// for small displays
 	width: 100%;
 
-	//for large displays:
-  @include media($large-screen) {
-		display: block;
-		float: left;
-		width: 30%;
-		@include calc(height, "100vh - 130px");
+	h2 {
+		font-size: $medlarge-font-size;
 	}
 
 	a:link, a:visited {
@@ -28,26 +22,94 @@
 	}
 }
 
-.map-layers {
-
-	li {
-
-		label {
-			font-size: $small-font-size;
-		}
-  }
-
-  li.selected {
-		label {
-			color: $light-font-color;
-		}
+// right side panel --  should this be span-columns?
+.map-locations-panel {
+	// for large displays:
+  @include media($large-screen) {
+		display: block;
+		margin-left: 75%;
+		width: 25%;
+		@include calc(height, "100vh - 130px");
 	}
 }
 
-.map-sites, .map-deeper {
-	margin-bottom: $base-spacing;
+// left side panel --  should this be span-columns?
+.map-control-panel {
+	// for large displays:
+  @include media($large-screen) {
+		display: block;
+		float: left;
+		width: 30%;
+		@include calc(height, "100vh - 130px");
+	}
+}
+
+// to make 2 left-hand columns float left --  should this be span-columns? 
+.map-wrapper {
+	float: none;
+	width: 100%;	
+  
+  @include media($large-screen) {
+		float: left;
+		width: 75%;
+	}
+}
+
+//map central area
+.map-area {
+	background-color: $panel-darken-color;
+	display: block;
+	@include calc(height, "100vh - 130px");
+
+	//for large displays:
+  @include media($large-screen) {
+		margin-left: 30%;
+		width: 70%;
+	}
+}
+
+#map { 
+  height: 100%; 
+  width: 100%;
+  z-index: 85;
+}
+
+// PAGE FEATURES/FUNCTIONALITY
+// for check boxes, radio button lists of map layers and locations
+.map-layers {
+	margin-bottom: $small-spacing;
 
 	li {
+		margin: $base-spacing 0 $large-spacing 0;
+		clear: left;
+
+		label {
+			//font-size: $small-font-size;
+			font-variant: small-caps;
+  		letter-spacing: .05em;
+		}
+
+		img {
+			float: left;
+			margin-right: $small-spacing;
+		}
+
+		p {
+  		font-family: $utility-font-family;
+  		font-size: $small-font-size;
+		}
+  }
+}
+
+.map-locations {
+	margin-bottom: $base-spacing;
+}
+
+// these classes are used in map.js and map_deeper.html
+.map-sites, .map-deeper {
+
+	li {
+		border-bottom: $base-border;
 		font-size: $small-font-size;
 		line-height: $heading-line-height;
 		margin-bottom: $small-spacing;
@@ -58,42 +120,12 @@
 	}
 }
 
-//map central area
-.map-area {
+// for lists of locations and dig deepers
+.map-scroll {
 	background-color: $panel-darken-color;
-	//for large displays:
-  @include media($large-screen) {
-		display: block;
-		margin-left: 30%;
-		width: 70%;
-		@include calc(height, "100vh - 130px");
-	}
+	border: $base-border;
+	height: 20vh;
+	margin-bottom: $base-spacing;
+  overflow: scroll;
+  padding: $small-spacing;
 }
-
-#map { 
-  height: 100%; 
-  width: 100%;
-  z-index: 85;
-}
-
-.map-wrapper {
-	float: left;
-	width: 75%;
-}
-
-//right side panel
-.map-about-panel {
-	background-color: $dark-taupe;
-	color: $light-font-color;
-	padding: $base-spacing;
-	// for small displays
-	width: 100%;
-
-	//for large displays:
-  @include media($large-screen) {
-		display: block;
-		margin-left: 75%;
-		width: 25%;
-		@include calc(height, "100vh - 130px");
-	}
-}	

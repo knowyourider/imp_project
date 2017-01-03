@@ -184,10 +184,16 @@ function setSiteLayer(layerShortName) {
 		// write site list, but substitue blank list for none
 		if (layerShortName == "none") {
 			_siteLinks = '<ul class="map-sites">';
-			_siteLinks += '<li>--</li>'
-			_siteLinks += '<li>--</li>'
-			_siteLinks += '<li>--</li>'
-			_siteLinks += '<li>--</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
+			_siteLinks += '<li>&nbsp;</li>'
 			_siteLinks += "</ul>";
 		}
 

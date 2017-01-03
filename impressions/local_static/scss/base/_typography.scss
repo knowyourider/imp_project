@@ -48,7 +48,7 @@ h6 {
   font-size: $medlarge-font-size;
   color: $light-font-color;
   text-shadow: $title-shadow;
-}  
+}
 
 .heading {
   font-variant: small-caps;
@@ -59,6 +59,12 @@ h6 {
   font-family: $utility-font-family;
   font-size: $small-font-size;
   padding: $small-spacing;
+}
+
+.prompt {
+  font-family: $utility-font-family;
+  font-size: $small-font-size;
+  margin-top: -$small-spacing;
 }
 
 p {

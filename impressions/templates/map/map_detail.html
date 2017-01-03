@@ -24,18 +24,15 @@
 
 {% endblock javascript %}
 
-{% block wrapper_class %}"content-wrapper-map"{% endblock wrapper_class %}
+{% block wrapper_class %}{% endblock wrapper_class %}
 
 {% block content_area %}
 
 <div class="map-wrapper">
   <section class="map-control-panel">
     
-    <h2 class="heading">Show Maps</h2>
-    <p>check the boxes below to show/hide maps.</p>
-
-    
-    <hr/>
+    <h2 class="heading map-subtitle">Show Maps</h2>
+    <p class="prompt">check the boxes below to show/hide maps.</p>
 
     <form id="overlays" action="#">
 
@@ -53,33 +50,29 @@
       </ul>
     </form>
 
-    <hr/>
-
-<!--     <h2 class="heading">About This Map</h2>
+    <!--
+    <h2 class="heading">About This Map</h2>
     <div id="about_map_ajax_wrapper">
       <p>--</p>
     </div>
- -->
+    -->
+
   </section>
 
   <section class="map-area">
     <div id="map">
-
-
+      
     </div>
     <script src="{% static 'js/map.js' %}" type="text/javascript"></script>
-    </div>
   </section>
 </div><!--map-wrapper-->
 
-<section class="map-about-panel">
+<section class="map-locations-panel">
 
-  <h2 class="heading">Location Sets</h2>
+  <h2 class="heading map-subtitle">Show Locations</h2>
     
-  <hr/>
-
   <form id="loc_sets" action="#">
-    <ul class="map-layers">
+    <ul class="map-locations">
       {% for layer in object.layer_list %} 
         <li>
           <input type="radio" name="loc_set" value="{{ layer.slug }}">{{ layer.title|safe }}
@@ -89,18 +82,15 @@
     
   </form>
 
-  <hr/>
-  <h2 class="heading">Sites</h2>
+  <h3 class="heading">Sites</h3>
 
-  <div id="site_list">
+  <div id="site_list" class="map-scroll">
     <p>Site list set in JavaScript</p>
   </div>
 
-  <hr/>
+  <h3 class="heading">Dig Deeper</h3>
 
-  <h2 class="heading">Dig Deeper</h2>
-
-  <div id="deeper_ajax_wrapper">
+  <div id="deeper_ajax_wrapper" class="map-scroll">
     {% include 'map/_map_deeper.html' %}
   </div>
 
