@@ -2,45 +2,88 @@
 .top-navigation {
   background-color: $top-nav-background-color;
   border-bottom: 1px solid darken($top-nav-background-color, 9%);
-  left: 0; 
   min-height: $top-navigation-height;
-  //position: fixed; 
-  top:0;
-  width: 100%; 
-  z-index: 9999;
+}
 
-  // Mobile view
-  .mobile-logo {
-    display: inline;
-    float: left;
+// Mobile view
+.mobile-logo {
+  display: inline;
+  float: left;
+  padding-left: $top-navigation-padding;
+
+  img {
     max-height: $top-navigation-height;
-    padding-left: $top-navigation-padding;
-
-    img {
-      max-height: $top-navigation-height;
-      padding: .8em 0;
-    }
-
-    @include media($large-screen) {
-      display: none;
-    }
+    padding: .25em 0;
   }
 
-  // the MENU link that displays at mobile sizes
-  .top-navigation-mobile-menu {
-    color: $top-navigation-color;
-    display: block;
-    float: right;
-    line-height: $top-navigation-height;
-    margin: 0;
-    padding-right: $top-navigation-submenu-padding;
-    text-decoration: none;
-    text-transform: uppercase;
+  @include media($large-screen) {
+    display: none;
+  }
+}
 
-    // don't show at large screen sizes
-    @include media ($large-screen) {
-      display: none;
+// the MENU link that displays at mobile sizes
+.top-navigation-mobile-menu {
+  color: $top-navigation-color;
+  display: block;
+  float: right;
+  line-height: $top-navigation-height;
+  margin: 0;
+  padding-right: $top-navigation-submenu-padding;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  // don't show at large screen sizes
+  @include media ($large-screen) {
+    display: none;
+  }
+
+  &:focus,
+  &:hover {
+    color: $top-navigation-color-hover;
+  }
+}
+
+// Primary Nav Menu
+ul.top-navigation-menu {
+  // for mobile
+  -webkit-transform-style: preserve-3d; // stop webkit flicker
+  clear: both;
+  display: none;
+
+  li img {
+    display: none;
+  }
+
+  @include media ($large-screen) {
+    display: block;
+    text-align: center;
+    
+    li img {
+      display: inline-block;
+      width: 30px;
+      height: auto;
     }
+  }
+}
+
+// Primary Nav Menu Links
+ul.top-navigation-menu li {
+  background: $top-nav-background-color;
+  display: block;
+  font-size: $base-font-size * 1.25;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  line-height: $top-navigation-height;
+  overflow: hidden;
+  padding-right: $top-navigation-submenu-padding;
+  text-align: right;
+  width: 100%;
+
+  a {
+    color: $top-navigation-color;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
 
     &:focus,
     &:hover {
@@ -48,225 +91,136 @@
     }
   }
 
-  // Nav menu
-  .top-navigation-wrapper {
-    @include outer-container;
-    @include clearfix;
-    position: relative;
-    z-index: 999;
-  }
-
-  ul.top-navigation-menu {
-    -webkit-transform-style: preserve-3d; // stop webkit flicker
-    clear: both;
-    display: none;
-    margin: 0 auto;
-    overflow: visible;
-    padding: 0;
-    width: 100%;
-    z-index: 99999;
-
-    li.nav-link img {
-      display: none;
-    }
-
-    &.show {
-      display: block;
-    }
-
-    @include media ($large-screen) {
-      display: block;
-      text-align: center;
-      
-      li.nav-link img {
-        display: inline-block;
-        width: 30px;
-        height: auto;
-      }
-    }
-  }
-
-  // The nav items
-  .nav-link:first-child {
-    @include media($large-screen) {
-      margin-left: $top-navigation-item-nudge;
-    }
-  }
-
-  // menu links
-  ul li.nav-link {
-    background: $top-nav-background-color;
-    display: block;
-    font-size: $base-font-size * 1.25;
-    font-variant: small-caps;
-    letter-spacing: 0.05em;
+  @include media($large-screen) {
+    display: inline;
     line-height: $top-navigation-height;
-    overflow: hidden;
-    padding-right: $top-navigation-submenu-padding;
-    text-align: right;
-    width: 100%;
-    //z-index: 9999;
 
     a {
-      color: $top-navigation-color;
-      display: inline-block;
-      outline: none;
-      text-decoration: none;
-
-      &:focus,
-      &:hover {
-        color: $top-navigation-color-hover;
-      }
-    }
-
-    @include media($large-screen) {
-      background: transparent;
-      display: inline;
-      line-height: $top-navigation-height;
-
-      a {
-        padding-right: $top-navigation-item-padding;
-      }
+      padding-right: $top-navigation-padding;
     }
   }
+}
 
-  ul.supporting-menu {
-    border-top: 1px solid $light-taupe;
-    z-index: 1;
+//  Primary Nav Menu Link for Dropdowns
+li.more {
+  padding-right: 0;
+  position: relative;
 
-    li.nav-link {
-      font-size: $base-font-size;
-      letter-spacing: normal;
-    }
-
-    li.logo.nav-link {
-      display: none;
-      line-height: 0;
-
-      @include media($large-screen) {
-        display: inline;
-      }
-    }
-
-    .logo img {
-      margin-bottom: -$top-navigation-logo-height / 3;
-      max-height: $top-navigation-logo-height;
-    }
+  @include media($large-screen) {
+    padding-right: $top-navigation-submenu-padding * 2;
   }
 
-  // Sub menus
-
-  li.more.nav-link {
-    padding-right: 0;
-
-    @include media($large-screen) {
-      padding-right: $top-navigation-submenu-padding * 2;
-    }
-
-    > ul > li:first-child a  {
-      padding-top: 1em;
-    }
-
-    a {
-      margin-right: $top-navigation-submenu-padding;
-
-      @include media($large-screen) {
-        margin-right: 0;
-      }
-    }
-
-    > a {
-      padding-right: 0.6em;
-    }
-
-    > a:after {
-      @include position(absolute, auto -0.4em auto auto);
-      color: $top-navigation-color;
-      //small down pointing triangle
-      content: "\25BE";
-    }
+  > a:after {
+    color: $top-navigation-color;
+    //small down pointing triangle
+    content: "\25BE";
+    padding-left: .25em;
   }
 
-  li.more {
-    overflow: visible;
-    padding-right: 0;
-    z-index: 9999;
-
-    a {
-      padding-right: $top-navigation-submenu-padding;
-    }
-
-    > a {
-      padding-right: 1.6em;
-      position: relative;
-
-      @include media($large-screen) {
-        margin-right: $top-navigation-submenu-padding;
-      }
-
-      // &:after {
-      //   content: "›";
-      //   font-size: 1.2em;
-      //   position: absolute;
-      //   right: $top-navigation-submenu-padding / 2;
-      // }
-    }
-
-    &:focus > .submenu,
-    &:hover > .submenu {
-      display: block;
-    }
-
-    @include media($large-screen) {
-      padding-right: $top-navigation-submenu-padding;
-      position: relative;
-    }
-  }
-
-  ul.submenu {
-    display: none;
-    padding-left: 0;
-    box-shadow: $drop-shadow;
-    //can't figure out how to get the dropdown submenus to be on top of 2nd menu!!
+  &:focus > ul.submenu,
+  &:hover > ul.submenu {
+    display: block;
     z-index: 9999 !important;
+  }
+
+  @include media($large-screen) {
+    padding-right: $top-navigation-submenu-padding;
+    position: relative;
+  }
+}
+
+// Secondary Nav Menu
+ul.secondary-navigation-menu {
+  // for mobile
+  border-top: 1px solid $light-taupe;
+  -webkit-transform-style: preserve-3d; // stop webkit flicker
+  clear: both;
+  display: none;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  @include media ($large-screen) {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+// Secondary Nav Menu Links
+ul.secondary-navigation-menu li {
+  background-color: $top-nav-background-color;
+  display: block;
+  font-size: $base-font-size;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  line-height: $top-navigation-height;
+  padding-right: $top-navigation-submenu-padding;
+  position: relative;
+  text-align: right;
+  width: 100%;
+  z-index: 1 !important;
+
+  a {
+    color: $top-navigation-color;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $top-navigation-color-hover;
+    }
+  }
+
+  @include media($large-screen) {
+    display: inline;
+    line-height: $top-navigation-height;
+
+    a {
+      padding-right: $top-navigation-item-padding;
+    }
+  }
+}
+
+ul.submenu {
+  border-bottom: $base-border;
+  display: none;
+  padding-left: 0;
+  
+  @include media($large-screen) {
+    box-shadow: $drop-shadow;
+    left: 0;
+    position: absolute;
+    top: 33px;
+  }
+
+  li {
+    display: block;
+    font-size: $small-font-size;
+    font-variant: normal;
+    letter-spacing: normal;
+    padding-right: 0;
 
     @include media($large-screen) {
-      left: -$top-navigation-submenu-padding;
-      position: absolute;
-      top: $top-navigation-height;
+      line-height: $heading-line-height;
+
+      &:last-child > a {
+        padding-bottom: .7em;
+      }
     }
 
-    li {
-      display: block;
-      font-size: $base-font-size;
-      font-variant: normal;
-      letter-spacing: normal;
-      padding-right: 0;
+    a {
+      border-top: $base-border;
+      text-align: right;
+      text-decoration: none;
+      width: 100%;
 
       @include media($large-screen) {
-        line-height: $heading-line-height;
-
-        &:last-child > a {
-          padding-bottom: .7em;
-        }
-      }
-
-      a {
-        background-color: darken($top-nav-background-color, 3%);
-        border-bottom: $base-border;
-        display: inline-block;
-        font-size: $small-font-size;
-        text-align: right;
-        text-decoration: none;
-        width: 100%;
-
-        @include media($large-screen) {
-          background-color: $top-nav-background-color;
-          padding: .75em 1em;
-          text-align: left;
-          width: $top-navigation-submenu-width;
-          z-index: 9999;
-        }
+        padding: .75em 1em;
+        text-align: left;
+        width: $top-navigation-submenu-width;
       }
     }
   }

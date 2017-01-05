@@ -61,7 +61,7 @@
   @include media($large-screen) {
   	@include span-columns(8);
 		@include shift(4);
-		margin-bottom: $large-spacing;
+		margin-bottom: $small-spacing;
 	}
 }
 
@@ -102,19 +102,21 @@
   box-shadow: $drop-shadow;
   display: none;  
   left: 0;
+  //WHY ISN'T THIS WORKING????
+	list-style: decimal !important;
 	position: absolute;
   opacity: 0;
   top: 20px;
-  visibility: hidden;
+  //visibility: hidden;
   width: 300px;
 
   li {
-  	font-variant: normal;
-  	font-style: italic;
-  	letter-spacing: 0;
-	  border-top: 1px solid $top-nav-background-color;
 	  background-color: $base-background-color; 
+	  border-top: 1px solid $top-nav-background-color;
 	  display: block;
+  	font-style: italic;
+  	font-variant: normal;
+  	letter-spacing: 0;
 	  padding: $tiny-spacing;
 	}
 }
