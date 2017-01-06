@@ -70,7 +70,7 @@
           <img src="{% static 'images/nav-trackways-home.png' %}">
         </li>
 
-        <li {% if object.content_type.id == 1 %}more{% endif %}">
+        <li {% if object.content_type.id == 1 %}class="more"{% endif %}">
           <a href="{% url 'stories:story_list' %}">Stories</a>
           <img src="{% static 'images/nav-trackways-stories.png' %}">
           {% if object.content_type.id == 1 %}
@@ -82,7 +82,7 @@
           {% endif %}
         </li>
 
-        <li {% if object.content_type.id == 2 %}more{% endif %}">
+        <li {% if object.content_type.id == 2 %}class="more"{% endif %}">
           <a href="{% url 'themes:theme_list' %}">Themes</a>
           <img src="{% static 'images/nav-trackways-themes.png' %}">
           {% if object.content_type.id == 2 %}
