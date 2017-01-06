@@ -2,7 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.files.storage import default_storage
 from django.conf import settings
+from django.views.generic.edit import FormMixin
+from django.db.models import Q
 from .models import Context, EvidenceItem, FastFact, Person, Special, Slide, Page
+from .forms import EvidenceItemSearchForm
 
 class ContextListView(ListView):
     # model = Context
@@ -16,11 +19,74 @@ class ContextDetailView(DetailView):
     # template_name = 'supporting/person_detail.html'
 
 
-class EvidenceItemListView(ListView):
+class EvidenceItemListView(FormMixin, ListView):
     # model = EvidenceItem
     queryset = EvidenceItem.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
+    paginate_by=21
+    form_class = EvidenceItemSearchForm
+    init_data = {'q': ''}
+
+    def get_form_kwargs(self):
+        return {
+            'initial': self.get_initial(), # won't be using this
+            'prefix': self.get_prefix(),  # don't know what this is
+            'data': self.request.GET or self.init_data # None  # will add my data here
+        }
+    
+    def get(self, request, *args, **kwargs):
+        # get starting query set -- hopefully won't need this
+        self.object_list = self.get_queryset()
+        # get the form
+        form = self.get_form(self.get_form_class())
+
+        if form.is_valid():
+            q = form.cleaned_data['q']
+
+            # get lists of evidence types checked
+            etype_list = form.cleaned_data['etypes']
+            # tag_list = form.cleaned_data['tags']
+            # org_list = form.cleaned_data['orgs']
+
+            if q:
+                self.object_list = self.object_list.filter(Q(title__icontains=q) | 
+                    Q(narrative__icontains=q) )
+
+            # Item type
+            if len(etype_list) > 0 : # < len(self.init_data['gls'])
+                # per undocumented .add method for Q objects
+                # https://bradmontgomery.net/blog/adding-q-objects-in-django/
+                qquery = Q(evidence_type__slug=etype_list[0])
+
+                for etype_choice in etype_list[1:]:
+                    qquery.add((Q(evidence_type__slug=etype_choice)), 'OR' ) # , qquery.connector
+
+                self.object_list = self.object_list.filter(qquery)
+
+            """
+                # alt, cryptic method
+                # q_list = [Q(gradelevels__short_name='9_12'), 
+                #    Q(gradelevels__short_name='6_8')]
+                #self.object_list = self.object_list.filter(functools.reduce(OR, q_list))
+
+                # either ends up creating something like:
+                #self.object_list = self.object_list.filter(Q(gradelevels__short_name='3_5') | 
+                #    Q(gradelevels__short_name='6_8'))
+            """
+            
+
+        # test for null result
+        # print("--- object_list length: " + str(len(self.object_list)))
+
+
+        # remove any duplicates
+        self.object_list = self.object_list.distinct()
+
+        context = self.get_context_data(form=form)
+        context['result_count'] = len(self.object_list)
+        return self.render_to_response(context)
+
 
 class EvidenceItemDetailView(DetailView):
     model = EvidenceItem

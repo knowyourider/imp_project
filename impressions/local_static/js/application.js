@@ -85,6 +85,47 @@ $(document).ready(function(){
   // ------- Docment paging ------
   // set first item selected
 
+  // ------- SEARCH ------
+
+  // click on checkbox submits form
+  $('input[type="checkbox"]').change(function(event){
+    // each time a new box is checked we should reset to page 1
+    // (if nothing else there may not be a page 2 in new result)
+    $('#search-form').find('[type=hidden][name=page]').val('1')
+    $('#search-form').submit()   
+  });
+
+  // ------- pagination ------
+
+  // Turn page selection into form submit
+  // q (and other?) parameters are in the form and will be submited? 
+  // document.on syntax required since this the markup was loaded by ajax.
+  $(document).on("click", "#paging", function(event){
+    event.preventDefault();
+    // get the page number from href
+    var chosen_href = $(event.target).closest('li').children('a').attr('href');
+    var href_split = chosen_href.split('=');  
+    // page number = href_split[1]  
+    // alert('in page nav. page num: ' + href_split[1]); 
+    // set the page number in the hidden field
+    $('#search-form').find('[type=hidden][name=page]').val(href_split[1])
+    $('#search-form').submit()
+  });
+
+  // link to clear search
+  $('#clear').click(function(event){
+    event.preventDefault();
+    var searchForm = $('#search-form')
+    // Clear entire form
+    $('input[name="q"]').val('')
+    // searchForm.find('input:text').val('');
+    searchForm.find('input:checkbox')
+         .removeAttr('checked').removeAttr('selected');
+    // submit
+    searchForm.submit()
+    
+  });
+
 
 }); // end doc ready
 

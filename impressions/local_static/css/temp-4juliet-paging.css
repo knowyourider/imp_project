@@ -1,0 +1,54 @@
+# for page nav on evidence list
+.previous {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 20%; }
+  .previous:last-child {
+    margin-right: 0; }
+
+.page-numbers {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 46.66667%;
+  text-align: center; }
+  .page-numbers:last-child {
+    margin-right: 0; }
+
+.next {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 20%;
+  text-align: right; }
+  .next:last-child {
+    margin-right: 0; }
+
+.page-nav, .page-nav--disabled, .page-nav--selected {
+  display: inline; }
+
+.page-nav, .page-nav--selected {
+  border: 1px solid #D2D2D2;
+  margin-right: 0.375em;
+  line-height: 1.875;
+  padding: 0 0 0 0.375em; }
+  .page-nav:hover, .page-nav--selected:hover {
+    background-color: #0380CC;
+    text-decoration: none; }
+  .page-nav:hover a, .page-nav--selected:hover a {
+    color: #FFF; }
+
+.next-link, .prev-link {
+  border: none; }
+  .next-link:hover a, .prev-link:hover a {
+    text-decoration: none; }
+
+.page-nav--selected {
+  background-color: #0380CC;
+  border: 1px solid #D2D2D2;
+  color: #FFF;
+  padding-right: 0.375em; }
+
+.page-nav--disabled {
+  color: #ADADAD; }

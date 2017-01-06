@@ -7,61 +7,83 @@
 
 {% block content_area %}
     
-  <section class="control-panel">
+<section class="control-panel">
+  <form action="{% url 'supporting:evidenceitem_list' %}" method="GET" id="search-form" name="menu">
+    {# csrf_token #} 
+    {# JS for item selection will change method to post (and will change action) #}
+    <input type="hidden" name="page" value="{{ page_number }}"/>
+
     <h1 class="main-title">Evidence: Artifacts &amp; Documents</h1>
 
-    <h2>Showing: All, xx items</h2>
+    <h2>Showing: {{ result_count }} items</h2>
     <h4 class="heading">Narrow by Item Type</h4>
-    <ul id="id_type">
-      <li>
-        <label for="id_0">
-          <input id="id_0" name="type" type="checkbox" value="objects" /> Objects
-        </label>
-      </li>
-      <li>
-        <label for="id_1">
-          <input id="id_1" name="type" type="checkbox" value="manuscripts" /> Manuscripts
-        </label>
-      </li>
-      <li>
-        <label for="id_2">
-          <input id="id_2" name="type" type="checkbox" value="printed" /> Printed Material
-        </label>
-      </li>
-      <li>
-        <label for="id_3">
-          <input id="id_3" name="type" type="checkbox" value="maps" /> Maps
-        </label>
-      </li>
-      <li>
-        <label for="id_4">
-          <input id="id_4" name="type" type="checkbox" value="pictures" /> Pictures &amp; Paintings
-        </label>
-      </li>
-    </ul>
+
+    {{ form.etypes }}
 
     <h4 class="heading">Search by Keyword</h4>
-    <input type="search" name="q" value="" id="id_q" 
-    placeholder="Search" class="search-field"/>
-    
+
+    <input type="search" name="q" value="{{ form.q.value }}" id="id_q" 
+      placeholder="Search" class="search-field"/>
+
     <input type="submit" value="Go" />
     <span id="clear"><a href="#">clear search</a></span>
+  </form>
+</section>
 
-  </section>
+<section class="menu-grid--area">
 
-  <section class="menu-grid--area">
+  <ul class="menu-grid squares"> 
+  {% for object in object_list %}
+    <li>
+      <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
+        <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
+        <em>{{ object.title|safe }}</em>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>   
 
-    <ul class="menu-grid squares"> 
-    {% for object in object_list %}
-      <li>
-        <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
-          <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
-          <em>{{ object.title|safe }}</em>
-        </a>
-      </li>
-    {% endfor %}
-    </ul>   
+  {% if is_paginated %}
+  {# JavaScript will change class="page-nav" click to form submission  id="paging #}
 
-  </section>
+  <nav id="paging">
+    <ul class="previous">
+      {% if page_obj.has_previous %}
+        <li class="page-nav prev-link">
+          <a href="?page={{ page_obj.previous_page_number }}">&lang; prev</a>
+        </li>
+      {% else %}
+        <li class="page-nav--disabled prev-link">&lang; prev</li>
+      {% endif %}
+    </ul>
+
+
+    <ul class="page-numbers">
+      {% for page_number in paginator.page_range %}
+        {% if page_number = page_obj.number %}
+          <li class="page-nav--selected">{{ page_number }}</li>
+        {% else %}
+          <li class="page-nav">
+            <a href="?page={{ page_number }}">{{ page_number }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <ul class="next">
+      {% if page_obj.has_next %}
+        <li class="page-nav next-link">
+          <a href="?page={{ page_obj.next_page_number }}">next &rang;</a>
+        </li>
+      {% else %}
+        <li class="page-nav--disabled next-link">next &rang;</li>
+      {% endif %}
+
+    </ul>
+  </nav><!--/paging -->
+  {% endif %}
+
+
+</section>
 
 {% endblock content_area %}
