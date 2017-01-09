@@ -46,7 +46,15 @@ $(document).ready(function(){
 		bounds: mybounds,
 		minZoom: 9,
 		maxZoom: 13
-    });
+    }), 
+	hitchcock_1833   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	    attribution: 'Hitchcock map',
+		bounds: mybounds, //tempbounds
+	    minZoom: 9,
+	    maxZoom: 13,
+	    id: 'donaldo.d51bywq4',
+	    accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
+	});
 
 	// ----- define base layer -----
 	var stamen = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-'
@@ -63,9 +71,35 @@ $(document).ready(function(){
 	 });
 
 	// Set array of objects defined above
-	var mapLayerObjects = [roads, hitchcock ]; // , stamen
+	var mapLayerObjects = [roads, hitchcock, hitchcock_1833 ]; // , stamen , lake
 	// era short names. Will come from ajax
 
+	// load GeoJSON from an external file
+	$.getJSON("/static/js/map_assets/lake2.geojson",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+		var lake = L.geoJson(data);
+		// lake = L.geoJson(data).addTo(map);
+		mapLayerObjects.push(lake);
+	});
+
+	var myStyle = {
+	    "color": "#eeeeee",
+	    "weight": 3,
+	    "opacity": 0.85
+	};
+
+	// load GeoJSON from an external file
+	$.getJSON("/static/js/map_assets/glacier.geojson",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+		var glacier = L.geoJson(data, {
+	    	style: myStyle
+		});
+		mapLayerObjects.push(glacier);
+	});
+
+	// L.geoJSON(myLines, {
+	//     style: myStyle
+	// }).addTo(map);
 
 	// --------- SET THINGS IN MOTION ----------
 
@@ -127,6 +161,45 @@ $(document).ready(function(){
 		// call ajax for the slim pop. 
 		getURL("/map/about/" + layerIndex + "/", $('#about_map_ajax_wrapper'));
 	});
+
+	// GeoJSON experiment
+	// var myLines = [{
+	//     "type": "LineString",
+	//     "coordinates": [[-72.4, 42.1], [-72.5, 42.2], [-72.6, 42.3]]
+	// }, {
+	//     "type": "LineString",
+	//     "coordinates": [[-72.9, 42.6], [-73, 42.2], [-72.9, 42.8]]
+	// }];
+	// var myStyle = {
+	//     "color": "#ff7800",
+	//     "weight": 5,
+	//     "opacity": 0.65
+	// };
+
+	// L.geoJSON(myLines, {
+	//     style: myStyle
+	// }).addTo(map);
+
+	// var geojsonFeature = {
+	//     "type": "Feature",
+	//     "properties": {
+	//         "name": "Coors Field",
+	//         "amenity": "Baseball Stadium",
+	//         "popupContent": "This is where the Rockies play!"
+	//     },
+	//     "geometry": {
+	//         "type": "Point",
+	//         "coordinates": [-72.4, 42.1]
+	//     }
+	// };
+
+	// L.geoJSON(geojsonFeature).addTo(map);
+
+	// // load GeoJSON from an external file
+	// $.getJSON("/static/js/map_assets/test.geojson",function(data){
+	// 	// add GeoJSON layer to the map once the file is loaded
+	// 	L.geoJson(data).addTo(map);
+	// });
 
 }); // end doc ready
 
