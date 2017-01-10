@@ -12,7 +12,8 @@ class ContextAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'context_type','status_num')
+    list_display = ('title', 'slug', 'image_img', 'context_type','status_num')
+    list_per_page = 40
     filter_horizontal = ['people', 'evidence', 'contexts']    
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
@@ -43,7 +44,8 @@ class EvidenceItemAdmin(admin.ModelAdmin):
             'edit_date', 'notes']}),
     ]
     inlines = [PageInline]
-    list_display = ('title', 'slug', 'evidence_type', 'creation_year', 'status_num')
+    list_display = ('title', 'slug', 'image_img', 'evidence_type', 'creation_year', 'status_num')
+    list_per_page = 40
     list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
     filter_horizontal = ['people', 'evidence', 'contexts']    
     search_fields = ['title', 'slug']
@@ -72,7 +74,8 @@ class FastFactAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'fastfact_type', 'has_image')
+    list_display = ('title', 'slug', 'image_img', 'fastfact_type', 'has_image')
+    list_per_page = 40
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
@@ -89,7 +92,8 @@ class PersonAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['person_level', 'status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('last_name', 'first_name', 'slug', 'person_level',  'status_num')
+    list_display = ('last_name', 'first_name', 'slug', 'image_img', 'person_level',  'status_num')
+    list_per_page = 40
     filter_horizontal = ['people', 'evidence', 'contexts']    
     list_filter     = ['person_level']
     search_fields = ['last_name', 'first_name', 'slug']
@@ -127,7 +131,8 @@ class SpecialAdmin(admin.ModelAdmin):
             'edit_date', 'notes']}),
     ]
     inlines = [SlideInline]
-    list_display = ('title', 'slug', 'special_type', 'status_num')
+    list_display = ('title', 'slug', 'image_img', 'special_type', 'status_num')
+    list_per_page = 40
     list_filter     = ['special_type', 'status_num'] 
     search_fields = ['title', 'slug']
 

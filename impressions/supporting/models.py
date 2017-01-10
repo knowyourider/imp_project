@@ -34,8 +34,16 @@ class Context(AssociationMixin, CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
+    def image_img(self):
+        # return u'<img src="%s" />' % self.image.url_125x125
+        return '<img src="/static/supporting/context/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
+
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
+
     class Meta:
         ordering = ['ordinal']
+        verbose_name = "Backdrop"
 
 
 class EvidenceType(models.Model):
@@ -73,6 +81,12 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
+
+    def image_img(self):
+        return '<img src="/static/supporting/evidenceitem/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
+
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
 
     class Meta:
         ordering = ['ordinal']
@@ -145,6 +159,15 @@ class FastFact(CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
 
+    def image_img(self):
+        if self.has_image:
+            return '<img src="/static/supporting/fastfact/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
+        else:
+            return '(text-only)'
+
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
+
     class Meta:
         verbose_name = "In Brief"
 
@@ -170,6 +193,12 @@ class Person(AssociationMixin, CommonSupportingModel):
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
     person_level = models.IntegerField(default=0, choices=PERSON_LEVEL)
+
+    def image_img(self):
+        return '<img src="/static/supporting/person/menupics/' + self.slug + '.jpg" width="60" height="75"/>'
+
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
 
     def hitchcock_person_list(self):
         return Person.objects.filter(person_level=2)
@@ -226,6 +255,13 @@ class Special(CommonSupportingModel):
     description = models.TextField(blank=True, default='')
     narrative = models.TextField('Narrative / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
+
+    def image_img(self):
+        return '<img src="/static/supporting/special/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
+
+    image_img.short_description = 'Thumb'
+    image_img.allow_tags = True
+
 
     class Meta:
         verbose_name = "Special Feature"
