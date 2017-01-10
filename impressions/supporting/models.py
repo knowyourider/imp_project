@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 from core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class CommonSupportingModel(CommonModel):
@@ -19,9 +20,17 @@ class CommonSupportingModel(CommonModel):
 
 
 class Context(AssociationMixin, CommonSupportingModel):
+    # Context type not currently used. Using topic associations instead
     CONTEXT_TYPE = (
         ('Background','Background'),
         ('Institution','Institution'),
+    )
+    PRIORITY_NUMS = (
+        (1,'1 - highest priority'),
+        (2,'2 - important'),
+        (3,'3 - nice to have'),
+        (5,'5 - TBD'),
+        (9,'9 - not using'),
     )
     CONTEXT_CONTENT_TYPE_ID = 5
     content_type = models.ForeignKey('core.ContentType', 
@@ -33,19 +42,44 @@ class Context(AssociationMixin, CommonSupportingModel):
     # filename = models.CharField(max_length=64, blank=True, default='')
     narrative = models.TextField('Description / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
+    priority_num = models.IntegerField(default=5, choices=PRIORITY_NUMS)
+    topics = models.ManyToManyField('supporting.Topic', 
+        verbose_name='Topics related to this backdrop', blank=True)
+
+    def topic_list(self):
+        topiclist = self.topics.all().values_list('slug', flat=True) 
+        return ", ".join(topiclist)
 
     def image_img(self):
         # return u'<img src="%s" />' % self.image.url_125x125
-        return '<img src="/static/supporting/context/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
-
+        return format_html('<img src="/static/supporting/context/menupics/' + self.slug + \
+                    '.jpg" width="100" height="75"/>')
     image_img.short_description = 'Thumb'
-    image_img.allow_tags = True
+    # image_img.allow_tags = True
 
     class Meta:
         ordering = ['ordinal']
         verbose_name = "Backdrop"
 
+class Topic(models.Model):
+    """docstring for Tag"""
+    slug = models.SlugField('Topic short name', max_length=24, unique=True)
+    title = models.CharField(max_length=64)
+    ordinal = models.IntegerField('Order', default=99)
 
+   # list of contexts with a given topic
+    @property
+    def context_list(self):
+        return self.context_set.all()
+
+    class Meta:
+        ordering = ['ordinal']
+        verbose_name = "Backdrop Topic/Category"
+
+    def __str__(self):
+        return self.title
+
+ 
 class EvidenceType(models.Model):
     """docstring for EvidenceType
     Site admin access only -- not the table for evidence items themselves
@@ -78,13 +112,15 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     creator = models.CharField('maker/author', max_length=64, blank=True, default='')
     creation_year = models.IntegerField(blank=True, null=True)
+    is_circa = models.BooleanField(default=False)
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
+    accession_num = models.CharField(max_length=128, blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
     def image_img(self):
-        return '<img src="/static/supporting/evidenceitem/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
-
+        return '<img src="/static/supporting/evidenceitem/menupics/' + self.slug + \
+            '.jpg" width="100" height="75"/>'
     image_img.short_description = 'Thumb'
     image_img.allow_tags = True
 
@@ -161,10 +197,10 @@ class FastFact(CommonSupportingModel):
 
     def image_img(self):
         if self.has_image:
-            return '<img src="/static/supporting/fastfact/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
+            return '<img src="/static/supporting/fastfact/menupics/' + self.slug + \
+                '.jpg" width="100" height="75"/>'
         else:
             return '(text-only)'
-
     image_img.short_description = 'Thumb'
     image_img.allow_tags = True
 
@@ -195,8 +231,8 @@ class Person(AssociationMixin, CommonSupportingModel):
     person_level = models.IntegerField(default=0, choices=PERSON_LEVEL)
 
     def image_img(self):
-        return '<img src="/static/supporting/person/menupics/' + self.slug + '.jpg" width="60" height="75"/>'
-
+        return '<img src="/static/supporting/person/menupics/' + self.slug + \
+            '.jpg" width="60" height="75"/>'
     image_img.short_description = 'Thumb'
     image_img.allow_tags = True
 
@@ -257,8 +293,8 @@ class Special(CommonSupportingModel):
     map_blurb = models.TextField(blank=True, default='')
 
     def image_img(self):
-        return '<img src="/static/supporting/special/menupics/' + self.slug + '.jpg" width="100" height="75"/>'
-
+        return '<img src="/static/supporting/special/menupics/' + self.slug + \
+            '.jpg" width="100" height="75"/>'
     image_img.short_description = 'Thumb'
     image_img.allow_tags = True
 

@@ -51,7 +51,10 @@
 		<dt>Creator:</dt>
 		<dd>{{ object.creator }}</dd>
 		<dt>Date:</dt>
-		<dd>{{ object.creation_year }}</dd>
+		<dd>
+			{% if object.is_circa %}c. {% endif %}
+			{{ object.creation_year }}
+		</dd>
 	{% if object.dimensions %}
 		<dt>Dimensions:</dt>
 		<dd>{{ object.dimensions }}</dd>
@@ -59,6 +62,10 @@
 	{% if object.materials %}
 		<dt>Materials:</dt>
 		<dd>{{ object.materials }}</dd>
+	{% endif %}
+	{% if object.accession_num %}
+		<dt>Accession #:</dt>
+		<dd>{{ object.accession_num }}</dd>
 	{% endif %}
 </dl>
 

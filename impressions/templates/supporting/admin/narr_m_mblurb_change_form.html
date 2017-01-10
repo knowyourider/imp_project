@@ -12,11 +12,13 @@
 			$('#id_narrative').froalaEditor(froalaSlim);
 			$('#id_map_blurb').froalaEditor(froalaBlurb);
 			$('#id_menu_blurb').froalaEditor(froalaBlurb);
+			// $('#id_notes').froalaEditor(froalaMeta);
 			// get rid of float for labels
 			$('label[for="id_description"]').css('float', 'none');
 			$('label[for="id_narrative"]').css('float', 'none');
 			$('label[for="id_map_blurb"]').css('float', 'none');
 			$('label[for="id_menu_blurb"]').css('float', 'none');
+			// $('label[for="id_notes"]').css('float', 'none');
 		});
 	</script>
 {% endblock after_related_objects %}

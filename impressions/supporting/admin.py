@@ -1,25 +1,36 @@
 from django.contrib import admin
 from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place, \
-    Special, Slide, Page
+    Special, Slide, Page, Topic
 
 
 class ContextAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'context_type', 'caption', 'source',
+        (None,  {'fields': ['title', 'slug', 'caption', 'source',
              'map_blurb', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
-        ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
+        ('Topics / Categories',   {'fields': ['topics']}),
+        ('Behind the scenes',   {'fields': ['priority_num', 'status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'image_img', 'context_type','status_num')
+    list_display = ('title', 'slug', 'image_img', 'topic_list', 'priority_num', 
+        'status_num', 'short_notes')
     list_per_page = 40
-    filter_horizontal = ['people', 'evidence', 'contexts']    
-    list_filter     = ['status_num'] 
+    filter_horizontal = ['people', 'evidence', 'contexts', 'topics']    
+    list_filter     = ['priority_num', 'status_num'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(Context, ContextAdmin)
 
+
+class TopicAdmin(admin.ModelAdmin):
+    """
+    Topics / Categories for Context / Backdrops
+    """
+    fields = ['title', 'slug', 'ordinal']
+    list_display = ('slug', 'title', 'ordinal')
+
+admin.site.register(Topic, TopicAdmin)
 
 class EvidenceTypeAdmin(admin.ModelAdmin):
     """docstring for EvidenceTypeAdmin"""
@@ -37,14 +48,15 @@ class EvidenceItemAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,            {'fields': ['title', 'slug', 'evidence_type', # 'caption',
-            'source','creator', 'dimensions', 'materials', 'creation_year', 'map_blurb',
-            'narrative']}),
+            'source','creator', 'dimensions', 'materials', 'creation_year', 'is_circa',
+            'accession_num', 'map_blurb', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
     inlines = [PageInline]
-    list_display = ('title', 'slug', 'image_img', 'evidence_type', 'creation_year', 'status_num')
+    list_display = ('title', 'slug', 'image_img', 'evidence_type', 'creation_year', 
+        'status_num')
     list_per_page = 40
     list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
     filter_horizontal = ['people', 'evidence', 'contexts']    

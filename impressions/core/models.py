@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 import datetime
 
 class ContentType(models.Model):
@@ -30,6 +31,20 @@ class CommonModel(models.Model):
     notes = models.TextField('Production Notes', blank=True, default='')
     edited_by = models.CharField(max_length=64, blank=True, default='')
     edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
+    # notes.allow_tags = True
+
+   # short notes - for admin list display
+    @property
+    def short_notes(self):
+        cutoff = 85
+        display_string = self.notes
+        if len(display_string) > cutoff:
+            return format_html(display_string[:cutoff] + "...")
+        else:
+            return format_html(display_string)
+        
+    class Meta:
+        abstract = True
 
     class Meta:
         abstract = True
