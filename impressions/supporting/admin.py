@@ -28,7 +28,7 @@ class TopicAdmin(admin.ModelAdmin):
     Topics / Categories for Context / Backdrops
     """
     fields = ['title', 'slug', 'ordinal']
-    list_display = ('slug', 'title', 'ordinal')
+    list_display = ('title', 'slug', 'ordinal')
 
 admin.site.register(Topic, TopicAdmin)
 
