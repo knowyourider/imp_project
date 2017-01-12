@@ -7,59 +7,29 @@
 
 {% block content_area %}
 
-  <section class="control-panel">
+<section class="control-panel">
+  <form action="{% url 'supporting:context_list' %}" method="GET" id="search-form" name="menu">
+    {# csrf_token #} 
+    {# JS for item selection will change method to post (and will change action) #}
+    <input type="hidden" name="page" value="{{ page_number }}"/>
 
     <h1 class="main-title">Backdrops</h1>
-  
-    <h2>Showing: All, XX items</h2>
+
+    <h2>Showing: {{ result_count }} items</h2>
     <h4 class="heading">Narrow by Topic</h4>
-    
-    <ul id="id_topic">
-      <li>
-        <label for="id_0">
-          <input id="id_0" name="topic" type="checkbox" value="paleontology" /> Paleontolgy &amp; Ichnology
-        </label>
-      </li>
-      <li>
-        <label for="id_1">
-          <input id="id_1" name="topic" type="checkbox" value="religion" /> Religion &amp; Philosophy
-        </label>
-      </li>
-      <li>
-        <label for="id_2">
-          <input id="id_2" name="topic" type="checkbox" value="geology" /> Geology &amp; Geography
-        </label>
-      </li>
-      <li>
-        <label for="id_3">
-          <input id="id_3" name="topic" type="checkbox" value="art" /> Art &amp; Literature
-        </label>
-      </li>
-      <li>
-        <label for="id_4">
-          <input id="id_4" name="topic" type="checkbox" value="history" /> History &amp; Politics
-        </label>
-      </li>
-      <li>
-        <label for="id_5">
-          <input id="id_5" name="topic" type="checkbox" value="technology" /> Technology &amp; Industry
-        </label>
-      </li>
-      <li>
-        <label for="id_6">
-          <input id="id_6" name="topic" type="checkbox" value="culture" /> Culture &amp; Education
-        </label>
-      </li>
-    </ul>
+
+    {{ form.topics }}
 
     <h4 class="heading">Search by Keyword</h4>
-    <input type="search" name="q" value="" id="id_q" 
-    placeholder="Search" class="search-field"/>
-    
+
+    <input type="search" name="q" value="{{ form.q.value }}" id="id_q" 
+      placeholder="Search" class="search-field"/>
+
     <input type="submit" value="Go" />
     <span id="clear"><a href="#">clear search</a></span>
+  </form>
 
-  </section> 
+</section> 
 
   <section class="menu-grid--area">
 

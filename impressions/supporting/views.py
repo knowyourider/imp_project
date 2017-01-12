@@ -5,13 +5,57 @@ from django.conf import settings
 from django.views.generic.edit import FormMixin
 from django.db.models import Q
 from .models import Context, EvidenceItem, FastFact, Person, Special, Slide, Page
-from .forms import EvidenceItemSearchForm
+from .forms import EvidenceItemSearchForm, ContextSearchForm
 
-class ContextListView(ListView):
+class ContextListView(FormMixin, ListView):
+    """
+    Search in the Context case is more complicated than the Context case. 
+    We're searching a many to many relationship
+    """
     # model = Context
     queryset = Context.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
+    paginate_by=21
+    form_class = ContextSearchForm
+    init_data = {'q': ''}
+
+    def get_form_kwargs(self):
+        return {
+            'initial': self.get_initial(), # won't be using this
+            'prefix': self.get_prefix(),  # don't know what this is
+            'data': self.request.GET or self.init_data # None  # will add my data here
+        }
+    
+    def get(self, request, *args, **kwargs):
+        # get starting query set -- hopefully won't need this
+        self.object_list = self.get_queryset()
+        # get the form
+        form = self.get_form(self.get_form_class())
+
+        if form.is_valid():
+            q = form.cleaned_data['q']
+            topic_list = form.cleaned_data['topics']
+            if q:
+                self.object_list = self.object_list.filter(Q(title__icontains=q) | 
+                    Q(narrative__icontains=q) )
+            # topics are many to many
+            if len(topic_list) > 0 : # < len(self.init_data['gls'])
+                # per undocumented .add method for Q objects
+                # https://bradmontgomery.net/blog/adding-q-objects-in-django/
+                qquery = Q(topics__slug=topic_list[0])
+
+                for topic_choice in topic_list[1:]:
+                    qquery.add((Q(topics__slug=topic_choice)), 'OR' ) # , qquery.connector
+
+                self.object_list = self.object_list.filter(qquery)
+
+        # remove any duplicates
+        self.object_list = self.object_list.distinct()
+
+        context = self.get_context_data(form=form)
+        context['result_count'] = len(self.object_list)
+        return self.render_to_response(context)
 
 class ContextDetailView(DetailView):
     model = Context
@@ -20,6 +64,10 @@ class ContextDetailView(DetailView):
 
 
 class EvidenceItemListView(FormMixin, ListView):
+    """
+    The EvidenceItem case is simpler than the Context case. "evidence_type" is directly
+    a field of Evidence item. (Context has many to many associations)
+    """
     # model = EvidenceItem
     queryset = EvidenceItem.objects.filter(status_num__gte=2)
     # context_object_name = 'object_list'
@@ -43,16 +91,10 @@ class EvidenceItemListView(FormMixin, ListView):
 
         if form.is_valid():
             q = form.cleaned_data['q']
-
-            # get lists of evidence types checked
             etype_list = form.cleaned_data['etypes']
-            # tag_list = form.cleaned_data['tags']
-            # org_list = form.cleaned_data['orgs']
-
             if q:
                 self.object_list = self.object_list.filter(Q(title__icontains=q) | 
                     Q(narrative__icontains=q) )
-
             # Item type
             if len(etype_list) > 0 : # < len(self.init_data['gls'])
                 # per undocumented .add method for Q objects
@@ -63,22 +105,6 @@ class EvidenceItemListView(FormMixin, ListView):
                     qquery.add((Q(evidence_type__slug=etype_choice)), 'OR' ) # , qquery.connector
 
                 self.object_list = self.object_list.filter(qquery)
-
-            """
-                # alt, cryptic method
-                # q_list = [Q(gradelevels__short_name='9_12'), 
-                #    Q(gradelevels__short_name='6_8')]
-                #self.object_list = self.object_list.filter(functools.reduce(OR, q_list))
-
-                # either ends up creating something like:
-                #self.object_list = self.object_list.filter(Q(gradelevels__short_name='3_5') | 
-                #    Q(gradelevels__short_name='6_8'))
-            """
-            
-
-        # test for null result
-        # print("--- object_list length: " + str(len(self.object_list)))
-
 
         # remove any duplicates
         self.object_list = self.object_list.distinct()
