@@ -65,7 +65,19 @@
 	}
 }
 
-.chapter-image {
+.chapter-vertical {
+	// for small displays
+	width: 100%;
+
+ 	//for large displays:
+  @include media($large-screen) {
+  	@include span-columns(6);
+		@include shift(6);
+		margin-bottom: $small-spacing;
+	}
+}
+
+.chapter-image, .chapter-image-vertical {
 	// for small displays
 	width: 100%;
 	height: auto;
@@ -74,11 +86,21 @@
 		border: $double-border;
 		padding: 2px;
 	}
+}
 
+.chapter-image {
  	//for large displays:
   @include media($large-screen) {	
  		@include span-columns(8 of 8);
 		@include shift(-4);
+	}
+}
+
+.chapter-image-vertical {
+ 	//for large displays:
+  @include media($large-screen) {	
+ 		@include span-columns(6 of 6);
+		@include shift(-6);
 	}
 }
 

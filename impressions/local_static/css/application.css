@@ -840,21 +840,45 @@ blockquote {
       .chapter:last-child {
         margin-right: 0; } }
 
-.chapter-image {
-  width: 100%;
-  height: auto; }
-  .chapter-image img {
-    border: double #b3aa98;
-    padding: 2px; }
+.chapter-vertical {
+  width: 100%; }
   @media screen and (min-width: 55em) {
-    .chapter-image {
+    .chapter-vertical {
       float: left;
       display: block;
-      margin-right: 3.57866%;
-      width: 100%;
-      margin-left: -51.78933%; }
-      .chapter-image:last-child {
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-left: 51.17883%;
+      margin-bottom: 0.8em; }
+      .chapter-vertical:last-child {
         margin-right: 0; } }
+
+.chapter-image, .chapter-image-vertical {
+  width: 100%;
+  height: auto; }
+  .chapter-image img, .chapter-image-vertical img {
+    border: double #b3aa98;
+    padding: 2px; }
+
+@media screen and (min-width: 55em) {
+  .chapter-image {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    margin-left: -51.78933%; }
+    .chapter-image:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 55em) {
+  .chapter-image-vertical {
+    float: left;
+    display: block;
+    margin-right: 4.82916%;
+    width: 100%;
+    margin-left: -104.82916%; }
+    .chapter-image-vertical:last-child {
+      margin-right: 0; } }
 
 .chapter-nav li {
   display: inline;
