@@ -43,8 +43,8 @@
 
   </header>
 
-  <section class="chapter">
-    <div class="chapter-image">
+  <section class="chapter{% if chapter.is_vertical %}-vertical{% endif %}">
+    <div class="chapter-image{% if chapter.is_vertical %}-vertical{% endif %}">
 
       <img src="{% static 'stories/' %}{{ object.slug }}/{{ chapter.image_name }}.jpg">
 

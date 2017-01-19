@@ -51,6 +51,7 @@ class Chapter(AssociationMixin, models.Model):
     narrative = models.TextField(blank=True, default='')
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
     source = models.ForeignKey('core.Source', default=1)
+    is_vertical = models.BooleanField(default=False)
     # contexts, people and evidence manys supplied by Association Mixin
     fastfacts = models.ManyToManyField('supporting.FastFact', 
         verbose_name='Fast Facts related to this item', blank=True)

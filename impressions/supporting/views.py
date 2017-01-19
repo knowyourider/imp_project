@@ -13,7 +13,7 @@ class ContextListView(FormMixin, ListView):
     We're searching a many to many relationship
     """
     # model = Context
-    queryset = Context.objects.filter(status_num__gte=2)
+    queryset = Context.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
     paginate_by=21
@@ -69,7 +69,7 @@ class EvidenceItemListView(FormMixin, ListView):
     a field of Evidence item. (Context has many to many associations)
     """
     # model = EvidenceItem
-    queryset = EvidenceItem.objects.filter(status_num__gte=2)
+    queryset = EvidenceItem.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
     paginate_by=21
@@ -195,7 +195,7 @@ class FastFactDetailView(DetailView):
 
 class PersonListView(ListView):
     #model = Person
-    queryset = Person.objects.filter(status_num__gte=2)
+    queryset = Person.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
 
@@ -206,7 +206,7 @@ class PersonDetailView(DetailView):
 
 class SpecialListView(ListView):
     #model = Special
-    queryset = Special.objects.filter(status_num__gte=2)
+    queryset = Special.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/special_list.html' 
 

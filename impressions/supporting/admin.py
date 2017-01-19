@@ -6,12 +6,12 @@ from .models import Context, EvidenceType, EvidenceItem, FastFact, Person, Place
 class ContextAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
-        (None,  {'fields': ['title', 'slug', 'caption', 'source',
-             'map_blurb', 'narrative']}),
+        (None,  {'fields': ['title', 'slug', 'caption', 'source', 'narrative']}),
+            # 'map_blurb', 
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Topics / Categories',   {'fields': ['topics']}),
-        ('Behind the scenes',   {'fields': ['priority_num', 'status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes']}),
+        ('Behind the scenes',   {'fields': ['priority_num', 'status_num', 'ordinal', 
+            'author', 'edited_by', 'edit_date', 'notes']}),
     ]
     list_display = ('title', 'slug', 'image_img', 'topic_list', 'priority_num', 
         'status_num', 'short_notes')

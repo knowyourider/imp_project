@@ -5,8 +5,8 @@ from core.models import ContentType, CommonModel, AssociationMixin, Source
 class CommonSupportingModel(CommonModel):
     STATUS_NUMS = (
         (0,'0 - Initial Entry'),
-        (1,'1 - Place Holder'),
-        (2,'2 - Real Shortname'),
+        (1,'1 - In-progress'),
+        (2,'2 - Drafted'),
         (3,'3 - Candidate for Publication'),
         (4,'4 - Published'),
     )
@@ -43,6 +43,7 @@ class Context(AssociationMixin, CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
     priority_num = models.IntegerField(default=5, choices=PRIORITY_NUMS)
+    author = models.CharField(max_length=16, blank=True, default='')
     topics = models.ManyToManyField('supporting.Topic', 
         verbose_name='Topics related to this backdrop', blank=True)
 
