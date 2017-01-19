@@ -14,10 +14,10 @@ class ContextAdmin(admin.ModelAdmin):
             'author', 'edited_by', 'edit_date', 'notes']}),
     ]
     list_display = ('title', 'slug', 'image_img', 'topic_list', 'priority_num', 
-        'status_num', 'short_notes')
+        'status_num', 'author', 'short_notes')
     list_per_page = 40
     filter_horizontal = ['people', 'evidence', 'contexts', 'topics']    
-    list_filter     = ['priority_num', 'status_num'] 
+    list_filter     = ['priority_num', 'status_num', 'author'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(Context, ContextAdmin)
