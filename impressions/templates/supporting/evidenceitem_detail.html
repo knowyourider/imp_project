@@ -12,7 +12,7 @@
 
 	<script type="text/javascript">
 		Z.showImage("item-image", 
-		  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}", 
+		  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", 
 		  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
 	</script>
 
@@ -21,7 +21,7 @@
 		{% if error_msg %}
 			<p class="error-msg">{{ error_msg }}</p>
 		{% else %}
-			{% if zoom_exists %}
+			{% if 1 == 1 %} <!-- zoom_exists -->
 				<div id="item-image">zoomable artifact image here</div>
 			{% else %}
 				<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
