@@ -21,7 +21,7 @@
 		{% if error_msg %}
 			<p class="error-msg">{{ error_msg }}</p>
 		{% else %}
-			{% if 1 == 1 %} <!-- zoom_exists -->
+			{% if zoom_exists %}
 				<div id="item-image">zoomable artifact image here</div>
 			{% else %}
 				<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->

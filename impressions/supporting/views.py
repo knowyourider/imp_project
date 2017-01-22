@@ -65,8 +65,8 @@ class ContextDetailView(DetailView):
 
 class EvidenceItemListView(FormMixin, ListView):
     """
-    The EvidenceItem case is simpler than the Context case. "evidence_type" is directly
-    a field of Evidence item. (Context has many to many associations)
+    The EvidenceItem case is simpler than the Context case. "evidence_type" 
+    is directly a field of Evidence item. (Context has many to many associations)
     """
     # model = EvidenceItem
     queryset = EvidenceItem.objects.filter(status_num__gte=1)
@@ -80,7 +80,7 @@ class EvidenceItemListView(FormMixin, ListView):
         return {
             'initial': self.get_initial(), # won't be using this
             'prefix': self.get_prefix(),  # don't know what this is
-            'data': self.request.GET or self.init_data # None  # will add my data here
+            'data': self.request.GET or self.init_data # will add my data here
         }
     
     def get(self, request, *args, **kwargs):
@@ -102,7 +102,7 @@ class EvidenceItemListView(FormMixin, ListView):
                 qquery = Q(evidence_type__slug=etype_list[0])
 
                 for etype_choice in etype_list[1:]:
-                    qquery.add((Q(evidence_type__slug=etype_choice)), 'OR' ) # , qquery.connector
+                    qquery.add((Q(evidence_type__slug=etype_choice)), 'OR' ) 
 
                 self.object_list = self.object_list.filter(qquery)
 
@@ -166,12 +166,15 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
 
         else:
             page = None
-            error_msg = "Error: For manuscripts and print at least one page has to be defined in Admin."
+            error_msg = "Error: For manuscripts and print at least one page has to be " + \
+                "defined in Admin."
             # print("----- no page set ")
 
-        # return render(request, "supporting/evidence_detail/" + evidence_type_slug + ".html", 
+        # return render(request, "supporting/evidence_detail/" + 
+        #   evidence_type_slug + ".html", 
         return render(request, "supporting/evidence_detail/document.html", 
-            {'object': object, 'page': page, 'error_msg': error_msg, 'zoom_exists': _zoom_exists}) 
+            {'object': object, 'page': page, 'error_msg': error_msg, 
+                'zoom_exists': _zoom_exists}) 
     else:
         # See if zoom exists, (no suffix)
         _zoom_exists = zoom_exists(object.slug)
@@ -179,7 +182,8 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
             {'object': object, 'zoom_exists': _zoom_exists})
 
 def zoom_exists(zoom_dir):
-    full_filepath = settings.BASE_DIR + '/supporting/static/supporting/evidenceitem/zooms/' + zoom_dir 
+    full_filepath = settings.BASE_DIR + \
+        '/supporting/static/supporting/evidenceitem/zooms/' + zoom_dir + ".zif"
     # print("--- zoom_dir: " + zoom_dir)
     # print("--- full_filepath: " + full_filepath)
     if default_storage.exists(full_filepath):
