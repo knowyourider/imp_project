@@ -50,20 +50,53 @@
     <h2 class="heading map-subtitle">Show Maps</h2>
     <p class="prompt">check the boxes below to show/hide maps.</p>
 
-    <form id="overlays" action="#">
+    <form id="overlay_form" action="#">
 
       <ul class="map-layers">
-      {% for overlay in object.overlay_list %} 
-        <li>
-          <label for="id_{{ overlay.layer_index }}">
-            <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
-          </label>
-          <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg">
-          {{ overlay.short_blurb|safe }}
-          <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">more</a>
-        </li>
-      {% endfor %}
+        {% for overlay in object.overlay_list %} 
+          <li>
+            <label for="id_{{ overlay.layer_index }}">
+              <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
+            </label>
+            <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg">
+            {{ overlay.short_blurb|safe }}
+            <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">more</a>
+          </li>
+        {% endfor %}
+
+        <li>Lake and Glacier</li>
       </ul>
+
+      <ul class="prompt">
+        <li>
+          <label for="id_0">
+            <input id="id_0" name="lake" type="radio" value="0" /> Lake 15,600 BC
+          </label>
+        </li>
+        <li>
+          <label for="id_1">
+            <input id="id_1" name="lake" type="radio" value="1" /> Lake 17,200 BC
+          </label>
+        </li>
+        <li>
+          <label for="id_2">
+            <input id="id_2" name="lake" type="radio" value="2" /> Lake 17,900 BC
+          </label>
+        </li>
+        <li>
+          <label for="id_3">
+            <input id="id_3" name="lake" type="radio" value="3" /> Lake 19,500 BC
+          </label>
+        </li>
+
+        <li>
+          <label for="id_4">
+            <input id="id_4" name="lake" type="radio" value="99" /> None
+          </label>
+        </li>
+
+      </ul>
+
     </form>
 
     <!--

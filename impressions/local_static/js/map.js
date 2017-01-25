@@ -10,7 +10,13 @@ var siteMarkers ;
 // cheating and making this global, should find way to send to promise
 var _siteLinks = "site links";
 var map = 0;
-var prevLayerIndex = 0;
+
+// establish global vars for lake switching
+var lakeLayerNames = ["lake_15600", "lake_17200", "lake_17900", "lake_19500"]; 
+var lake_15600, lake_17200, lake_17900, lake_19500;
+var lakeLayerObjects = [lake_15600, lake_17200, lake_17900, lake_19500]; 
+var prevLayerIndex = -1;
+
 
 $(document).ready(function(){
 
@@ -25,7 +31,7 @@ $(document).ready(function(){
 		northEast = L.latLng(42.71, -72.5), // -72.37
 		tempbounds = L.latLngBounds(southWest, northEast);
 
-	// ----- define overlays ----- 
+	// ----- define map overlays ----- 
 	var hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		bounds: mybounds, //tempbounds
@@ -56,6 +62,26 @@ $(document).ready(function(){
 	    accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 	});
 
+	var mapLayerObjects = [roads, hitchcock, hitchcock_1833]; 
+
+	// ----- define lake geoJson overlays ----- 
+
+
+	// // need to get promise for geoJson - use when success is returned
+	// // var geoPromise = getGeoJson("/static/js/map_assets/json_1950.geojson");
+	// var geoPromise = getGeoJson("/static/js/map_assets/lake_17900.geojson");
+
+	// // on successful return of geoJson, set all of the layers
+	// geoPromise.success(function (data) {
+
+	// 	// var _lake = L.geoJson(data, {
+	// 	mapLakeLayers[2] = L.geoJson(data, {
+	//     	style: HitchcockStyle
+	// 	});
+	// 	// mapLakeLayers = [roads, hitchcock, hitchcock_1833, _lake ]; 
+
+	// });
+
 	// ----- define base layer -----
 	var stamen = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-'
 		+ 'background/{z}/{x}/{y}.{ext}', {
@@ -68,38 +94,7 @@ $(document).ready(function(){
 		minZoom: 9,
 		maxZoom: 13,
 		ext: 'png'
-	 });
-
-	// Set array of objects defined above
-	var mapLayerObjects = [roads, hitchcock, hitchcock_1833 ]; // , stamen , lake
-	// era short names. Will come from ajax
-
-	// load GeoJSON from an external file
-	$.getJSON("/static/js/map_assets/lake2.geojson",function(data){
-		// add GeoJSON layer to the map once the file is loaded
-		var lake = L.geoJson(data);
-		// lake = L.geoJson(data).addTo(map);
-		mapLayerObjects.push(lake);
 	});
-
-	var myStyle = {
-	    "color": "#eeeeee",
-	    "weight": 3,
-	    "opacity": 0.85
-	};
-
-	// load GeoJSON from an external file
-	$.getJSON("/static/js/map_assets/glacier.geojson",function(data){
-		// add GeoJSON layer to the map once the file is loaded
-		var glacier = L.geoJson(data, {
-	    	style: myStyle
-		});
-		mapLayerObjects.push(glacier);
-	});
-
-	// L.geoJSON(myLines, {
-	//     style: myStyle
-	// }).addTo(map);
 
 	// --------- SET THINGS IN MOTION ----------
 
@@ -136,15 +131,15 @@ $(document).ready(function(){
 	// ----- Map Overlay checkbox Handling -----
 
 	// 
-	// handle click on checkboxes for overlays
-	$("#overlays input[name=overlay]").change(function(event){
+	// handle click on CHECKBOXES for overlays
+	$("#overlay_form input[name=overlay]").change(function(event){
       // console.log(" --- checbox val: " + $(this).get(0).tagName);
       // determine whether checked or unchecked
       var intVal = parseInt($(this).val());
       if ($(this).is(':checked')) {
-      	addOverlay(mapLayerObjects, intVal);
+      	addImpOverlay(mapLayerObjects, intVal);
       } else { // action was to uncheck
-      	removeOverlay(mapLayerObjects, intVal);
+      	removeImpOverlay(mapLayerObjects, intVal);
       }
 	});
 
@@ -162,61 +157,103 @@ $(document).ready(function(){
 		getURL("/map/about/" + layerIndex + "/", $('#about_map_ajax_wrapper'));
 	});
 
-	// GeoJSON experiment
-	// var myLines = [{
-	//     "type": "LineString",
-	//     "coordinates": [[-72.4, 42.1], [-72.5, 42.2], [-72.6, 42.3]]
-	// }, {
-	//     "type": "LineString",
-	//     "coordinates": [[-72.9, 42.6], [-73, 42.2], [-72.9, 42.8]]
-	// }];
-	// var myStyle = {
-	//     "color": "#ff7800",
-	//     "weight": 5,
-	//     "opacity": 0.65
-	// };
+	// handle click on RADIO BUTTONS for lake
+	$("#overlay_form input[name=lake]").change(function(event){
+		// radio button set will take care of its own checking and unchecking
+		var intVal = parseInt($(this).val());
+		// console.log(" --- radio val: " + intVal);
+		switchLake(intVal);
+	});
 
-	// L.geoJSON(myLines, {
-	//     style: myStyle
-	// }).addTo(map);
-
-	// var geojsonFeature = {
-	//     "type": "Feature",
-	//     "properties": {
-	//         "name": "Coors Field",
-	//         "amenity": "Baseball Stadium",
-	//         "popupContent": "This is where the Rockies play!"
-	//     },
-	//     "geometry": {
-	//         "type": "Point",
-	//         "coordinates": [-72.4, 42.1]
-	//     }
-	// };
-
-	// L.geoJSON(geojsonFeature).addTo(map);
-
-	// // load GeoJSON from an external file
-	// $.getJSON("/static/js/map_assets/test.geojson",function(data){
-	// 	// add GeoJSON layer to the map once the file is loaded
-	// 	L.geoJson(data).addTo(map);
-	// });
 
 }); // end doc ready
 
-// --------- UTILITY SECTION ----------
+// --------- Asychronous map setup ----------
+
+function getGeoJson (thePath) {
+	return $.getJSON(thePath);
+}
+
+// --------- RADIO LAKE SECTION ----------
+
+// putting all the styling into one function to keep code short as possible
+function HitchcockStyle(feature) {
+    switch (feature.properties['Type']) {
+        case 'glacier':
+            return {
+                fillColor: '#dadfd6',
+                opacity: '0.0',
+                fillOpacity: '1.0',
+            };
+            break;
+
+        case 'lake':
+            return {
+                fillColor: '#1f93b4',
+                opacity: '0.0',
+                fillOpacity: '1.0',
+            };
+            break;
+    }
+}
+
+function switchLake(lakeIndex) { //  layerShortName, 
+	// console.log(" --- switch to: " + lakeIndex);
+	// if a layer was added previously, remove it
+	if (prevLayerIndex > -1) {
+		map.removeLayer(lakeLayerObjects[prevLayerIndex]);
+	}
+
+	// catch 99 for none
+	if (lakeIndex > 90) {
+		// set prev to -1 since it'll already be cleared
+		prevLayerIndex = -1;
+	} else { // valid layer number
+		prevLayerIndex = lakeIndex;
+
+		// find out if this layer has already been generated
+		// if not get the geoJson
+		if (lakeLayerObjects[prevLayerIndex] == null){
+			// console.log(" ----- got to null for this layer");
+			// need to get promise for geoJson - use when success is returned
+			// var geoPromise = getGeoJson("/static/js/map_assets/json_1950.geojson");
+			var geoPromise = getGeoJson("/static/js/map_assets/" + 
+				lakeLayerNames[lakeIndex] + ".geojson");
+
+			// on successful return of geoJson
+			geoPromise.success(function (data) {
+				lakeLayerObjects[lakeIndex] = L.geoJson(data, {
+			    	style: HitchcockStyle
+				});
+
+				// add this layer
+				map.addLayer(lakeLayerObjects[lakeIndex]);
+			});
+		} else { // this layer is already defined, just switch it
+			map.addLayer(lakeLayerObjects[lakeIndex]);
+		}
+
+		// // keep roads on top, if present
+		// mapLayerObjects[0].bringToFront();
+	}
+
+}
+
+// --------- CHECKBOX OVERLAY SECTION ----------
 
 function openPopUpFromSide(markerIndex) {
 	// console.log("got to open popup. markerIndex: " + markerIndex);
 	markerList[markerIndex].openPopup();
 }
 
-function addOverlay(mapLayerObjects,layerIndex) { //  layerShortName, 
+function addImpOverlay(mapLayerObjects,layerIndex) { //  layerShortName, 
 	map.addLayer(mapLayerObjects[layerIndex]);
 	// mapLayerObjects[layerIndex].addTo(map);
 	// keep roads on top, if present
 	mapLayerObjects[0].bringToFront();
 }
-function removeOverlay(mapLayerObjects,layerIndex) {  
+
+function removeImpOverlay(mapLayerObjects,layerIndex) {  
 	map.removeLayer(mapLayerObjects[layerIndex]);		
 	// mapLayerObjects[layerIndex].addTo(map);
 }
