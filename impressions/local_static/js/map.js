@@ -22,19 +22,29 @@ $(document).ready(function(){
 
 	// ------------ BASE LAYER SECTION -------------
 	// ----- define bounds ------
-	var southWest = L.latLng(41.225, -72.98), 
-		northEast = L.latLng(42.71, -72.42), // -72.37
-		mybounds = L.latLngBounds(southWest, northEast);
+	// var southWest = L.latLng(41.225, -72.98), 
+	// 	northEast = L.latLng(42.71, -72.42), // -72.37
+	// 	mybounds = L.latLngBounds(southWest, northEast);
 
-	// ----- define bounds ------
-	var southWest = L.latLng(41.225, -72.98), 
-		northEast = L.latLng(42.71, -72.5), // -72.37
-		tempbounds = L.latLngBounds(southWest, northEast);
+	// // ----- define bounds ------
+	// var southWest = L.latLng(41.225, -72.98), 
+	// 	northEast = L.latLng(42.71, -72.5), // -72.37
+	// 	tempbounds = L.latLngBounds(southWest, northEast);
+
+	var impBounds = [
+		[40.55, -74], // southWest
+		[43.5, -71.5] // northEast
+	];
+
+	var impMaxBounds = [
+		[41.18, -73.43],
+		[42.9, -71.82]
+	];
 
 	// ----- define map overlays ----- 
 	var hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
-		bounds: mybounds, //tempbounds
+		// bounds: mybounds, //tempbounds
 		minZoom: 9,
 		maxZoom: 16,
 		//opacity: .7,
@@ -49,13 +59,13 @@ $(document).ready(function(){
         attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> '
         + '| &copy; OSM contributors | <a href="https://mapzen.com/" '
         + 'target="_blank">Mapzen</a>',
-		bounds: mybounds,
+		// bounds: mybounds,
 		minZoom: 9,
 		maxZoom: 13
     }), 
 	hitchcock_1833   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	    attribution: 'Hitchcock map',
-		bounds: mybounds, //tempbounds
+		// bounds: mybounds, //tempbounds
 	    minZoom: 9,
 	    maxZoom: 13,
 	    id: 'donaldo.d51bywq4',
@@ -90,7 +100,8 @@ $(document).ready(function(){
 		+ 'Map data &copy; ' 
 		+ '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		subdomains: 'abcd',
-		bounds: mybounds,
+		// bounds: mybounds,
+		bounds: impBounds,
 		minZoom: 9,
 		maxZoom: 13,
 		ext: 'png'
@@ -105,8 +116,10 @@ $(document).ready(function(){
 	var layerIndex = 0;
 
 	map = L.map('map', {
-		center: [42.0, -72.45],
-		zoom: 9,
+		center: [42.0, -72.6], // -72.45
+		zoom: 9, // 9
+		maxBounds: impMaxBounds,
+		maxBoundsViscosity: 0.5,
 		//layers: [streets, markerList]
 		// layers: [mapLayerObjects[layerIndex]] //, siteMarkers hitchcock
 		layers: [stamen] // topobase stamen , siteMarkers hitchcock
@@ -132,7 +145,8 @@ $(document).ready(function(){
 
 	// 
 	// handle click on CHECKBOXES for overlays
-	$("#overlay_form input[name=overlay]").change(function(event){
+	// $("#overlay_form input:checkbox").change(function(event){ // name=overlay
+	$("#overlay_form input:checkbox").change(function(event){ // name=overlay
       // console.log(" --- checbox val: " + $(this).get(0).tagName);
       // determine whether checked or unchecked
       var intVal = parseInt($(this).val());
@@ -158,13 +172,17 @@ $(document).ready(function(){
 	});
 
 	// handle click on RADIO BUTTONS for lake
-	$("#overlay_form input[name=lake]").change(function(event){
+	$("#overlay_form input:radio").change(function(event){ // name=lake [type=radio]
 		// radio button set will take care of its own checking and unchecking
 		var intVal = parseInt($(this).val());
 		// console.log(" --- radio val: " + intVal);
 		switchLake(intVal);
 	});
 
+	$(document).on("click", "#clear_lake", function(event){
+		event.preventDefault();
+		switchLake(99);
+	});
 
 }); // end doc ready
 
@@ -183,7 +201,7 @@ function HitchcockStyle(feature) {
             return {
                 fillColor: '#dadfd6',
                 opacity: '0.0',
-                fillOpacity: '1.0',
+                fillOpacity: '0.85',
             };
             break;
 
@@ -191,7 +209,7 @@ function HitchcockStyle(feature) {
             return {
                 fillColor: '#1f93b4',
                 opacity: '0.0',
-                fillOpacity: '1.0',
+                fillOpacity: '0.85',
             };
             break;
     }
@@ -204,8 +222,10 @@ function switchLake(lakeIndex) { //  layerShortName,
 		map.removeLayer(lakeLayerObjects[prevLayerIndex]);
 	}
 
-	// catch 99 for none
+	// catch 99 for none -- or clear
 	if (lakeIndex > 90) {
+		// uncheck all (any) radieo buttons
+		$("#overlay_form input[type=radio]").prop('checked', false);
 		// set prev to -1 since it'll already be cleared
 		prevLayerIndex = -1;
 	} else { // valid layer number
