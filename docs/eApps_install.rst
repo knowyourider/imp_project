@@ -195,3 +195,32 @@ We decided not to use django-froala-editor -- that required using FroalaField in
 - created per-app, per-field calls in admin -- inspired by py Danny's wysiwyg package.
 
 
+Create ssh key on eApps PVMA for use with github knowyourider
+---------------------------------------------------------------
+
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-linux
+
+generate key
+::
+	ssh-keygen -t rsa -b 4096 -C "dbutton@digitalgizmo.com"
+
+passphrase in 1password
+
++--[ RSA 4096]----+
+|                 |
+|     .           |
+|    . . .        |
+|   . . o o       |
+|    o + S        |
+|     o O         |
+|   o .. o        |
+|  + * .o +       |
+| .E= oo.o .      |
++-----------------+
+
+add to ssh-agent
+::
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_rsa
+
+Add to github per github instructionis
