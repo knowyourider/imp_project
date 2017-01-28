@@ -33,12 +33,12 @@ $(document).ready(function(){
 
 	var impBounds = [
 		[40.55, -74], // southWest
-		[43.5, -71.5] // northEast
+		[44, -71.5] // northEast
 	];
 
 	var impMaxBounds = [
 		[41.18, -73.43],
-		[42.9, -71.82]
+		[43.2, -71.82]
 	];
 
 	// ----- define map overlays ----- 
@@ -107,14 +107,7 @@ $(document).ready(function(){
 		ext: 'png'
 	});
 
-	// --------- SET THINGS IN MOTION ----------
-
-	// setSiteLayer('today');
-	// better place to do this?
-    $(".map-layers li:nth-child(1)").addClass('selected');
-	// initial overlay
-	var layerIndex = 0;
-
+	// ----- set map -----
 	map = L.map('map', {
 		center: [42.0, -72.6], // -72.45
 		zoom: 9, // 9
@@ -184,6 +177,14 @@ $(document).ready(function(){
 		switchLake(99);
 	});
 
+	// --------- SET THINGS IN MOTION ----------
+
+	// start with toda roads on
+	addImpOverlay(mapLayerObjects, 0);
+	// $("#overlay_form input[type=checkbox]")[0].prop('checked', true);
+	$("#overlay_form").find('input:checkbox:first').prop('checked', true);
+	// :nth-child(0)
+
 }); // end doc ready
 
 // --------- Asychronous map setup ----------
@@ -201,7 +202,7 @@ function HitchcockStyle(feature) {
             return {
                 fillColor: '#dadfd6',
                 opacity: '0.0',
-                fillOpacity: '0.85',
+                fillOpacity: '0.70',
             };
             break;
 
@@ -209,7 +210,7 @@ function HitchcockStyle(feature) {
             return {
                 fillColor: '#1f93b4',
                 opacity: '0.0',
-                fillOpacity: '0.85',
+                fillOpacity: '0.65',
             };
             break;
     }
