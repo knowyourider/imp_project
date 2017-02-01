@@ -224,3 +224,25 @@ add to ssh-agent
 	ssh-add ~/.ssh/id_rsa
 
 Add to github per github instructionis
+
+
+changed https:// to ssh:// in .git/config
+
+still probs
+
+test
+::
+	ssh -T git@github.com
+
+GIT ssh take 2
+---------------
+
+The above was done as root, but I need git to operate as pvma
+Starting over with eApps KB article: 
+[Using Git - Powered by Kayako Help Desk Software](https://support.eapps.com/index.php?/Knowledgebase/Article/View/457/55/using-git#git-configuration---virtual-server)
+
+Where is the id_rsa I created above?
+- in root
+- need to create similar in pvma? new user? where is pvma home?
+Where is the GIT repo?
+

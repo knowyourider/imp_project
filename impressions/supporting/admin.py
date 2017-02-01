@@ -107,7 +107,7 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'slug', 'image_img', 'person_level',  'status_num')
     list_per_page = 40
     filter_horizontal = ['people', 'evidence', 'contexts']    
-    list_filter     = ['person_level']
+    list_filter     = ['person_level', 'status_num']
     search_fields = ['last_name', 'first_name', 'slug']
 
 admin.site.register(Person, PersonAdmin)
