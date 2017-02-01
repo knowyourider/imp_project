@@ -149,12 +149,13 @@ WSGI part 2
 in /etc/httpd/conf/httpd.conf
 (oftn in /etc/httpd/conf/vhosts/<user name>, but not here)
 We're in Apace version 2.2.21
+(changed SuexecUserGroup to apache apache late January 2017)
 ::
 
 	<VirtualHost 68.169.58.50:80>
 		ServerName impdev.deerfield-ma.org
 		DocumentRoot /var/www/pvma/data/www/impdev.deerfield-ma.org
-		SuexecUserGroup pvma pvma 
+		SuexecUserGroup apache apache 
 		CustomLog /var/www/httpd-logs/impdev.deerfield-ma.org.access.log combined
 		ErrorLog /var/www/httpd-logs/impdev.deerfield-ma.org.error.log
 		ServerAlias www.impdev.deerfield-ma.org
@@ -241,8 +242,14 @@ The above was done as root, but I need git to operate as pvma
 Starting over with eApps KB article: 
 [Using Git - Powered by Kayako Help Desk Software](https://support.eapps.com/index.php?/Knowledgebase/Article/View/457/55/using-git#git-configuration---virtual-server)
 
+GIT runs under pvma user, just have to change to the working directory manually (as opposed to using "workon impressions").
+
 Where is the id_rsa I created above?
 - in root
 - need to create similar in pvma? new user? where is pvma home?
-Where is the GIT repo?
 
+in ...www/data/www/imp../.git/config
+added knowyourider@
+::
+	
+	https://knowyourider@github.com/knowyourider/imp_project.git

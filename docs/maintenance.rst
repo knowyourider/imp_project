@@ -42,3 +42,18 @@ phpPgAdmin
 https://68.169.58.50/pgadmin/
 user: postgres
 Pass: in 1pass, keychain, and in ISP > Server Settings --> Database Servers
+
+
+GIT
+----
+
+Logon as pvma
+::
+	cd /var/www/pvma/data/www/impdev.deerfield-ma.org
+	git status
+	etc.
+
+To push from server:
+::
+	git push -u origin develop
+	(github password)
