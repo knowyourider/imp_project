@@ -13,7 +13,7 @@
 
   <ul class="menu-grid people-primary">
 
-  {% for person2 in object_list.0.hitchcock_person_list %}
+  {% for person2 in object_list.0.primary_person_list %}
 
     <li>
       <a class="pop_item" href="{% url 'supporting:person_detail' person2.slug %}">
@@ -29,7 +29,7 @@
   <h3 class="heading">People Important to the Story</h3>
 
   <ul class="menu-grid people-secondary">
-  {% for person1 in object_list.0.important_person_list %}
+  {% for person1 in object_list.0.secondary_person_list %}
 
     <li>
     	<a class="pop_item" href="{% url 'supporting:person_detail' person1.slug %}">
@@ -47,7 +47,7 @@
 
   <ul class="menu-grid people-tertiary">
     <li><a href="">Thomas Cole</a></li>
-  {% for person0 in object_list.0.related_person_list %}
+  {% for person0 in object_list.0.minor_person_list %}
 
     <li><a class="pop_item" href="{% url 'supporting:person_detail' person0.slug %}">{{ person0.title_prefix|safe }} {{ person0.first_name|safe }} 
         {{ person0.middle_name|safe }} {{ person0.last_name|safe }} {{ person0.suffix|safe }}</em></a></li>

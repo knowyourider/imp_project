@@ -210,9 +210,10 @@ class FastFact(CommonSupportingModel):
 
 class Person(AssociationMixin, CommonSupportingModel):
     PERSON_LEVEL = (
-        (0,'Related'),
-        (1,'Important'),
-        (2,'Hitchcocks'),
+        (0,'Minor'),
+        (1,'Secondary'),
+        (2,'Primary'),
+        (9,'Not Using'),
     )
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', 
@@ -232,13 +233,13 @@ class Person(AssociationMixin, CommonSupportingModel):
                     '.jpg" width="60" height="75"/>')
     image_img.short_description = 'Thumb'
 
-    def hitchcock_person_list(self):
+    def primary_person_list(self):
         return Person.objects.filter(person_level=2)
 
-    def important_person_list(self):
+    def secondary_person_list(self):
         return Person.objects.filter(person_level=1)
 
-    def related_person_list(self):
+    def minor_person_list(self):
         return Person.objects.filter(person_level=0)
 
     class Meta:

@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 	var impMaxBounds = [
 		[41.18, -73.43],
-		[43.2, -71.82]
+		[43.4, -71.82]
 	];
 
 	// ----- define map overlays ----- 
