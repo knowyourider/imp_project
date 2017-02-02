@@ -238,18 +238,16 @@ test
 GIT ssh take 2
 ---------------
 
-The above was done as root, but I need git to operate as pvma
-Starting over with eApps KB article: 
+The above was done as root. Rather than use ssh I'm going to stick with https
+The eApps KB article bleow about setting up a repository server. 
 [Using Git - Powered by Kayako Help Desk Software](https://support.eapps.com/index.php?/Knowledgebase/Article/View/457/55/using-git#git-configuration---virtual-server)
 
-GIT runs under pvma user, just have to change to the working directory manually (as opposed to using "workon impressions").
+GIT runs fine when logged in as pvma user, just have to change to the working directory manually (as opposed to using "workon impressions").
 
-Where is the id_rsa I created above?
-- in root
-- need to create similar in pvma? new user? where is pvma home?
-
-in ...www/data/www/imp../.git/config
-added knowyourider@
+the git conf file is at ...www/data/www/imp../.git/config
+Stock has pull and push the same. 
+But, in order to push I added user@, requireing password, for pushy
 ::
-	
-	https://knowyourider@github.com/knowyourider/imp_project.git
+	git remote set-url --push origin knowyourider@github.com/knowyourider/imp_project.git
+
+

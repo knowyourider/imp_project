@@ -16,7 +16,7 @@
     <li>
     	<a class="pop_item" href="{% url 'supporting:special_detail' object.slug %}">
     	 <img src="{% static 'supporting/special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
-    	 <span class="menu-title">{{ object.get_special_type_display|safe }}</span>{{ object.title|safe }}
+    	 <span class="menu-title">{{ object.short_type_display|safe }}</span>{{ object.title|safe }}
     	 {{ object.menu_blurb|safe }}
       </a>
 	</li>

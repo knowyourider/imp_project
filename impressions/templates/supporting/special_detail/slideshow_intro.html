@@ -1,35 +1,16 @@
-{% extends "supporting/base_detail.html" %}
+{% extends "supporting/special_detail/slideshow.html" %}
 {% load staticfiles %}
 
-{% block heading %}{{ object.content_type.plural_title }} - Slideshow {% endblock %}
-{% block item_title %}{{ object.title|safe }}{% endblock %}
-
-{% block slim_content%}
-	
-
-<section class="slideshow-col">
-	<div id="slideshow-image">
-
-		<img src="{% static 'supporting/special/slideshow/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
-    <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
-
-	</div> <!-- slideshow-image -->
-</section>
-
-<section class="slideshow-controls-col">
+{% block slideshow_controls %}
 
   <h4 class="heading slim-subhead">About this Slideshow</h4>
   <p>{{ slide.narrative}}</p>
 
 	<ul class="activities-controls">
 		<li>
-      <a class="swap_pop" 
-        href="{% url 'supporting:special_detail_slide' object.slug 1 %}">View Slideshow &rArr;</a>
+	  <a class="swap_pop" 
+	    href="{% url 'supporting:special_detail_slide' object.slug 1 %}">View Slideshow &rArr;</a>
 		</li>
 	</ul>
-
-</section>
-
-{% endblock slim_content %}
-
-{% block related_items%}{% endblock related_items%}
+	
+{% endblock slideshow_controls %}

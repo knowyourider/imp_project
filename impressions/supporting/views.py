@@ -231,7 +231,7 @@ def special_detail(request, slug, slide_num_arg=0):
     # interactives and slideshows share the slide structure
     # In both cases re-loding the whole page -- not much that would stay in place if
     # I used AJAX
-    if special_type == "interactive" or special_type == "slideshow" or special_type == "then":
+    if special_type == "footprint" or special_type == "slideshow" or special_type == "then":
         slide = get_object_or_404(Slide, special_id=object.id, 
             slide_num=slide_num_arg)
         # Currently "interactive" is find-footprints.
@@ -254,7 +254,7 @@ def special_detail(request, slug, slide_num_arg=0):
         
 def special_footprint(request, image_name):
 
-    template_name = "supporting/special_detail/interactive_includes/_" + image_name + ".html"
+    template_name = "supporting/special_detail/footprint_includes/_" + image_name + ".html"
     return render(request, template_name, {'dummy': 'dummy'})
 
 

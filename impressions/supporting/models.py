@@ -273,7 +273,7 @@ class Special(CommonSupportingModel):
     """
     SPECIAL_TYPES = (
         ('voices','Voices'),
-        ('interactive','Interactive'),
+        ('footprint','Activity: Footprints'),
         ('looking','Looking &amp; Seeing'),
         ('slideshow','Slideshow'),
         ('then','Then &amp; Now'),
@@ -282,18 +282,22 @@ class Special(CommonSupportingModel):
     SPECIAL_CONTENT_TYPE_ID = 8
     content_type = models.ForeignKey('core.ContentType', 
         default=SPECIAL_CONTENT_TYPE_ID)
-    special_type = models.CharField(max_length=32, default='animation', 
+    special_type = models.CharField(max_length=32, default='slideshow', 
         choices=SPECIAL_TYPES)
     title = models.CharField(max_length=128)
     description = models.TextField(blank=True, default='')
     narrative = models.TextField('Narrative / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
 
+    # in the case of Activities we want to display only "Activities",
+    # not the sub type
+    def short_type_display(self):
+        return self.get_special_type_display().split(":")[0]
+
     def image_img(self):
         return format_html('<img src="/static/supporting/special/menupics/' + self.slug + \
-                    '.jpg" width="100" height="75"/>')
+                    '.jpg" width="100" height="75"/>')    
     image_img.short_description = 'Thumb'
-
 
     class Meta:
         verbose_name = "Special Feature"
