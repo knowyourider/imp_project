@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 	// since this is in a slim called by ajax we can't just list the script directly
-	$.getScript('{% static "js/interactive.js" %}', function() {
+	$.getScript('{% static "js/footprint.js" %}', function() {
 	  // Set variable after script is loaded.
 	  var numOfCorrect = {{slide.num_correct}};
 	});

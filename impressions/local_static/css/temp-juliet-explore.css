@@ -1,0 +1,7 @@
+.dinospot {
+  stroke: #b12b00;
+  fill: #fed402; 
+  fill-opacity: 0.1; }
+  .dinospot:hover {
+    fill: #fed402;
+    fill-opacity: 0.5; }
