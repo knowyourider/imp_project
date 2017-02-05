@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+# from core import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,4 +24,5 @@ urlpatterns = [
     url(r'^stories/', include('stories.urls', namespace='stories')),
     url(r'^supporting/', include('supporting.urls', namespace='supporting')),
     url(r'^themes/', include('themes.urls', namespace='themes')),
+    # url(r'^team/$', views.TeamHomeTemplateView.as_view(), name='team_home'),
 ]

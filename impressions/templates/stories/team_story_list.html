@@ -2,9 +2,10 @@
 {% load staticfiles %}
 
 {% block content_area %}
-    <h1 class="story-title">Stories</h1>
+  <p><a href="{% url 'core:team_home' %}">Return to Team Home</a></p>
+  <h1 class="story-title">Stories</h1>
     
-  <ul >
+  <ul>
   {% for object in object_list %}
     <li>
       <a href="{% url 'stories:team_story_detail' object.slug %}">

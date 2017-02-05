@@ -1,0 +1,34 @@
+{% extends "base_team.html" %}
+{% load staticfiles %}
+
+{% block content_area %}
+  <p><a href="{% url 'core:team_home' %}">Return to Team Home</a></p>
+
+  <h1 class="story-title">Supporting Types</h1>
+  <p>Each link leads to a list displaying the Stories and Themes in which a given item appears.</p>
+    
+  <ul>
+    <li>
+      <a href="{% url 'supporting:team_evidenceitem_list' %}">
+        <h2>Evidence - Artifacts &amp; Documents</h2>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'supporting:team_person_list' %}">
+        <h2>People</h2>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'supporting:team_context_list' %}">
+        <h2>Backdrops</h2>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'supporting:team_special_list' %}">
+        <h2>Special Features</h2>
+      </a>
+    </li>
+  </ul>
+
+{% endblock content_area %}
+

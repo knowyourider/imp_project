@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.core.files.storage import default_storage
 from django.conf import settings
 from django.views.generic.edit import FormMixin
@@ -257,4 +257,7 @@ def special_footprint(request, image_name):
     template_name = "supporting/special_detail/footprint_includes/_" + image_name + ".html"
     return render(request, template_name, {'dummy': 'dummy'})
 
+
+class TeamTemplateView(TemplateView):
+    template_name = 'supporting/team_type_list.html' 
 

@@ -4,7 +4,7 @@ from core.models import ContentType, CommonModel, AssociationMixin, Source
 
 class CommonSupportingModel(CommonModel):
     STATUS_NUMS = (
-        (0,'0 - Initial Entry'),
+        (0,'0 - Not Using'),
         (1,'1 - In-progress'),
         (2,'2 - Drafted'),
         (3,'3 - Candidate for Publication'),
@@ -228,6 +228,10 @@ class Person(AssociationMixin, CommonSupportingModel):
     narrative = models.TextField(blank=True, default='')
     person_level = models.IntegerField(default=0, choices=PERSON_LEVEL)
 
+    # add title to be consistent with other supporing types
+    def title(self):
+        return self.first_name + " " + self.middle_name + " " + self.last_name
+
     def image_img(self):
         return format_html('<img src="/static/supporting/person/menupics/' + self.slug + \
                     '.jpg" width="60" height="75"/>')
@@ -272,12 +276,13 @@ class Special(CommonSupportingModel):
     ContentType is defined in Admin in Core > ContentTypes
     """
     SPECIAL_TYPES = (
-        ('voices','Voices'),
-        ('footprint','Activity: Footprints'),
-        ('looking','Looking &amp; Seeing'),
         ('slideshow','Slideshow'),
-        ('then','Then &amp; Now'),
         ('video','Video Story'),
+        ('voices','Voices'),
+        ('looking','Looking &amp; Seeing'),
+        ('then','Then &amp; Now'),
+        ('footprint','Activity: Footprints'),
+        ('explore','Activity: Explore'),
     )
     SPECIAL_CONTENT_TYPE_ID = 8
     content_type = models.ForeignKey('core.ContentType', 

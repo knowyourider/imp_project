@@ -1,0 +1,14 @@
+{% extends "base_team.html" %}
+{% load staticfiles %}
+
+{% block content_area %}
+
+<h1 class="story-title">Impressions Team Lists</h1>
+    
+<h3><a href="{% url 'stories:team_story_list' %}">Story and Chapter list -- shows Dig Deepers</a></h3>
+
+<h3><a href="{% url 'supporting:team_type_list' %}">Supporting Item lists -- shows where they're included</a></h3>
+
+
+{% endblock content_area %}
+

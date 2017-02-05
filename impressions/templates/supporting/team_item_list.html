@@ -1,0 +1,38 @@
+{% extends "base_team.html" %}
+{% load staticfiles %}
+
+{% block content_area %}
+<p><a href="{% url 'supporting:team_type_list' %}">Return to List of Supporting Types</a></p>
+
+<h1 class="story-title">{{ object_list.0.content_type.plural_title }}</h1>
+    
+<ul class="menu-grid outer">
+	{% for object in object_list %}
+	<li>
+		<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}">
+			<img class="thumb" src="{% static 'supporting/'|add:object_list.0.content_type.slug|add:'/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}"> 
+			<em>{{ object.title|safe }}</em>
+		</a>
+		<p>Stories:</p>
+		<ul>
+			{% for chapter in object.chapter_set.all %}
+			<li>
+				{{ chapter.story.title}} -- {{ chapter.title}}
+			</li>
+			{% endfor %}
+		</ul>
+		<p>Themes:</p>
+		<ul>
+			{% for theme in object.theme_set.all %}
+			<li>
+				{{ theme.title}}
+			</li>
+			{% endfor %}
+		</ul>
+	</li>
+	<hr />
+	{% endfor %}
+</ul>  
+
+{% endblock content_area %}
+
