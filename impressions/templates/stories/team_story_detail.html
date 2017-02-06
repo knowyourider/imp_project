@@ -5,8 +5,8 @@
 	
 	<p><a href="{% url 'stories:team_story_list' %}">Return to Story Menu</a></p>
 
-    <h1 class="story-title">{{ object.title|safe }}</h1>
-    <h2 class="story-subtitle">{{ object.subtitle|safe }}</h2>
+    <h1>{{ object.title|safe }}</h1>
+    <h2>Dig Deepers per Chapter</h2>
 
     <ul>
 	{% for chapter in object.chapter_set.all %}

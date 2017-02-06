@@ -2,20 +2,20 @@
 {% load staticfiles %}
 
 {% block content_area %}
-<p><a href="{% url 'supporting:team_type_list' %}">Return to List of Supporting Types</a></p>
+<p><a href="{% url 'supporting:team_type_list' %}">Return to menu of Supporting Items</a></p>
 
-<h1 class="story-title">{{ object_list.0.content_type.plural_title }}</h1>
+<h1>{{ object_list.0.content_type.plural_title }}</h1>
+<p>For each <em>{{ object_list.0.content_type.singular_title }}</em> the columns show the Chapter and Theme pages on which the item appears, as well as the Evidence, Person or Backdrop slim pop on which the item appears. Slim pop links are live.</p>
     
 <table>
 	<tr>
 		<th width="130px">Image</th>
-		<th width="15%">Title</th>
+		<th width="15%">Title</th> 
 		<th width="20%">Stories</th>
 		<th>Themes</th>
 		<th>evidence</th>
 		<th>people</th>
 		<th>backdrop</th>
-		<th>special</th>
 	</tr>
 	{% for object in object_list %}
 	<tr>
@@ -29,7 +29,9 @@
 			<ul>
 				{% for chapter in object.chapter_set.all %}
 				<li>
-					&bull; {{ chapter.story.title}}: {{ chapter.title}}
+					&bull; {{ chapter.story.title}}: <strong>{{ chapter.title}}</strong> 
+					<!-- [<a href="/admin/stories/chapter/{{ chapter.id }}/change/" target="admin">edit</a>] --> 
+					[<a href="{% url 'stories:chapter_detail' chapter.story.slug chapter.chapter_num %}" target="viewsite">view</a>]
 				</li>
 				{% endfor %}
 			</ul>
@@ -47,7 +49,7 @@
 			<ul>
 				{% for evidenceitem in object.evidenceitem_set.all %}
 				<li>
-					&bull; {{ evidenceitem.title}}
+					&bull; <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.content_type.slug|add:'_detail' evidenceitem.slug %}">{{ evidenceitem.title}}</a>
 				</li>
 				{% endfor %}
 			</ul>					
@@ -56,7 +58,7 @@
 			<ul>
 				{% for person in object.person_set.all %}
 				<li>
-					&bull; {{ person.title}}
+					&bull; <a class="pop_item" href="{% url 'supporting:'|add:person.content_type.slug|add:'_detail' person.slug %}">{{ person.title}}</a>
 				</li>
 				{% endfor %}
 			</ul>		
@@ -65,16 +67,7 @@
 			<ul>
 				{% for context in object.context_set.all %}
 				<li>
-					&bull; {{ context.title}}
-				</li>
-				{% endfor %}
-			</ul>		
-		</td>
-		<td>
-			<ul>
-				{% for special in object.special_set.all %}
-				<li>
-					&bull; {{ special.title}}
+					&bull; <a class="pop_item" href="{% url 'supporting:'|add:context.content_type.slug|add:'_detail' context.slug %}">{{ context.title}}</a>
 				</li>
 				{% endfor %}
 			</ul>		
