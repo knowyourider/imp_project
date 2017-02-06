@@ -53,6 +53,11 @@ Logon as pvma
 	git status
 	etc.
 
+Then, to collect (since we're alread in as pvma user):
+::
+	cd ../../
+	./collect.sh
+
 To push from server:
 ::
 	git push -u origin develop

@@ -22,7 +22,11 @@ p, li, blockquote {
 	line-height: 1.75em;
 }
 
-table, th, td {	font-size: .9em; line-height: 1.75em;	}
+table, th, td {	
+	font-size: .9em; 
+	line-height: 1.75em;
+	padding: 1em;	
+}
 
 .small	{	font-size: .75em; }
 

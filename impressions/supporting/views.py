@@ -16,7 +16,7 @@ class ContextListView(FormMixin, ListView):
     queryset = Context.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
-    paginate_by=21
+    # paginate_by=21
     form_class = ContextSearchForm
     init_data = {'q': ''}
 
@@ -72,7 +72,7 @@ class EvidenceItemListView(FormMixin, ListView):
     queryset = EvidenceItem.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
-    paginate_by=21
+    # paginate_by=21
     form_class = EvidenceItemSearchForm
     init_data = {'q': ''}
 

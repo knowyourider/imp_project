@@ -6,33 +6,82 @@
 
 <h1 class="story-title">{{ object_list.0.content_type.plural_title }}</h1>
     
-<ul class="menu-grid outer">
+<table>
+	<tr>
+		<th width="130px">Image</th>
+		<th width="15%">Title</th>
+		<th width="20%">Stories</th>
+		<th>Themes</th>
+		<th>evidence</th>
+		<th>people</th>
+		<th>backdrop</th>
+		<th>special</th>
+	</tr>
 	{% for object in object_list %}
-	<li>
-		<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}">
-			<img class="thumb" src="{% static 'supporting/'|add:object_list.0.content_type.slug|add:'/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}"> 
-			<em>{{ object.title|safe }}</em>
-		</a>
-		<p>Stories:</p>
-		<ul>
-			{% for chapter in object.chapter_set.all %}
-			<li>
-				{{ chapter.story.title}} -- {{ chapter.title}}
-			</li>
-			{% endfor %}
-		</ul>
-		<p>Themes:</p>
-		<ul>
-			{% for theme in object.theme_set.all %}
-			<li>
-				{{ theme.title}}
-			</li>
-			{% endfor %}
-		</ul>
-	</li>
-	<hr />
+	<tr>
+		<td>
+			<img class="thumb" src="{% static 'supporting/'|add:object_list.0.content_type.slug|add:'/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}">
+		</td>
+		<td>
+			<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>			
+		</td>
+		<td>
+			<ul>
+				{% for chapter in object.chapter_set.all %}
+				<li>
+					&bull; {{ chapter.story.title}}: {{ chapter.title}}
+				</li>
+				{% endfor %}
+			</ul>
+		</td>
+		<td>
+			<ul>
+				{% for theme in object.theme_set.all %}
+				<li>
+					&bull; {{ theme.title}}
+				</li>
+				{% endfor %}
+			</ul>		
+		</td>
+		<td>
+			<ul>
+				{% for evidenceitem in object.evidenceitem_set.all %}
+				<li>
+					&bull; {{ evidenceitem.title}}
+				</li>
+				{% endfor %}
+			</ul>					
+		</td>
+		<td>
+			<ul>
+				{% for person in object.person_set.all %}
+				<li>
+					&bull; {{ person.title}}
+				</li>
+				{% endfor %}
+			</ul>		
+		</td>
+		<td>
+			<ul>
+				{% for context in object.context_set.all %}
+				<li>
+					&bull; {{ context.title}}
+				</li>
+				{% endfor %}
+			</ul>		
+		</td>
+		<td>
+			<ul>
+				{% for special in object.special_set.all %}
+				<li>
+					&bull; {{ special.title}}
+				</li>
+				{% endfor %}
+			</ul>		
+		</td>
+	</tr>
 	{% endfor %}
-</ul>  
+</table>
 
 {% endblock content_area %}
 
