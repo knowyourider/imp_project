@@ -247,10 +247,10 @@ def special_detail(request, slug, slide_num_arg=0):
         # print("special_type in slideshow: " + special_type)
 
         return render(request, "supporting/special_detail/" + special_type + ".html", 
-            {'object': object, 'slide': slide})
+            {'object': object, 'slide': slide, 'extend_base': 'supporting/base_detail_alone.html'})
     else:
         return render(request, "supporting/special_detail/" + special_type + ".html", 
-            {'object': object})
+            {'object': object, 'extend_base': 'supporting/base_detail_alone.html'})
         
 def special_footprint(request, image_name):
 

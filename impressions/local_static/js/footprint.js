@@ -16,7 +16,7 @@ $(document).ready(function(){
   // getURL("/supporting/special/find-footprints/grallator/", $('#svg_wrapper'));
 
 
-  $(document).on("click", ".hotspot", function(event){
+  $(document).on("click touchstart", ".hotspot", function(event){
     // event.preventDefault();
     // store target
     var chosen = $(event.target);
