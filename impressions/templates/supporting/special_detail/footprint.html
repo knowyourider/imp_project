@@ -37,6 +37,8 @@
 			<li id="feedback">Feedback...</li>
 			<li id="score">found: 0 of 4</li>
 			<li><a class="show" href="#">show me</a></li>
+
+			{% block full_links %}
 			<li>
 	          {% if slide.get_prev %}
 	            <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
@@ -52,6 +54,8 @@
 	            <span class="no-more">Next &rArr;</span>
 	          {% endif %}
 			</li>
+			{% endblock full_links %}
+
 		</ul>
 
 	{% endblock activity_controls %}

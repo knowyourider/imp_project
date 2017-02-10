@@ -57,11 +57,11 @@
 
 <div id="slimpop-wrapper">
 	<div class="slim-border">
-		<p class="slimpop-close"><a href='javascript:hideBox();'>close</a>		
+		<p class="slimpop-close"><a href='javascript:window.history.back();'>back</a>		
 			 | <a href="javascript:divPrint('slimpop-container');">print</a>
 		</p>
 	  <h4 class="heading slim-subhead">{% block heading %}{{ object.content_type.plural_title }}{% endblock %}</h4>
-		<h1 class="slim-title">DWH{% block item_title %}content type title{% endblock %}</h1>
+		<h1 class="slim-title">{% block item_title %}content type title{% endblock %}</h1>
 		
 		{% block slim_content%}
 			slim content

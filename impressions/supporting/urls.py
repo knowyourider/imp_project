@@ -39,7 +39,12 @@ urlpatterns = [
     #     name='special_interactive'),
     url(r'^special/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
         name='special_detail_slide'),    
-    url(r'^special/(?P<slug>\S+)/$', views.special_detail, name='special_detail'),    
+    url(r'^special/(?P<slug>\S+)/$', views.special_detail, name='special_detail'),   
+    # full page versions of the above 
+    url(r'^fullspecial/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
+        name='fullspecial_detail_slide'),    
+    url(r'^fullspecial/(?P<slug>\S+)/$', views.special_detail, name='fullspecial_detail'),  
+    # -- team pages  
     url(r'^team/evidenceitem/$', views.EvidenceItemListView.as_view(template_name=\
         "supporting/team_item_list.html"), name='team_evidenceitem_list'),
     url(r'^team/person/$', views.PersonListView.as_view(template_name=\

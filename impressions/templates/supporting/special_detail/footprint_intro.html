@@ -1,6 +1,9 @@
 {% extends "supporting/special_detail/footprint.html" %}
 {% load staticfiles %}
 
+{% block title %}
+	Impressioins - Activity: {{ object.title|safe }}
+{% endblock %}
 
 {% block activity_image %}
 	<div id="slideshow-image">
@@ -15,8 +18,9 @@
   <p>{{ slide.narrative}}</p>
 	
 	<ul class="activities-controls">
-		<li>
-      <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
+		<li>{% block link_next %}
+	      <a class="swap_pop"  href="{% url 'supporting:special_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
+      	{% endblock link_next %}
 		</li>
 	</ul>
 {% endblock activity_controls %}

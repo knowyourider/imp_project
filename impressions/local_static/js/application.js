@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   // enable click event on menu items and text links
   // $('.pop_item').click(function(event){
-  $(document).on("click", ".pop_item", function(event){
+  $(document).on("click touchstart", ".pop_item", function(event){
     // console.log("--- got to pop_item");
     event.preventDefault();
     // get href
@@ -12,8 +12,16 @@ $(document).ready(function(){
     var chosen_href = $(event.target).closest('a').attr('href');
     var href_split = chosen_href.split('/');    
     // href_split[2] = person, evidence, fastfact, special
-    // call ajax for the slim pop. (href, size class)
-    slimPop(chosen_href, href_split[2]);
+
+    // test mobile for find-footprints and test state of mobile menu
+    if (href_split[3] == "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
+      var fullHref = "/supporting/fullspecial/" + href_split[3] + "/";
+      window.location.href = fullHref;
+    } else {
+      // call ajax for the slim pop. (href, size class)
+      slimPop(chosen_href, href_split[2]);  
+    }
+
   });
 
   // enable click event on slim that's already up

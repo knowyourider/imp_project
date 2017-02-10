@@ -1,0 +1,7 @@
+{% extends "supporting/special_detail/footprint_intro.html" %}
+{% load staticfiles %}
+
+
+{% block link_next %}
+	<a href="{% url 'supporting:fullspecial_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
+{% endblock link_next %}

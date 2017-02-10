@@ -226,7 +226,15 @@ def special_detail(request, slug, slide_num_arg=0):
     # template_name = "supporting/special_detail/" + object.special_type + ".html"
     special_type = object.special_type
 
-    # print("special_type: " + special_type)
+    # determine whether this is the stand-alone version of the URL
+    # If so, set extend_base to 'supporting/base_detail_alone.html'
+    # 2nd slice will be either special or fullspecial
+    url_version = request.path_info.split("/")[2]
+    extend_base = 'supporting/base_detail.html'
+    if (url_version == 'fullspecial'):
+        extend_base = 'supporting/base_detail_alone.html'
+        
+    # print("--- extend_base: " + extend_base)
 
     # interactives and slideshows share the slide structure
     # In both cases re-loding the whole page -- not much that would stay in place if
@@ -240,17 +248,23 @@ def special_detail(request, slug, slide_num_arg=0):
         # for interactive and slideshow slide = 0 add intro to special type
         # when slide_num_arg is passed as param it's a string, so convert to be sure
         slide_num_arg = int(slide_num_arg)
-        # add intro for interactive and slideshow, but not for then and now
+
+        # add intro for interactive and slideshow zero, but not for then and now
         if (slide_num_arg==0 and special_type != "then"):
             special_type += "_intro"
 
+        # add _full for full url version of footpring
+        if (url_version == 'fullspecial'):
+            special_type += "_full"
+
         # print("special_type in slideshow: " + special_type)
+        print("--- url_version: " + url_version)
 
         return render(request, "supporting/special_detail/" + special_type + ".html", 
-            {'object': object, 'slide': slide, 'extend_base': 'supporting/base_detail_alone.html'})
+            {'object': object, 'slide': slide, 'extend_base': extend_base})
     else:
         return render(request, "supporting/special_detail/" + special_type + ".html", 
-            {'object': object, 'extend_base': 'supporting/base_detail_alone.html'})
+            {'object': object, 'extend_base': extend_base})
         
 def special_footprint(request, image_name):
 
