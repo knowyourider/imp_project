@@ -86,7 +86,7 @@ class FastFactAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'image_img', 'fastfact_type', 'has_image')
+    list_display = ('title', 'slug', 'image_img', 'fastfact_type', 'has_image', 'status_num')
     list_per_page = 40
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
