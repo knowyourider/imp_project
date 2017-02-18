@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'core',
     'map',
     'stories',
+    'special',
     'supporting',
     'themes',
 )
