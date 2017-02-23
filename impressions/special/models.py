@@ -33,7 +33,7 @@ class Feature(CommonSupportingModel):
         return self.get_special_type_display().split(":")[0]
 
     def image_img(self):
-        return format_html('<img src="/static/supporting/special/menupics/' + self.slug + \
+        return format_html('<img src="/static/special/menupics/' + self.slug + \
                     '.jpg" width="100" height="75"/>')    
     image_img.short_description = 'Thumb'
 
@@ -63,7 +63,7 @@ class Frame(models.Model):
          
     # next, prev slide, false if none
     def get_next(self):
-        next_list = Frame.objects.filter(special_id=self.special_id, 
+        next_list = Frame.objects.filter(feature_id=self.feature_id, 
             slide_num__gt=self.slide_num)
         if next_list:
             return next_list.first()
@@ -71,7 +71,7 @@ class Frame(models.Model):
 
     # Special condition added to prevent going back to slide 0 which is the intro
     def get_prev(self):
-        prev_list = Frame.objects.filter(special_id=self.special_id, 
+        prev_list = Frame.objects.filter(feature_id=self.feature_id, 
             slide_num__lt=self.slide_num).order_by('-slide_num')
         if prev_list:
             prev = prev_list.first()

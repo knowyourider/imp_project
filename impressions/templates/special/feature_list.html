@@ -1,0 +1,29 @@
+{% extends "base_list.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ object_list.0.content_type.plural_title }} {% endblock %}
+
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <h1 class="main-title">{{ object_list.0.content_type.plural_title }}</h1>
+
+  <p>Interactive features to help you engage more actively in the ideas, images and themes of this website.</p>
+
+  <ul class="menu-gallery four-across">
+  {% for object in object_list %}
+    <li>
+    	<a class="pop_item" href="{% url 'special:feature_detail' object.slug %}">
+    	 <img src="{% static 'special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
+    	 <span class="menu-title">{{ object.short_type_display|safe }}</span>{{ object.title|safe }}
+    	 {{ object.menu_blurb|safe }}
+      </a>
+	</li>
+
+  {% endfor %}
+
+  </ul>   
+
+
+{% endblock content_area %}

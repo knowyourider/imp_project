@@ -6,7 +6,7 @@ class FrameInline(admin.TabularInline):
     extra = 2
 
 class FeatureAdmin(admin.ModelAdmin):
-    change_form_template = 'supporting/admin/narr_m_mblurb_change_form.html'
+    change_form_template = 'special/admin/narr_m_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
             'source', 'menu_blurb', 'map_blurb', 'description', 'narrative']}),

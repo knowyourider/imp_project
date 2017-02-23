@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^fullspecial/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
         name='fullspecial_detail_slide'),    
     url(r'^fullspecial/(?P<slug>\S+)/$', views.special_detail, name='fullspecial_detail'),  
+
     # -- team pages  
     url(r'^team/evidenceitem/$', views.EvidenceItemListView.as_view(template_name=\
         "supporting/team_item_list.html"), name='team_evidenceitem_list'),
