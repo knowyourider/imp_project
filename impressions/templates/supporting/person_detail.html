@@ -14,6 +14,10 @@
 <img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="oval double-border">
 <p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
+{% if object.status_num == 2 %}
+	<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>
+{% endif %}
+
 {{ object.narrative|safe }}
 
 {% endblock slim_content %}
