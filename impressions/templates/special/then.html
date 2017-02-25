@@ -1,0 +1,40 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Then &amp; Now {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<!-- d3.min.js' needs to be called in head -->
+
+<svg class="double-border" width="100%" height="100%" viewbox="0 0 1000 562"> 
+<g transform="translate(0,0)">
+  <!-- <clipPath id="clip">
+    <circle cx="333" cy="127.5" r="100"></circle>
+  </clipPath> -->
+  <image x="0" y="0" xlink:href="
+  	{% static 'special/then/fullpics/' %}{{ slide.image_name }}.jpg" 
+  	width="1000" height="562"/>
+
+  <image xlink:href=
+  	"{% static 'special/then/fullpics/' %}{{ slide.get_next.image_name }}.jpg" 
+  	width="1000" height="562" id="doc-image" />
+</g>
+</svg>
+
+<!-- <script src="{% static 'js/lens-d3.js' %}" type="text/javascript"></script> -->
+<script type="text/javascript">
+	// since this is in a slim called by ajax we can't just list the script directly
+	$.getScript("{% static 'js/lens-d3.js' %}");
+</script>
+
+
+<p class="caption slim-caption">{{ object.caption }} Image courtesy of 
+{{ object.source.institution|safe }}.</p>
+
+{{ object.narrative|safe }}
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}

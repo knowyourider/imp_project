@@ -10,9 +10,9 @@ urlpatterns = [
     url(r'^feature/(?P<slug>\S+)/$', views.feature_detail, name='feature_detail'),  
 
     # full page versions of the above 
-    # url(r'^fullspecial/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
-    #     name='fullspecial_detail_slide'),    
-    # url(r'^fullspecial/(?P<slug>\S+)/$', views.special_detail, name='fullspecial_detail'),  
+    url(r'^fullfeature/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.feature_detail, \
+        name='fullfeature_detail_slide'),    
+    url(r'^fullfeature/(?P<slug>\S+)/$', views.feature_detail, name='fullfeature_detail'),  
 
 
     # url(r'^special/(?P<slug>\S+)/$', views.SpecialDetailView.as_view(), name='special_detail'),

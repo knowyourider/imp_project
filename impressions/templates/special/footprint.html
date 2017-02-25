@@ -1,0 +1,65 @@
+{% extends extend_base %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Activity {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+<script type="text/javascript">
+	var numOfCorrect = {{slide.num_correct}};
+</script>
+
+<script type="text/javascript">
+	// since this is in a slim called by ajax we can't just list the script directly
+	$.getScript('{% static "js/footprint.js" %}', function() {
+	  // Set variable after script is loaded.
+	  var numOfCorrect = {{slide.num_correct}};
+	});
+</script>
+
+<section class="activity-col">
+	{% block activity_image %}
+
+		{% with "special/footprint_includes/_"|add:slide.image_name|add:".html" as template %}
+		    {% include template %}
+		{% endwith %}
+
+	{% endblock activity_image %}
+</section>
+
+<section class="activity-controls-col">
+	{% block activity_controls %}
+
+		<h4 class="heading slim-subhead">How to:</h4>
+	  <p>Click on the footprint(s) in each image. Click "show me" to reveal all the footprints. Click "next" to proceed.</p>
+		
+		<ul class="activities-controls">
+			<li id="feedback">Feedback...</li>
+			<li id="score">found: 0 of 4</li>
+			<li><a class="show" href="#">show me</a></li>
+
+			{% block full_links %}
+			<li>
+	          {% if slide.get_prev %}
+	            <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
+	          {% else %}
+	            <span class="no-more">&lArr; Previous</span>
+	          {% endif %}
+	         &diams;
+	         <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug 0 %}">Intro</a>
+	         &diams;
+	          {% if slide.get_next %}
+	            <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug slide.get_next.slide_num %}">Next &rArr;</a>
+	          {% else %}
+	            <span class="no-more">Next &rArr;</span>
+	          {% endif %}
+			</li>
+			{% endblock full_links %}
+
+		</ul>
+
+	{% endblock activity_controls %}
+</section>
+
+{% endblock slim_content %}
+{% block related_items%}{% endblock related_items%}

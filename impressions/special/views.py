@@ -13,9 +13,10 @@ class FeatureListView(ListView):
 def feature_detail(request, slug, slide_num_arg=0):
     """
     Lots of "special" cases, so opting for a def.
-    The urls need to stay consistent with other supporting types, so info about sub-types
-    has to come from the object itself (not from extra params)
+    Legacy from supporting types, so info about sub-types
+    came from the object itself (not from url name)
     The slide_num_arg is optional, so far for interactives and slideshow
+    Slide is the legacy model name, but I'm using Frame in order to avoid conflict
     """
     object = get_object_or_404(Feature, slug=slug)
     # each type has its own template
@@ -24,10 +25,10 @@ def feature_detail(request, slug, slide_num_arg=0):
 
     # determine whether this is the stand-alone version of the URL
     # If so, set extend_base to 'supporting/base_detail_alone.html'
-    # 2nd slice will be either special or fullspecial
+    # 2nd slice will be either feature or fullfeature
     url_version = request.path_info.split("/")[2]
     extend_base = 'supporting/base_detail.html'
-    if (url_version == 'fullspecial'):
+    if (url_version == 'fullfeature'):
         extend_base = 'supporting/base_detail_alone.html'
         
     # print("--- extend_base: " + extend_base)
@@ -50,7 +51,7 @@ def feature_detail(request, slug, slide_num_arg=0):
             special_type += "_intro"
 
         # add _full for full url version of footpring
-        if (url_version == 'fullspecial'):
+        if (url_version == 'fullfeature'):
             special_type += "_full"
 
         # print("special_type in slideshow: " + special_type)
