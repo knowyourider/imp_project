@@ -1,0 +1,16 @@
+{% extends "special/slideshow.html" %}
+{% load staticfiles %}
+
+{% block slideshow_controls %}
+
+  <h4 class="heading slim-subhead">About this Slideshow</h4>
+  <p>{{ slide.narrative}}</p>
+
+	<ul class="activities-controls">
+		<li>
+	  <a class="swap_pop" 
+	    href="{% url 'special:feature_detail_slide' object.slug 1 %}">View Slideshow &rArr;</a>
+		</li>
+	</ul>
+	
+{% endblock slideshow_controls %}

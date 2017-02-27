@@ -12,6 +12,7 @@ $(document).ready(function(){
     var chosen_href = $(event.target).closest('a').attr('href');
     var href_split = chosen_href.split('/');    
     // href_split[2] = person, evidence, fastfact, special
+    var slimpopSizeClass = href_split[2];
 
     // test mobile for find-footprints and test state of mobile menu
     if (href_split[3] == "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
@@ -19,7 +20,7 @@ $(document).ready(function(){
       window.location.href = fullHref;
     } else {
       // call ajax for the slim pop. (href, size class)
-      slimPop(chosen_href, href_split[2]);  
+      slimPop(chosen_href, slimpopSizeClass);  
     }
 
   });

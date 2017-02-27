@@ -1,0 +1,26 @@
+{% extends "special/footprint.html" %}
+{% load staticfiles %}
+
+{% block title %}
+	Impressioins - Activity: {{ object.title|safe }}
+{% endblock %}
+
+{% block activity_image %}
+	<div id="slideshow-image">
+		<img src="{% static 'special/footprint/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+    <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
+	</div> <!-- #slideshow-image -->
+{% endblock activity_image %}
+
+
+{% block activity_controls %}
+	<h4 class="heading slim-subhead">About this interactive</h4>
+  <p>{{ slide.narrative}}</p>
+	
+	<ul class="activities-controls">
+		<li>{% block link_next %}
+	      <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
+      	{% endblock link_next %}
+		</li>
+	</ul>
+{% endblock activity_controls %}

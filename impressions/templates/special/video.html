@@ -1,0 +1,25 @@
+{% extends "supporting/base_detail.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Video Story {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<div id="video-content">
+
+	<video width="560" height="315" controls="controls">
+		<source src="{% static 'special/video/media/' %}{{ object.slug}}.webm" type="video/webm">
+		<source src="{% static 'special/video/media/' %}{{ object.slug}}.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+
+	<p class="caption slim-caption">{{ object.caption }} Video courtesy of {{ object.source.institution|safe }}.</p>
+
+	{{ object.narrative|safe }}
+	
+</div><!-- /video-content -->
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}

@@ -104,6 +104,16 @@
         </li>
       {% endfor %}
       
+      {% for feature in chapter.featured_specials.all %}
+
+        <li>
+          <a class="pop_item" href="{% url 'special:feature_detail' feature.slug %}">
+          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+            {{ feature.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      
     </ul>
   
   </section><!--/dig-deeper -->
