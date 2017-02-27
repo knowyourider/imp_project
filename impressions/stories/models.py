@@ -56,9 +56,9 @@ class Chapter(AssociationMixin, models.Model):
     fastfacts = models.ManyToManyField('supporting.FastFact', 
         verbose_name='Fast Facts related to this item', blank=True)
     special_features = models.ManyToManyField('supporting.Special', 
-        verbose_name='Special Features related to this item', blank=True)
+        verbose_name='OBSOLETE Special Features related to this item', blank=True)
     featured_specials = models.ManyToManyField('special.Feature', 
-        verbose_name='New TRANSITIONAL Special Features related to this item', blank=True)
+        verbose_name='Special Features related to this item', blank=True)
 
     # next chapter, empty if none
     def get_next(self):

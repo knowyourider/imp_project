@@ -94,16 +94,6 @@
         </li>
       {% endfor %}
 
-      {% for special in chapter.special_features.all %}
-
-        <li>
-          <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
-          <img src="{% static 'supporting/special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
-            {{ special.title|safe }}
-          </a>
-        </li>
-      {% endfor %}
-      
       {% for feature in chapter.featured_specials.all %}
 
         <li>

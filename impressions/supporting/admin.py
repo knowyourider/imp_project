@@ -130,6 +130,7 @@ class PlaceAdmin(admin.ModelAdmin):
 
 admin.site.register(Place, PlaceAdmin)
 
+"""
 class SlideInline(admin.TabularInline):
     model = Slide
     extra = 2
@@ -149,4 +150,4 @@ class SpecialAdmin(admin.ModelAdmin):
     search_fields = ['title', 'slug']
 
 admin.site.register(Special, SpecialAdmin)
-
+"""
