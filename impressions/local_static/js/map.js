@@ -364,21 +364,19 @@ function setSites(siteListJson, layerShortName) {
 	markerList = [];
 	for (var i = 0; i < siteListJson.length; i++) {
 		// create HTML for popup
-		var popHtml = "<p>" + siteListJson[i].site_type_verbose + "<br />" +  
-			"<strong>" + siteListJson[i].site_info.title + "</strong> </p>" + 
+		var popHtml = "<p><strong>" + siteListJson[i].title + "</strong> </p>" + 
 			// don't know why, but src attribute needs to not be quoted
-			"<img src=/static/supporting/" + siteListJson[i].site_type + "/menupics/" + 
-				siteListJson[i].short_name  + ".jpg>" + siteListJson[i].site_info.map_blurb;
-
+			"<img src=/static/supporting/place/menupics/" + 
+				siteListJson[i].slug  + ".jpg>" + siteListJson[i].map_blurb;
 		markerList.push(L.marker([siteListJson[i].latitude, 
 			siteListJson[i].longitude]).bindPopup(popHtml));
-
 		// create HTML for site list links
 		// since we're creating the array all we need is the index in order to pop it up
 		siteLinks += '<li><a class="site_link" href="' + i + '">' 
-			+ siteListJson[i].site_info.title + "</a></li>" // site_info.title
-
+			+ siteListJson[i].title + "</a></li>" // site_info.title
 	} // end for 
+
+
 	siteLinks += "</ul>";
 
 	// set site links for sidebar

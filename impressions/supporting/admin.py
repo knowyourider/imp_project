@@ -117,11 +117,11 @@ class PlaceAdmin(admin.ModelAdmin):
     change_form_template = 'supporting/admin/narr_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'caption', 'source', 
-            'map_blurb']}),
+            'map_blurb', 'latitude', 'longitude']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug', 'truncated_map_blurb')
+    list_display = ('title', 'slug','latitude', 'longitude', 'truncated_map_blurb')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 

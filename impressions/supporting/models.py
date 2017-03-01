@@ -262,6 +262,10 @@ class Place(CommonSupportingModel):
     narrative = models.TextField('Description / Label', blank=True, default='')
     # has_image = models.BooleanField(default=False)
     map_blurb = models.TextField(blank=True, default='')
+    latitude = models.FloatField(blank=True, null=True,
+        help_text="Decimal degrees. Right click on google maps - What's Here.")
+    longitude = models.FloatField(blank=True, null=True,
+        help_text="Decimal degrees, U.S. negative")
 
     class Meta:
         verbose_name = "Place of Interest"

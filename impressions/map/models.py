@@ -3,7 +3,8 @@ from core.models import AssociationMixin
 from django.apps import apps
 from django.core.exceptions import ObjectDoesNotExist
 import json
-
+# from django.core import serializers
+# from django.http import JsonResponse
 
 class Layer(AssociationMixin, models.Model):
     """
@@ -18,7 +19,7 @@ class Layer(AssociationMixin, models.Model):
     ordinal = models.IntegerField('List order', default=99)
     # evidence, contexts, people from AssociationMixin
     sites = models.ManyToManyField('map.Site', blank=True)
-    # verbose_name='Sites for this layer', 
+    places = models.ManyToManyField('supporting.Place', blank=True)
 
     def layer_list(self):
         return Layer.objects.all()
@@ -27,41 +28,16 @@ class Layer(AssociationMixin, models.Model):
         return Overlay.objects.all()
 
     def site_list(self):
-
         # info to hand off to JavaScript for map popups
         # get the detail layer object and its list of sites
-        site_list = self.sites.all()   
-
-        # use values() to create dictionary-type object so we can iterate
-        site_list_of_dicts = site_list.values()
-
-        # To values list Add titles and blurbs from associated supporting records   
-        # for-loop version easier to read, works, but comprehension might be faster
-        # site_info defined in Sites model
-        for idx, row in enumerate(site_list_of_dicts):
-            # print('site_list_of_dicts[' + str(idx) + ']: ' + 
-            #    site_list_of_dicts[idx]['short_name'] + ' site_info: ' + 
-            #    site_list[idx].site_info['title'])
-            # print('row id:' + str(row['id']))
-            # was: row['site_info'] = site_list[idx].site_info
-            # don't depend on index - insure that we get the site info for this row 
-            #    in the enumeration
-            site_object = Site.objects.get(pk=row['id'])
-            # add the corresponding site_info (defined in model) to this row
-            row['site_info'] = site_object.site_info
-            row['site_type_verbose'] = site_object.site_type_verbose
-            #row.update( { "test": "test" } )
-        
-        # comprehension version
-        # first, creat the function that will generate the new value
-        # Looks like we can't use assignment inside comprehension. Tabling this
-        # site_list_values_plus = [row['site_info'] = site_list[1].site_info for 
-        #    row in site_list_values]
+        site_list = self.places.all()   
+        # use values() to create "flat" dictionary (excluding sub-lists)
+        site_list_of_dicts = site_list.values('slug', 'title', 'map_blurb', 'latitude', 
+            'longitude')
 
         # site_list_of_dicts is actually a ValuesQuerySet
         # so we need to turn it into an actual list
         # and then use json.dumps to create json from list
-
         return json.dumps(list(site_list_of_dicts))
 
     class Meta:
