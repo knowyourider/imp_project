@@ -49,12 +49,13 @@ class EvidenceItemAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title', 'slug', 'evidence_type', # 'caption',
             'source','creator', 'dimensions', 'materials', 'creation_year', 'is_circa',
-            'accession_num', 'map_blurb', 'narrative']}),
+            'accession_num', 'narrative']}),
         ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes']}),
+            'edit_date', 'notes', 'map_blurb']}),
     ]
     inlines = [PageInline]
+    readonly_fields = ('map_blurb',)
     list_display = ('title', 'slug', 'image_img', 'evidence_type', 'creation_year', 
         'status_num')
     list_per_page = 40

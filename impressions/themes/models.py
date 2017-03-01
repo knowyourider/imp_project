@@ -25,6 +25,8 @@ class Theme(AssociationMixin, CommonModel):
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
     source = models.ForeignKey('core.Source', default=1)
+    featured_specials = models.ManyToManyField('special.Feature', 
+        verbose_name='Special Features related to this item', blank=True)
 
     # next, prev theme, false if none
     def get_next(self):

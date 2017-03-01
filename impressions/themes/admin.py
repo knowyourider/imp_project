@@ -6,11 +6,12 @@ class ThemeAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,	{'fields': ['title', 'subtitle', 'slug', 'author', 'image_name', 
             'caption', 'source', 'menu_blurb', 'narrative']}),
-        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 
+            'featured_specials']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}), # , 'classes': ['collapse']
     ]
-    filter_horizontal = ['people', 'evidence', 'contexts']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'featured_specials']    
     list_display = ('title',  'slug', 'author', 'ordinal', 'status_num')
     search_fields = ['title', 'slug']
 

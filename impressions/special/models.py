@@ -42,7 +42,8 @@ class Feature(CommonSupportingModel):
         ordering = ['ordinal']
         
     def __str__(self):
-        return self.title       
+        # return self.title       
+        return self.special_type + ": " + self.title
 
 
 class Frame(models.Model):

@@ -63,10 +63,10 @@
         </li>
       {% endfor %}
       
-      {% for special in object.special_features.all %}
+      {% for special in object.featured_specials.all %}
         <li>
-          <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
-          <img src="{% static 'supporting/special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
+          <a class="pop_item" href="{% url 'special:feature_detail' special.slug %}">
+          <img src="{% static 'special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
             {{ special.title }}
           </a>
         </li>
