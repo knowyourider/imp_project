@@ -22,9 +22,7 @@ def zoom_exists(filepath):
 
 @register.filter(name='supporting_image_exists')
 def file_exists(filepath):
-
     full_filepath = settings.BASE_DIR + '/supporting/static/supporting/' + filepath # + '.jpg'
-
     # print("--- filepath: " + filepath)
     # print("--- full_filepath: " + full_filepath)
     if default_storage.exists(full_filepath):
@@ -35,11 +33,18 @@ def file_exists(filepath):
         return new_filepath
 
 
+@register.filter(name='supporting_image_truefalse')
+def file_exists(filepath):
+    full_filepath = settings.BASE_DIR + '/supporting/static/supporting/' + filepath # + '.jpg'
+    print("--- filepath: " + filepath)
+    print("--- full_filepath: " + full_filepath)
+    return default_storage.exists(full_filepath)
+
+
+# Not used
 @register.filter(name='file_exists')
 def file_exists(filepath):
-
     full_filepath = settings.STATIC_ROOT + '/' + filepath
-
     print("--- full_filepath: " + full_filepath)
     if default_storage.exists(full_filepath):
         return filepath

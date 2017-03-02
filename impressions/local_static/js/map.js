@@ -368,15 +368,22 @@ function setSites(siteListJson, layerShortName) {
 			// don't know why, but src attribute needs to not be quoted
 			"<img src=/static/supporting/place/menupics/" + 
 				siteListJson[i].slug  + ".jpg>" + siteListJson[i].map_blurb;
-		markerList.push(L.marker([siteListJson[i].latitude, 
-			siteListJson[i].longitude]).bindPopup(popHtml));
-		// create HTML for site list links
-		// since we're creating the array all we need is the index in order to pop it up
-		siteLinks += '<li><a class="site_link" href="' + i + '">' 
-			+ siteListJson[i].title + "</a></li>" // site_info.title
+		// create marker, with popHtml
+		console.log(" --- siteListJson[i].latitude: " + siteListJson[i].latitude);	
+		// make sure there's a valid lat and long
+		if (siteListJson[i].latitude && siteListJson[i].longitude) {
+			// add marker
+			// since we're creating the array all we need is the index in order to pop it up
+			markerList.push(L.marker([siteListJson[i].latitude, 
+				siteListJson[i].longitude]).bindPopup(popHtml));
+			// add to HTML for site list links
+			siteLinks += '<li><a class="site_link" href="' + i + '">' +
+				siteListJson[i].title + "</a></li>" 		
+		} else {
+			siteLinks += '<li>' + siteListJson[i].title + " (missing lat, long)</li>" // site_info.title		
+		}
+
 	} // end for 
-
-
 	siteLinks += "</ul>";
 
 	// set site links for sidebar

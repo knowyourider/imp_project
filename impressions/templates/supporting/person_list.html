@@ -46,7 +46,6 @@
   <h3 class="heading">People Related to the Story</h3>
 
   <ul class="menu-grid people-tertiary">
-    <li><a href="">Thomas Cole</a></li>
   {% for person0 in object_list.0.minor_person_list %}
 
     <li><a class="pop_item" href="{% url 'supporting:person_detail' person0.slug %}">{{ person0.title_prefix|safe }} {{ person0.first_name|safe }} 

@@ -1,5 +1,5 @@
 {% extends "supporting/base_detail.html" %}
-{% load staticfiles %}
+{% load staticfiles image_extras  %}
 
 {% block heading %}{{ object.content_type.plural_title }} {% endblock %}
 
@@ -11,8 +11,11 @@
 
 {% block slim_content%}
 
-<img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="oval double-border">
-<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+{% if 'person/fullpics/'|add:object.slug|add:'.jpg'|supporting_image_truefalse %}
+	<img src="{% static 'supporting/person/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="oval double-border">
+	<p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+{% endif %}
+
 
 {% if object.status_num == 2 %}
 	<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>

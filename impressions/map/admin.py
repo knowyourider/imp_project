@@ -23,9 +23,12 @@ class OverlayAdmin(admin.ModelAdmin):
 
 admin.site.register(Overlay, OverlayAdmin)
 
+
+"""
 class SiteAdmin(admin.ModelAdmin):
     fields = ['site_type', 'short_name', 'latitude', 'longitude']
     list_display = ('short_name', 'site_type', 'latitude', 'longitude')
     list_filter     = ['site_type'] 
 
 admin.site.register(Site, SiteAdmin)
+"""
