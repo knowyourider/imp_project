@@ -21,7 +21,8 @@
 		  	{% for person in object.people.all %}
 		    <li>
 		      <a class="swap_pop" href="{% url 'supporting:person_detail' person.slug %}">
-		        {{ person.first_name }} {{ person.last_name }}
+		        {{ person.title_prefix|safe }} {{ person.first_name|safe }} 
+		        {{ person.middle_name|safe }} {{ person.last_name|safe }} {{ person.suffix|safe }}
 		      </a>
 		    </li>
 			  {% endfor %}
