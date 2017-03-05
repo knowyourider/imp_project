@@ -5,3 +5,30 @@
   .dinospot:hover {
     fill: #fed402;
     fill-opacity: 0.5; }
+
+.tooltip {
+  pointer-events:none; /*let mouse events pass through*/
+  opacity:0;
+  transition: opacity 0.3s;
+  /* don's additions 
+  text-shadow:1px 1px 0px gray;
+  font-family: sans-serif;  */
+  font-size: 0.83em;
+  color: #000000;
+}
+
+div.tooltip {
+  background: lightblue;
+  border:solid gray;
+  position: absolute;
+  max-width: 12em;
+  text-align:left;
+}
+g.tooltip:not(.css) {
+  fill:currentColor;
+}
+g.tooltip rect {
+  fill: lightblue;
+  stroke: gray;
+}
+

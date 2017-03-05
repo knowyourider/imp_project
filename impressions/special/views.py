@@ -50,7 +50,8 @@ def feature_detail(request, slug, slide_num_arg=0):
         if (slide_num_arg==0 and special_type != "then"):
             special_type += "_intro"
 
-        # add _full for full url version of footpring
+        # add _full for full url version of footprint
+        # Maybe _full should go before intro, cover for all special types
         if (url_version == 'fullfeature'):
             special_type += "_full"
 
@@ -60,6 +61,11 @@ def feature_detail(request, slug, slide_num_arg=0):
         return render(request, "special/" + special_type + ".html", 
             {'object': object, 'slide': slide, 'extend_base': extend_base})
     else:
+        # add _full for full url version of jurassic
+        # Refactor to avoid duplication
+        # if (url_version == 'fullfeature'):
+        #     special_type += "_full"
+
         return render(request, "special/" + special_type + ".html", 
             {'object': object, 'extend_base': extend_base})
         
