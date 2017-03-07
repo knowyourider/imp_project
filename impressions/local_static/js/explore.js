@@ -11,14 +11,15 @@ $(document).ready(function(){
         // console.log(" --- bbox width: " + $(event.target)[0].getBBox().width);
         var targetBBox = $(event.target)[0].getBBox();
         // get the target text
+        var targetTitle = $(event.target).parent().find("title").html();
         var targetText = $(event.target).parent().find("text").html();
         // set the tooltip text
-        $(".tooltip").html(targetText);
+        $(".tooltip").html(targetTitle);
         // get the height of box with current text
         var textBoxHeight = $(".tooltip").height();
 
         // console.log(" -- textbox height: " + $(".tooltip").height());
-        // console.log(" -- text: " + targetText);
+        // console.log(" -- text: " + targetTitle);
         
         //for the HTML tooltip, we're not interested in a
         //transformation relative to an internal SVG coordinate

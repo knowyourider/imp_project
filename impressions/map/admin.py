@@ -5,12 +5,12 @@ class LayerAdmin(admin.ModelAdmin):
     change_form_template = 'map/admin/layer_blurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'era_description', 'layer_blurb']}), 
-        ('Sites',   {'fields': ['sites', 'places']}),
+        ('Places of Interest',   {'fields': ['places']}),
         ('Related supporting (like Dig Deeper)',   {'fields': ['people', 'evidence', 
             'contexts']}),
         ('Behind the scenes',   {'fields': ['ordinal', 'layer_index']}), #layer_identifier
     ]
-    filter_horizontal = ['people', 'evidence', 'contexts', 'sites', 'places']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'places']    
     list_display = ('title', 'era_description', 'slug' )
 
 admin.site.register(Layer, LayerAdmin)

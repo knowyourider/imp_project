@@ -9,9 +9,9 @@ class FeatureAdmin(admin.ModelAdmin):
     change_form_template = 'special/admin/narr_m_mblurb_change_form.html'
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'special_type', 'caption', 
-            'source', 'menu_blurb', 'map_blurb', 'description', 'narrative']}),
-        ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
-            'edit_date', 'notes']}),
+            'source', 'menu_blurb', 'description', 'narrative']}),
+        ('Behind the scenes',   {'fields': ['status_num', 'is_on_menu', 'ordinal', 
+            'edited_by', 'edit_date', 'notes']}),
     ]
     inlines = [FrameInline]
     list_display = ('title', 'slug', 'image_img', 'special_type', 'status_num')

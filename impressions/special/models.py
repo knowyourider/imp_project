@@ -26,6 +26,7 @@ class Feature(CommonSupportingModel):
     description = models.TextField(blank=True, default='')
     narrative = models.TextField('Narrative / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
+    is_on_menu = models.BooleanField('Show on Special Features Menu', default=True)
 
     # in the case of Activities we want to display only "Activities",
     # not the sub type
