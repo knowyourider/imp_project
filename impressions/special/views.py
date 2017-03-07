@@ -5,7 +5,7 @@ from .models import Feature, Frame
 
 class FeatureListView(ListView):
     #model = Special
-    queryset = Feature.objects.filter(status_num__gte=1)
+    queryset = Feature.objects.filter(status_num__gte=1, is_on_menu=True)
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 

@@ -14,9 +14,10 @@ class FeatureAdmin(admin.ModelAdmin):
             'edited_by', 'edit_date', 'notes']}),
     ]
     inlines = [FrameInline]
-    list_display = ('title', 'slug', 'image_img', 'special_type', 'status_num')
+    list_display = ('title', 'slug', 'image_img', 'special_type', 'on_menu',
+        'status_num')
     list_per_page = 40
-    list_filter     = ['special_type', 'status_num'] 
+    list_filter     = ['special_type', 'status_num', 'is_on_menu'] 
     search_fields = ['title', 'slug']
 
 admin.site.register(Feature, FeatureAdmin)

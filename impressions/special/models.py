@@ -38,6 +38,12 @@ class Feature(CommonSupportingModel):
                     '.jpg" width="100" height="75"/>')    
     image_img.short_description = 'Thumb'
 
+    def on_menu(self):
+        # short name for display list
+        return self.is_on_menu
+    on_menu.short_description = 'menu'
+    on_menu.boolean = True
+
     class Meta:
         verbose_name = "Special Feature"
         ordering = ['ordinal']
