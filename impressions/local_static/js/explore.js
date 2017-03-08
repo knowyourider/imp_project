@@ -13,8 +13,9 @@ $(document).ready(function(){
         // get the target text
         var targetTitle = $(event.target).parent().find("title").html();
         var targetText = $(event.target).parent().find("text").html();
-        // set the tooltip text
+        // set the tooltip and narrative text
         $(".tooltip").html(targetTitle);
+        $("#narrative").html(targetText);
         // get the height of box with current text
         var textBoxHeight = $(".tooltip").height();
 
