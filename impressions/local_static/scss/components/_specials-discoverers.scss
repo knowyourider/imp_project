@@ -1,0 +1,47 @@
+// Grid of Faces - Discoverers
+table.discoverers {
+
+	td {
+		background-color: transparentize($light-taupe, 0.5);
+		border: $base-border;
+  	font-weight: normal;
+  	padding: $tiny-spacing;
+  	text-align: center;
+
+		img {
+			border: none;
+			display: block;
+		}
+
+		img:hover {
+			opacity: 0.75;
+		}
+
+		a span.name {
+			font-size: $smallish-font-size;
+		}
+
+		a:hover {
+			//background-color: yellow;
+		}
+
+		div.discoverers-vote {
+
+			border-top: $base-border;
+			font-family: $utility-font-family;
+			font-size: $small-font-size;
+
+			a:link {
+				color: $dark-taupe;
+				text-decoration: underline;
+				display: block;
+				float: left;
+				width: 50%;
+			}
+
+			label {
+				display: inline;
+			}
+		}
+	}
+}
