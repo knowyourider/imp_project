@@ -29,7 +29,7 @@ var froalaChapter = {
 		},
 		{
 			displayText: 'Special (Voices)',
-			href: '/supporting/special/'
+			href: '/special/feature/'
 		},
 		{
 			displayText: 'Context',
