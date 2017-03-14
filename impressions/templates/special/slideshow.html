@@ -1,4 +1,4 @@
-{% extends "supporting/base_detail.html" %}
+{% extends extend_base %}
 {% load staticfiles %}
 
 {% block heading %}{{ object.content_type.plural_title }} - Slideshow {% endblock %}
@@ -18,19 +18,19 @@
 
 <section class="slideshow-controls-col">
   {% block slideshow_controls %}
-
+    {# link_class will either be swap_pop (normal for slmins, or noclas, for fullscreen) #}
   	<ul class="activities-controls">
   		<li>
         {% if slide.get_prev %}
-          <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
+          <a class="{{ link_class }}"  href="{% url 'special:'|add:link_name object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
         {% else %}
           <span class="no-more">&lArr; Previous</span>
         {% endif %}
        &diams;
-       <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug 0 %}">Intro</a>
+       <a class="{{ link_class }}"  href="{% url 'special:'|add:link_name object.slug 0 %}">Intro</a>
        &diams;
         {% if slide.get_next %}
-          <a class="swap_pop"  href="{% url 'special:feature_detail_slide' object.slug slide.get_next.slide_num %}">Next &rArr;</a>
+          <a class="{{ link_class }}"  href="{% url 'special:'|add:link_name object.slug slide.get_next.slide_num %}">Next &rArr;</a>
         {% else %}
           <span class="no-more">Next &rArr;</span>
         {% endif %}

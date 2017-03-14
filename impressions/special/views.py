@@ -4,11 +4,65 @@ from .models import Feature, Frame
 
 
 class FeatureListView(ListView):
-    #model = Special
+    #model = Feature
     queryset = Feature.objects.filter(status_num__gte=1, is_on_menu=True)
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 
+class SimpleFeatureDetailView(DetailView):
+    """
+    """
+    model = Feature
+    # context_object_name = 'object'
+    # template_name = determined by url conf
+    # in the case of full screen extend_base will be overridden by url conf
+    extend_base = 'supporting/base_detail.html'
+    
+    # get extend_base into context 
+    def get_context_data(self, **kwargs):
+        context = super(SimpleFeatureDetailView, self).get_context_data(**kwargs)
+        context.update({'extend_base': self.extend_base})
+        return context
+    
+
+class SlideFeatureDetailView(DetailView):
+    """
+    The model for "slides" is called Frame (for legacy reasons)
+    """
+    model = Feature
+    # context_object_name = 'object'
+    # template_name = determined by url conf
+    # in the case of full screen extend_base will be overridden by url conf
+    extend_base = 'supporting/base_detail.html'
+    # overridden by url conf with True, if fullscreen
+    # is_fullscreen = False
+    link_name = "must-be-set-by-url"
+    # overridden by url conf with "noclass" if fullscreen
+    link_class = "swap_pop"
+    
+    # get extend_base into context 
+    def get_context_data(self, **kwargs):
+        context = super(SlideFeatureDetailView, self).get_context_data(**kwargs)
+        # get the feature object
+        feature_object = super(SlideFeatureDetailView, self).get_object()
+
+        # use slide_num from param, if it's there
+        if 'slide_num' in self.kwargs:
+            slide_num_arg = self.kwargs['slide_num']
+            # print(" --- slide num in kwargs: " + str(slide_num_arg))
+        else: # otherwise, this is zero - the intro
+            slide_num_arg = 0
+            # print(" --- slide num zeero: " + str(slide_num_arg))
+
+        # get the frame (slide) object
+        slide = get_object_or_404(Frame, feature_id=feature_object.id, 
+            slide_num=slide_num_arg)
+
+        # add variables to context
+        context.update({'extend_base': self.extend_base, 'slide': slide,
+        'link_name': self.link_name, 'link_class': self.link_class })
+        return context
+    
 
 def feature_detail(request, slug, slide_num_arg=0):
     """
@@ -29,7 +83,7 @@ def feature_detail(request, slug, slide_num_arg=0):
     url_version = request.path_info.split("/")[2]
     extend_base = 'supporting/base_detail.html'
     if (url_version == 'fullfeature'):
-        extend_base = 'supporting/base_detail_alone.html'
+        extend_base = 'supporting/base_detail_full.html'
         
     # print("--- extend_base: " + extend_base)
 

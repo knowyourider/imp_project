@@ -72,7 +72,7 @@ class EvidenceItemListView(FormMixin, ListView):
     queryset = EvidenceItem.objects.filter(status_num__gte=1)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
-    # paginate_by=21
+    # paginate_by=21 -- supplied by url conf
     form_class = EvidenceItemSearchForm
     init_data = {'q': ''}
 
