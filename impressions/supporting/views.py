@@ -208,11 +208,11 @@ class PersonDetailView(DetailView):
     # context_object_name = 'object'
     # template_name = 'supporting/person_detail.html'
 
-class SpecialListView(ListView):
-    #model = Special
-    queryset = Special.objects.filter(status_num__gte=1)
-    # context_object_name = 'object_list'
-    # template_name = 'supporting/special_list.html' 
+# class SpecialListView(ListView):
+#     #model = Special
+#     queryset = Special.objects.filter(status_num__gte=1)
+#     # context_object_name = 'object_list'
+#     # template_name = 'supporting/special_list.html' 
 
 def special_detail(request, slug, slide_num_arg=0):
     """

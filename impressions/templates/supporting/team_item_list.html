@@ -20,10 +20,19 @@
 	{% for object in object_list %}
 	<tr>
 		<td>
-			<img class="thumb" src="{% static 'supporting/'|add:object_list.0.content_type.slug|add:'/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}">
+			{% if object_list.0.content_type.slug == 'feature' %}
+				<img class="thumb" src="{% static 'special/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}">
+			{% else %}
+				<img class="thumb" src="{% static 'supporting/'|add:object_list.0.content_type.slug|add:'/menupics/'|add:object.slug|add:'.jpg' %}"  alt="image of {{ object.slug}}">
+			{% endif %}
+
 		</td>
 		<td>
-			<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>			
+			{% if object_list.0.content_type.slug == 'feature' %}
+				<em>{{ object.title|safe }}</em>
+			{% else %}
+				<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>			
+			{% endif %}
 		</td>
 		<td>
 			<ul>

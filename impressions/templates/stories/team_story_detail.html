@@ -39,9 +39,10 @@
 		        </li>
 		      {% endfor %}
 
-		      {% for special in chapter.special_features.all %}
+		      {% for special in chapter.featured_specials.all %}
 		        <li>
-		          Special - {{ special.special_type }}: <a class="pop_item" href="{% url 'supporting:special_detail' special.slug %}">
+		          Special - {{ special.special_type }}: <a class="pop_item" 
+		          href="{% url 'special:'|add:special.special_type|add:'_detail' special.slug %}">
 		            {{ special.title|safe }}
 		          </a>
 		        </li>

@@ -28,23 +28,6 @@ urlpatterns = [
     url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), name='person_detail_pk'),
     url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), name='person_detail'),
 
-    # url(r'^special/$', views.SpecialListView.as_view(), name='special_list'),
-    # # url(r'^special/(?P<slug>\S+)/$', views.SpecialDetailView.as_view(), name='special_detail'),
-    # # url(r'^special/find-footprints/(?P<image_name>\S+)/$', views.special_f\ootprint, 
-    # #     name='special_footprint'),    
-    # # url(r'^special/(?P<slug>\S+)/(?P<slide_num>\d+)/$', views.SlideDetailView.as_view(), 
-    # #   name='special_footprint'),
-    # # url(r'^special/interactive/(?P<slug>\S+)/$', 
-    # #     views.SlideDetailView.as_view(template_name="supporting/special_detail/interactive.html"), 
-    # #     name='special_interactive'),
-    # url(r'^special/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
-    #     name='special_detail_slide'),    
-    # url(r'^special/(?P<slug>\S+)/$', views.special_detail, name='special_detail'),   
-    # # full page versions of the above 
-    # url(r'^fullspecial/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.special_detail, \
-    #     name='fullspecial_detail_slide'),    
-    # url(r'^fullspecial/(?P<slug>\S+)/$', views.special_detail, name='fullspecial_detail'),  
-
     # -- team pages  
     url(r'^team/evidenceitem/$', views.EvidenceItemListView.as_view(template_name=\
         "supporting/team_item_list.html"), name='team_evidenceitem_list'),
@@ -52,7 +35,6 @@ urlpatterns = [
         "supporting/team_item_list.html"), name='team_person_list'),
     url(r'^team/context/$', views.ContextListView.as_view(template_name=\
         "supporting/team_item_list.html"), name='team_context_list'),
-    url(r'^team/special/$', views.SpecialListView.as_view(template_name=\
-        "supporting/team_item_list.html"), name='team_special_list'),
+    # url for special list in special/urls.py
     url(r'^team/$', views.TeamTemplateView.as_view(), name='team_type_list'),
 ]

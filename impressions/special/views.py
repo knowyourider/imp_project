@@ -9,6 +9,9 @@ class FeatureListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 
+class TeamFeatureListView(FeatureListView):
+    template_name = 'supporting/team_item_list.html' 
+
 class FeatureDetailView(DetailView):
     """
     To be sub classed for each special view

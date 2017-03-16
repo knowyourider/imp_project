@@ -109,5 +109,8 @@ urlpatterns = [
     url(r'^full/footprint/(?P<slug>\S+)/$', 
         views.IntroFullFootprintDetailView.as_view(), name='full_footprint_detail'),
 
+    #  ------ TEAM ---
+    url(r'^team/feature/$', views.TeamFeatureListView.as_view(), \
+        name='team_special_list'),
 
 ]
