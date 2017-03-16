@@ -20,8 +20,8 @@
 	<ul class="activities-controls">
 		<li>
 		{% block link_next %}
-	      <a class="swap_pop"  
-	      	href="{% url 'special:feature_detail_slide' object.slug 1 %}">Try it! &rArr;</a>
+	      <a class="{{ link_class }}"  
+	      	href="{% url 'special:'|add:link_name object.slug 1 %}">Try it! &rArr;</a>
       	{% endblock link_next %}
 		</li>
 	</ul>

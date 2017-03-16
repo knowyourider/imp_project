@@ -1,4 +1,4 @@
-{% extends "supporting/base_detail.html" %}
+{% extends extend_base %}
 {% load staticfiles %}
 
 {% block heading %}{{ object.content_type.plural_title }} - Then &amp; Now {% endblock %}
@@ -13,12 +13,10 @@
   <!-- <clipPath id="clip">
     <circle cx="333" cy="127.5" r="100"></circle>
   </clipPath> -->
-  <image x="0" y="0" xlink:href="
-  	{% static 'special/then/fullpics/' %}{{ slide.image_name }}.jpg" 
+  <image x="0" y="0" xlink:href="{% static 'special/then/fullpics/' %}{{ slide.image_name }}.jpg" 
   	width="1000" height="562"/>
 
-  <image xlink:href=
-  	"{% static 'special/then/fullpics/' %}{{ slide.get_next.image_name }}.jpg" 
+  <image xlink:href="{% static 'special/then/fullpics/' %}{{ slide.get_next.image_name }}.jpg" 
   	width="1000" height="562" id="doc-image" />
 </g>
 </svg>

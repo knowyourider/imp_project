@@ -9,7 +9,7 @@ register = template.Library()
 def zoom_exists(filepath):
     # filepath = settings.STATIC_URL + "/supporting/evidenceitem/zooms/" + slug + "/TileGroup0/0-0-0.jpg"
 
-    print("--- filepath: " + filepath)
+    # print("--- filepath: " + filepath)
 
     if default_storage.exists(filepath):
         # return filepath
@@ -36,8 +36,8 @@ def file_exists(filepath):
 @register.filter(name='supporting_image_truefalse')
 def file_exists(filepath):
     full_filepath = settings.BASE_DIR + '/supporting/static/supporting/' + filepath # + '.jpg'
-    print("--- filepath: " + filepath)
-    print("--- full_filepath: " + full_filepath)
+    # print("--- filepath: " + filepath)
+    # print("--- full_filepath: " + full_filepath)
     return default_storage.exists(full_filepath)
 
 
@@ -45,7 +45,7 @@ def file_exists(filepath):
 @register.filter(name='file_exists')
 def file_exists(filepath):
     full_filepath = settings.STATIC_ROOT + '/' + filepath
-    print("--- full_filepath: " + full_filepath)
+    # print("--- full_filepath: " + full_filepath)
     if default_storage.exists(full_filepath):
         return filepath
     else:

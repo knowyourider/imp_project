@@ -14,46 +14,13 @@
   <ul class="menu-gallery four-across">
   {% for object in object_list %}
     <li>
-      <a class="pop_item" href="{% url 'special:feature_detail' object.slug %}">
+      <a class="pop_item" href="{% url 'special:'|add:object.special_type|add:'_detail' object.slug %}">
        <img src="{% static 'special/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" >
        <span class="menu-title">{{ object.short_type_display|safe }}</span>{{ object.title|safe }}
        {{ object.menu_blurb|safe }}
       </a>
   </li>
   {% endfor %}
-
-    <li>
-      <a class="pop_item" href="{% url 'special:video_detail' 'rainy-day' %}">
-       <span class="menu-title">video</span>rainy day
-       blurb goes here
-      </a>
-    </li>
-
-    <li>
-    	<a href="{% url 'special:full_video_detail' 'rainy-day' %}">
-    	 <span class="menu-title">Full video</span>rainy day
-    	 full video
-      </a>
-  	</li>
-
-    # slideshow
-    <li>
-      <a class="pop_item" href="{% url 'special:slideshow_intro_detail' 'orra-landscapes' %}">
-       <span class="menu-title">slideshow</span>orra's landscape
-       blurb goes here
-      </a>
-    </li>
-    <li>
-      <a href="#">
-       <span class="menu-title">Full slideshow</span>'orra-landscapes'
-       
-      </a>
-    </li>
-
-
-
   </ul>   
-
-
 
 {% endblock content_area %}

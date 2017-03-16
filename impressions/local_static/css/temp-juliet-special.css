@@ -1,12 +1,11 @@
+/* feature should be obsolete */
 .feature {
   max-width: 85%;
   max-height: 85%; }
 
-.video {
-  max-width: 85%;
-  max-height: 85%; }
 
-.slideshow {
+.slideshow, .footprint, .video, .voices,
+.then, .looking, .explore {
   max-width: 85%;
   max-height: 85%; }
 

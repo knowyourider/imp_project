@@ -9,35 +9,31 @@ class FeatureListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 
-class SimpleFeatureDetailView(DetailView):
+class FeatureDetailView(DetailView):
     """
+    To be sub classed for each special view
     """
     model = Feature
     # context_object_name = 'object'
-    # template_name = determined by url conf
-    # in the case of full screen extend_base will be overridden by url conf
+    # template_name = feature_detail.html - there's a placeholder for this
+    # Default is for slim pop. Sub classe will override for fullscreen
     extend_base = 'supporting/base_detail.html'
     
     # get extend_base into context 
     def get_context_data(self, **kwargs):
-        context = super(SimpleFeatureDetailView, self).get_context_data(**kwargs)
+        context = super(FeatureDetailView, self).get_context_data(**kwargs)
         context.update({'extend_base': self.extend_base})
-        return context
-    
+        return context    
 
-class SlideFeatureDetailView(DetailView):
+
+class SlideFeatureDetailView(FeatureDetailView):
     """
     The model for "slides" is called Frame (for legacy reasons)
     """
-    model = Feature
-    # context_object_name = 'object'
-    # template_name = determined by url conf
-    # in the case of full screen extend_base will be overridden by url conf
-    extend_base = 'supporting/base_detail.html'
-    # overridden by url conf with True, if fullscreen
-    # is_fullscreen = False
-    link_name = "must-be-set-by-url"
-    # overridden by url conf with "noclass" if fullscreen
+    # template_name = determined by sub class
+    # extend_base - default from FeatureDetailView, or override in sub class
+    link_name = "must-be-overridden-by-subclass-if-needed"
+    # link_class overridden by subclass with "noclass" if fullscreen
     link_class = "swap_pop"
     
     # get extend_base into context 
@@ -59,12 +55,112 @@ class SlideFeatureDetailView(DetailView):
             slide_num=slide_num_arg)
 
         # add variables to context
-        context.update({'extend_base': self.extend_base, 'slide': slide,
+        context.update({'slide': slide,
         'link_name': self.link_name, 'link_class': self.link_class })
         return context
-    
 
-def feature_detail(request, slug, slide_num_arg=0):
+# ----------- NON-SLIDE FEATURES ---------
+
+# ---- VIDEO ---
+class VideoDetailView(FeatureDetailView):
+    template_name = "special/video.html"
+    
+class FullVideoDetailView(VideoDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+ 
+
+# ---- VOICES ---
+class VoiceDetailView(FeatureDetailView):
+    template_name = "special/voices.html"
+    
+class FullVoiceDetailView(VoiceDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+ 
+
+# ---- EXPLORE ---
+#  default
+class ExploreDetailView(FeatureDetailView):
+    template_name="special/explore.html"
+
+#  full screen 
+class FullExploreDetailView(ExploreDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+
+
+# ----------- SLIDE-BASED FEATURES ---------
+
+# ---- THEN and NOW ---
+#  default
+class ThenDetailView(SlideFeatureDetailView):
+    template_name="special/then.html"
+
+#  full screen 
+class FullThenDetailView(ThenDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+
+
+# ---- LOOKING ---
+#  default
+class LookingDetailView(SlideFeatureDetailView):
+    template_name="special/looking.html"
+
+#  full screen 
+class FullLookingDetailView(LookingDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+
+
+# ---- SLIDESHOW ---
+#  with slide number
+class SlideshowDetailView(SlideFeatureDetailView):
+    template_name="special/slideshow.html"
+    link_name = "slideshow_slide_detail"
+    # link_class = "swap_pop" -- default
+
+# default - intro
+class IntroSlideshowDetailView(SlideshowDetailView):
+    template_name="special/slideshow_intro.html"
+
+#  full screen with slide number
+class FullSlideshowDetailView(SlideFeatureDetailView):
+    template_name="special/slideshow.html"
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'full_slideshow_slide_detail'
+    link_class = 'noclass'
+
+# full screen default - intro  
+class IntroFullSlideshowDetailView(FullSlideshowDetailView):
+    template_name="special/slideshow_intro.html"
+    
+    
+# ---- FOOTPRINTS ---
+#  with slide number
+class FootprintDetailView(SlideFeatureDetailView):
+    template_name="special/footprint.html"
+    link_name = "footprint_slide_detail"
+    # link_class = "swap_pop" -- default
+
+# default - intro
+class IntroFootprintDetailView(FootprintDetailView):
+    template_name="special/footprint_intro.html"
+
+#  full screen with slide number
+class FullFootprintDetailView(SlideFeatureDetailView):
+    template_name="special/footprint.html"
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'full_footprint_slide_detail'
+    link_class = 'noclass'
+
+# full screen default - intro  
+class IntroFullFootprintDetailView(FullFootprintDetailView):
+    template_name="special/footprint_intro.html"
+
+# --- exception - for footprint ----   
+def special_footprint(request, image_name):
+
+    template_name = "special/footprint_includes/_" + image_name + ".html"
+    return render(request, template_name, {'dummy': 'dummy'})
+ 
+
     """
     Lots of "special" cases, so opting for a def.
     Legacy from supporting types, so info about sub-types
@@ -72,6 +168,8 @@ def feature_detail(request, slug, slide_num_arg=0):
     The slide_num_arg is optional, so far for interactives and slideshow
     Slide is the legacy model name, but I'm using Frame in order to avoid conflict
     """
+"""    
+def feature_detail(request, slug, slide_num_arg=0):
     object = get_object_or_404(Feature, slug=slug)
     # each type has its own template
     # template_name = "supporting/special_detail/" + object.special_type + ".html"
@@ -123,8 +221,4 @@ def feature_detail(request, slug, slide_num_arg=0):
         return render(request, "special/" + special_type + ".html", 
             {'object': object, 'extend_base': extend_base})
         
-def special_footprint(request, image_name):
-
-    template_name = "special/footprint_includes/_" + image_name + ".html"
-    return render(request, template_name, {'dummy': 'dummy'})
-
+"""
