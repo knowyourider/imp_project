@@ -55,8 +55,6 @@ class Chapter(AssociationMixin, models.Model):
     # contexts, people and evidence manys supplied by Association Mixin
     fastfacts = models.ManyToManyField('supporting.FastFact', 
         verbose_name='Fast Facts related to this item', blank=True)
-    special_features = models.ManyToManyField('supporting.Special', 
-        verbose_name='OBSOLETE Special Features related to this item', blank=True)
     featured_specials = models.ManyToManyField('special.Feature', 
         verbose_name='Special Features related to this item', blank=True)
 

@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.http import JsonResponse, HttpResponse
 # import json
 from django.core import serializers
-from .models import Layer, Overlay, Site
+from .models import Layer, Overlay
 
 
 # class MapListView(ListView):
