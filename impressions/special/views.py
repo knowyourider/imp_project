@@ -92,6 +92,11 @@ class FullExploreDetailView(ExploreDetailView):
 
 # ----------- SLIDE-BASED FEATURES ---------
 
+# ---- DISCOVERERS ---
+#  default
+class DiscoverersDetailView(SlideFeatureDetailView):
+    template_name="special/discoverers.html"
+
 # ---- THEN and NOW ---
 #  default
 class ThenDetailView(SlideFeatureDetailView):

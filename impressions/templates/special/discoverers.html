@@ -1,0 +1,19 @@
+{% extends extend_base %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Discoverers intro {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+<div id="video-content">
+
+<p>placeholder for discoverers</p>
+
+	{{ object.narrative|safe }}
+	
+</div><!-- /video-content -->
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}

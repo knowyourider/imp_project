@@ -18,3 +18,10 @@ Changing url path for Special Features
 	UPDATE stories_chapter SET narrative = REPLACE(narrative, '/supporting/special/','/special/feature/')
 
 	UPDATE stories_chapter SET narrative = REPLACE(narrative, '/special/feature/','/special/voices/')
+
+Multiple databases
+--------------------
+
+Migrate is separate
+::
+	./manage.py migrate --database=imp_voting

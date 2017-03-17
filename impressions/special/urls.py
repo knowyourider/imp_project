@@ -37,10 +37,6 @@ urlpatterns = [
     url(r'^full/voices/(?P<slug>\S+)/$', 
         views.FullVoiceDetailView.as_view(), name='full_voices_detail'),
 
-    #  ------ THEN AND NOW ---
-    url(r'^then/(?P<slug>\S+)/$', 
-        views.ThenDetailView.as_view(), name='then_detail'),
-
     url(r'^full/then/(?P<slug>\S+)/$', 
         views.FullThenDetailView.as_view(), name='full_then_detail'),
 
@@ -52,6 +48,14 @@ urlpatterns = [
         views.FullExploreDetailView.as_view(), name='full_explore_detail'),
 
     # ----------- SLIDE-BASED FEATURES ---------
+
+    #  ------ DICOVERERS ---
+    url(r'^dicoverers/(?P<slug>\S+)/$', 
+        views.DiscoverersDetailView.as_view(), name='discoverers_detail'),
+
+    #  ------ THEN AND NOW ---
+    url(r'^then/(?P<slug>\S+)/$', 
+        views.ThenDetailView.as_view(), name='then_detail'),
 
     #  ------ LOOKING ---
     url(r'^looking/(?P<slug>\S+)/$', 
