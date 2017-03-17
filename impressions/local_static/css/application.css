@@ -1074,6 +1074,13 @@ ul.chapter-nav li:hover ol.chapter-subnav {
 #video-content {
   width: 500px; }
 
+.society-question {
+  font-size: 1.25em;
+  font-style: italic; }
+
+.activities-controls label {
+  display: inline; }
+
 table.discoverers td {
   background-color: rgba(179, 170, 152, 0.5);
   border: 1px solid #b3aa98;
