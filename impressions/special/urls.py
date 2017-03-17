@@ -65,8 +65,8 @@ urlpatterns = [
         views.FullLookingDetailView.as_view(), name='full_looking_detail'),
 
     #  ------ SLIDESHOW ---
-    # Zero param must also go to intro. e're dependent on the link_name 
-    # Wthat distinguishes full from slim pop, so we can't just use 
+    # Zero param must also go to intro. We're dependent on the link_name 
+    # which distinguishes full from slim pop, so we can't just use 
     # slideshow_detail (no int param) for the link in nav
     url(r'^slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
         views.IntroSlideshowDetailView.as_view(), name='slideshow_detail'),
@@ -79,7 +79,7 @@ urlpatterns = [
     url(r'^slideshow/(?P<slug>\S+)/$', 
         views.IntroSlideshowDetailView.as_view(), name='slideshow_detail'),
 
-    # zero version of intro
+    # zero version of full intro
     url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
         views.IntroFullSlideshowDetailView.as_view(), name='slideshow_detail'),
 
@@ -104,6 +104,10 @@ urlpatterns = [
     # default - intro
     url(r'^footprint/(?P<slug>\S+)/$', 
         views.IntroFootprintDetailView.as_view(), name='footprint_detail'),
+
+    # zero version of full intro
+    url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+        views.IntroFullFootprintDetailView.as_view(), name='full_footprint_detail'),
 
     #  full screen with slide number
     url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
