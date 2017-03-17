@@ -45,20 +45,27 @@ class SlideFeatureDetailView(FeatureDetailView):
         # get the feature object
         feature_object = super(SlideFeatureDetailView, self).get_object()
 
-        # use slide_num from param, if it's there
-        if 'slide_num' in self.kwargs:
-            slide_num_arg = self.kwargs['slide_num']
-            # print(" --- slide num in kwargs: " + str(slide_num_arg))
-        else: # otherwise, this is zero - the intro
-            slide_num_arg = 0
-            # print(" --- slide num zeero: " + str(slide_num_arg))
+        # return an error message if no slides have been entered in admin
+        if feature_object.frame_set.all():
+            # use slide_num from param, if it's there
+            if 'slide_num' in self.kwargs:
+                slide_num_arg = self.kwargs['slide_num']
+                # print(" --- slide num in kwargs: " + str(slide_num_arg))
+            else: # otherwise, this is zero - the intro
+                slide_num_arg = 0
+                # print(" --- slide num zeero: " + str(slide_num_arg))
 
-        # get the frame (slide) object
-        slide = get_object_or_404(Frame, feature_id=feature_object.id, 
-            slide_num=slide_num_arg)
+            # get the frame (slide) object
+            slide = get_object_or_404(Frame, feature_id=feature_object.id, 
+                slide_num=slide_num_arg)
+            error_msg = None
+        else:
+            slide = None
+            error_msg = "Error: For feature at least one slide has to be " + \
+                "defined in Admin."
 
         # add variables to context
-        context.update({'slide': slide,
+        context.update({'slide': slide, 'error_msg': error_msg,
         'link_name': self.link_name, 'link_class': self.link_class })
         return context
 

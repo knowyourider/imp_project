@@ -41,7 +41,13 @@
   	</ul>
 
     <h4 class="heading slim-subhead">About this Image</h4>
-    <p>{{ slide.narrative}}</p>
+
+    {% if error_msg %}
+      <p class="error-msg">{{ error_msg }}</p>
+    {% else %}
+      <p>{{ slide.narrative}}</p>
+    {% endif %}
+
 
   {% endblock slideshow_controls %}
 </section>
