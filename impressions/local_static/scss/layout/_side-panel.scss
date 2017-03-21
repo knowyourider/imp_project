@@ -24,7 +24,7 @@
 
 // for Evidence and Backdrops Menus
 .control-panel {
-	background-color: $top-nav-background-color;
+	//background-color: $top-nav-background-color;
 	color: $accent-color;
 	padding: $base-spacing;
 	// for small displays
@@ -33,7 +33,7 @@
 	//for large displays:
   @include media($large-screen) {
 		@include span-columns(4);
-		//height: 90vh;
+		padding-bottom: $xlarge-spacing;
 	}
 
 	ul {

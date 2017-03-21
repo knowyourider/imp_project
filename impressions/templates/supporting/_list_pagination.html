@@ -4,11 +4,11 @@
   <nav id="paging">
     <ul class="previous">
       {% if page_obj.has_previous %}
-        <li class="page-nav prev-link">
-          <a href="?page={{ page_obj.previous_page_number }}">&lang; prev</a>
+        <li class="prev-link">
+          <a href="?page={{ page_obj.previous_page_number }}">&lArr; prev</a>
         </li>
       {% else %}
-        <li class="page-nav--disabled prev-link">&lang; prev</li>
+        <li class="page-nav--disabled prev-link">&lArr; prev</li>
       {% endif %}
     </ul>
 
@@ -27,14 +27,13 @@
 
     <ul class="next">
       {% if page_obj.has_next %}
-        <li class="page-nav next-link">
-          <a href="?page={{ page_obj.next_page_number }}">next &rang;</a>
+        <li class="next-link">
+          <a href="?page={{ page_obj.next_page_number }}">next &rArr;</a>
         </li>
       {% else %}
-        <li class="page-nav--disabled next-link">next &rang;</li>
+        <li class="page-nav--disabled next-link">next &rArr;</li>
       {% endif %}
 
     </ul>
   </nav><!--/paging -->
   {% endif %}
-

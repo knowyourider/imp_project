@@ -1,0 +1,18 @@
+// Voices
+.voices {
+	width: 50vw;
+
+	blockquote {
+  margin-left: 0;
+
+	  p {
+	    font-style: italic;
+	  }
+
+	  cite {
+	    font-family: $utility-font-family;
+	    font-size: $smallish-font-size;
+	    font-style: normal;
+	  }
+	}
+}

@@ -96,8 +96,8 @@
 .squares {
 
 	li {
-	  @include span-columns(1.5);
-	  @include omega(7n);
+	  @include span-columns(1.5 of 8);
+	  @include omega(5n);
 	}
 }
 
