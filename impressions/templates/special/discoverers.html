@@ -6,13 +6,13 @@
 
 {% block slim_content%}
 
-<div id="video-content">
+<section class="chapter">
+	<div class="chapter-image">
 
-<p>placeholder for discoverers</p>
-
-	{{ object.narrative|safe }}
+		{% include "special/discoverers_includes/_whose-discovery-3.html" %}
 	
-</div><!-- /video-content -->
+	</div><!-- /video-content -->
+</section>
 
 {% endblock slim_content %}
 
