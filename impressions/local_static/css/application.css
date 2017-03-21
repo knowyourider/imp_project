@@ -730,22 +730,22 @@ blockquote {
   border-radius: 50%; }
 
 .people-primary {
-  margin-left: 38.842%; }
+  margin-top: 3.2em; }
   .people-primary li {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 16.83441%; }
     .people-primary li:last-child {
       margin-right: 0; }
   @media screen and (min-width: 55em) {
     .people-primary {
-      margin-left: 34.11922%; }
+      margin-left: 12.79471%; }
       .people-primary li {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 23.23176%; }
+        width: 14.70196%; }
         .people-primary li:last-child {
           margin-right: 0; } }
 
@@ -753,12 +753,12 @@ blockquote {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 14.70196%; }
+  width: 10.43705%; }
   .people-secondary li:last-child, .people-tertiary li:last-child {
     margin-right: 0; }
-  .people-secondary li:nth-child(6n), .people-tertiary li:nth-child(6n) {
+  .people-secondary li:nth-child(8n), .people-tertiary li:nth-child(8n) {
     margin-right: 0; }
-  .people-secondary li:nth-child(6n+1), .people-tertiary li:nth-child(6n+1) {
+  .people-secondary li:nth-child(8n+1), .people-tertiary li:nth-child(8n+1) {
     clear: left; }
 @media screen and (min-width: 55em) {
   .people-secondary li, .people-tertiary li {
