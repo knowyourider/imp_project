@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
 
+{# juliet: assimilate these styles #}
   <style type="text/css">
-    .about {
-      max-height: 600px;
-      width: 550px; }
 
   .map-layers {
     margin-bottom: 0.2em; }
@@ -47,7 +45,7 @@
 <div class="map-wrapper">
   <section class="map-control-panel">
     
-    <h2 class="heading map-subtitle">Show Maps</h2>
+    <h2 class="heading map-subtitle">Show Maps</h2><!-- map-subtitle class? is this a don hack? -->
     <p class="prompt">check the boxes below to show/hide maps.</p>
 
     <form id="overlay_form" action="#">
@@ -68,7 +66,7 @@
         </li>
       </ul>
 
-      <ul class="prompt">
+      <ul class="prompt"><!-- this class is a don hack -->
         <li>
           <label for="id_10">
             <input id="id_10" name="lake" type="radio" value="0" /> Lake 15,600 BC
@@ -92,22 +90,9 @@
 
         <li><a id="clear_lake" href="#">clear</a></li>
 
-        <!-- <li>
-          <label for="id_4">
-            <input id="id_4" name="lake" type="radio" value="99" /> None
-          </label>
-        </li> -->
-
       </ul>
 
     </form>
-
-    <!--
-    <h2 class="heading">About This Map</h2>
-    <div id="about_map_ajax_wrapper">
-      <p>--</p>
-    </div>
-    -->
 
   </section>
 
@@ -121,7 +106,7 @@
 
 <section class="map-locations-panel">
 
-  <h2 class="heading map-subtitle">Show Locations</h2>
+  <h2 class="heading map-subtitle">Show Locations</h2><!-- map-subtitle class? is this a don hack? -->
     
   <form id="loc_sets" action="#">
     <ul class="map-locations">

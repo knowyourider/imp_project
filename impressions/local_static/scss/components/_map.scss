@@ -129,3 +129,8 @@
   overflow: scroll;
   padding: $small-spacing;
 }
+
+.map-left-col, .map-middle-col, .map-right-col {
+	@include span-columns(4);
+	text-align: left;
+}

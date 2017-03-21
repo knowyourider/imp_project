@@ -616,6 +616,15 @@ blockquote {
   overflow: scroll;
   padding: 0.8em; }
 
+.map-left-col, .map-middle-col, .map-right-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  text-align: left; }
+  .map-left-col:last-child, .map-middle-col:last-child, .map-right-col:last-child {
+    margin-right: 0; }
+
 .menus {
   text-align: center; }
 
@@ -1199,12 +1208,13 @@ dl.slim-curatorial {
   max-height: 85%; }
 
 .footer {
-  border-top: 1px solid #5d5853;
-  width: 100%;
   background: #65605a;
-  height: 80px;
+  border-top: 1px solid #5d5853;
+  color: rgba(255, 244, 228, 0.7);
+  overflow: auto;
   padding: 0.8em;
-  text-align: center; }
+  text-align: center;
+  width: 100%; }
   @media screen and (min-width: 55em) {
     .footer {
       padding-bottom: 6.4em; } }
