@@ -1,12 +1,13 @@
 // bottom navigation
 .footer {
-  border-top: 1px solid $panel-darken-color;
-  width: 100%; 
   background: $footer-background-color;
-  height: $bottom-navigation-height;
+  border-top: 1px solid $panel-darken-color;
+  //height: $bottom-navigation-height;  
+  color: $footer-link-color;
+  overflow: auto;
   padding: $small-spacing;
   text-align: center;
-
+  width: 100%; 
 // if viewport is larger than 880em, make more space at bottom
   @include media($large-screen) {
     padding-bottom: $xlarge-spacing;
