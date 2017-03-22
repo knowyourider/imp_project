@@ -18,7 +18,7 @@
 
    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
-    <script src="js/intro-slideshow" type="text/javascript"></script>
+    <script src="js/intro-slideshow.js" type="text/javascript"></script>
     
 </head>
 
@@ -28,25 +28,42 @@
   <h1 class="main-title">Impressions From a Lost World</h1>
   <h3><em>The discovery of dinosaur tracks in New England that changed 19th century America.</em></h3>
 
-  <div id="intro_slideshow">
-    <div>
-      <img src="images/jurassic-landscape.jpg">
-      <p class="caption">The Connecticut River Valley as it might have looked 250,000,000 years ago when dinosaurs roamed the area.</p>   
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img src="images/jurassic-landscape.jpg" style="width:100%">
+      <div class="text">The Connecticut River Valley as it might have looked 250,000,000 years ago when dinosaurs roamed the area.</div>
     </div>
-    <div>
-      <img src="images/expanding-world.jpg">
-      <p class="caption">Lorem ipsum blah blah blah</p>   
-    </div>
-    <div>
-      <img src="images/brontozoum-track-slab.jpg">
-      <p class="caption">3rd slide -- Lorem ipsum blah blah blah</p>   
-    </div>
-    <div>
-      <img src="images/nash-quarry-with-tracks.jpg">
-      <p class="caption">Lorem ipsum blah blah blah. -- 4th slide</p>   
-    </div>
-  </div>
 
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 4</div>
+      <img src="images/expanding-world.jpg" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 4</div>
+      <img src="images/brontozoum-track-slab.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img src="images/nash-quarry-with-tracks.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" name="1"></span> 
+    <span class="dot" name="2"></span> 
+    <span class="dot" name="3"></span> 
+    <span class="dot" name="4"></span> 
+  </div>
 
 </div>
 
