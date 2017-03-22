@@ -1,34 +1,28 @@
+// For Jurassic Landscape
 .dinospot {
-  stroke: #b12b00;
-  fill: #fed402; 
-  fill-opacity: 0.1; }
-  .dinospot:hover {
-    fill: #fed402;
-    fill-opacity: 0.5; }
+  //stroke: #b12b00;
+  fill: $action-color; 
+  fill-opacity: 0;
+}
+
+.dinospot:hover {
+  fill: $action-color;
+  fill-opacity: 0.5;
+}
 
 .tooltip {
-  pointer-events:none; /*let mouse events pass through*/
-  opacity:0;
+  color: $dark-taupe;
+  font-size: $small-font-size;
+  opacity: 0;
+  padding: $tiny-spacing;
+  pointer-events: none; /*let mouse events pass through*/
   transition: opacity 0.3s;
-  /* don's additions 
-  text-shadow:1px 1px 0px gray;
-  font-family: sans-serif;  */
-  font-size: 0.83em;
-  color: #000000;
 }
 
 div.tooltip {
-  background: lightblue;
-  border:solid gray;
-  position: absolute;
+  background: $base-background-color;
+  border: 1px solid $light-taupe;
   max-width: 12em;
+  position: absolute;
   text-align:left;
 }
-g.tooltip:not(.css) {
-  fill:currentColor;
-}
-g.tooltip rect {
-  fill: lightblue;
-  stroke: gray;
-}
-
