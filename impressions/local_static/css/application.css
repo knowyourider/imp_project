@@ -1055,30 +1055,30 @@ g.tooltip rect {
   fill: lightblue;
   stroke: gray; }
 
-table.discoverers td {
+table.discoverers-faces td {
   background-color: rgba(179, 170, 152, 0.5);
   border: 1px solid #b3aa98;
   font-weight: normal;
   padding: 0.4em;
   text-align: center; }
-  table.discoverers td img {
+  table.discoverers-faces td img {
     border: none;
     display: block; }
-  table.discoverers td img:hover {
+  table.discoverers-faces td img:hover {
     opacity: 0.75; }
-  table.discoverers td a span.name {
+  table.discoverers-faces td a span.name {
     font-size: 0.9em; }
-  table.discoverers td div.discoverers-vote {
+  table.discoverers-faces td div.discoverers-vote {
     border-top: 1px solid #b3aa98;
     font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
     font-size: 0.8em; }
-    table.discoverers td div.discoverers-vote a:link {
+    table.discoverers-faces td div.discoverers-vote a:link {
       color: #65605a;
       text-decoration: underline;
       display: block;
       float: left;
       width: 50%; }
-    table.discoverers td div.discoverers-vote label {
+    table.discoverers-faces td div.discoverers-vote label {
       display: inline; }
 
 .footprint {
@@ -1291,7 +1291,7 @@ dl.slim-curatorial {
   width: 650px; }
 
 .slideshow, .footprint, .video, .voices,
-.then, .looking, .explore {
+.then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }
 
