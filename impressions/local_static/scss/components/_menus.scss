@@ -109,23 +109,25 @@
 }
 
 .people-primary {
-	@include shift(3);
+	margin-top: $large-spacing;
+
 	li {
-		@include span-columns(4);
+		@include span-columns(2.25);
 	}
 
   @include media($large-screen) {
-		@include shift(4);
+	
+	@include shift(1.5);
 		li {
-			@include span-columns(3);
+			@include span-columns(2);
 		} 
 	}
 }
 
 .people-secondary, .people-tertiary {
 	li {
-		@include span-columns(2);
-		@include omega(6n);
+		@include span-columns(1.5);
+		@include omega(8n);
 	}
 
   @include media($large-screen) {

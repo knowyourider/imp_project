@@ -9,7 +9,7 @@
 
   <h1 class="main-title">People</h1>
 
-  <p>These short biographies are arranged in three groups: The Hitchcocks, primary characters and related people.</p>
+  <p>Biographies of the five people who are central to our story.<br>Also short biographies of other people whose lives and contributions intersected with the discovery of the tracks.</p>
 
   <ul class="menu-grid people-primary">
 
@@ -18,8 +18,8 @@
     <li>
       <a class="pop_item" href="{% url 'supporting:person_detail' person2.slug %}">
         <img src="{% static 'supporting/person/menupics/' %}{{ person2.slug }}.jpg"  alt="image of {{ person2.slug}}" >
-        <em>{{ person2.title_prefix|safe }} {{ person2.first_name|safe }} 
-        {{ person2.middle_name|safe }} {{ person2.last_name|safe }} {{ person2.suffix|safe }}</em>
+        <span class="heading">{{ person2.title_prefix|safe }} {{ person2.first_name|safe }} 
+        {{ person2.middle_name|safe }} {{ person2.last_name|safe }} {{ person2.suffix|safe }}</span>
       </a>
     </li>
 
