@@ -1182,6 +1182,51 @@ table.discoverers-faces td {
   opacity: 1;
   z-index: 100; }
 
+.slideshow-container {
+  padding-top: 1.6em;
+  position: relative;
+  margin: auto; }
+  .slideshow-container img {
+    border: double #b3aa98;
+    width: 100%; }
+
+.mySlides {
+  display: none; }
+
+.text {
+  padding: 8px 12px;
+  width: 100%;
+  text-align: center; }
+
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease; }
+
+.active, .dot:hover {
+  background-color: #717171; }
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
 .voices {
   width: 50vw; }
   .voices blockquote {

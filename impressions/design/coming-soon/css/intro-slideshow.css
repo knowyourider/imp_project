@@ -5,6 +5,10 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
+
+  img {
+    width: 100%;
+  }
 }
 
 .mySlides {
