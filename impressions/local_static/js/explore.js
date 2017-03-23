@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$(document).on("click", ".dinospot", function(event){
 	    event.preventDefault();
 
+        var textBoxHeightOffset = 15;
 		$('.tooltip').css("opacity", "1");
 
         // get target element bounding box
@@ -44,7 +45,7 @@ $(document).ready(function(){
         
         var styles = {
           left : (matrix.e - slimOffset.left) + "px",
-          top: (matrix.f - (slimOffset.top + textBoxHeight -
+          top: (matrix.f - (slimOffset.top + textBoxHeight + textBoxHeightOffset -
             $(document).scrollTop())) + "px"
         };
 
