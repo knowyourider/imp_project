@@ -149,6 +149,17 @@ class IntroFullSlideshowDetailView(FullSlideshowDetailView):
     
 # ---- FOOTPRINTS ---
 #  with slide number
+class SocietyDetailView(SlideFeatureDetailView):
+    template_name="special/society.html"
+    link_name = "society_slide_detail"
+    # link_class = "swap_pop" -- default
+
+# default - intro
+class IntroSocietyDetailView(SocietyDetailView):
+    template_name="special/society_intro.html"
+
+# ---- FOOTPRINTS ---
+#  with slide number
 class FootprintDetailView(SlideFeatureDetailView):
     template_name="special/footprint.html"
     link_name = "footprint_slide_detail"

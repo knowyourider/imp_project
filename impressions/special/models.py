@@ -17,6 +17,7 @@ class Feature(CommonSupportingModel):
         ('footprint','Activity: Footprints'),
         ('explore','Activity: Explore'),
         ('discoverers','Whose Discovery'),
+        ('society','Activity: Ladies Literary Society'),
     )
     FEATURE_CONTENT_TYPE_ID = 10
     content_type = models.ForeignKey('core.ContentType', 

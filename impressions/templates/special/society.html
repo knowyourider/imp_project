@@ -1,0 +1,57 @@
+{% extends extend_base %}
+{% load staticfiles %}
+
+{% block heading %}{{ object.content_type.plural_title }} - Activity {% endblock %}
+{% block item_title %}{{ object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+	
+
+<div class="activity-col">
+
+		<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+
+</div>
+
+<section class="activity-controls-col">
+{% block optional_intro %}
+  {% if error_msg %}
+    <p class="error-msg">{{ error_msg }}</p>
+  {% else %}
+    <p class="society-question">{{ slide.narrative}}</p>
+  {% endif %}
+
+
+  <p>How would you answer this question?</p>
+
+  <ul class="activities-controls">
+    <li>
+      <label for="yes">Affirmative</label>
+      <input type="checkbox" name="vote" id="yes">
+
+      <label for="no">Negative</label>
+      <input type="checkbox" name="vote" id="no">
+    </li>
+
+    <li>
+      <a class="swap_pop" href="activity-society/question01-answer.html">Submit</a>
+    </li>
+      
+    <hr/>
+    <li>Question {{ slide.slide_num }} of 12</li>
+
+  </ul>
+  {# Juliet - I ended this ul here because another, shared one starts next #}
+
+  {% block slideshow_controls %}
+
+    {% include 'special/_slide_nav.html' %}
+
+  {% endblock slideshow_controls %}
+{% endblock optional_intro %}
+
+</section>
+
+{% endblock slim_content %}
+
+{% block related_items%}{% endblock related_items%}

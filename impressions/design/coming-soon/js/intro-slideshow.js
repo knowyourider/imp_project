@@ -13,7 +13,7 @@ $(document).ready(function(){
 	    slideIndex++;	
 		showSingle(slideIndex);	    
 	    // set the timer
-	    timer = setTimeout(showSlides, 4000); // Change image every 2 seconds
+	    timer = setTimeout(showSlides, 7000); // 1000 = a second
 	}
 
 	function showSingle(n) {

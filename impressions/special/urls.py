@@ -92,6 +92,19 @@ urlpatterns = [
         views.IntroFullSlideshowDetailView.as_view(), name='full_slideshow_detail'),
 
 
+    #  ------ SOCIETY ---
+    # zero version of intro
+    url(r'^society/(?P<slug>\S+)/(?P<slide_num>[0])/$', 
+        views.IntroSocietyDetailView.as_view(), name='society_detail'),
+
+    #  with slide number
+    url(r'^society/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+        views.SocietyDetailView.as_view(), name='society_slide_detail'),
+
+    # default - intro
+    url(r'^society/(?P<slug>\S+)/$', 
+        views.IntroSocietyDetailView.as_view(), name='society_detail'),
+
     #  ------ FOOTPRINTS ---
     # zero version of intro
     url(r'^footprint/(?P<slug>\S+)/(?P<slide_num>[0])/$', 

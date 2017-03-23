@@ -1,0 +1,21 @@
+{# link_class will either be swap_pop (normal for slmins, or noclas, for fullscreen) #}
+<ul class="activities-controls">
+	<li>
+    {% if slide.get_prev %}
+      <a class="{{ link_class }}"  
+      href="{% url 'special:'|add:link_name object.slug slide.get_prev.slide_num %}">&lArr; Previous</a>
+    {% else %}
+      <span class="no-more">&lArr; Previous</span>
+    {% endif %}
+   &diams;
+   <a class="{{ link_class }}"  
+   href="{% url 'special:'|add:link_name object.slug 0 %}">Intro</a>
+   &diams;
+    {% if slide.get_next %}
+      <a class="{{ link_class }}"  
+      href="{% url 'special:'|add:link_name object.slug slide.get_next.slide_num %}">Next &rArr;</a>
+    {% else %}
+      <span class="no-more">Next &rArr;</span>
+    {% endif %}
+	</li>
+</ul>
