@@ -13,40 +13,7 @@
 		{% endblock slim_content %}
 
 		{% block related_items%}
-
-		<section class="slim-deeper">
-			<h2 class="subtitle heading">Dig Deeper</h2>
-			<h3>See Also:</h3>
-			<ul>
-		  	{% for person in object.people.all %}
-		    <li>
-		      <a class="swap_pop" href="{% url 'supporting:person_detail' person.slug %}">
-		        {{ person.title_prefix|safe }} {{ person.first_name|safe }} 
-		        {{ person.middle_name|safe }} {{ person.last_name|safe }} {{ person.suffix|safe }}
-		      </a>
-		    </li>
-			  {% endfor %}
-			  {% for evidenceitem in object.evidence.all %}
-			    <li>
-			      <a class="swap_pop" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
-			        {{ evidenceitem.title }}
-			      </a>
-			    </li>
-			  {% endfor %}
-			  {% for context in object.contexts.all %}
-			    <li>
-			      <a class="swap_pop" href="{% url 'supporting:context_detail' context.slug %}">
-			        {{ context.title }}
-			      </a>
-			    </li>
-			  {% endfor %}
-			</ul>
-
-			<h3>Related Stories:</h3>
-			<ul>
-				<li>Feature not yet implemented.</li>
-			</ul>
-		</section>
+			{% include "supporting/_slim_deeper.html" %}
 		{% endblock related_items%}
 	
 	</div><!--slim-border -->

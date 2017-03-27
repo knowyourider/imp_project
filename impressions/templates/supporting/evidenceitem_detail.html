@@ -8,70 +8,77 @@
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
-<section id="item-viewer">
+<script type="text/javascript">
+	Z.showImage("item-image", 
+	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", 
+	  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
+</script>
 
-	<script type="text/javascript">
-		Z.showImage("item-image", 
-		  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", 
-		  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
-	</script>
 
-	<div id="item-viewer--container">
-
-		{% if error_msg %}
-			<p class="error-msg">{{ error_msg }}</p>
-		{% else %}
-			{% if zoom_exists %}
-				<div id="item-image">zoomable artifact image here</div>
+<section class="evidence-left-col">
+	<section id="item-viewer">
+		<div id="item-viewer--container">
+			{% if error_msg %}
+				<p class="error-msg">{{ error_msg }}</p>
 			{% else %}
-				<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
-		        <img src="{% static 'supporting/' %}{{ 'evidenceitem/fullpics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}" class="double-border"> 
-			{% endif %}			
+				{% if zoom_exists %}
+					<div id="item-image">zoomable artifact image here</div>
+				{% else %}
+					<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
+			        <img src="{% static 'supporting/' %}{{ 'evidenceitem/fullpics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}" class="double-border"> 
+				{% endif %}			
+			{% endif %}
 
-		{% endif %}
+			<!-- /transcription goes here -->
+			{% block document_text %}
+			{% endblock document_text %}
+		</div> <!-- /item-viewer--container -->	
+	</section> <!-- /item-viewer -->
 
-		<!-- /transcription goes here -->
-		{% block document_text %}
-		{% endblock document_text %}
-
-
-	</div> <!-- /item-viewer--container -->
-	
 	{% block controls %}
 	{% endblock controls %}
 
-</section> <!-- /item-viewer -->
+	{% include "supporting/_slim_deeper.html" %}
+
+
+</section><!-- evidence-left-col -->
 
 <!-- not sure we need this on evidence pages
 <p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p> -->
 
-{% if object.status_num == 2 %}
-	<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>
-{% endif %}
+<section class="evidence-right-col">
 
+	{% if object.status_num == 2 %}
+		<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>
+	{% endif %}
+	{{ object.narrative|safe }}
 
-{{ object.narrative|safe }}
+	<dl class="slim-curatorial">
+			<dt>Creator:</dt>
+			<dd>{{ object.creator }}</dd>
+			<dt>Date:</dt>
+			<dd>
+				{% if object.is_circa %}c. {% endif %}
+				{{ object.creation_year }}
+			</dd>
+		{% if object.dimensions %}
+			<dt>Dimensions:</dt>
+			<dd>{{ object.dimensions }}</dd>
+		{% endif %}
+		{% if object.materials %}
+			<dt>Materials:</dt>
+			<dd>{{ object.materials }}</dd>
+		{% endif %}
+		{% if object.accession_num %}
+			<dt>Accession #:</dt>
+			<dd>{{ object.accession_num }}</dd>
+		{% endif %}
+	</dl>
 
-<dl class="slim-curatorial">
-		<dt>Creator:</dt>
-		<dd>{{ object.creator }}</dd>
-		<dt>Date:</dt>
-		<dd>
-			{% if object.is_circa %}c. {% endif %}
-			{{ object.creation_year }}
-		</dd>
-	{% if object.dimensions %}
-		<dt>Dimensions:</dt>
-		<dd>{{ object.dimensions }}</dd>
-	{% endif %}
-	{% if object.materials %}
-		<dt>Materials:</dt>
-		<dd>{{ object.materials }}</dd>
-	{% endif %}
-	{% if object.accession_num %}
-		<dt>Accession #:</dt>
-		<dd>{{ object.accession_num }}</dd>
-	{% endif %}
-</dl>
+</section><!-- evidence-right-col -->
 
 {% endblock slim_content %}
+
+{# supress base_detail version (placement) of related items  #}
+{% block related_items%}{% endblock related_items%}
+
