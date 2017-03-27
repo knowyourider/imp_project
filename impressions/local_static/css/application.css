@@ -527,29 +527,16 @@ blockquote {
     #toggle-transcription {
       display: none; } }
 
-.item-viewer--tools {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-  margin-top: .5em; }
-  .item-viewer--tools::after {
-    clear: both;
-    content: "";
-    display: table; }
-  @media screen and (max-width: 1200px) {
-    .item-viewer--tools {
-      font-size: 0.85em; } }
-
 dl.slim-curatorial {
-  margin-bottom: 0.8em; }
+  margin-bottom: 0.8em;
+  font-size: 0.9em; }
   dl.slim-curatorial dt {
     float: left;
     margin-right: 5%;
     margin-top: 0;
-    max-width: 25%; }
+    max-width: 30%; }
   dl.slim-curatorial dd {
-    margin-left: 30%; }
+    margin-left: 35%; }
   dl.slim-curatorial dd::after {
     content: " ";
     display: block;
@@ -1295,8 +1282,8 @@ table.discoverers-faces td {
   color: #b3aa98; }
 
 .slim-deeper {
-  border-top: 1px solid #b3aa98;
   color: #b12b00;
+  margin-top: 0.8em;
   padding-top: 0.4em; }
   .slim-deeper h2 {
     margin-bottom: 0; }

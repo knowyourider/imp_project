@@ -92,31 +92,31 @@
   }  
 }
 
-//not sure we need these styles, but just in case
-.item-viewer--tools {
-  @include outer-container;
-  margin-bottom: 1em;
-  margin-top: .5em;
+//not sure we need these styles, leftovers from Mystic?
+//.item-viewer--tools {
+//  @include outer-container;
+//  margin-bottom: 1em;
+//  margin-top: .5em;
   
-  @include media(max-width $max-width) {
-    font-size: $base-font-size * 0.85;
-  } 
-}
+//  @include media(max-width $max-width) {
+//    font-size: $base-font-size * 0.85;
+//  } 
+//}
 
 // for curatorial info on evidence pages
 dl.slim-curatorial {
   margin-bottom: $small-spacing;
+  font-size: $smallish-font-size;
 
   dt {
     float: left;
     margin-right: 5%;
     margin-top: 0;
-    //margin-bottom: 1em;
-    max-width: 25%;
+    max-width: 30%;
   }
   
   dd {
-    margin-left: 30%;
+    margin-left: 35%;
     //margin-bottom: .5em;
   }
   

@@ -39,8 +39,9 @@
 }
 
 .slim-deeper {
-  border-top: 1px solid $base-border-color;
+  //border-top: 1px solid $base-border-color;
   color: $accent-color;
+  margin-top: $small-spacing;
   padding-top: $tiny-spacing;
 
     h2 {
