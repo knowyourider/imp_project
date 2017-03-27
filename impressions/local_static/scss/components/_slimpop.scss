@@ -38,30 +38,6 @@
   color: $light-taupe;
 }
 
-// for curatorial info on evidence pages
-dl.slim-curatorial {
-  margin-bottom: $small-spacing;
-
-  dt {
-    float: left;
-    margin-right: 5%;
-    margin-top: 0;
-    //margin-bottom: 1em;
-    max-width: 25%;
-  }
-  
-  dd {
-    margin-left: 30%;
-    //margin-bottom: .5em;
-  }
-  
-  dd::after {
-    content: " ";
-    display: block;
-    clear: left;
-  }  
-}
-
 .slim-deeper {
   border-top: 1px solid $base-border-color;
   color: $accent-color;
@@ -103,16 +79,21 @@ dl.slim-curatorial {
 }
 
 .person, .context, .fastfact {
-  max-height: 600px;
+  max-height: 85%;
   width: 550px;
 }
 
-.evidenceitem {
-  max-height: 600px;
-  width: 650px;
+.evidenceitem, {
+  max-height: 85%;
+  width: 900px;
 }
 
-.slideshow, .footprint, .video, .voices,
+.voices {
+  max-height: 85%;
+  width: 550px;
+}
+
+.slideshow, .footprint, .video,
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%;

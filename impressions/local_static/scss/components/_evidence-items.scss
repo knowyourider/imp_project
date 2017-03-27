@@ -4,13 +4,21 @@
 }
 
 #item-viewer--container {
-  margin-top: -$base-spacing;
+  //margin-top: -$base-spacing;
 }
 
 #item-image {
   background-color: $base-background-color;
   border: $double-border;
   height: em(400);
+}
+
+.evidence-left-col {
+  @include span-columns (7);
+}
+
+.evidence-right-col {
+  @include span-columns (5);
 }
 
 // for document transcriptions
@@ -37,7 +45,7 @@
 
 // for document paging
 #document-paging {
-  width: 30%;
+  margin: $small-spacing 0;
 }
 
 #document-paging--list {
@@ -75,8 +83,8 @@
 // transcription toggle button
 #toggle-transcription {
   background-color: $light-taupe;
-  margin-top: -$base-spacing;
-  float: right;
+  //margin-top: -$base-spacing;
+  //float: right;
   font-size: $small-font-size;
 
   @media print {
@@ -93,4 +101,28 @@
   @include media(max-width $max-width) {
     font-size: $base-font-size * 0.85;
   } 
+}
+
+// for curatorial info on evidence pages
+dl.slim-curatorial {
+  margin-bottom: $small-spacing;
+
+  dt {
+    float: left;
+    margin-right: 5%;
+    margin-top: 0;
+    //margin-bottom: 1em;
+    max-width: 25%;
+  }
+  
+  dd {
+    margin-left: 30%;
+    //margin-bottom: .5em;
+  }
+  
+  dd::after {
+    content: " ";
+    display: block;
+    clear: left;
+  }  
 }
