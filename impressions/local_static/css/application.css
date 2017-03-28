@@ -523,6 +523,7 @@ blockquote {
 
 #toggle-transcription {
   background-color: #b3aa98;
+  margin-top: 0.4em;
   font-size: 0.8em; }
   @media print {
     #toggle-transcription {
