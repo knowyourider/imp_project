@@ -485,7 +485,7 @@ blockquote {
   border: double #b3aa98;
   color: #7d7664;
   font-size: 0.9em;
-  height: 25em;
+  height: 100%;
   line-height: 1.6;
   opacity: 0.75;
   overflow: scroll;

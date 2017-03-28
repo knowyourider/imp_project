@@ -11,32 +11,29 @@
 
 {% block controls %}
 <!-- <p>Document controls</p> -->
-<!-- <section id="item-viewer">
- -->
-	<div class="item-viewer--tools">
+<!-- <section id="item-viewer"> -->
 
-		<!-- paging --> 
-		{% if object.page_set.all %} {# add: if length greater than 1 #}
-			<nav id="document-paging">
-				<h5 class="document-paging--title">Page: </h5>
-				<ul id="document-paging--list">
-				{% for nav_page in object.page_set.all %}
+	<!-- paging --> 
+	{% if object.page_set.all %} {# add: if length greater than 1 #}
+		<nav id="document-paging">
+			<h5 class="document-paging--title">Page: </h5>
+			<ul id="document-paging--list">
+			{% for nav_page in object.page_set.all %}
 
-					<li class="document-paging--page{% if forloop.last %} last{% endif %}">
-						<a href="{% url 'supporting:evidenceitem_detail' object.slug nav_page.page_suffix %}"
-						class="swap_pop" >
-							{{ nav_page.page_label }}</a>
-					</li>
-				{% endfor %}		
-				</ul>
-			</nav>
-		{% endif %}
+				<li class="document-paging--page{% if forloop.last %} last{% endif %}">
+					<a href="{% url 'supporting:evidenceitem_detail' object.slug nav_page.page_suffix %}"
+					class="swap_pop" >
+						{{ nav_page.page_label }}</a>
+				</li>
+			{% endfor %}		
+			</ul>
+		</nav>
+	{% endif %}
 
-		{% if page.transcript %}
-			<!-- show/hide transcription --> 
-			<button id="toggle-transcription">Show Transcription</button>
-		{% endif %}
+	{% if page.transcript %}
+		<!-- show/hide transcription --> 
+		<button id="toggle-transcription">Show Transcription</button>
+	{% endif %}
 
-	</div><!-- /item-viewer--tools -->
 <!-- </section> -->
 {% endblock controls %}
