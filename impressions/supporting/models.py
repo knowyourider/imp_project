@@ -122,6 +122,13 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
                     '.jpg" width="100" height="75"/>')
     image_img.short_description = 'Thumb'
 
+    def is_multipage(self):
+        print(" --- len page_set: " + str(len(self.page_set.all())))
+        if (len(self.page_set.all()) > 1):
+            return True
+        else:
+            return False
+
     class Meta:
         ordering = ['ordinal']
 

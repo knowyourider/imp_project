@@ -10,8 +10,8 @@
 {% block slim_content%}
 <script type="text/javascript">
 	Z.showImage("item-image", 
-	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", 
-	  "zSkinPath={% static 'js/Assets/Skins/Default' %}");
+	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", // .zif 
+	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
 </script>
 
 
@@ -21,7 +21,7 @@
 			{% if error_msg %}
 				<p class="error-msg">{{ error_msg }}</p>
 			{% else %}
-				{% if zoom_exists %}
+				{% if zoom_exists %} {# if True #}  
 					<div id="item-image">zoomable artifact image here</div>
 				{% else %}
 					<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
@@ -78,7 +78,4 @@
 </section><!-- evidence-right-col -->
 
 {% endblock slim_content %}
-
-{# supress base_detail version (placement) of related items  #}
-{% block related_items%}{% endblock related_items%}
 

@@ -14,7 +14,7 @@
 <!-- <section id="item-viewer"> -->
 
 	<!-- paging --> 
-	{% if object.page_set.all %} {# add: if length greater than 1 #}
+	{% if object.is_multipage %} 
 		<nav id="document-paging">
 			<h5 class="document-paging--title">Page: </h5>
 			<ul id="document-paging--list">
