@@ -486,6 +486,7 @@ blockquote {
   color: #7d7664;
   font-size: 0.9em;
   height: 100%;
+  width: 100%;
   line-height: 1.6;
   opacity: 0.75;
   overflow: scroll;
