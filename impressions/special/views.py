@@ -147,16 +147,64 @@ class IntroFullSlideshowDetailView(FullSlideshowDetailView):
     template_name="special/slideshow_intro.html"
     
     
-# ---- FOOTPRINTS ---
+# ---- SOCIETY ---
 #  with slide number
 class SocietyDetailView(SlideFeatureDetailView):
     template_name="special/society.html"
     link_name = "society_slide_detail"
-    # link_class = "swap_pop" -- default
+    # need special swap to re-enable event listener
+    link_class = 'quiz_swap'
 
 # default - intro
 class IntroSocietyDetailView(SocietyDetailView):
     template_name="special/society_intro.html"
+    # regular swap_pop from intro
+    link_class = 'swap_pop'
+
+# choice integer with slide number
+class SocietyChoiceDetailView(SlideFeatureDetailView):
+    template_name="special/society_choice.html"
+
+    # get choice and evaluate 
+    def get_context_data(self, **kwargs):
+        context = super(SocietyChoiceDetailView, self).get_context_data(**kwargs)
+
+        # get the ladies answer
+        ladies_choice = context["slide"].num_correct
+
+        # print(" -- num_correct: " + str(ladies_choice))
+        # print(" -- choice: " + self.kwargs['choice'])
+
+        # get choice param and convert to int
+        choice_int = int(self.kwargs['choice'])
+
+        feedback = "<p>"
+        # logic
+        if choice_int == 1:
+            feedback  += "Your vote: 'yes.' "
+            if ladies_choice == 1:
+                feedback  +=  "The young ladies also voted in the affirmative!"
+            elif ladies_choice == 0:
+                feedback  +=  "Sorry,the young ladies voted in the negagive."
+            else:
+                feedback  +=  "['num_correct' must be set to 1 or 0 in admin for this slide]"
+
+        elif choice_int == 0:
+            feedback  += "Your vote: 'no.' "
+            if ladies_choice == 1:
+                feedback  +=  "Sorry,the young ladies voted in the affirmative."
+            elif ladies_choice == 0:
+                feedback  +=  "The young ladies also voted in the negagive!"
+            else:
+                feedback  +=  "['num_correct' must be set to 1 or 0 in admin for this slide]"
+        else: # just in case
+            feedback = "vote didn't come through"
+            # print(" --- slide num zeero: " + str(slide_num_arg))
+        feedback += "</p>"
+        # add variables to context
+        context.update({'feedback': feedback})
+        return context
+
 
 # ---- FOOTPRINTS ---
 #  with slide number

@@ -93,6 +93,10 @@ urlpatterns = [
 
 
     #  ------ SOCIETY ---
+    # choice for vote
+    url(r'^society/choice/(?P<slug>\S+)/(?P<slide_num>\d+)/(?P<choice>[0-1])/$', 
+        views.SocietyChoiceDetailView.as_view(), name='society_choice'),
+
     # zero version of intro
     url(r'^society/(?P<slug>\S+)/(?P<slide_num>[0])/$', 
         views.IntroSocietyDetailView.as_view(), name='society_detail'),
@@ -104,6 +108,7 @@ urlpatterns = [
     # default - intro
     url(r'^society/(?P<slug>\S+)/$', 
         views.IntroSocietyDetailView.as_view(), name='society_detail'),
+
 
     #  ------ FOOTPRINTS ---
     # zero version of intro

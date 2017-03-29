@@ -135,6 +135,34 @@ $(document).ready(function(){
     
   });
 
+  // ------ SPECIAL FEATURES -------
+
+  // ------ Ladies Society
+  // can't be loaded as a script by the slimpop because it could get loaded multiple times
+  // set_society_choice();
+  $(document).on("click touchstart", ".society_choice", function(event){
+    event.preventDefault();
+    var choiceURL = $(this).attr('name')
+    // var choice = $(event.target).val()
+    console.log(" --- society name: " + choiceURL );
+    // call to ajax
+    getURL(choiceURL, $('#society_feedback'));
+    // disable and grey-out the buttons
+    $(".society_choice").prop("disabled",true);
+  });
+
+  // version of swap_pop just for the society quiz
+  // need to re-enable .society_choice
+  $(document).on("click", ".quiz_swap", function(event){
+    event.preventDefault();
+    // get href
+    var chosen_href = $(event.target).attr('href');
+    console.log('--- quiz_swap: ' + chosen_href);
+    // call ajax for the slim pop. 
+    getURL(chosen_href, $('#slimpop-container'));
+    // re-enable the buttons
+    $(".society_choice").prop("enabled",true);
+  });
 
 }); // end doc ready
 

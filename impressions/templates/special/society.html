@@ -5,12 +5,9 @@
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
-	
 
 <div class="activity-col">
-
-		<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
-
+	<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
 </div>
 
 <section class="activity-controls-col">
@@ -21,33 +18,43 @@
     <p class="society-question">{{ slide.narrative}}</p>
   {% endif %}
 
+  <div id="society_feedback">
+    <p>How would you answer this question?</p>
+  </div>
 
-  <p>How would you answer this question?</p>
+  <form id="society_choices" action="#">
 
-  <ul class="activities-controls">
-    <li>
-      <label for="yes">Affirmative</label>
-      <input type="checkbox" name="vote" id="yes">
+    <!-- need to add slide num -->
+    <input class="society_choice" type="button"
+      name="{% url 'special:society_choice' object.slug slide.slide_num 1 %}" value="Yes" />
+    <input class="society_choice" type="button" 
+      name="{% url 'special:society_choice' object.slug slide.slide_num 0 %}" value="No" />
 
-      <label for="no">Negative</label>
-      <input type="checkbox" name="vote" id="no">
-    </li>
+    <!-- 
+    <ul class="activities-controls">
+      <li>
+        <label for="yes">Affirmative</label>
+        <input type="radio" name="society_choice" id="yes" value="yes">
+        <label for="no">Negative</label>
+        <input type="radio" name="society_choice" id="no" value="no">
+      </li>
 
-    <li>
-      <a class="swap_pop" href="activity-society/question01-answer.html">Submit</a>
-    </li>
+      <li>
+        <input type="submit" value="Submit" />
+      </li>
+    -->  
+   </form>
       
-    <hr/>
-    <li>Question {{ slide.slide_num }} of 12</li>
+  <hr/>
+  <li>Question {{ slide.slide_num }} of 12</li>
 
   </ul>
   {# Juliet - I ended this ul here because another, shared one starts next #}
 
   {% block slideshow_controls %}
-
     {% include 'special/_slide_nav.html' %}
-
   {% endblock slideshow_controls %}
+
 {% endblock optional_intro %}
 
 </section>
