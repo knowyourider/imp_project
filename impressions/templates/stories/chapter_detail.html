@@ -27,7 +27,8 @@
 
             <ol class="chapter-subnav">
             {% for nav_chapter in object.chapter_list %}
-              <li><a href="{% url 'stories:chapter_detail' object.slug nav_chapter.chapter_num %}">{{ nav_chapter.title|safe }}</a></li>
+              <li><a href="{% url 'stories:chapter_detail' object.slug nav_chapter.chapter_num %}">
+              {{ nav_chapter.chapter_num }}. {{ nav_chapter.title|safe }}</a></li>
             {% endfor %}  
             </ol>
 

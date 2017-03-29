@@ -181,7 +181,7 @@ class SocietyChoiceDetailView(SlideFeatureDetailView):
         feedback = "<p>"
         # logic
         if choice_int == 1:
-            feedback  += "Your vote: 'yes.' "
+            feedback  += "You voted 'affirmative.'  "
             if ladies_choice == 1:
                 feedback  +=  "The young ladies also voted in the affirmative!"
             elif ladies_choice == 0:
@@ -190,7 +190,7 @@ class SocietyChoiceDetailView(SlideFeatureDetailView):
                 feedback  +=  "['num_correct' must be set to 1 or 0 in admin for this slide]"
 
         elif choice_int == 0:
-            feedback  += "Your vote: 'no.' "
+            feedback  += "You voted 'negative.' "
             if ladies_choice == 1:
                 feedback  +=  "Sorry,the young ladies voted in the affirmative."
             elif ladies_choice == 0:
