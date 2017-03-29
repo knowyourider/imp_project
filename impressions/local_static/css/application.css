@@ -1035,6 +1035,10 @@ ul.chapter-nav li:hover ol.chapter-subnav {
   font-size: 1.25em;
   font-style: italic; }
 
+.society-choice {
+  font-size: 0.8em;
+  margin-right: 0.4em; }
+
 .dinospot {
   fill: #b12b00;
   fill-opacity: 0; }
@@ -1329,7 +1333,7 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 550px; }
 
-.slideshow, .footprint, .video,
+.slideshow, .footprint, .video, .society
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }

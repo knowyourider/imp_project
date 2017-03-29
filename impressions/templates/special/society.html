@@ -26,30 +26,14 @@
 
     <!-- need to add slide num -->
     <input class="society_choice" type="button"
-      name="{% url 'special:society_choice' object.slug slide.slide_num 1 %}" value="Yes" />
+      name="{% url 'special:society_choice' object.slug slide.slide_num 1 %}" value="Affirmative" />
     <input class="society_choice" type="button" 
-      name="{% url 'special:society_choice' object.slug slide.slide_num 0 %}" value="No" />
+      name="{% url 'special:society_choice' object.slug slide.slide_num 0 %}" value="Negative" />
 
-    <!-- 
-    <ul class="activities-controls">
-      <li>
-        <label for="yes">Affirmative</label>
-        <input type="radio" name="society_choice" id="yes" value="yes">
-        <label for="no">Negative</label>
-        <input type="radio" name="society_choice" id="no" value="no">
-      </li>
-
-      <li>
-        <input type="submit" value="Submit" />
-      </li>
-    -->  
-   </form>
+  </form>
       
   <hr/>
-  <li>Question {{ slide.slide_num }} of 12</li>
-
-  </ul>
-  {# Juliet - I ended this ul here because another, shared one starts next #}
+  <p>{{ slide.slide_num }} of 14</p>
 
   {% block slideshow_controls %}
     {% include 'special/_slide_nav.html' %}
