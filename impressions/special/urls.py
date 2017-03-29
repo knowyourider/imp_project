@@ -94,7 +94,7 @@ urlpatterns = [
 
     #  ------ SOCIETY ---
     # choice for vote
-    url(r'^society/choice/(?P<slug>\S+)/(?P<slide_num>\d+)/(?P<choice>[0-1])/$', 
+    url(r'^society/choice/(?P<slug>\S+)/(?P<slide_num>\d+)/(?P<choice>[0-2])/$', 
         views.SocietyChoiceDetailView.as_view(), name='society_choice'),
 
     # zero version of intro
