@@ -124,12 +124,8 @@
   box-shadow: $drop-shadow;
   display: none;  
   left: 0;
-  //WHY ISN'T THIS WORKING????
-	list-style-type: decimal !important;
 	position: absolute;
-  opacity: 0;
   top: 20px;
-  //visibility: hidden;
   width: 300px;
 
   li {
@@ -153,6 +149,4 @@ ul.chapter-nav li ol.chapter-subnav li:hover {
 
 ul.chapter-nav li:hover ol.chapter-subnav {
   display: block;
-  opacity: 1;
-  visibility: visible;
 }
