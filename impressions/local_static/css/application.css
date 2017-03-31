@@ -931,11 +931,13 @@ ul.chapter-nav li ol.chapter-subnav li.selected {
 
 ul.chapter-nav li ol.chapter-subnav li:hover {
   background-color: #d2cdba; }
-
+/* 
 ul.chapter-nav li:hover ol.chapter-subnav {
   display: block;
-/*  opacity: 1;
-*/  visibility: visible; }
+ opacity: 1;
+  visibility: visible; 
+}
+*/
 
 .previous {
   float: left;

@@ -90,11 +90,26 @@ $(document).ready(function(){
     // $("ol.chapter-subnav").css("display", "block");
     // $("ol.chapter-subnav").css("opacity", 1);
     $("ol.chapter-subnav").toggle();
+    // $("ol.chapter-subnav").show();
   });
 
   $(document).click( function(){
       $('ol.chapter-subnav').hide();
+      // $('ol.chapter-subnav').css("display", "none");
   });
+
+  // try js hover instead of css
+  $(".chapter-nav--dropdown").hover(
+    function(event){ 
+      console.log(" --- got chapter-nav-- hover on");
+      // $("ol.chapter-subnav").css("display", "block");
+      $("ol.chapter-subnav").show();
+    }, function(event){
+      console.log(" --- got chapter-nav-- hover off");
+      $("ol.chapter-subnav").hide();
+    }
+  );
+
 
   // --- ARTIFACTS AND DOCUMENTS ------------
 
