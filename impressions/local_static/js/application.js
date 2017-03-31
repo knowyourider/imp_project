@@ -78,6 +78,39 @@ $(document).ready(function(){
     });
   });
 
+  // ------- Chapter Navigation
+  // $(".chapter-nav--dropdown a").on("hover", function(event){
+
+  // this drops menu on click
+  $(".chapter-nav--dropdown a").click(function(event){ // .mobile
+  // $("#chapter_nav_droplink").click(function(event){ // .mobile
+    // event.preventDefault();
+    event.stopPropagation();
+    console.log(" --- got chapter-nav-- click");
+    // $("ol.chapter-subnav").css("display", "block");
+    // $("ol.chapter-subnav").css("opacity", 1);
+    $("ol.chapter-subnav").toggle();
+  });
+
+  $(document).click( function(){
+      $('ol.chapter-subnav').hide();
+  });
+
+  // this removes menu on mouseout
+  // $(".mobile .chapter-nav--dropdown").mouseout(function(event){
+  //   console.log(" -++ got chapter-nav-- mouseout");
+  //   $("ol.chapter-subnav").css("display", "none");
+  //   $("ol.chapter-subnav").css("opacity", 0);
+
+  // });
+
+  // , function(event){
+  //   console.log(" -got chapter-nav--hover out");
+
+  // }
+
+  // --- ARTIFACTS AND DOCUMENTS ------------
+
   // ------- Docment text show/hide ------
   // use .on syntax since element is loaded by ajax
   $(document).on("click", "#toggle-transcription", function(event){
