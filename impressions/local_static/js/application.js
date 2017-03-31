@@ -83,7 +83,7 @@ $(document).ready(function(){
 
   // this drops menu on click
   // $(".chapter-nav--dropdown a").click(function(event){ // .mobile
-  $(document).on("click touchstart", ".chapter-nav--dropdown a", function(event){
+  $(document).on("click", ".chapter-nav--dropdown a", function(event){
     // event.preventDefault();
     event.stopPropagation();
     console.log(" --- got chapter-nav-- click");
