@@ -101,8 +101,22 @@ class FullExploreDetailView(ExploreDetailView):
 
 # ---- DISCOVERERS ---
 #  default
-class DiscoverersDetailView(SlideFeatureDetailView):
-    template_name="special/discoverers.html"
+class DiscoverersDetailView(FeatureDetailView):
+    template_name="special/discoverers-vote.html"
+
+    # get choice and evaluate 
+    def get_context_data(self, **kwargs):
+        context = super(DiscoverersDetailView, self).get_context_data(**kwargs)
+        # print(" -- choice: " + self.kwargs['choice'])
+
+        # get choice param and convert to int
+        vote_value = self.kwargs['vote']
+
+        feedback = "You voted for " + vote_value
+        # add variables to context
+        context.update({'feedback': feedback})
+        return context
+
 
 # ---- THEN and NOW ---
 #  default

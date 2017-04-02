@@ -1,23 +1,24 @@
 {% extends extend_base %}
 {% load staticfiles %}
 
-{% block heading %}{{ object.content_type.plural_title }} - Discoverers intro {% endblock %}
+{% block heading %}{{ object.content_type.plural_title }} - Discoverers {% endblock %}
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
 
 <div id="video-content">
 
-<p>discoverers vote</p>
+<p>feedback: {{ feedback }}</p>
 
-	{{ object.narrative|safe }}
+{{ object.narrative|safe }}
 
-<p>list of people to vote for</p>
+
+<p>list of the people and the votes they got:</p>
 
 <ul>
 {% for slide in object.frame_set.all %}
 	<li>
-		  {{slide.caption}} - {{slide.num_correct}}>
+		  - {{slide.caption}} - {{slide.narrative|safe}}>
 	</li>
 
 {% endfor %}

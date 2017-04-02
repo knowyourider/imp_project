@@ -47,11 +47,11 @@ urlpatterns = [
     url(r'^full/explore/(?P<slug>\S+)/$', 
         views.FullExploreDetailView.as_view(), name='full_explore_detail'),
 
-    # ----------- SLIDE-BASED FEATURES ---------
-
     #  ------ DICOVERERS ---
-    url(r'^dicoverers/(?P<slug>\S+)/$', 
+    url(r'^discoverers/(?P<slug>\S+)/(?P<vote>\S+)/$', 
         views.DiscoverersDetailView.as_view(), name='discoverers_detail'),
+
+    # ----------- SLIDE-BASED FEATURES ---------
 
     #  ------ THEN AND NOW ---
     url(r'^then/(?P<slug>\S+)/$', 

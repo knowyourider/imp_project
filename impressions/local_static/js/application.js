@@ -79,33 +79,27 @@ $(document).ready(function(){
   });
 
   // ------- Chapter Navigation
-  // $(".chapter-nav--dropdown a").on("hover", function(event){
 
   // this drops menu on click
   // $(".chapter-nav--dropdown a").click(function(event){ // .mobile
   $(document).on("click", ".chapter-nav--dropdown a", function(event){
     // event.preventDefault();
     event.stopPropagation();
-    console.log(" --- got chapter-nav-- click");
-    // $("ol.chapter-subnav").css("display", "block");
-    // $("ol.chapter-subnav").css("opacity", 1);
+    // console.log(" --- got chapter-nav-- click");
     $("ol.chapter-subnav").toggle();
-    // $("ol.chapter-subnav").show();
   });
 
   $(document).click( function(){
       $('ol.chapter-subnav').hide();
-      // $('ol.chapter-subnav').css("display", "none");
   });
 
   // try js hover instead of css
   $(".chapter-nav--dropdown").hover(
     function(event){ 
-      console.log(" --- got chapter-nav-- hover on");
-      // $("ol.chapter-subnav").css("display", "block");
+      // console.log(" --- got chapter-nav-- hover on");
       $("ol.chapter-subnav").show();
     }, function(event){
-      console.log(" --- got chapter-nav-- hover off");
+      // console.log(" --- got chapter-nav-- hover off");
       $("ol.chapter-subnav").hide();
     }
   );
@@ -172,7 +166,7 @@ $(document).ready(function(){
 
   // ------ SPECIAL FEATURES -------
 
-  // ------ Ladies Society
+  // ------ SOCIETY ---
   // can't be loaded as a script by the slimpop because it could get loaded multiple times
   // set_society_choice();
   $(document).on("click touchstart", ".society_choice", function(event){
@@ -198,6 +192,24 @@ $(document).ready(function(){
     // re-enable the buttons
     $(".society_choice").prop("enabled",true);
   });
+
+  // ---- DISCOVERERS VOTE ---
+  $(document).on("click", "#discoverers-form .vote", function(event){
+    event.preventDefault();
+    var voteValue = $(this).attr('value')
+    // var choice = $(event.target).val()
+    console.log(" --- vote: " + voteValue );
+    // Add vote value next
+    constructed_href = 
+      "/special/discoverers/discoverers-vote/" + voteValue + "/";
+    // call to ajax
+    slimPop(constructed_href, "discoverers");  
+    // getURL(choiceURL, $('#society_feedback'));
+    // // disable and grey-out the buttons
+    // $(".society_choice").prop("disabled",true);
+  });
+
+
 
 }); // end doc ready
 

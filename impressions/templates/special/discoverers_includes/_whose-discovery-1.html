@@ -1,46 +1,47 @@
 {% load staticfiles %}
 
+{# since this is a one-off we're just building the table by hand #}
 <table class="discoverers-faces">
   <tr>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-moody' %}">
         <img src="{% static 'special/discoverers/menupics/' %}pliny-moody.jpg">
         <span class="name">Pliny Moody,<br/>farmer</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-native' %}">
         <img src="{% static 'special/discoverers/menupics/' %}native-american.jpg">
         <span class="name">Native American,<br/>farmer</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-hitchcock' %}">
         <img src="{% static 'special/discoverers/menupics/' %}edward-hitchcock.jpg">
         <span class="name">Edward Hitchcock,<br/>geologist</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-marsh' %}">
         <img src="{% static 'special/discoverers/menupics/' %}dexter-marsh.jpg">
         <span class="name">Dexter Marsh,<br/>laborer</span></a>
     </td>
   </tr>
   <tr>
     <td>
-      <a class="pop_item" href="discoverers/james-deane.html">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-deane' %}">
         <img src="{% static 'special/discoverers/menupics/' %}james-deane.jpg">
         <span class="name">James Deane,<br/>physician</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-field' %}">
         <img src="{% static 'special/discoverers/menupics/' %}roswell-field.jpg">
         <span class="name">Roswell Field,<br/>farmer</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-silliman' %}">
         <img src="{% static 'special/discoverers/menupics/' %}benjamin-silliman.jpg">
         <span class="name">Benjamin Silliman,<br/>scientist</span></a>
     </td>
     <td>
-      <a href="">
+      <a class="pop_item" href="{% url 'special:voices_detail' 'who-draper' %}">
         <img src="{% static 'special/discoverers/menupics/' %}william-draper.jpg">
         <span class="name">William Draper,<br/>lawyer</span></a>
     </td>

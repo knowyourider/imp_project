@@ -1,32 +1,31 @@
 {% load staticfiles %}
 
-<form action="">
-
+<form id="discoverers-form" action="#">
   <table class="discoverers-faces">
     <tr>
       <td>
-        <a href="">
+      <a class="pop_item" href="{% url 'supporting:fastfact_detail' 'case-moody' %}">
           <img src="{% static 'special/discoverers/menupics/' %}pliny-moody.jpg">
           <span class="name">Pliny Moody,<br/>farmer</span>
         </a>
           
         <div class="discoverers-vote">
-          <a class="pop_item" href="">Hear my case</a>
+          <a class="pop_item" href="{% url 'supporting:fastfact_detail' 'case-moody' %}">Hear my case</a>
           <label for="moody">Vote:</label>
-          <input type="checkbox" name="vote" id="moody">
+          <input type="checkbox" class="vote" id="moody" value="moody">
         </div>
       </td>
 
       <td>
-        <a href="">
+        <a class="pop_item" href="{% url 'supporting:fastfact_detail' 'case-native' %}">
           <img src="{% static 'special/discoverers/menupics/' %}native-american.jpg">
           <span class="name">Native American,<br/>farmer</span>
         </a>
 
         <div class="discoverers-vote">
-          <a class="pop_item" href="">Hear my case</a>
+          <a class="pop_item" href="{% url 'supporting:fastfact_detail' 'case-native' %}">Hear my case</a>
           <label for="native">Vote:</label>
-          <input type="checkbox" name="vote" id="native">
+          <input type="checkbox" class="vote" id="native" value="native">
         </div>
       </td>
 
@@ -39,7 +38,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="">Hear my case</a>
           <label for="hitchcock">Vote:</label>
-          <input type="checkbox" name="vote" id="hitchcock">
+          <input type="checkbox" class="vote" id="hitchcock" value="hitchcock">
         </div>
       </td>
 
@@ -52,7 +51,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="">Hear my case</a>
           <label for="marsh">Vote:</label>
-          <input type="checkbox" name="vote" id="marsh">
+          <input type="checkbox" class="vote" id="marsh" value="marsh">
         </div>
       </td>
 
@@ -68,7 +67,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="discoverers/james-deane-case.html">Hear my case</a>
           <label for="deane">Vote:</label>
-          <input type="checkbox" name="vote" id="deane">
+          <input type="checkbox" class="vote" id="deane" value="deane">
         </div>
       </td>
 
@@ -81,7 +80,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="">Hear my case</a>
           <label for="field">Vote:</label>
-          <input type="checkbox" name="vote" id="field">
+          <input type="checkbox" class="vote" id="field" value="field">
         </div>
       </td>
 
@@ -94,7 +93,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="">Hear my case</a>
           <label for="silliman">Vote:</label>
-          <input type="checkbox" name="vote" id="silliman">
+          <input type="checkbox" class="vote" id="silliman" value="silliman">
         </div>
       </td>
 
@@ -107,7 +106,7 @@
         <div class="discoverers-vote">
           <a class="pop_item" href="">Hear my case</a>
           <label for="draper">Vote:</label>
-          <input type="checkbox" name="vote" id="draper">
+          <input type="checkbox" class="vote" id="draper" value="draper">
         </div>
       </td>
 
