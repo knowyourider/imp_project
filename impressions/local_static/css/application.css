@@ -912,9 +912,7 @@ dl.slim-curatorial {
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.65);
   display: none;
   left: 0;
-  list-style-type: decimal !important;
   position: absolute;
-  /*opacity: 0;*/
   top: 20px;
   width: 300px; }
   .chapter-subnav li {
@@ -931,13 +929,9 @@ ul.chapter-nav li ol.chapter-subnav li.selected {
 
 ul.chapter-nav li ol.chapter-subnav li:hover {
   background-color: #d2cdba; }
-/* 
+
 ul.chapter-nav li:hover ol.chapter-subnav {
-  display: block;
- opacity: 1;
-  visibility: visible; 
-}
-*/
+  display: block; }
 
 .previous {
   float: left;
@@ -1335,7 +1329,7 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 550px; }
 
-.slideshow, .footprint, .video, .society,
+.slideshow, .footprint, .video, .society
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }
