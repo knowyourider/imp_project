@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block heading %}
-	{{ object.content_type.plural_title }}
+	{{ object.content_type.singular_title }}
 {% endblock %}
 
 {% block item_title %}{{ object.title|safe }}{% endblock %}
