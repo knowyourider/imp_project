@@ -1,22 +1,46 @@
 // explore jurassic landscape
 
 $(document).ready(function(){
+    var textBoxHeightOffset = 15;
 
-	$(document).on("click", ".dinospot", function(event){
-	    event.preventDefault();
+    $(document).on("click", ".dinospot", function(event){
+        event.preventDefault();
 
-        var textBoxHeightOffset = 15;
+        // get the index of the element selected
+        // console.log( $("#hotspot_group g").index($(this).parent()) );
+        expoIndex =  $("#hotspot_group g").index($(this).parent());
+
+ 
 		$('.tooltip').css("opacity", "1");
-
         // get target element bounding box
         // console.log(" --- bbox width: " + $(event.target)[0].getBBox().width);
         var targetBBox = $(event.target)[0].getBBox();
-        // get the target text
-        var targetTitle = $(event.target).parent().find("title").html();
-        var targetText = $(event.target).parent().find("text").html();
+        // get the target title
+        // object name in the "text" element has to match image_name for slide in Admin
+        var targetTitle = $(event.target).parent().find("text").html();
         // set the tooltip and narrative text
         $(".tooltip").html(targetTitle);
-        $("#narrative").html(targetText);
+
+        // set the variable for the explanations
+        var expos = $(".explanations");
+        // clear all visible text
+        for (i = 0; i < expos.length; i++) {
+          expos[i].style.display = "none"; 
+        }
+        // set visible for current selection
+        // object name in the "text" element has to match image_name for slide in Admin
+        $("#" + targetTitle).css("display", "block") ;
+
+
+
+        // $("#expo-" + targetName).style.display = "block";
+        // $("#narrative p[name=expo_1]").style.display = "block";
+        // $("#narrative p[1]").style.display = "block";
+
+        // $('td[name^=tcol]')
+        // $('explanations[name^=expo_1]').style.display = "block";
+
+
         // get the height of box with current text
         var textBoxHeight = $(".tooltip").height();
 
