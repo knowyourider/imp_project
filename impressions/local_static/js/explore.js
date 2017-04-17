@@ -16,8 +16,9 @@ $(document).ready(function(){
         // console.log(" --- bbox width: " + $(event.target)[0].getBBox().width);
         var targetBBox = $(event.target)[0].getBBox();
         // get the target title
-        // object name in the "text" element has to match image_name for slide in Admin
         var targetTitle = $(event.target).parent().find("text").html();
+        // object name in the "name" element has to match image_name for slide in Admin
+        var targetName = $(event.target).parent().find("name").html();
         // set the tooltip and narrative text
         $(".tooltip").html(targetTitle);
 
@@ -28,8 +29,11 @@ $(document).ready(function(){
           expos[i].style.display = "none"; 
         }
         // set visible for current selection
-        // object name in the "text" element has to match image_name for slide in Admin
-        $("#" + targetTitle).css("display", "block") ;
+        // object name in the "name" element has to match image_name for slide in Admin
+
+        console.log(" -- targetName: " + targetName);
+
+        $("#" + targetName).css("display", "block") ;
 
 
 
