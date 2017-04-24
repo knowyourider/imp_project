@@ -1,17 +1,11 @@
 {% extends "supporting/evidenceitem_detail.html" %}
 {% load staticfiles %}
 
-{% block document_text %}
-	<div id="document-text" class="hidden">
-		<div class="document-text--transcription">
-			{{ page.transcript|safe }}
-		</div>
-	</div><!-- /document-text -->
-{% endblock document_text %}
-
 {% block controls %}
 <!-- <p>Document controls</p> -->
 <!-- <section id="item-viewer"> -->
+
+	<p>Don wuz here</p>
 
 	<!-- paging --> 
 	{% if object.is_multipage %} 
@@ -31,11 +25,6 @@
 			{% endfor %}		
 			</ul>
 		</nav>
-	{% endif %}
-
-	{% if page.transcript %}
-		<!-- show/hide transcription --> 
-		<button id="toggle-transcription">Show Transcription</button>
 	{% endif %}
 
 <!-- </section> -->

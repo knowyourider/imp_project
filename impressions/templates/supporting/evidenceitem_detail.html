@@ -8,38 +8,36 @@
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
-<script type="text/javascript">
-	Z.showImage("item-image", 
-	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.page_set.all %}-{{ page.page_suffix}}{% endif %}.zif", // .zif 
-	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
-</script>
 
 
 <section class="evidence-left-col">
-	<section id="item-viewer">
-		<div id="item-viewer--container">
-			{% if error_msg %}
-				<p class="error-msg">{{ error_msg }}</p>
-			{% else %}
-				{% if zoom_exists %} {# if True #}  
-					<div id="item-image">zoomable artifact image here</div>
+
+	<div id="item_wrapper">
+		<script type="text/javascript">
+			Z.showImage("item-image", 
+			  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}", // .zif 
+			  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
+		</script>
+
+		<section id="item-viewer">
+			<div id="item-viewer--container">
+				{% if error_msg %}
+					<p class="error-msg">{{ error_msg }}</p>
 				{% else %}
-					<!-- <img src="{% static 'supporting/evidenceitem/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border"> -->
-			        <img src="{% static 'supporting/' %}{{ 'evidenceitem/fullpics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}" class="double-border"> 
-				{% endif %}			
-			{% endif %}
+					<div id="item-image">zoomable artifact image here</div>
+				{% endif %}
 
-			<!-- /transcription goes here -->
-			{% block document_text %}
-			{% endblock document_text %}
-		</div> <!-- /item-viewer--container -->	
-	</section> <!-- /item-viewer -->
+				<!-- /transcription goes here -->
+				{% block document_text %}
+				{% endblock document_text %}
+			</div> <!-- /item-viewer--container -->	
+		</section> <!-- /item-viewer -->
 
-	{% block controls %}
-	{% endblock controls %}
+		{% block controls %}
+		{% endblock controls %}	
+	</div>
 
 	{% include "supporting/_slim_deeper.html" %}
-
 
 </section><!-- evidence-left-col -->
 

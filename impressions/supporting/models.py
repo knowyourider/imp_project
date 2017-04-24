@@ -118,13 +118,23 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     map_blurb = models.TextField(blank=True, default='')
 
     def image_img(self):
-        return format_html('<img src="/static/supporting/evidenceitem/menupics/' + self.slug + \
-                    '.jpg" width="100" height="75"/>')
+        return format_html('<img src="/static/supporting/evidenceitem/menupics/' + \
+            self.slug + '.jpg" width="100" height="75"/>')
     image_img.short_description = 'Thumb'
 
+    def evidence_category(self):
+        # print(" --- len page_set: " + str(len(self.page_set.all())))
+        if (self.evidence_type.is_document_oriented):
+            return 'document'
+        else:
+            return 'artifact'
+
     def is_multipage(self):
-        print(" --- len page_set: " + str(len(self.page_set.all())))
+        # print(" --- len page_set: " + str(len(self.page_set.all())))
         if (len(self.page_set.all()) > 1):
+            return True
+        elif (not self.evidence_type.is_document_oriented and len(self.page_set.all()) > 0):
+            # artifacts count as multi page when one page is entered
             return True
         else:
             return False

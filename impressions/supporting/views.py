@@ -115,81 +115,94 @@ class EvidenceItemListView(FormMixin, ListView):
 
 
 class EvidenceItemDetailView(DetailView):
+    """
+    Used with pk for team lists
+    """
     model = EvidenceItem
     # context_object_name = 'object'
     # template_name = 'supporting/evidenceitem_detail.html'
 
-def evidenceitem_detail(request, slug, page_suffix='default'):
+
+class ArtifactDetailView(EvidenceItemDetailView):
+    # context_object_name = 'object'
+    template_name = 'supporting/evidence_detail/artifact.html'
+
+
+class DocumentDetailView(EvidenceItemDetailView):
     """
-    Patterened after special_detail
-    Several evidenceitem types, so opting for a def.
-    The urls need to stay consistent with other evidence types, so info about sub-types
-    has to come from the object itself (not from extra params)
-    The page_suffix is optional, so far for documents
+    will also be subclassed by artifact page
     """
-    object = get_object_or_404(EvidenceItem, slug=slug)
-    # each type has its own template
-    # template_name = "supporting/special_detail/" + object.special_type + ".html"
-    evidence_type_slug = object.evidence_type.slug
+    template_name = "supporting/evidence_detail/document.html"
+    # extend_base - default from FeatureDetailView, or override in sub class
+    # links here are borrowed from Special - might use for full version
+    link_name = "must-be-overridden-by-subclass-if-needed"
+    # link_class overridden by subclass with "noclass" if fullscreen
+    link_class = "swap_pop"
+    
+    # get extend_base into context 
+    def get_context_data(self, **kwargs):
+        context = super(DocumentDetailView, self).get_context_data(**kwargs)
+        # get the feature object
+        evidenceitem_object = super(DocumentDetailView, self).get_object()
 
-    # print("------  evidence_type_slug: " + evidence_type_slug)
-
-    # zoom_exists needs to be set for all cases, so set default in advance
-    _zoom_exists = False
-
-    # ??re-loding the whole (slim) page -- not much that would stay in place if
-    # I used AJAX
-
-    # Handle document paging
-    if evidence_type_slug == "manuscript" or evidence_type_slug == "print":
-
-        # Documents (Manuscripts or Prin) have to have at least one page set in admin 
-        # if there are pages, 
-        #   if suffix sent use it,
-        #   else use find and use first page
-        # else no page
-        #   send error message
-        # try:  
-        if object.page_set.all():
-            # print("---- page set exists: ")
-            if (page_suffix == 'default'):
-                # i.e. no param sent, use the first page.
-                pages = Page.objects.filter(evidenceitem_id=object.id)
-                page = pages[0]
-            else:
-                # page suffix sent, use it
-                page = get_object_or_404(Page, evidenceitem_id=object.id, 
-                    page_suffix=page_suffix)
+        # check to see that slides have been entered in admin
+        if evidenceitem_object.page_set.all():
             error_msg = None
-            # See if zoom exists, using suffix
-            _zoom_exists = zoom_exists(object.slug + '-' + page.page_suffix)
-
-        else:
+            # double check that suffix param is sent
+            if 'page_suffix' in self.kwargs:
+                page_suffix = self.kwargs['page_suffix']
+                # page suffix sent, use it to get page object
+                page = get_object_or_404(Page, evidenceitem_id=evidenceitem_object.id, 
+                    page_suffix=page_suffix)
+            else: # i.e. no param sent, use the first page.    
+                pages = Page.objects.filter(evidenceitem_id=evidenceitem_object.id)
+                page = pages[0]
+        else: # return an error message if no slides have been entered in admin
             page = None
-            error_msg = "Error: For manuscripts and print at least one page has to be " + \
+            error_msg = "Error: For feature at least one page has to be " + \
                 "defined in Admin."
-            # print("----- no page set ")
+        # add variables to context
+        context.update({'page': page, 'error_msg': error_msg,
+        'link_name': self.link_name, 'link_class': self.link_class })
+        return context
 
-        # return render(request, "supporting/evidence_detail/" + 
-        #   evidence_type_slug + ".html", 
-        return render(request, "supporting/evidence_detail/document.html", 
-            {'object': object, 'page': page, 'error_msg': error_msg, 
-                'zoom_exists': _zoom_exists}) 
-    else:
-        # See if zoom exists, (no suffix)
-        _zoom_exists = zoom_exists(object.slug)
-        return render(request, "supporting/evidenceitem_detail.html", 
-            {'object': object, 'zoom_exists': _zoom_exists})
 
-def zoom_exists(zoom_dir):
-    full_filepath = settings.BASE_DIR + \
-        '/supporting/static/supporting/evidenceitem/zooms/' + zoom_dir + ".zif"
-    # print("--- zoom_dir: " + zoom_dir)
-    # print("--- full_filepath: " + full_filepath)
-    if default_storage.exists(full_filepath):
-        return True
-    else:
-        return False
+class ArtifactPageDetailView(EvidenceItemDetailView):
+    """
+    may change
+    """
+    template_name = "supporting/evidence_detail/artifact.html"
+    
+    # get extend_base into context 
+    def get_context_data(self, **kwargs):
+        context = super(ArtifactPageDetailView, self).get_context_data(**kwargs)
+        # get the feature object
+        evidenceitem_object = super(ArtifactPageDetailView, self).get_object()
+
+        # check to see that slides have been entered in admin
+        if evidenceitem_object.page_set.all():
+            error_msg = None
+            # double check that suffix param is sent
+            if 'page_suffix' in self.kwargs:
+                page_suffix = self.kwargs['page_suffix']
+                # page suffix sent, use it to get page object
+                page = get_object_or_404(Page, evidenceitem_id=evidenceitem_object.id, 
+                    page_suffix=page_suffix)
+            else: #  no param sent, but should be because this is a page view    
+                page = None
+                error_msg = "Error: For feature at least one slide has to be " + \
+                    "defined in Admin."
+        else: # return an error message if no slides have been entered in admin
+            page = None
+            error_msg = "Error: For feature at least one page has to be " + \
+                "defined in Admin."
+        # add variables to context
+        context.update({'page': page, 'error_msg': error_msg })
+        return context
+
+def evidenceitem_detail(request, slug, page_suffix='default'):
+    return None
+
 
 class FastFactDetailView(DetailView):
     model = FastFact

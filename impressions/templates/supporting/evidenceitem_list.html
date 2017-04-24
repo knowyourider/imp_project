@@ -37,10 +37,32 @@
     <li>
       <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' object.slug %}">
         <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
-        <em>{{ object.title|safe }}</em>
+        <em>{{ object.title|safe }} -devel:{{ object.evidence_category }}</em>
+      </a>
+  {% endfor %}
+     <li>
+      <a class="pop_item" href="{% url 'supporting:artifact_detail' 'astro-device' %}">
+        <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/astro-device.jpg' }}"  alt="image of astro test"> 
+        <em>test astro</em>
       </a>
     </li>
-  {% endfor %}
+
+     <li>
+      <a class="pop_item" href="{% url 'supporting:artifact_detail' 'peale-mastodon-painting' %}">
+        <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/peale-mastodon-painting.jpg' }}"  alt="image of peale-mastodon-painting"> 
+        <em>test peale-mastodon-painting</em>
+      </a>
+    </li>
+
+     <li>
+      <a class="pop_item" href="{% url 'supporting:document_detail' 'marsh-silliman-letter-1848' %}">
+        <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/marsh-silliman-letter-1848.jpg' }}"  alt="image of marsh-silliman-letter-1848"> 
+        <em>test marsh-silliman-letter-1848</em>
+      </a>
+    </li>
+
+
+
   </ul>   
 
   {% include 'supporting/_list_pagination.html' %}

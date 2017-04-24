@@ -10,14 +10,35 @@ urlpatterns = [
         name='context_detail'),
 
     url(r'^evidenceitem/$', views.EvidenceItemListView.as_view(paginate_by=21), name='evidenceitem_list'),
+
+    # test what's being called -- comment this out
+    # url(r'^evidenceitem/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', \
+    #     views.evidenceitem_detail, name='evidenceitem_detail'),   
+    
+    # only for team lists
     url(r'^evidenceitem/(?P<pk>[0-9]+)/$', views.EvidenceItemDetailView.as_view(), 
         name='evidenceitem_detail_pk'),
 
+    # will be obsolete
+    url(r'^evidenceitem/(?P<slug>\S+)/$', views.evidenceitem_detail, name='evidenceitem_detail'),
+
+    # not used -- using artifact or document instead    
     # url(r'^evidenceitem/(?P<slug>\S+)/$', views.EvidenceItemDetailView.as_view(), 
     #   name='evidenceitem_detail'),
-    url(r'^evidenceitem/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', \
-        views.evidenceitem_detail, name='evidenceitem_detail'),    
-    url(r'^evidenceitem/(?P<slug>\S+)/$', views.evidenceitem_detail, name='evidenceitem_detail'),    
+
+    # works
+    url(r'^document/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', \
+        views.DocumentDetailView.as_view(), name='document_page_detail'),   
+    # new - works
+    url(r'^document/(?P<slug>\S+)/$', views.DocumentDetailView.as_view(), 
+      name='document_detail'),
+    # new and testing
+    url(r'^artifact/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', \
+        views.ArtifactPageDetailView.as_view(), name='artifact_page_detail'),   
+    # check, this is new and working:
+    url(r'^artifact/(?P<slug>\S+)/$', views.ArtifactDetailView.as_view(), 
+      name='artifact_detail'),
+
 
     url(r'^fastfact/(?P<pk>[0-9]+)/$', views.FastFactDetailView.as_view(), 
         name='fastfact_detail_pk'),
