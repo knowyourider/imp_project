@@ -153,6 +153,9 @@ $(document).ready(function(){
       // call ajax for new page text. use href as-is.
       getURL(theURL, $('#document-text'));
     }
+    // in all cases, add .zif
+    zoomPath += ".zif";
+
     console.log('zoom path:' + zoomPath);
 
     Z.Viewer.setImagePath(zoomPath);
