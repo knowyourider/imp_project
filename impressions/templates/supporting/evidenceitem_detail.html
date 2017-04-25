@@ -9,33 +9,68 @@
 
 {% block slim_content%}
 
+<script type="text/javascript">
+	Z.showImage("item-image", 
+	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif", // .zif 
+	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
+</script>
+
 
 <section class="evidence-left-col">
 
-	<div id="item_wrapper">
-		<script type="text/javascript">
-			Z.showImage("item-image", 
-			  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}", // .zif 
-			  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
-		</script>
+	<section id="item-viewer">
+		<div id="item-viewer--container">
+			{% if error_msg %}
+				<p class="error-msg">{{ error_msg }}</p>
+			{% else %}
+				<div id="item-image">zoomable artifact image here</div>
+			{% endif %}
 
-		<section id="item-viewer">
-			<div id="item-viewer--container">
-				{% if error_msg %}
-					<p class="error-msg">{{ error_msg }}</p>
+			<div id="document-text" class="hidden">
+				<div class="document-text--transcription">
+					{{ page.transcript|safe }}
+				</div>
+			</div><!-- /document-text -->
+
+		</div> <!-- /item-viewer--container -->	
+	</section> <!-- /item-viewer -->
+
+	<!-- paging --> 
+	{% if object.is_multipage %} 
+		<nav id="document-paging">
+			<h5 class="document-paging--title">
+				{% if object.evidence_type.is_document_oriented %}
+					Page: 
 				{% else %}
-					<div id="item-image">zoomable artifact image here</div>
+					View:
 				{% endif %}
+			</h5>
+			<ul id="document-paging--list">
 
-				<!-- /transcription goes here -->
-				{% block document_text %}
-				{% endblock document_text %}
-			</div> <!-- /item-viewer--container -->	
-		</section> <!-- /item-viewer -->
+			{# if artifact we need 1st link w/o suffix #}
+			{% if not object.evidence_type.is_document_oriented %}
+				<li class="document-paging--page">
+					<a href="{% url 'supporting:artifact_detail' object.slug %}" class="item_page" > 
+					Primary</a>
+				</li>
+			{% endif %}
 
-		{% block controls %}
-		{% endblock controls %}	
-	</div>
+			{% for nav_page in object.page_set.all %}
+				<li class="document-paging--page{% if forloop.last %} last{% endif %}">
+					<a href="{% url 'supporting:evidence_page_detail' object.slug nav_page.page_suffix %}"
+					class="item_page" > <!-- was swap_pop -->
+						{{ nav_page.page_label }}</a>
+				</li>
+			{% endfor %}		
+			</ul>
+		</nav>
+	{% endif %}
+
+	{% if page.transcript %}
+		<!-- show/hide transcription --> 
+		<button id="toggle-transcription">Show Transcription</button>
+	{% endif %}
+
 
 	{% include "supporting/_slim_deeper.html" %}
 

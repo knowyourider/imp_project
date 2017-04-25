@@ -83,7 +83,7 @@
 
       {% for evidenceitem in chapter.evidence.all %}
         <li>
-          <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+          <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
           <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title|safe }}
           </a>

@@ -25,7 +25,7 @@
 
 		      {% for evidenceitem in chapter.evidence.all %}
 		        <li>
-		          Artifacts &amp; Docs - {{ evidenceitem.evidence_type.slug }}: <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+		          Artifacts &amp; Docs - {{ evidenceitem.evidence_type.slug }}: <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
 		            {{ evidenceitem.title|safe }}
 		          </a>
 		        </li>

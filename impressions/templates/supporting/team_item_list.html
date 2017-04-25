@@ -30,8 +30,10 @@
 		<td>
 			{% if object_list.0.content_type.slug == 'feature' %}
 				<em>{{ object.title|safe }}</em>
+			{% elif object_list.0.content_type.slug == 'evidenceitem' %}
+				<a class="pop_item" href="{% url 'supporting:'|add:object.evidence_category|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>	
 			{% else %}
-				<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>			
+				<a class="pop_item" href="{% url 'supporting:'|add:object_list.0.content_type.slug|add:'_detail' object.slug %}"><em>{{ object.title|safe }}</em></a>	
 			{% endif %}
 		</td>
 		<td>
@@ -58,7 +60,7 @@
 			<ul>
 				{% for evidenceitem in object.evidenceitem_set.all %}
 				<li>
-					&bull; <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.content_type.slug|add:'_detail' evidenceitem.slug %}">{{ evidenceitem.title}}</a>
+					&bull; <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">{{ evidenceitem.title}}</a>
 				</li>
 				{% endfor %}
 			</ul>					

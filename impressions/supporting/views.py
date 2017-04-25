@@ -125,21 +125,17 @@ class EvidenceItemDetailView(DetailView):
 
 class ArtifactDetailView(EvidenceItemDetailView):
     # context_object_name = 'object'
-    template_name = 'supporting/evidence_detail/artifact.html'
+    template_name = 'supporting/evidenceitem_detail.html'
 
 
 class DocumentDetailView(EvidenceItemDetailView):
     """
-    will also be subclassed by artifact page
+    has to get first page
     """
-    template_name = "supporting/evidence_detail/document.html"
+    template_name = "supporting/evidenceitem_detail.html"
     # extend_base - default from FeatureDetailView, or override in sub class
-    # links here are borrowed from Special - might use for full version
-    link_name = "must-be-overridden-by-subclass-if-needed"
-    # link_class overridden by subclass with "noclass" if fullscreen
-    link_class = "swap_pop"
     
-    # get extend_base into context 
+    # when we do "fullscreen" we'll need to get extend_base into context 
     def get_context_data(self, **kwargs):
         context = super(DocumentDetailView, self).get_context_data(**kwargs)
         # get the feature object
@@ -148,50 +144,8 @@ class DocumentDetailView(EvidenceItemDetailView):
         # check to see that slides have been entered in admin
         if evidenceitem_object.page_set.all():
             error_msg = None
-            # double check that suffix param is sent
-            if 'page_suffix' in self.kwargs:
-                page_suffix = self.kwargs['page_suffix']
-                # page suffix sent, use it to get page object
-                page = get_object_or_404(Page, evidenceitem_id=evidenceitem_object.id, 
-                    page_suffix=page_suffix)
-            else: # i.e. no param sent, use the first page.    
-                pages = Page.objects.filter(evidenceitem_id=evidenceitem_object.id)
-                page = pages[0]
-        else: # return an error message if no slides have been entered in admin
-            page = None
-            error_msg = "Error: For feature at least one page has to be " + \
-                "defined in Admin."
-        # add variables to context
-        context.update({'page': page, 'error_msg': error_msg,
-        'link_name': self.link_name, 'link_class': self.link_class })
-        return context
-
-
-class ArtifactPageDetailView(EvidenceItemDetailView):
-    """
-    may change
-    """
-    template_name = "supporting/evidence_detail/artifact.html"
-    
-    # get extend_base into context 
-    def get_context_data(self, **kwargs):
-        context = super(ArtifactPageDetailView, self).get_context_data(**kwargs)
-        # get the feature object
-        evidenceitem_object = super(ArtifactPageDetailView, self).get_object()
-
-        # check to see that slides have been entered in admin
-        if evidenceitem_object.page_set.all():
-            error_msg = None
-            # double check that suffix param is sent
-            if 'page_suffix' in self.kwargs:
-                page_suffix = self.kwargs['page_suffix']
-                # page suffix sent, use it to get page object
-                page = get_object_or_404(Page, evidenceitem_id=evidenceitem_object.id, 
-                    page_suffix=page_suffix)
-            else: #  no param sent, but should be because this is a page view    
-                page = None
-                error_msg = "Error: For feature at least one slide has to be " + \
-                    "defined in Admin."
+            pages = Page.objects.filter(evidenceitem_id=evidenceitem_object.id)
+            page = pages[0]
         else: # return an error message if no slides have been entered in admin
             page = None
             error_msg = "Error: For feature at least one page has to be " + \
@@ -200,6 +154,24 @@ class ArtifactPageDetailView(EvidenceItemDetailView):
         context.update({'page': page, 'error_msg': error_msg })
         return context
 
+
+def evidence_page(request, slug, page_suffix):
+    """
+    Supports Ajax call to replace current page
+    filename param not used here. It's in the url for use by JS 
+    that switches the zoomify image. By putting all the info in one url
+    I don't need to split it in JS. And the url will work as a non-js fallback.
+    """
+    d = get_object_or_404(EvidenceItem, slug=slug)
+
+    # get page record for this suffix
+    curr_page = d.page_set.get(page_suffix=page_suffix)            
+
+    return render(request, 'supporting/_page_transcription.html', {'object': d, 
+        'curr_page': curr_page})
+
+
+# temp place holder
 def evidenceitem_detail(request, slug, page_suffix='default'):
     return None
 

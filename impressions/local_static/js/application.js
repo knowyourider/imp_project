@@ -22,7 +22,6 @@ $(document).ready(function(){
       // call ajax for the slim pop. (href, size class)
       slimPop(chosen_href, slimpopSizeClass);  
     }
-
   });
 
   // enable click event on slim that's already up
@@ -31,9 +30,14 @@ $(document).ready(function(){
     event.preventDefault();
     // get href
     var chosen_href = $(event.target).attr('href');
-    // alert('chosen_href: ' + chosen_href);
+    console.log('chosen_href: ' + chosen_href);
+    var href_split = chosen_href.split('/');    
+    // var slimpopSizeClass = href_split[2];
+    var contentDiv = $('#slimpop-container');
+    // resize contentDiv
+    contentDiv.removeClass().addClass("slimpop-basic").addClass(href_split[2]); 
     // call ajax for the slim pop. 
-    getURL(chosen_href, $('#slimpop-container'));
+    getURL(chosen_href, contentDiv);
   });
 
   // scroll right for dig deeper
@@ -121,7 +125,40 @@ $(document).ready(function(){
   });
 
   // ------- Docment paging ------
-  // set first item selected
+
+  $(document).on("click", ".item_page", function(event){
+    event.preventDefault();
+    // highlight current selection
+    $("#document-paging--list li").removeClass('document-paging--selected');
+    $(event.target).parent().addClass('document-paging--selected'); 
+
+    // get params from href
+    theURL = $(event.target).attr('href');
+    // e.g. /documents/montague_letter/p001/36608
+    var href_split = theURL.split('/');  
+    var link_type = href_split[2]  
+    var slug = href_split[3]
+    var page_suffix = href_split[4]
+
+    console.log('href:' + theURL);
+
+    // set first item selected
+    // change zoomify image
+    var zoomPath = "/static/supporting/evidenceitem/zooms/" + slug;
+
+    // avoid adding suffix for special case of artifact primary view
+    // and don't bother trying to change the document text
+    if(link_type != "artifact") {
+      zoomPath += "-" + page_suffix;
+      // call ajax for new page text. use href as-is.
+      getURL(theURL, $('#document-text'));
+    }
+    console.log('zoom path:' + zoomPath);
+
+    Z.Viewer.setImagePath(zoomPath);
+
+  });
+
 
   // ------- SEARCH ------
 
