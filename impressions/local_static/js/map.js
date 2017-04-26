@@ -42,7 +42,15 @@ $(document).ready(function(){
 	];
 
 	// ----- define map overlays ----- 
-	var hitchcock   = L.tileLayer('/static/map/tiles/Hitchcock_Map/{z}/{x}/{y}.png', {
+	var hitchcock1857   = L.tileLayer('/static/map/tiles/hitchcock1857/{z}/{x}/{y}.png', {
+		attribution: 'Hitchcock map',
+		// bounds: mybounds, //tempbounds
+		minZoom: 9,
+		maxZoom: 16,
+		//opacity: .7,
+        tms: true
+	}),
+	hitchcock1834   = L.tileLayer('/static/map/tiles/hitchcock1834/{z}/{x}/{y}.png', {
 		attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 		minZoom: 9,
@@ -63,7 +71,7 @@ $(document).ready(function(){
 		minZoom: 9,
 		maxZoom: 13
     }), 
-	hitchcock_1833   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	hitchcock1833   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	    attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 	    minZoom: 9,
@@ -72,7 +80,7 @@ $(document).ready(function(){
 	    accessToken: 'pk.eyJ1IjoiZG9uYWxkbyIsImEiOiJjaWxjbTZ0eXIzNmh5dTJsemozOTRwbWViIn0.xB0UB2teNew30PzKpxHSDA'
 	});
 
-	var mapLayerObjects = [roads, hitchcock, hitchcock_1833]; 
+	var mapLayerObjects = [roads, hitchcock1857, hitchcock1834, hitchcock1833]; 
 
 	// ----- define lake geoJson overlays ----- 
 
