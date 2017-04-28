@@ -6,22 +6,28 @@ $(document).ready(function(){
     // hover in js rather than css to accomodate mobile
     $(".dinospot").hover(function(event){ 
         // console.log(" --- got to hover on");
-            $(event.target).css("fill-opacity", "0.5");
+            // $(event.target).css("fill-opacity", "0.5");
+            $(event.target).addClass("dino-roll");
             setTooltip($(event.target), this);
         }, function(event){
             // console.log(" --- got chapter-nav-- hover off");
-            $(event.target).css("fill-opacity", "0");
+            // $(event.target).css("fill-opacity", "0");
+            $(event.target).removeClass("dino-roll");
             $('.tooltip').css("opacity", "0");
         }
     );
-
 
     // since this is loaded by the slim (at the bottom of the html)
     // we don't want the $(document).on syntax for the event listener
     $(".dinospot").on("click", function(event){
         event.preventDefault();
 
+        // set tooltip
         setTooltip($(event.target), this);
+        // remove any standing sticky highlights 
+        $(".dinospot").removeClass("dino-stick");
+        // set sticky highlight
+        $(event.target).addClass("dino-stick");
 
         var targetName = $(event.target).parent().find("name").html();
 
@@ -31,7 +37,7 @@ $(document).ready(function(){
         for (i = 0; i < expos.length; i++) {
           expos[i].style.display = "none"; 
         }
-        console.log(" -- targetName: " + targetName);
+        // console.log(" -- targetName: " + targetName);
 
         // set expo text visible for current selection
         // object name in the "name" element has to match image_name for slide in Admin

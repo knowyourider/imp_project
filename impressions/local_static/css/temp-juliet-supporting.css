@@ -1,3 +1,11 @@
 .artifact, .document {
   max-height: 85%;
   width: 900px; }
+
+.dino-stick {
+  fill: #b12b44;
+  fill-opacity: 0.5; }
+
+.dino-roll {
+  fill: #b12b00;
+  fill-opacity: 0.5; }
