@@ -1039,9 +1039,11 @@ ul.chapter-nav li:hover ol.chapter-subnav {
   fill: #b12b00;
   fill-opacity: 0; }
 
+/* commented out by don
 .dinospot:hover {
   fill: #b12b00;
   fill-opacity: 0.5; }
+*/
 
 .tooltip {
   color: #65605a;

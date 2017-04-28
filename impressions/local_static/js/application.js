@@ -3,8 +3,7 @@ $(document).ready(function(){
   // ------- SLIM POPS ------
 
   // enable click event on menu items and text links
-  // $('.pop_item').click(function(event){
-  $(document).on("click touchstart", ".pop_item", function(event){
+  $(".pop_item").on("click touchstart", function(event){
     // console.log("--- got to pop_item");
     event.preventDefault();
     // get href
@@ -15,7 +14,8 @@ $(document).ready(function(){
     var slimpopSizeClass = href_split[2];
 
     // test mobile for find-footprints and test state of mobile menu
-    if (href_split[3] == "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
+    if (href_split[3] == 
+      "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
       var fullHref = "/supporting/fullspecial/" + href_split[3] + "/";
       window.location.href = fullHref;
     } else {
@@ -25,7 +25,7 @@ $(document).ready(function(){
   });
 
   // enable click event on slim that's already up
-  // document on required since this the markup was loaded by ajax.
+  // "document on" sytntax required since this the markup was loaded by ajax.
   $(document).on("click", ".swap_pop", function(event){
     event.preventDefault();
     // get href
@@ -38,19 +38,6 @@ $(document).ready(function(){
     contentDiv.removeClass().addClass("slimpop-basic").addClass(href_split[2]); 
     // call ajax for the slim pop. 
     getURL(chosen_href, contentDiv);
-  });
-
-  // scroll right for dig deeper
-  $(document).on("click", ".go-to-deeper", function(event){
-    event.preventDefault();
-
-    //window.scrollTo(500, 0);
-    var xscroll = 100;
-    var scrollspeed = 20;
-    // window.scrollBy(0,-9000);//initial scroll to the top of the page
-    for (var iscroll=0; iscroll < xscroll; iscroll++){
-        setTimeout('window.scrollBy(' + iscroll + ', 0)',scrollspeed * iscroll);
-    }
   });
 
   // ---------- NAVIGATION ----------
@@ -85,8 +72,8 @@ $(document).ready(function(){
   // ------- Chapter Navigation
 
   // this drops menu on click
-  // $(".chapter-nav--dropdown a").click(function(event){ // .mobile
-  $(document).on("click", ".chapter-nav--dropdown a", function(event){
+  $(".chapter-nav--dropdown a").click(function(event){ // .mobile
+  // $(document).on("click", ".chapter-nav--dropdown a", function(event){
     // event.preventDefault();
     event.stopPropagation();
     // console.log(" --- got chapter-nav-- click");
@@ -97,7 +84,7 @@ $(document).ready(function(){
       $('ol.chapter-subnav').hide();
   });
 
-  // try js hover instead of css
+  // hover in js rather than css to accomodate mobile
   $(".chapter-nav--dropdown").hover(
     function(event){ 
       // console.log(" --- got chapter-nav-- hover on");

@@ -3,13 +3,27 @@
 $(document).ready(function(){
     var textBoxHeightOffset = 15;
 
-    $(document).on("click", ".dinospot", function(event){
+    // hover in js rather than css to accomodate mobile
+    $(".dinospot").hover(function(event){ 
+        // console.log(" --- got to hover on");
+            $(event.target).css("fill-opacity", "0.5");
+            $('.tooltip').css("opacity", "1");
+        }, function(event){
+            // console.log(" --- got chapter-nav-- hover off");
+            $(event.target).css("fill-opacity", "0");
+            $('.tooltip').css("opacity", "0");
+        }
+    );
+
+
+    // since this is loaded by the slim (at the bottom of the html)
+    // we don't want the $(document).on syntax for the event listener
+    $(".dinospot").on("click", function(event){
         event.preventDefault();
 
         // get the index of the element selected
         // console.log( $("#hotspot_group g").index($(this).parent()) );
-        expoIndex =  $("#hotspot_group g").index($(this).parent());
-
+        // expoIndex =  $("#hotspot_group g").index($(this).parent());
  
 		$('.tooltip').css("opacity", "1");
         // get target element bounding box
@@ -28,22 +42,13 @@ $(document).ready(function(){
         for (i = 0; i < expos.length; i++) {
           expos[i].style.display = "none"; 
         }
-        // set visible for current selection
-        // object name in the "name" element has to match image_name for slide in Admin
-
         console.log(" -- targetName: " + targetName);
 
+        // set visible for current selection
+        // object name in the "name" element has to match image_name for slide in Admin
         $("#" + targetName).css("display", "block") ;
-
-
-
-        // $("#expo-" + targetName).style.display = "block";
-        // $("#narrative p[name=expo_1]").style.display = "block";
-        // $("#narrative p[1]").style.display = "block";
-
-        // $('td[name^=tcol]')
-        // $('explanations[name^=expo_1]').style.display = "block";
-
+        // BTW, the following doesn't work consistently:
+        // $("#-" + targetName).style.display = "block";
 
         // get the height of box with current text
         var textBoxHeight = $(".tooltip").height();

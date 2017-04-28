@@ -60,13 +60,6 @@
 
 </div>
 
-<script type="text/javascript">
-	// since this is in a slim called by ajax we can't just list the script directly
-	$.getScript('{% static "js/explore.js" %}', function() {
-	  // Set variable after script is loaded.
-	});
-</script>
-
-
+<script src="{% static 'js/explore.js' %}" type="text/javascript"></script>
 
 {% endblock slim_content %}
