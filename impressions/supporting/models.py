@@ -209,6 +209,8 @@ class FastFact(CommonSupportingModel):
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     has_image = models.BooleanField(default=False)
+    evidence = models.ManyToManyField('supporting.EvidenceItem', 
+        verbose_name='Evidence item for this In Brief', blank=True)
 
     def image_img(self):
         if self.has_image:

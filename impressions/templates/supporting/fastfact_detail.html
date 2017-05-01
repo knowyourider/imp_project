@@ -20,4 +20,19 @@
 
 {{ object.narrative|safe }}
 
+{% if object.evidence.all %}
+	<div class="slim-deeper">
+		<h2 class="subtitle heading">See the Evidence</h2>
+		<ul>
+		  {% for evidenceitem in object.evidence.all %}
+		    <li>
+		      <a class="swap_pop" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+		        {{ evidenceitem.title }}
+		      </a>
+		    </li>
+		  {% endfor %}
+		</ul>
+	</div>
+{% endif %}
+
 {% endblock slim_content %}

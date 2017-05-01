@@ -62,7 +62,7 @@ function setTooltip (eventTarget, thisDinospot) {
     // set the tooltip and narrative text
     $(".tooltip").html(targetTitle);
 
-    console.log(" -- hover targetTitle: " + targetTitle);
+    // console.log(" -- hover targetTitle: " + targetTitle);
 
     // get the height of box with current text
     var textBoxHeight = $(".tooltip").height();
