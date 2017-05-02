@@ -71,14 +71,14 @@ class FastFactAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title', 'slug', 'fastfact_type', 'has_image',
             'caption', 'source', 'narrative']}),
-        ('View Evidence',   {'fields': ['evidence']}),
+        # ('View Evidence',   {'fields': ['evidence']}),
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
     list_display = ('title', 'slug', 'image_img', 'fastfact_type', 'has_image', 'status_num')
     list_per_page = 40
     list_filter     = ['status_num'] 
-    filter_horizontal = ['evidence']    
+    # filter_horizontal = ['evidence']    
     search_fields = ['title', 'slug']
 
 admin.site.register(FastFact, FastFactAdmin)

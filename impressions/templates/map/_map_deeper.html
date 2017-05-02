@@ -21,7 +21,7 @@
   {% endfor %}
   {% for evidenceitem in object.evidence.all %}
     <li>
-      <a class="pop_item" href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+      <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
         {{ evidenceitem.title }}
       </a>
     </li>
