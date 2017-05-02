@@ -6,11 +6,11 @@ class LayerAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'era_description', 'layer_blurb']}), 
         ('Places of Interest',   {'fields': ['places']}),
-        ('Related supporting (like Dig Deeper)',   {'fields': ['people', 'evidence', 
-            'contexts']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts',
+            'featured_specials']}),
         ('Behind the scenes',   {'fields': ['ordinal', 'layer_index']}), #layer_identifier
     ]
-    filter_horizontal = ['people', 'evidence', 'contexts', 'places']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'places', 'featured_specials']    
     list_display = ('title', 'era_description', 'slug' )
 
 admin.site.register(Layer, LayerAdmin)

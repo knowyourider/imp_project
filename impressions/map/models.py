@@ -20,6 +20,8 @@ class Layer(AssociationMixin, models.Model):
     # evidence, contexts, people from AssociationMixin -- for dig deeper
     # sites = models.ManyToManyField('map.Site', blank=True)
     places = models.ManyToManyField('supporting.Place', blank=True) # for markers
+    featured_specials = models.ManyToManyField('special.Feature', 
+        verbose_name='Special Features related to this item', blank=True)
 
     def layer_list(self):
         return Layer.objects.all()

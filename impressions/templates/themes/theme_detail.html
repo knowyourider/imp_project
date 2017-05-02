@@ -47,7 +47,7 @@
 
       {% for evidenceitem in object.evidence.all %}
         <li>
-          <a class="pop_item"  href="{% url 'supporting:evidenceitem_detail' evidenceitem.slug %}">
+          <a class="pop_item"  href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
           <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title }}
           </a>
@@ -63,11 +63,11 @@
         </li>
       {% endfor %}
       
-      {% for special in object.featured_specials.all %}
+      {% for feature in object.featured_specials.all %}
         <li>
-          <a class="pop_item" href="{% url 'special:feature_detail' special.slug %}">
-          <img src="{% static 'special/menupics/' %}{{ special.slug }}.jpg" alt="image of {{ special.slug }}">
-            {{ special.title }}
+          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+            {{ feature.title }}
           </a>
         </li>
       {% endfor %}

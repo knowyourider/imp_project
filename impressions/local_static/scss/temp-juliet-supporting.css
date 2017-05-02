@@ -25,3 +25,20 @@ I made the hover in JS so that we can handle mobile differently.
 .dino-roll {
   fill: #b12b00;
   fill-opacity: 0.5; }
+
+
+/* Juliet -- there's a typo in your scss -- need
+to have a comma following .society.
+I'm temporarily overriding it below.
+Combine with the .artifact and .document above
+
+.slideshow, .footprint, .video, .society
+.then, .looking, .explore, .discoverers {
+  max-width: 85%;
+  max-height: 85%; }
+*/
+
+.slideshow, .footprint, .video, .society,
+.then, .looking, .explore, .discoverers {
+  max-width: 85%;
+  max-height: 85%; }

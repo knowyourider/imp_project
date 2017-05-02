@@ -33,5 +33,12 @@
       </a>
     </li>
   {% endfor %}
+      {% for feature in object.featured_specials.all %}
+        <li>
+          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+            {{ feature.title }}
+          </a>
+        </li>
+      {% endfor %}
 {% endif %}
 </ul>      
