@@ -15,11 +15,11 @@ $(document).ready(function(){
     // href_split[2] = person, evidence, fastfact, special
     var slimpopSizeClass = href_split[2];
 
-    console.log(" -- slim class size: " + slimpopSizeClass);
+    // console.log(" -- slim class size: " + slimpopSizeClass);
 
     // test mobile for find-footprints and test state of mobile menu
     if (href_split[3] == 
-      // "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
+      "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
       var fullHref = "/supporting/fullspecial/" + href_split[3] + "/";
       window.location.href = fullHref;
     } else {
