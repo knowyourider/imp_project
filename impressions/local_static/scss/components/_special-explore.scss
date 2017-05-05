@@ -5,7 +5,12 @@
   fill-opacity: 0;
 }
 
-.dinospot:hover {
+.dino-stick {
+  fill: $action-color;
+  fill-opacity: 0.5;
+}
+
+.dino-roll {
   fill: $action-color;
   fill-opacity: 0.5;
 }
