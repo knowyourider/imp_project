@@ -3,6 +3,9 @@ var textBoxHeightOffset = 15;
 
 $(document).ready(function(){
 
+    // set intro explanation to visible (block)
+    $(".explanations")[0].style.display = "block";
+
     // hover in js rather than css to accomodate mobile
     $(".dinospot").hover(function(event){ 
         // console.log(" --- got to hover on");
@@ -44,9 +47,32 @@ $(document).ready(function(){
         $("#" + targetName).css("display", "block") ;
         // BTW, the following doesn't work consistently:
         // $("#-" + targetName).style.display = "block";
+    });
 
+    // show and hide all dino highlights
+    $("#showdinos").on("click", function(event){
+        event.preventDefault();
+        var showLink = $("#showdinos");
 
-	});
+        console.log(" -- html: " + showLink.html());
+
+        if (showLink.html() == "show all") {
+            // add sticky version of highlight to all 
+            $(".dinospot").addClass("dino-stick");
+            showLink.html("hide all");
+        } else {
+            // remove highlights
+            $(".dinospot").removeClass("dino-stick");
+            showLink.html("show all"); 
+            // also reset explanation to intro since nothing will be highlighted
+            var expos = $(".explanations");
+            // clear all visible text
+            for (i = 0; i < expos.length; i++) {
+              expos[i].style.display = "none"; 
+            }
+            $(".explanations")[0].style.display = "block";
+        }
+    });
 
 }); // end document ready
 

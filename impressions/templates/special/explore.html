@@ -5,6 +5,10 @@
 {% block item_title %}{{ object.title|safe }}{% endblock %}
 
 {% block slim_content%}
+
+<script src="{% static 'js/explore.js' %}" type="text/javascript"></script>
+
+
 <svg  xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox="0 0 1400 596" 
@@ -125,14 +129,16 @@
 <div class="tooltip">(will be replaced by item title)</div>
 
 <div id="narrative">
-	<p class="explanations">Click the animals and plants in the picture to identify them and learn more.</p>
-
+	<p class="caption">Illustration by .. Silliman  &nbsp;&nbsp;&nbsp;&nbsp; 
+		<a id="showdinos" href="#">show all</a></p>
+<!-- 	<p class="explanations">Click the animals and plants in the picture to identify them and learn more.</p>
+ -->
 	{% for expo in object.frame_set.all %}
 		<p class="explanations hidden" id="{{expo.image_name }}">{{ expo.narrative }}</p>
 	{% endfor %}
 
 </div>
 
-<script src="{% static 'js/explore.js' %}" type="text/javascript"></script>
-
+<!-- <script src="{% static 'js/explore.js' %}" type="text/javascript"></script>
+ -->
 {% endblock slim_content %}
