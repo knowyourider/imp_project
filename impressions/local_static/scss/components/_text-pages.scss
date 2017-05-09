@@ -1,0 +1,32 @@
+// For ancillary text pages
+.text-page {
+	// for small displays
+	width: 100%;
+	height: auto;
+
+	//for large displays (works with side-panel):
+	padding: $base-spacing $large-spacing $large-spacing $base-spacing;
+
+	@include media($large-screen) {
+		@include span-columns(8);
+	}
+
+	article {
+		border-bottom: $base-border;
+		margin-bottom: $large-spacing;
+	}
+}
+
+.lesson-list {
+	ol {
+		list-style-type: decimal;
+
+		li {
+			padding-bottom: $base-spacing;
+
+			a {
+				display: block;
+			}
+		}
+	}
+}

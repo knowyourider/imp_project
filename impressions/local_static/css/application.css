@@ -1338,6 +1338,29 @@ table.discoverers-faces td {
   max-width: 85%;
   max-height: 85%; }
 
+.text-page {
+  width: 100%;
+  height: auto;
+  padding: 1.6em 3.2em 3.2em 1.6em; }
+  @media screen and (min-width: 55em) {
+    .text-page {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .text-page:last-child {
+        margin-right: 0; } }
+  .text-page article {
+    border-bottom: 1px solid #b3aa98;
+    margin-bottom: 3.2em; }
+
+.lesson-list ol {
+  list-style-type: decimal; }
+  .lesson-list ol li {
+    padding-bottom: 1.6em; }
+    .lesson-list ol li a {
+      display: block; }
+
 .footer {
   background: #65605a;
   border-top: 1px solid #5d5853;
