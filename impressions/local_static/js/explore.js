@@ -34,13 +34,10 @@ $(document).ready(function(){
 
         var targetName = $(event.target).parent().find("name").html();
 
-        // set the variable for the explanations
-        var expos = $(".explanations");
-        // clear all visible text
-        for (i = 0; i < expos.length; i++) {
-          expos[i].style.display = "none"; 
-        }
-        // console.log(" -- targetName: " + targetName);
+        // clear any existing explanation
+        clearExplanations();
+        // set text to show all in case this is after show all
+        $("#showdinos").html("show all"); 
 
         // set expo text visible for current selection
         // object name in the "name" element has to match image_name for slide in Admin
@@ -53,28 +50,31 @@ $(document).ready(function(){
     $("#showdinos").on("click", function(event){
         event.preventDefault();
         var showLink = $("#showdinos");
-
-        console.log(" -- html: " + showLink.html());
-
         if (showLink.html() == "show all") {
             // add sticky version of highlight to all 
             $(".dinospot").addClass("dino-stick");
             showLink.html("hide all");
+            // clear any visible explanations
+            // console.log(" -- about to clearExplanations");
+            clearExplanations();
+            // and show intro since nothing will be highlighted
+            $(".explanations")[0].style.display = "block";
         } else {
             // remove highlights
             $(".dinospot").removeClass("dino-stick");
             showLink.html("show all"); 
-            // also reset explanation to intro since nothing will be highlighted
-            var expos = $(".explanations");
-            // clear all visible text
-            for (i = 0; i < expos.length; i++) {
-              expos[i].style.display = "none"; 
-            }
-            $(".explanations")[0].style.display = "block";
         }
     });
 
 }); // end document ready
+
+function clearExplanations () {
+    var expos = $(".explanations");
+    // clear all visible text
+    for (i = 0; i < expos.length; i++) {
+      expos[i].style.display = "none"; 
+    }
+}
 
 function setTooltip (eventTarget, thisDinospot) {
     $('.tooltip').css("opacity", "1");
