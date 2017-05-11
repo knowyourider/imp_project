@@ -87,13 +87,18 @@
 	{{ object.narrative|safe }}
 
 	<dl class="slim-curatorial">
-			<dt>Creator:</dt>
-			<dd>{{ object.creator }}</dd>
-			<dt>Date:</dt>
-			<dd>
-				{% if object.is_circa %}c. {% endif %}
-				{{ object.creation_year }}
-			</dd>
+		<dt>Courtesy of:</dt>
+		<dd>Image courtesy of {{ object.source.institution|safe }}</dd>
+
+		<dt>Creator:</dt>
+		<dd>{{ object.creator }}</dd>
+
+		<dt>Date:</dt>
+		<dd>
+			{% if object.is_circa %}c. {% endif %}
+			{{ object.creation_year }}
+		</dd>
+
 		{% if object.dimensions %}
 			<dt>Dimensions:</dt>
 			<dd>{{ object.dimensions }}</dd>

@@ -17,13 +17,13 @@ Or, run script from local which accesses remote:
 :: 
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
 	ssh root@68.169.58.50 'bash -s' < copy_stagedb.sh
-	(root password)
+	(remote root password)
 
 Transfer to local via FTP pvma root.
 ::
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
-	(edit password into the following, ad hoc)
-	wget --user=pvma --password='[by hand]' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
+	(edit remote pvma password into the following, ad hoc)
+	wget --user=pvma --password='pvma password by hand' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
 
 In either case:
 ::

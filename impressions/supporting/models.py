@@ -7,8 +7,8 @@ class CommonSupportingModel(CommonModel):
         (0,'0 - Not Using'),
         (1,'1 - In-progress'),
         (2,'2 - Drafted'),
-        (3,'3 - Candidate for Publication'),
-        (4,'4 - Published'),
+        (3,'3 - Content Signed-off'),
+        (4,'4 - Ready for Publication'),
     )
     # source id 1 - "Source not defined"
     source = models.ForeignKey('core.Source', default=1)
