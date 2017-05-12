@@ -87,11 +87,10 @@
 	{{ object.narrative|safe }}
 
 	<dl class="slim-curatorial">
-		<dt>Courtesy of:</dt>
-		<dd>Image courtesy of {{ object.source.institution|safe }}</dd>
-
-		<dt>Creator:</dt>
-		<dd>{{ object.creator }}</dd>
+		{% if object.creator %}
+			<dt>Creator:</dt>
+			<dd>{{ object.creator }}</dd>
+		{% endif %}
 
 		<dt>Date:</dt>
 		<dd>
@@ -111,6 +110,10 @@
 			<dt>Accession #:</dt>
 			<dd>{{ object.accession_num }}</dd>
 		{% endif %}
+		
+		<dt>Courtesy of:</dt>
+		<dd>{{ object.source.institution|safe }}</dd>
+
 	</dl>
 
 </section><!-- evidence-right-col -->
