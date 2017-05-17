@@ -8,26 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
 
-{# juliet: assimilate these styles #}
-  <style type="text/css">
-
-  .map-layers {
-    margin-bottom: 0.2em; }
-    .map-layers li {
-      margin: 0.6em 0 1.5em 0;
-      clear: left; }
-      .map-layers li label {
-        font-variant: small-caps;
-        letter-spacing: .05em; }
-      .map-layers li img {
-        float: left;
-        margin-right: 0.4em; }
-      .map-layers li p {
-        font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
-        font-size: 0.8em; }
-     
-  </style>
-
 {% endblock stylesheets %}
 
 {% block javascript %}
@@ -41,11 +21,12 @@
 {% block wrapper_class %}{% endblock wrapper_class %}
 
 {% block content_area %}
-
+<!-- don, we're missing a div class="content-wrapper-full" here -->
 <div class="map-wrapper">
   <section class="map-control-panel">
     
-    <h2 class="heading map-subtitle">Show Maps</h2><!-- map-subtitle class? is this a don hack? -->
+    <h2 class="heading">Show Maps</h2>
+
     <p class="prompt">check the boxes below to show/hide maps.</p>
 
     <form id="overlay_form" action="#">
@@ -66,7 +47,7 @@
         </li>
       </ul>
 
-      <ul class="prompt"><!-- this class is a don hack -->
+      <ul class="prompt">
         <li>
           <label for="id_10">
             <input id="id_10" name="lake" type="radio" value="0" /> Lake 15,600 BCE
@@ -88,7 +69,7 @@
           </label>
         </li>
 
-        <li><a id="clear_lake" href="#">clear</a></li>
+        <li><a id="clear_lake" href="#">reset</a></li>
 
       </ul>
 
@@ -106,7 +87,7 @@
 
 <section class="map-locations-panel">
 
-  <h2 class="heading map-subtitle">Show Markers</h2><!-- map-subtitle class? is this a don hack? -->
+  <h2 class="heading">Show Markers</h2>
     
   <form id="loc_sets" action="#">
     <ul class="map-locations">

@@ -1,12 +1,39 @@
 //Map
-// PAGE LAYOUT
+
+// to make 2 left-hand columns float left
+.map-wrapper {
+	float: none;
+	width: 100%;	
+  
+  @include media($large-screen) {
+		@include span-columns (9);
+		//@include omega();
+	}
+}
+
+// right side panel
+.map-locations-panel {
+	// for large displays:
+  @include media($large-screen) {
+		@include span-columns (3);
+		@include calc(height, "100vh - 130px");
+	}
+}
+
+// left side panel
+.map-control-panel {
+	// for large displays:
+  @include media($large-screen) {
+		@include span-columns (3 of 9);
+		@include calc(height, "100vh - 130px");
+	}
+}
+
 // both side panels
 .map-control-panel, .map-locations-panel {
 	background-color: $dark-taupe;
 	color: $light-font-color;
 	padding: $base-spacing;
-	// for small displays
-	width: 100%;
 
 	h2 {
 		font-size: $medlarge-font-size;
@@ -22,50 +49,11 @@
 	}
 }
 
-// right side panel --  should this be span-columns?
-.map-locations-panel {
-	// for large displays:
-  @include media($large-screen) {
-		display: block;
-		margin-left: 75%;
-		width: 25%;
-		@include calc(height, "100vh - 130px");
-	}
-}
-
-// left side panel --  should this be span-columns?
-.map-control-panel {
-	// for large displays:
-  @include media($large-screen) {
-		display: block;
-		float: left;
-		width: 30%;
-		@include calc(height, "100vh - 130px");
-	}
-}
-
-// to make 2 left-hand columns float left --  should this be span-columns? 
-.map-wrapper {
-	float: none;
-	width: 100%;	
-  
-  @include media($large-screen) {
-		float: left;
-		width: 75%;
-	}
-}
-
 //map central area
 .map-area {
 	background-color: $panel-darken-color;
 	display: block;
 	@include calc(height, "100vh - 130px");
-
-	//for large displays:
-  @include media($large-screen) {
-		margin-left: 30%;
-		width: 70%;
-	}
 }
 
 #map { 
@@ -84,7 +72,6 @@
 		clear: left;
 
 		label {
-			//font-size: $small-font-size;
 			font-variant: small-caps;
   		letter-spacing: .05em;
 		}
@@ -101,7 +88,7 @@
   }
 }
 
-.map-locations {
+.map-locations  {
 	margin-bottom: $base-spacing;
 }
 
@@ -130,7 +117,32 @@
   padding: $small-spacing;
 }
 
-.map-left-col, .map-middle-col, .map-right-col {
-	@include span-columns(4);
+// for map intro page
+.map-left-col, .map-right-col {
+	@include span-columns(3);
 	text-align: left;
+}
+
+.map-middle-col {
+	@include span-columns(6);
+}
+
+.map-about img {
+	float: left;
+	margin-right: $base-spacing;
+}
+
+.map-row {
+	margin-bottom: $large-spacing;
+	overflow: auto;
+	text-align: left;
+
+	img {
+		border: $double-border;
+	}
+}
+
+.how-to p {
+  font-family: $utility-font-family;
+  font-size: $smallish-font-size;
 }

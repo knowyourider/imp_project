@@ -544,11 +544,44 @@ dl.slim-curatorial {
     display: block;
     clear: left; }
 
+.map-wrapper {
+  float: none;
+  width: 100%; }
+  @media screen and (min-width: 55em) {
+    .map-wrapper {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 74.41059%; }
+      .map-wrapper:last-child {
+        margin-right: 0; } }
+
+@media screen and (min-width: 55em) {
+  .map-locations-panel {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    height: -webkit-calc(100vh - 130px);
+    height: calc(100vh - 130px); }
+    .map-locations-panel:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 55em) {
+  .map-control-panel {
+    float: left;
+    display: block;
+    margin-right: 3.16844%;
+    width: 31.22104%;
+    height: -webkit-calc(100vh - 130px);
+    height: calc(100vh - 130px); }
+    .map-control-panel:last-child {
+      margin-right: 0; } }
+
 .map-control-panel, .map-locations-panel {
   background-color: #65605a;
   color: #fff4e4;
-  padding: 1.6em;
-  width: 100%; }
+  padding: 1.6em; }
   .map-control-panel h2, .map-locations-panel h2 {
     font-size: 1.25em; }
   .map-control-panel a:link, .map-control-panel a:visited, .map-locations-panel a:link, .map-locations-panel a:visited {
@@ -557,39 +590,11 @@ dl.slim-curatorial {
     color: #fff4e4;
     text-decoration: underline; }
 
-@media screen and (min-width: 55em) {
-  .map-locations-panel {
-    display: block;
-    margin-left: 75%;
-    width: 25%;
-    height: -webkit-calc(100vh - 130px);
-    height: calc(100vh - 130px); } }
-
-@media screen and (min-width: 55em) {
-  .map-control-panel {
-    display: block;
-    float: left;
-    width: 30%;
-    height: -webkit-calc(100vh - 130px);
-    height: calc(100vh - 130px); } }
-
-.map-wrapper {
-  float: none;
-  width: 100%; }
-  @media screen and (min-width: 55em) {
-    .map-wrapper {
-      float: left;
-      width: 75%; } }
-
 .map-area {
   background-color: #5d5853;
   display: block;
   height: -webkit-calc(100vh - 130px);
   height: calc(100vh - 130px); }
-  @media screen and (min-width: 55em) {
-    .map-area {
-      margin-left: 30%;
-      width: 70%; } }
 
 #map {
   height: 100%;
@@ -630,14 +635,37 @@ dl.slim-curatorial {
   overflow: scroll;
   padding: 0.8em; }
 
-.map-left-col, .map-middle-col, .map-right-col {
+.map-left-col, .map-right-col {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%;
+  width: 23.23176%;
   text-align: left; }
-  .map-left-col:last-child, .map-middle-col:last-child, .map-right-col:last-child {
+  .map-left-col:last-child, .map-right-col:last-child {
     margin-right: 0; }
+
+.map-middle-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .map-middle-col:last-child {
+    margin-right: 0; }
+
+.map-about img {
+  float: left;
+  margin-right: 1.6em; }
+
+.map-row {
+  margin-bottom: 3.2em;
+  overflow: auto;
+  text-align: left; }
+  .map-row img {
+    border: double #b3aa98; }
+
+.how-to p {
+  font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+  font-size: 0.9em; }
 
 .menus {
   text-align: center; }
