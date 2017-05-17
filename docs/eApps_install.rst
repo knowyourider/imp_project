@@ -129,7 +129,7 @@ Install psycopg2
 --------------
 
 Prepare by installing the postgres devloper tools
-(one note said to run yum withing virtenv, but it doesn't seem like that should be necessary)
+(one note said to run yum within virtenv, but it doesn't seem like that should be necessary)
 ::
 
 	workon impressions
@@ -250,4 +250,12 @@ But, in order to push I added user@, requireing password, for pushy
 ::
 	git remote set-url --push origin knowyourider@github.com/knowyourider/imp_project.git
 
+Upgrades
+---------
+
+to 1.10
+::
+	pip install --upgrade pip
+	pip install --upgrade django==1.10.7
+	pip install --upgrade django==1.11.1
 

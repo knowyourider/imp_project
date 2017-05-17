@@ -46,7 +46,7 @@ $(document).ready(function(){
 		attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 		minZoom: 9,
-		maxZoom: 16,
+		maxZoom: 13,
 		//opacity: .7,
         tms: true
 	}),
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		attribution: 'Hitchcock map',
 		// bounds: mybounds, //tempbounds
 		minZoom: 9,
-		maxZoom: 16,
+		maxZoom: 13,
 		//opacity: .7,
         tms: true
 	}),
