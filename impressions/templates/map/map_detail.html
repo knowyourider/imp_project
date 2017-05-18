@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
 
+
+{# juliet: assimilate these styles #}
+  <style type="text/css">
+
+  .map-layers {
+    margin-bottom: 0.2em; }
+    .map-layers li {
+      margin: 0.6em 0 1.5em 0;
+      clear: left; }
+      .map-layers li label {
+        font-variant: small-caps;
+        letter-spacing: .05em; }
+      .map-layers li img {
+        float: left;
+        margin-right: 0.4em; }
+      .map-layers li p {
+        font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+        font-size: 0.8em; }
+     
+  </style>
+
+
 {% endblock stylesheets %}
 
 {% block javascript %}
