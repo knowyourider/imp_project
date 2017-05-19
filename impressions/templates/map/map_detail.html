@@ -8,28 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/leaflet.css' %}" type="text/css"/>
   {{ block.super }}
 
-
-{# juliet: assimilate these styles #}
-  <style type="text/css">
-
-  .map-layers {
-    margin-bottom: 0.2em; }
-    .map-layers li {
-      margin: 0.6em 0 1.5em 0;
-      clear: left; }
-      .map-layers li label {
-        font-variant: small-caps;
-        letter-spacing: .05em; }
-      .map-layers li img {
-        float: left;
-        margin-right: 0.4em; }
-      .map-layers li p {
-        font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
-        font-size: 0.8em; }
-     
-  </style>
-
-
 {% endblock stylesheets %}
 
 {% block javascript %}
@@ -43,7 +21,7 @@
 {% block wrapper_class %}{% endblock wrapper_class %}
 
 {% block content_area %}
-<!-- don, we're missing a div class="content-wrapper-full" here -->
+
 <div class="map-wrapper">
   <section class="map-control-panel">
     
@@ -60,16 +38,14 @@
               <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
             </label>
             <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg">
-            {{ overlay.short_blurb|safe }}
-            <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">more</a>
+            <!-- {{ overlay.short_blurb|safe }} -->
+            <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">about this map</a>
           </li>
         {% endfor %}
-
-        <li>Lake and Glacier
-        </li>
       </ul>
 
-      <ul class="prompt">
+      <ul class="glacier-list">
+        <li class="heading">Lake and Glacier</li>
         <li>
           <label for="id_10">
             <input id="id_10" name="lake" type="radio" value="0" /> Lake 15,600 BCE
@@ -122,13 +98,13 @@
     
   </form>
 
-  <h3 class="heading">Links to Markers</h3>
+  <h2 class="heading">Links to Markers</h2>
 
   <div id="site_list" class="map-scroll">
     <p>Site list set in JavaScript</p>
   </div>
 
-  <h3 class="heading">Dig Deeper</h3>
+  <h2 class="heading">Dig Deeper</h2>
 
   <div id="deeper_ajax_wrapper" class="map-scroll">
     {% include 'map/_map_deeper.html' %}
@@ -140,5 +116,6 @@
   // set initial sites -- the first in list, should be "none"
   setSiteLayer('{{ object.slug }}');
 </script>
+
 
 {% endblock content_area %}

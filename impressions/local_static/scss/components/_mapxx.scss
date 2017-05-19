@@ -6,8 +6,8 @@
 	width: 100%;	
   
   @include media($large-screen) {
-		float: left;
-		width: 75%;
+		@include span-columns (9);
+		//@include omega();
 	}
 }
 
@@ -15,9 +15,7 @@
 .map-locations-panel {
 	// for large displays:
   @include media($large-screen) {
-		display: block;
-		margin-left: 75%;
-		width: 25%;
+		@include span-columns (3);
 		@include calc(height, "100vh - 130px");
 	}
 }
@@ -26,9 +24,7 @@
 .map-control-panel {
 	// for large displays:
   @include media($large-screen) {
-		display: block;
-		float: left;
-		width: 30%;
+		@include span-columns (3 of 9);
 		@include calc(height, "100vh - 130px");
 	}
 }
@@ -62,22 +58,20 @@
 
 #map { 
   height: 100%; 
-  //width: 100%;
+  width: 100%;
   z-index: 85;
 }
 
 // PAGE FEATURES/FUNCTIONALITY
 // for check boxes, radio button lists of map layers and locations
 .map-layers {
-	margin-bottom: 0;
+	margin-bottom: $small-spacing;
 
 	li {
-		border-top: $base-border;
+		margin: $base-spacing 0 $large-spacing 0;
 		clear: left;
-		margin-top: $tiny-spacing;
-		margin-bottom: $large-spacing;
 
-		label, a {
+		label {
 			font-variant: small-caps;
   		letter-spacing: .05em;
 		}
@@ -85,8 +79,6 @@
 		img {
 			float: left;
 			margin-right: $small-spacing;
-			height: 50px;
-			width: auto;
 		}
 
 		p {
@@ -96,13 +88,10 @@
   }
 }
 
-.glacier-list {
-	border-top: $base-border;
-
-	li label, li a {
-  	font-family: $utility-font-family;
-		font-size: $small-font-size;
-	}
+.map-layers li.label-like {
+	font-variant: small-caps;
+	letter-spacing: .05em;
+	margin: 0;
 }	
 
 .map-locations  {
