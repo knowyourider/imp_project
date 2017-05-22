@@ -30,6 +30,22 @@ class Feature(CommonSupportingModel):
     map_blurb = models.TextField(blank=True, default='')
     is_on_menu = models.BooleanField('Show on Special Features Menu', default=True)
 
+    # for menu - each type a separate list
+    def slideshow_list(self):
+        return Feature.objects.filter(status_num__gte=1, special_type='slideshow')
+
+    def video_list(self):
+        return Feature.objects.filter(status_num__gte=1, special_type='video')
+
+    def voices_list(self):
+        return Feature.objects.filter(status_num__gte=1, is_on_menu=True, special_type='voices')
+
+    def looking_list(self):
+        return Feature.objects.filter(status_num__gte=1, special_type='looking')
+
+    def then_list(self):
+        return Feature.objects.filter(status_num__gte=1, special_type='then')
+
     # in the case of Activities we want to display only "Activities",
     # not the sub type
     def short_type_display(self):
