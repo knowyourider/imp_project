@@ -7,9 +7,9 @@
 
 {% block content_area %}
 
-<h1 class="main-title">{{ object_list.0.content_type.plural_title }}</h1>
+<h1 class="main-title">Special Features</h1>
 
-<p>Interactive features to help you engage more actively in the ideas, images and themes of this website.</p>
+<!--<p>Interactive features to help you engage more actively in the ideas, images and themes of this website.</p>-->
 
 <section class="six-across">
   <h3 class="subtitle heading">Then &amp; Now</h3>
@@ -18,7 +18,7 @@
     <li>
       <a class="pop_item" href="{% url 'special:then_detail' then.slug %}">
        <img src="{% static 'special/menupics/' %}{{ then.slug }}.jpg"  alt="image of {{ then.slug}}" >
-       <span class="menu-title">{{ then.short_type_display|safe }}</span>{{ then.title|safe }}
+       {{ then.title|safe }}
        {{ then.menu_blurb|safe }}
       </a>
     </li>
@@ -33,7 +33,7 @@
     <li>
       <a class="pop_item" href="{% url 'special:slideshow_detail' slideshow.slug %}">
        <img src="{% static 'special/menupics/' %}{{ slideshow.slug }}.jpg"  alt="image of {{ slideshow.slug}}" >
-       <span class="menu-title">{{ slideshow.short_type_display|safe }}</span>{{ slideshow.title|safe }}
+       {{ slideshow.title|safe }}
        {{ slideshow.menu_blurb|safe }}
       </a>
     </li>
@@ -48,11 +48,42 @@
     <li>
       <a class="pop_item" href="{% url 'special:video_detail' video.slug %}">
        <img src="{% static 'special/menupics/' %}{{ video.slug }}.jpg"  alt="image of {{ video.slug}}" >
-       <span class="menu-title">{{ video.short_type_display|safe }}</span>{{ video.title|safe }}
+       {{ video.title|safe }}
        {{ video.menu_blurb|safe }}
       </a>
     </li>
   {% endfor %}
+  </ul>   
+</section>
+
+<section class="six-across">
+  <h3 class="subtitle heading">Activities</h3>
+  <ul class="menu-gallery">
+
+    <li>
+      <a class="pop_item" href="{% url 'special:footprint_detail' 'find-footprints' %}">
+       <img src="{% static 'special/menupics/' %}find-footprints.jpg"  alt="image of find-footprints" >
+       Find the Footprints
+       <p>Test your fossil-finding skills! Can you identify the fossil footprints in these rocks?</p>
+      </a>
+    </li>
+    
+    <li>
+      <a class="pop_item" href="{% url 'special:explore_detail' 'jurassic-landscape' %}">
+       <img src="{% static 'special/menupics/' %}jurassic-landscape.jpg"  alt="image of jurassic-landscape" >
+       Late Triassic Landscape
+       <p>Explore the animals and plants that lived in the Connecticut River Valley during the late triassic.</p>
+      </a>
+    </li>
+    
+    <li>
+      <a class="pop_item" href="{% url 'special:society_detail' 'society-quiz' %}">
+       <img src="{% static 'special/menupics/' %}society-quiz.jpg"  alt="image of society-quiz" >
+       "Topics Under Consideration" Quiz
+       <p>Orra White and her friends met regularly as "The Young Ladies Literary Society" to debate and answer profound questions. Let's see how you answer these same deep inquiries.</p>
+      </a>
+    </li>
+
   </ul>   
 </section>
 
@@ -62,8 +93,8 @@
   {% for voices in object_list.0.voices_list %}
     <li>
       <a class="pop_item" href="{% url 'special:voices_detail' voices.slug %}">
-       <img src="{% static 'special/menupics/' %}{{ voices.slug }}.jpg"  alt="image of {{ voices.slug}}" >
-       <span class="menu-title">{{ voices.short_type_display|safe }}</span>{{ voices.title|safe }}
+       <img src="{% static 'special/menupics/' %}poetry-icon.gif"  alt="image of poetry icon" >
+       {{ voices.title|safe }}
        {{ voices.menu_blurb|safe }}
       </a>
     </li>
@@ -78,43 +109,11 @@
     <li>
       <a class="pop_item" href="{% url 'special:looking_detail' looking.slug %}">
        <img src="{% static 'special/menupics/' %}{{ looking.slug }}.jpg"  alt="image of {{ looking.slug}}" >
-       <span class="menu-title">{{ looking.short_type_display|safe }}</span>{{ looking.title|safe }}
+       {{ looking.title|safe }}
        {{ looking.menu_blurb|safe }}
       </a>
     </li>
   {% endfor %}
-  </ul>   
-</section>
-
-<section class="six-across">
-  <h3 class="subtitle heading">Activities</h3>
-  <ul class="menu-gallery">
-
-    <li>
-      <a class="pop_item" href="{% url 'special:footprint_detail' 'find-footprints' %}">
-       <img src="{% static 'special/menupics/' %}find-footprints.jpg"  alt="image of find-footprints" >
-       <span class="menu-title">Activity</span>Find the Footprints
-       <p>Test your fossil-finding skills! Can you identify the fossil footprints in these rocks?</p>
-      </a>
-    </li>
-    
-    <li>
-      <a class="pop_item" href="{% url 'special:explore_detail' 'jurassic-landscape' %}">
-       <img src="{% static 'special/menupics/' %}jurassic-landscape.jpg"  alt="image of jurassic-landscape" >
-       <span class="menu-title">Activity</span>Late Triassic Landscape
-       <p>Explore the animals and plants that lived in the Connecticut River Valley during the late triassic.</p>
-      </a>
-    </li>
-    
-    <li>
-      <a class="pop_item" href="{% url 'special:society_detail' 'society-quiz' %}">
-       <img src="{% static 'special/menupics/' %}society-quiz.jpg"  alt="image of society-quiz" >
-       <span class="menu-title">Activity</span>"Topics Under Consideration" Quiz
-       <p>Orra White and her friends met regularly as "The Young Ladies Literary Society" to debate and answer profound questions. Let's see how you answer these same deep inquiries.</p>
-      </a>
-    </li>
-    
-
   </ul>   
 </section>
 

@@ -677,21 +677,21 @@ dl.slim-curatorial {
     border: double #b3aa98;
     padding: 2px; }
   .menu-gallery li p {
+    width: 100%;
     background-color: rgba(101, 96, 90, 0.8);
     border: double #b3aa98;
     color: #fff4e4;
     display: inline-block;
     font-size: 0.8em;
     font-style: normal;
-    left: 50%;
+    left: 0;
     letter-spacing: .05em;
-    margin-left: -125px;
     padding: 0.8em;
     position: absolute;
     text-align: center;
-    top: 20%;
+    top: 0;
     visibility: hidden;
-    width: 250px;
+    width: 100%;
     z-index: 1; }
 .menu-gallery li:hover p {
   visibility: visible; }
@@ -731,7 +731,9 @@ dl.slim-curatorial {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 14.70196%; }
+    width: 14.70196%;
+    font-size: 0.9em;
+    margin-bottom: 3.2em; }
     .six-across .menu-gallery li:last-child {
       margin-right: 0; }
     .six-across .menu-gallery li:nth-child(5n) {
@@ -753,6 +755,8 @@ dl.slim-curatorial {
         width: 100%; }
         .six-across .menu-gallery li:last-child {
           margin-right: 0; } }
+  .six-across h3 {
+    padding: 0.8em 0; }
 
 .menu-grid--area {
   overflow: auto;

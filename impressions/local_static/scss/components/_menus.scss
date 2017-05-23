@@ -18,21 +18,23 @@
 		
 		// menu blurb tool tips
 		p {
+		  @include fill-parent;
 		  background-color: $transparent-dark-taupe;
 		  border: $double-border;
 		  color: $light-font-color;
 			display: inline-block;
 			font-size: $small-font-size;
 			font-style: normal;
-	    left: 50%;
+	    left: 0;
 	    letter-spacing: .05em;
-	    margin-left: -125px; 
+	    //margin-left: -90%; 
 		  padding: $small-spacing;
 		  position: absolute;
 		  text-align: center;
-	    top: 20%;
+	    top: 0;
 	    visibility: hidden;
-		  width: 250px;
+		  width: 100%;
+		  //width: 250px;
 	    z-index: 1;				
 		}
 	}
@@ -67,6 +69,8 @@
 	.menu-gallery li {
 		@include span-columns(2);
 		@include omega(5n);
+		font-size: $smallish-font-size;
+		margin-bottom: $large-spacing;
 	}
 
 	@include media($large-screen) {
@@ -75,6 +79,10 @@
 		.menu-gallery li {
 			@include span-columns(2 of 2);
 		}
+	}
+
+	h3 {
+		padding: $small-spacing 0;
 	}
 }
 
