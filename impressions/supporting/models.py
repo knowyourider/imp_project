@@ -110,7 +110,7 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     # filename = models.CharField(max_length=64, blank=True, default='')
     narrative = models.TextField('Description / Label', blank=True, default='')
     creator = models.CharField('maker/author', max_length=64, blank=True, default='')
-    creation_year = models.IntegerField(blank=True, null=True)
+    creation_year = models.CharField("Date", max_length=128, blank=True, null=True)
     is_circa = models.BooleanField(default=False)
     dimensions = models.CharField(max_length=128, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')

@@ -259,3 +259,12 @@ to 1.10
 	pip install --upgrade django==1.10.7
 	pip install --upgrade django==1.11.1
 
+New virtual env -- didn't work
+::
+	mkvirtualenv -a /Users/don/Sites/imp_project/impressions --python=/usr/local/bin/python3.6 imp36
+	mkvirtualenv -a /Users/don/Sites/temp36 --python=/usr/local/bin/python3 temp36
+
+install prev version of django
+:: 
+	pip uninstall django
+	pip install django==1.10.7
