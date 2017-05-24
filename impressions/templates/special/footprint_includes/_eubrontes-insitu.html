@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<svg  xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 0 1000 750" 
+class="svg-content double-border">
+
+	<g id="hotspot_group"> 
+		{# image name is hard-wired here since this all of the data in this include is image-specific #}
+		<image id="document" x="0" y="0" xlink:href="{% static 'special/footprint/fullpics/' %}eubrontes-insitu.jpg" 
+		width="1000" height="750" />
+
+		<path class="footprint" d="M666,293.91c33.53,0,34,33.09,41,48.09s15,38-5,53c-20.8,15.6-51.51,21.3-78.51,21.3-17,11-46.6,43.22-70.49,57.2,3.5-44.5,17.5-92.5,27.41-98.5-16-5.14-35,8-56.41,0-18,9-64.44,28.06-79,31,5-8,10.65-40.42,24.65-51.42S507.81,337.83,527,334c8.83-1.76,32-13,32-13s-30.5-26.5-31.82-47.28C522.5,266,510,256.5,511,245.89c11.31,2.53,19.55,10.24,30.5,14.61,11,9,18,19.5,25,18.5s47.38,4.94,55.38,8.94S654,293.91,666,293.91Z"/>
+
+		<ellipse class="hotspot" name="correct" cx="596" cy="366" rx="140" ry="193"/>
+	</g>
+
+</svg>
