@@ -11,7 +11,10 @@
   <section class="image-panel">
 
     <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg">
-    <p class="image-panel--caption">Hi there At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+    <p class="image-panel--caption">
+      {{ object.caption|safe }}
+      Image courtesy of {{ object.source.institution|safe }}.
+    </p>
 
   </section><!--/image-panel-->
 
