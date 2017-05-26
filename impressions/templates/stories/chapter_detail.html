@@ -54,9 +54,7 @@
     {% endif %}
 
       <p class="caption">{{ chapter.caption|safe }}
-      {% if object.source.institution %}
-        Image courtesy of {{ object.source.institution|safe }}.
-      {% endif %}
+        Image courtesy of {{ chapter.source.institution|safe }}.
       </p>
 
     </div><!--/chapter-image -->
