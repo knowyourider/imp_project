@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Map{% endblock %}
+
+{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <h1 class="main-title">Map</h1>
+
+  <div class="map-row">
+
+    <section class="map-left-col">
+      <img src="{% static 'map/fullpics/' %}map-location.jpg">
+    </section> 
+
+    <section class="map-middle-col">
+      <h2 class="heading">You Are Here</h2>
+      <p>Our story takes place in western Massachusetts, in the valley around the Connecticut River, between the Vermont/Massachusetts border to the north and the Connecticut coastline to the south.</p>
+      
+      <h2 class="heading"><a href="{% url 'map:map_detail' %}">The Interactive Map</a></h2>
+      <p>The interactive map feature lets you geographically explore the history and science of the discovery of dinosaur tracks. Markers indicate relevant places of interest; Edward Hitchcock's geologial maps and ice age information can be displayed.</p>
+      <h3 class="heading"><a href="{% url 'map:map_detail' %}">Go to Map</a></h3>   
+
+    </section> 
+    
+    <section class="map-right-col">
+      <h2 class="heading">Related Resources</h2>
+      <ul>
+        <li><a href="#">Map of Bike Paths</a></li>
+        <li><a href="#">Connecticut River Watershed Map of Places to Canoe and Kyack</a></li>
+        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+        <li><a href="#">dolore magna aliqua</a></li>
+        <li><a href="#">Mullamco laboris nisi</a></li>
+      </ul>
+    </section> 
+
+  </div>
+
+  <div class="map-row how-to">
+    <section class="map-left-col">
+      <h3 class="heading">Show Maps</h3>
+      <p>These check-boxes let you turn map layers on and off, displaying Hichcock's maps as well as Lake Hitchcock and the glacier from the last ice age.</p>
+
+      <h3 class="heading">Markers</h3>
+      <p>Clicking a marker on the map opens a window with information about that site. Links to markers are also displayed to the right of the map, in the "Marker Links" field.</p>
+    </section> 
+   
+
+    <section class="map-middle-col">
+      <h2 class="heading">How to Use the Map</h2>
+      <img src="{% static 'map/fullpics/' %}map-how-to.jpg"  alt="image of map-how-to">
+    </section> 
+
+    
+    <section class="map-right-col">
+      <h3 class="heading">Show Markers</h3>
+      <p>There are three categories of map markers: "Fossils & Geology" sites, "Places to Visit" and "Historical Sites". Selecting one of these radio buttons will plot the relevant markers on the map.</p>
+
+      <h3 class="heading">Marker Links</h3>
+      <p>These links correspond with the markers. Clicking of of these links will center the map on the chosen marker and open the window with more information about that site.</p>
+
+      <h3 class="heading">Dig Deeper</h3>
+      <p>These links open windows with information that's related to the Marker category currently being displayed.</p>
+    </section> 
+
+  </div>
+
+{% endblock content_area %}
