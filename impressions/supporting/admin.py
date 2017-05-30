@@ -111,7 +111,7 @@ class PlaceAdmin(admin.ModelAdmin):
         ('Behind the scenes',   {'fields': ['status_num', 'edited_by', 
             'edit_date', 'notes']}),
     ]
-    list_display = ('title', 'slug','latitude', 'longitude', 'truncated_map_blurb')
+    list_display = ('title', 'slug','latitude', 'longitude', 'truncated_map_blurb', 'status_num')
     list_filter     = ['status_num'] 
     search_fields = ['title', 'slug']
 
