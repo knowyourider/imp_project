@@ -288,7 +288,7 @@ class Place(CommonSupportingModel):
 
     class Meta:
         verbose_name = "Place of Interest"
-        ordering = ['-latitude']
+        ordering = ['title']
 
     def __str__(self):
         return self.title       
