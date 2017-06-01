@@ -18,7 +18,7 @@ References
 Install Python 3.6
 --------------------
 
-From Ocean Python: operate as a non-root user using sudo. Eriksson says either root or sudo.
+From Ocean Python: operate as a non-root "superuser" using sudo. Eriksson says either root or sudo.
 
 Test current built-in version on CentOS7 -- 2.7.5
 Test pvma-django user and pass

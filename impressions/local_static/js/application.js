@@ -3,7 +3,8 @@ $(document).ready(function(){
   // ------- SLIM POPS ------
 
   // enable click event on menu items and text links
-  // "document on" sytntax required since this the markup was loaded by ajax.
+  // "document on" sytntax required since this markup may appear on
+  // links loaded by ajax. (at least map dig deeper)
   $(document).on("click", ".pop_item", function(event){
   // $(".pop_item").on("click touchstart", function(event){
     // console.log("--- got to pop_item");
