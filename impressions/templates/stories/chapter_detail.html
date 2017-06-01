@@ -73,8 +73,16 @@
 
     <ul class="dig-deeper-list">
 
+      {% for feature in chapter.featured_specials.all %}
+        <li>
+          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+            {{ feature.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      
       {% for person in chapter.people.all %}
-
         <li>
           <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
           <img src="{% static 'supporting/person/menupics/' %}{{ person.slug }}.jpg" alt="image of {{ person.slug}}" class="oval">
@@ -101,16 +109,6 @@
         </li>
       {% endfor %}
 
-      {% for feature in chapter.featured_specials.all %}
-
-        <li>
-          <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
-          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
-            {{ feature.title|safe }}
-          </a>
-        </li>
-      {% endfor %}
-      
     </ul>
   
   </section><!--/dig-deeper -->

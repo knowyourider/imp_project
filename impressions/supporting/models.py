@@ -250,6 +250,8 @@ class Person(AssociationMixin, CommonSupportingModel):
     death_year = models.IntegerField(blank=True, null=True)
     narrative = models.TextField(blank=True, default='')
     person_level = models.IntegerField(default=0, choices=PERSON_LEVEL)
+    featured_specials = models.ManyToManyField('special.Feature', 
+        verbose_name='Special Features related to this item', blank=True)
 
     # add title to be consistent with other supporing types
     def title(self):

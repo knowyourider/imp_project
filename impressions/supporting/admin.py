@@ -90,13 +90,13 @@ class PersonAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title_prefix', 'first_name', 'middle_name', 
             'last_name', 'suffix', 'slug', 'birth_year', 'death_year',
             'caption', 'source', 'narrative']}), #'menu_blurb', 
-        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 'featured_specials']}),
         ('Behind the scenes',   {'fields': ['person_level', 'status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes']}),
     ]
     list_display = ('last_name', 'first_name', 'slug', 'image_img', 'person_level',  'status_num')
     list_per_page = 40
-    filter_horizontal = ['people', 'evidence', 'contexts']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'featured_specials']    
     list_filter     = ['person_level', 'status_num']
     search_fields = ['last_name', 'first_name', 'slug']
 

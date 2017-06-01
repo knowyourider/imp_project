@@ -1,6 +1,15 @@
 <div class="slim-deeper">
 	<h2 class="subtitle heading">Dig Deeper</h2>
 	<ul>
+
+	{% for feature in object.featured_specials.all %}
+	<li>
+	  <a class="swap_pop" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+	    {{ feature.title|safe }}
+	  </a>
+	</li>
+	{% endfor %}
+
   	{% for person in object.people.all %}
     <li>
       <a class="swap_pop" href="{% url 'supporting:person_detail' person.slug %}">
@@ -8,20 +17,22 @@
         {{ person.middle_name|safe }} {{ person.last_name|safe }} {{ person.suffix|safe }}
       </a>
     </li>
-	  {% endfor %}
-	  {% for evidenceitem in object.evidence.all %}
-	    <li>
-	      <a class="swap_pop" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
-	        {{ evidenceitem.title }}
-	      </a>
-	    </li>
-	  {% endfor %}
-	  {% for context in object.contexts.all %}
-	    <li>
-	      <a class="swap_pop" href="{% url 'supporting:context_detail' context.slug %}">
-	        {{ context.title }}
-	      </a>
-	    </li>
-	  {% endfor %}
+	{% endfor %}
+
+	{% for evidenceitem in object.evidence.all %}
+	<li>
+	  <a class="swap_pop" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+	    {{ evidenceitem.title|safe }}
+	  </a>
+	</li>
+	{% endfor %}
+
+	{% for context in object.contexts.all %}
+	<li>
+	  <a class="swap_pop" href="{% url 'supporting:context_detail' context.slug %}">
+	    {{ context.title|safe }}
+	  </a>
+	</li>
+	{% endfor %}
 	</ul>
 </div>
