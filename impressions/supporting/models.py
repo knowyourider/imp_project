@@ -60,6 +60,10 @@ class Context(AssociationMixin, CommonSupportingModel):
         ordering = ['ordinal']
         verbose_name = "Backdrop"
 
+    def __str__(self):
+        return str(self.status_num) + " - " + self.title       
+
+
 class Topic(models.Model):
     """docstring for Tag"""
     slug = models.SlugField('Topic short name', max_length=24, unique=True)
@@ -143,7 +147,7 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
         ordering = ['ordinal']
 
     def __str__(self):
-        return self.title       
+        return str(self.status_num) + " - " + self.title       
 
 
 class Page(models.Model):
@@ -268,6 +272,9 @@ class Person(AssociationMixin, CommonSupportingModel):
     class Meta:
         ordering = ['last_name']
 
+    def __str__(self):
+        return str(self.status_num) + " - " + self.last_name + ", " + self.first_name       
+
 
 class Place(CommonSupportingModel):
     """
@@ -291,5 +298,5 @@ class Place(CommonSupportingModel):
         ordering = ['title']
 
     def __str__(self):
-        return self.title       
+        return str(self.status_num) + " - " + self.title       
 

@@ -66,11 +66,10 @@ class Feature(CommonSupportingModel):
 
     class Meta:
         verbose_name = "Special Feature"
-        ordering = ['ordinal']
+        ordering = ['special_type', 'ordinal']
         
     def __str__(self):
-        # return self.title       
-        return self.special_type + ": " + self.title
+        return str(self.status_num) + " - " + self.special_type + ": " + self.title
 
 
 class Frame(models.Model):
