@@ -1,4 +1,5 @@
 // Menus for home page
+// this will become obsolete
 .menu-home {
 	li {
 	  display: inline-block;
@@ -16,7 +17,13 @@
   }
 }
 
+//is this obsolete?
 .secondary	{
 	clear: left;
 	font-size: $small-font-size;
+}
+
+.home {
+	background: url("../images/hm-bkgrnd.jpg") cover no-repeat;
+	text-align: center;
 }
