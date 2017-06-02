@@ -21,14 +21,14 @@ class Story(CommonModel):
 
     # next, prev story, false if none
     def get_next(self):
-        next = Story.objects.filter(status_num__gt=1, title__gt=self.title)
+        next = Story.objects.filter(status_num__gt=1, ordinal__gt=self.ordinal)
         if next:
             return next.first()
         return False
 
     def get_prev(self):
         prev = Story.objects.filter(status_num__gt=1, 
-            title__lt=self.title).order_by('-title')
+            ordinal__lt=self.ordinal).order_by('-ordinal')
         if prev:
             return prev.first()
         return False
