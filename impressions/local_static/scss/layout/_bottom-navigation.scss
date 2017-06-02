@@ -12,6 +12,17 @@
   @include media($large-screen) {
     padding-bottom: $xlarge-spacing;
   }
+
+  p a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
 }
 
 .footer-primary {

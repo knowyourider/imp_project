@@ -650,6 +650,12 @@ dl.slim-curatorial {
   width: 48.82117%; }
   .map-middle-col:last-child {
     margin-right: 0; }
+  .map-middle-col button a {
+    color: #fff4e4; }
+
+.related-list li {
+  font-size: 0.9em;
+  margin-bottom: 0.8em; }
 
 .map-about img {
   float: left;
@@ -921,7 +927,8 @@ header {
     margin-right: 0; }
 
 .hm-col-1 h2, .hm-col-2 h2, .hm-col-3 h2 {
-  margin-top: 0.8em; }
+  margin-top: 0.8em;
+  margin-bottom: 0.4em; }
 
 @media screen and (min-width: 55em) {
   .intro-text h1 {
@@ -1495,6 +1502,11 @@ table.discoverers-faces td {
   @media screen and (min-width: 55em) {
     .footer {
       padding-bottom: 6.4em; } }
+  .footer p a {
+    color: rgba(255, 244, 228, 0.7);
+    text-decoration: none; }
+    .footer p a:focus, .footer p a:hover {
+      color: #fff4e4; }
 
 .footer-primary li {
   display: inline;

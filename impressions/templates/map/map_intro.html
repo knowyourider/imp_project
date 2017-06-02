@@ -17,22 +17,22 @@
 
     <section class="map-middle-col">
       <h2 class="heading">You Are Here</h2>
-      <p>Our story takes place in western Massachusetts, in the valley around the Connecticut River, between the Vermont/Massachusetts border to the north and the Connecticut coastline to the south.</p>
+      <p>Our story takes place in the Connecticut River Valley of western Massachusetts, from the Vermont and New Hampshire borders in the north and the Connecticut coastline on Long Island Sound to the south.</p>
       
       <h2 class="heading"><a href="{% url 'map:map_detail' %}">The Interactive Map</a></h2>
-      <p>The interactive map feature lets you geographically explore the history and science of the discovery of dinosaur tracks. Markers indicate relevant places of interest; Edward Hitchcock's geologial maps and ice age information can be displayed.</p>
-      <h3 class="heading"><a href="{% url 'map:map_detail' %}">Go to Map</a></h3>   
+      <p>The interactive map lets you geographically explore the history and science of dinosaur footprints and geology of the Connecticut River Valley. The map has four primary layers which you can look at individually, or stack them so you can see, for example, how the town of Amherst relates geographically to Lake Hitchcock</p>
+      <button><a href="{% url 'map:map_detail' %}">Go to Map</a></button>   
 
     </section> 
     
     <section class="map-right-col">
       <h2 class="heading">Related Resources</h2>
-      <ul>
-        <li><a href="#">Map of Bike Paths</a></li>
-        <li><a href="#">Connecticut River Watershed Map of Places to Canoe and Kyack</a></li>
-        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="#">dolore magna aliqua</a></li>
-        <li><a href="#">Mullamco laboris nisi</a></li>
+      <ul class="related-list">
+        <li><a href="http://www.mass.gov/eea/docs/dcr/parks/trails/holyoke.pdf" target="_blank">Trail Map for Joseph Allen Skinner and Holyoke Range State Parks</a></li>
+        <li><a href="https://www.nps.gov/neen/index.htm" target="_blank">National Park Service Scenic Trails for New England</a></li>
+        <li><a href="https://www.ctriver.org/river-resources/maps" target="_blank">Connecticut River Conservancy Maps, including a boating map</a></li>
+        <li><a href="http://www.ctrivermaps.com/" target="_blank">Connecticut River Maps</a></li>
+        <li><a href="https://www.railstotrails.org/experience-trails/" target="_blank">Rails-to-Trail Conservatory</a></li>
       </ul>
     </section> 
 
@@ -41,10 +41,10 @@
   <div class="map-row how-to">
     <section class="map-left-col">
       <h3 class="heading">Show Maps</h3>
-      <p>These check-boxes let you turn map layers on and off, displaying Hichcock's maps as well as Lake Hitchcock and the glacier from the last ice age.</p>
+      <p>Check-boxes to the left of the map let you choose what map layers to see, one at a time or stacked on one top of the other to show historical and geological relationships. The map layers are Present-day Roads &amp; Towns, Hitchcock's 1857 Ichnological Map, which shows where he found "fossil bird" (a.k.a. dinosaur) footprints, Hitchcock's 1834 Geological Map, and Lake &amp; Glacier, which shows the last glacier to cover this region and the lake that formed as the glacier melted, Lake Hitchcock. (Lake Hitchcock drained out thousands of years ago, so don't expect to swim there!)</p>
 
       <h3 class="heading">Markers</h3>
-      <p>Clicking a marker on the map opens a window with information about that site. Links to markers are also displayed to the right of the map, in the "Marker Links" field.</p>
+      <p>There are three categories of map markers: Fossils &amp; Geology, Places to Visit, and Historical Sites. Selecting a category will plot the relevant markers on the map. Fossils &amp; Geology has outdoor sites and museums with rocks and fossils. Places to Visit includes museums, parks, and indoor or outdoor entertainment venues relevant to the historical stories told on this website. Historical Sites show where some of the events in the stories took place. Some of these are "drive-bys" on private property, such as the house in which the Hitchcocks lived in Amherst. Others, such as old quarries, can be visited. </p>
     </section> 
    
 
@@ -58,11 +58,11 @@
       <h3 class="heading">Show Markers</h3>
       <p>There are three categories of map markers: "Fossils & Geology" sites, "Places to Visit" and "Historical Sites". Selecting one of these radio buttons will plot the relevant markers on the map.</p>
 
-      <h3 class="heading">Marker Links</h3>
-      <p>These links correspond with the markers. Clicking of of these links will center the map on the chosen marker and open the window with more information about that site.</p>
+      <h3 class="heading">Links to Markers</h3>
+      <p>You can find more information about a site in two ways. Clicking a marker on the map opens a window with information for that site. Clicking a site in the Links to Markers box to the right of the map will center the map on the chosen marker and open that same window.</p>
 
       <h3 class="heading">Dig Deeper</h3>
-      <p>These links open windows with information that's related to the Marker category currently being displayed.</p>
+      <p>This is your chance to find out more about the site you are interested in. For example, if you want to learn more about Clay Hill, which mentions Dexter Marsh finding fossil footprints there, click on Dexter Marsh for a brief biography of this remarkable man.</p>
     </section> 
 
   </div>
