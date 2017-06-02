@@ -24,6 +24,53 @@
 }
 
 .home {
-	background: url("../images/hm-bkgrnd.jpg") cover no-repeat;
+	background: url("../images/hm-bkgrnd-lite.jpg") no-repeat;
+	background-size: cover;
 	text-align: center;
+
+	img.hm-menu {
+		border: $double-border;
+	}
+}
+
+.hm-title {
+  color: $accent-color;
+	font-size: $title-font-size * 1.5;
+  margin-bottom: 0;
+}
+
+.hm-subtitle, .hm-menu-link {
+  color: $accent-color;
+  font-size: $medlarge-font-size;
+  font-style: italic;
+}
+
+header {
+  margin-bottom: $base-spacing;
+}
+
+.hm-col-1 {
+	@include span-columns(5);
+	
+	ul li {
+		display: inline;
+	}
+
+	ul li.sub-col {
+		@include span-columns(2.25 of 5);
+	}
+}
+
+.hm-col-2 {
+	@include span-columns(2);
+}
+
+.hm-col-3 {
+	@include span-columns(5);
+}
+
+.hm-col-1, .hm-col-2, .hm-col-3 {
+	h2 {
+		margin-top: $small-spacing;
+	}
 }
