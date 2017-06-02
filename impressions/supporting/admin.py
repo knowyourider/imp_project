@@ -8,7 +8,7 @@ class ContextAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,  {'fields': ['title', 'slug', 'caption', 'source', 'narrative']}),
             # 'map_blurb', 
-        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 'featured_specials']}),
         ('Topics / Categories',   {'fields': ['topics']}),
         ('Behind the scenes',   {'fields': ['priority_num', 'status_num', 'ordinal', 
             'author', 'edited_by', 'edit_date', 'notes']}),
@@ -16,7 +16,7 @@ class ContextAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'image_img', 'topic_list', 'priority_num', 
         'status_num', 'author', 'short_notes')
     list_per_page = 40
-    filter_horizontal = ['people', 'evidence', 'contexts', 'topics']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'topics', 'featured_specials']    
     list_filter     = ['priority_num', 'status_num', 'author'] 
     search_fields = ['title', 'slug']
 
@@ -50,7 +50,7 @@ class EvidenceItemAdmin(admin.ModelAdmin):
         (None,            {'fields': ['title', 'slug', 'evidence_type', # 'caption',
             'source','creator', 'dimensions', 'materials', 'creation_year', 'is_circa',
             'accession_num', 'narrative']}),
-        ('See Also',   {'fields': ['people', 'evidence', 'contexts']}),
+        ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 'featured_specials']}),
         ('Behind the scenes',   {'fields': ['status_num', 'ordinal', 'edited_by', 
             'edit_date', 'notes', 'map_blurb']}),
     ]
@@ -60,7 +60,7 @@ class EvidenceItemAdmin(admin.ModelAdmin):
         'status_num')
     list_per_page = 40
     list_filter     = ['evidence_type', 'status_num'] # , 'edit_date'
-    filter_horizontal = ['people', 'evidence', 'contexts']    
+    filter_horizontal = ['people', 'evidence', 'contexts', 'featured_specials']    
     search_fields = ['title', 'slug']
 
 admin.site.register(EvidenceItem, EvidenceItemAdmin)

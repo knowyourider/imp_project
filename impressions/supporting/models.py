@@ -46,6 +46,8 @@ class Context(AssociationMixin, CommonSupportingModel):
     author = models.CharField(max_length=16, blank=True, default='')
     topics = models.ManyToManyField('supporting.Topic', 
         verbose_name='Topics related to this backdrop', blank=True)
+    featured_specials = models.ManyToManyField('special.Feature', 
+        verbose_name='Special Features related to this item', blank=True)
 
     def topic_list(self):
         topiclist = self.topics.all().values_list('slug', flat=True) 
@@ -120,6 +122,8 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     materials = models.CharField(max_length=128, blank=True, default='')
     accession_num = models.CharField(max_length=128, blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
+    featured_specials = models.ManyToManyField('special.Feature', 
+        verbose_name='Special Features related to this item', blank=True)
 
     def image_img(self):
         return format_html('<img src="/static/supporting/evidenceitem/menupics/' + \
