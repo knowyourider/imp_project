@@ -3,39 +3,66 @@
 
 {% block title %}Impressions Home{% endblock %}
 
+{% block body_class %}class="home"{% endblock body_class %}
+
 {% block full_page %}
 
-<div class="content-wrapper menus">
-  <h1 class="main-title">Impressions From a Lost World</h1>
-  <p>How the discovery of dinosaur tracks in New England changed 19th century America.</p>
-  <p>Please note that this site is still under construction.</p>
-  <img src="/static/images/dino-home.jpg" height="250px">
+  <div class="content-wrapper">
 
-  <ul class="menu-home">
-    <li><a href="{% url 'stories:story_list' %}">Stories</a></li>
-    <li><a href="{% url 'map:map_intro' %}">Map</a></li>
-    <li><a href="#">Timeline</a></li>
-    <li><a href="{% url 'themes:theme_list' %}">Themes</a></li>
-  </ul>
+  <header>
+    <h1 class="hm-title">Impressions From a Lost World</h1>
+    <p class="hm-subtitle">How the discovery of dinosaur tracks in New England changed 19th century America.</p>
+    <p class="prompt"><a href="">View Introduction</a></p>
+  </header>
 
-  <ul class="menu-home secondary">
-    <li><a href="{% url 'supporting:person_list' %}">People</a></li>
-    <li><a href="{% url 'supporting:evidenceitem_list' %}">Artifacts &amp; Documents</a></li>
-    <li><a href="{% url 'supporting:context_list' %}">Backdrops</a></li>
-    <li><a href="{% url 'special:feature_list' %}">Special Features</a></li>
-  </ul>
+    <div class="hm-col-1">
+      <ul>
+        <li>
+          <a href="/stories/">
+            <h2 class="hm-menu-link">Stories</h2>
+            <img src="/static/images/stories.gif" class="hm-menu">
+          </a>
+        </li>
 
-</div>
+        <li class="sub-col">
+          <a href="/supporting/person/">
+            <h2 class="hm-menu-link">People</h2>
+            <img src="/static/images/people.gif" class="hm-menu oval">
+          </a>
+        </li>  
 
-<footer class="footer">
+        <li class="sub-col">
+          <a href="/supporting/evidenceitem/">
+            <h2 class="hm-menu-link">Artifacts&nbsp;&amp;&nbsp;Documents</h2>
+            <img src="/static/images/evidence.jpg" class="hm-menu">
+          </a>
+        </li>
+      </ul>
 
-  <ul class="footer-primary">
-    <li><a href="#">About This Site</a></li>
-    <li><a href="#">Suggested Reading</a></li>
-    <li><a href="#">Suggested Viewing</a></li>
-    <li><a href="#">Teacher Resources</a></li>
-  </ul>
+    </div>
 
-</footer>
+    <div class="hm-col-2">
+      <a href="/map/intro/">
+        <h2 class="hm-menu-link">Map</h2>
+        <img src="/static/images/map.jpg" class="hm-menu">
+      </a>
+    </div>
+
+    <div class="hm-col-3">
+      <a href="/themes/">
+        <h2 class="hm-menu-link">Themes</h2>
+        <img src="/static/images/themes.gif" class="hm-menu">
+      </a>
+      <a href="/special/feature/">
+        <h2 class="hm-menu-link">Special Features</h2>
+        <img src="/static/images/special.jpg" class="hm-menu">
+      </a>
+      <a href="/supporting/context/">
+        <h2 class="hm-menu-link">Backdrops</h2>
+        <img src="/static/images/backdrops.jpg" class="hm-menu">
+      </a>
+    </div>
+
+  </div>
 
 {% endblock full_page %}

@@ -46,7 +46,7 @@
 
 </head>
 
-<body>  <!-- class="mobile" -->
+<body {% block body_class %}{% endblock body_class %}>  <!-- class="mobile" -->
 {% block full_page %}
 
 <header class="top-navigation" role="banner">
@@ -120,6 +120,7 @@
   {% endblock content_area %}
   
 </div>
+{% endblock full_page %}
 
 <footer class="footer">
   <ul class="footer-primary">
@@ -131,7 +132,6 @@
 
 </footer>
 
-{% endblock full_page %}
 
 </body>
 </html>
