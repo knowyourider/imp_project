@@ -111,8 +111,11 @@
 			<dd>{{ object.accession_num }}</dd>
 		{% endif %}
 		
-		<dt>Courtesy of:</dt>
-		<dd>{{ object.source.institution|safe }}</dd>
+		{% if object.source.id != 1 %}
+			<dt>Courtesy of:</dt>
+			<dd>{{ object.source.institution|safe }}</dd>
+		{% endif %}
+		
 
 	</dl>
 
