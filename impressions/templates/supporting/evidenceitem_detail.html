@@ -102,7 +102,7 @@
 			<dt>Dimensions:</dt>
 			<dd>{{ object.dimensions }}</dd>
 		{% endif %}
-		{% if object.materials %}
+		{% if object.materials and not object.evidence_type.is_document_oriented %}
 			<dt>Materials:</dt>
 			<dd>{{ object.materials }}</dd>
 		{% endif %}
