@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/design/local_static_sym/css/application.css" />
+<title>CSS Simple Drop Down Menu</title>
+<script>
+	$(window).on("load resize",function(e) {
+	  var more = document.getElementById("js-centered-more");
+
+	  if ($(more).length > 0) {
+	    var windowWidth = $(window).width();
+	    var moreLeftSideToPageLeftSide = $(more).offset().left;
+	    var moreLeftSideToPageRightSide = windowWidth - moreLeftSideToPageLeftSide;
+
+	    if (moreLeftSideToPageRightSide < 330) {
+	      $("#js-centered-more .submenu .submenu").removeClass("fly-out-right");
+	      $("#js-centered-more .submenu .submenu").addClass("fly-out-left");
+	    }
+
+	    if (moreLeftSideToPageRightSide > 330) {
+	      $("#js-centered-more .submenu .submenu").removeClass("fly-out-left");
+	      $("#js-centered-more .submenu .submenu").addClass("fly-out-right");
+	    }
+	  }
+
+	  var menuToggle = $("#js-centered-navigation-mobile-menu").unbind();
+	  $("#js-centered-navigation-menu").removeClass("show");
+
+	  menuToggle.on("click", function(e) {
+	    e.preventDefault();
+	    $("#js-centered-navigation-menu").slideToggle(function(){
+	      if($("#js-centered-navigation-menu").is(":hidden")) {
+	        $("#js-centered-navigation-menu").removeAttr("style");
+	      }
+	    });
+	  });
+	}); 
+</script>
+</head>
+<body>
+
+<header class="centered-navigation" role="banner">
+  <div class="centered-navigation-wrapper">
+    <a href="javascript:void(0)" class="mobile-logo">
+      <img src="/design/local_static_sym/images/footmark-logo.png" alt="Logo image">
+    </a>
+    <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">About Me</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+        <li class="nav-link logo">
+          <a href="javascript:void(0)" class="logo">
+            <img src="/design/local_static_sym/images/footmark-logo.png" alt="Logo image">
+          </a>
+        </li>
+        <li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
+        <li id="js-centered-more" class="nav-link more"><a href="javascript:void(0)">More</a>
+          <ul class="submenu">
+            <li><a href="javascript:void(0)">Submenu Item</a></li>
+            <li><a href="javascript:void(0)">Another Item</a></li>
+            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
+              <ul class="submenu fly-out-right">
+                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
+                <li><a href="javascript:void(0)">Another Item</a></li>
+              </ul>
+            </li>
+            <li class="more"><a href="javascript:void(0)">Another submenu</a>
+              <ul class="submenu fly-out-right">
+                <li><a href="javascript:void(0)">Sub-submenu</a></li>
+                <li><a href="javascript:void(0)">An Item</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-link"><a href="javascript:void(0)">Sign up</a></li>
+	      <ul>
+			
+				<ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+					<li class="nav-link"><a href="">secondary item 1</a></li>
+					<li class="nav-link"><a href="">secondary item two</a></li>
+					<li class="nav-link"><a href="">secondary item 3</a></li>
+				</ul>
+    </nav>
+  </div>
+</header>
+
+</body>
+</html>
