@@ -4,7 +4,7 @@ from .models import Theme
 class ThemeAdmin(admin.ModelAdmin):
     change_form_template = 'themes/admin/narr_blurb_change_form.html'
     fieldsets = [
-        (None,	{'fields': ['title', 'subtitle', 'slug', 'author', 'image_name', 
+        (None,	{'fields': ['title', 'subtitle', 'slug', 'author',  
             'caption', 'source', 'menu_blurb', 'narrative']}),
         ('Dig Deeper',   {'fields': ['people', 'evidence', 'contexts', 
             'featured_specials']}),

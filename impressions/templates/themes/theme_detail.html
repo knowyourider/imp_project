@@ -21,7 +21,7 @@
 
       <img src="{% static 'themes/fullpics/' %}{{ object.slug }}.jpg">
 
-      <p class="caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
+      <p class="caption">{{ object.caption|safe }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
     </div><!--/chapter-image -->
 
@@ -40,7 +40,7 @@
         <li>
           <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
           <img class="oval" src="{% static 'supporting/person/menupics/' %}{{ person.slug }}.jpg" alt="image of {{ person.slug}}">
-            {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
+            {{ person.first_name|safe }} {{ person.middle_name|safe }} {{ person.last_name|safe }}
           </a>
         </li>
       {% endfor %}
