@@ -26,7 +26,7 @@
     {% if error_msg %}
       <p class="error-msg">{{ error_msg }}</p>
     {% else %}
-      <p>{{ slide.narrative}}</p>
+      <p>{{ slide.narrative|safe}}</p>
     {% endif %}
 
 
