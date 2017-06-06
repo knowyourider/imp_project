@@ -31,6 +31,10 @@
 	img.hm-menu {
 		border: $double-border;
 	}
+
+	header {
+	  margin-bottom: $base-spacing;
+	}
 }
 
 .hm-title {
@@ -45,9 +49,6 @@
   font-style: italic;
 }
 
-header {
-  margin-bottom: $base-spacing;
-}
 
 .hm-col-1 {
 	@include span-columns(5);

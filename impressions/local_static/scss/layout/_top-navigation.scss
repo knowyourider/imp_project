@@ -68,7 +68,7 @@ ul.top-navigation-menu {
 
 // Primary Nav Menu Links
 ul.top-navigation-menu li {
-  background: $top-nav-background-color;
+  //background: $top-nav-background-color;
   display: block;
   font-size: $base-font-size * 1.25;
   font-variant: small-caps;
@@ -136,6 +136,7 @@ ul.secondary-navigation-menu {
   -webkit-transform-style: preserve-3d; // stop webkit flicker
   clear: both;
   display: none;
+  font-size: $small-font-size;
   margin: 0 auto;
   overflow: visible;
   padding: 0;
@@ -185,6 +186,7 @@ ul.secondary-navigation-menu li {
 }
 
 ul.submenu {
+  background: $top-nav-background-color;
   border-bottom: $base-border;
   display: none;
   padding-left: 0;
@@ -193,12 +195,12 @@ ul.submenu {
     box-shadow: $drop-shadow;
     left: 0;
     position: absolute;
-    top: 33px;
+    top: 32px;
   }
 
   li {
     display: block;
-    font-size: $small-font-size;
+    font-size: $smallish-font-size;
     font-variant: normal;
     letter-spacing: normal;
     padding-right: 0;
