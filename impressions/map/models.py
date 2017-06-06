@@ -26,8 +26,9 @@ class Layer(AssociationMixin, models.Model):
     def layer_list(self):
         return Layer.objects.all()
 
+    # hard code the exclusion of the glacer layer as it needs custom layout
     def overlay_list(self):
-        return Overlay.objects.all()
+        return Overlay.objects.filter(ordinal__lt=9)
 
     def site_list(self):
         # info to hand off to JavaScript for map popups

@@ -32,7 +32,7 @@
     <form id="overlay_form" action="#">
 
       <ul class="map-layers">
-        {% for overlay in object.overlay_list %} 
+        {% for overlay in object.overlay_list %} {# list will exclude the Glacier layer -- needs custom layout #}
           <li>
             <label for="id_{{ overlay.layer_index }}">
               <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
@@ -67,7 +67,7 @@
           </label>
         </li>
 
-        <li><a id="clear_lake" href="#">reset</a></li>
+        <li><a id="clear_lake" href="#">none</a> | <a class="pop_item" href="{% url 'map:about_detail' 'glacier-lake' %}">about this map</a></li>
 
       </ul>
 

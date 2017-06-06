@@ -17,6 +17,17 @@ var lake_15600, lake_17200, lake_17900, lake_19500;
 var lakeLayerObjects = [lake_15600, lake_17200, lake_17900, lake_19500]; 
 var prevLayerIndex = -1;
 
+// experiment with icons
+var greenIcon = L.icon({
+    iconUrl: '/static/js/images/leaf-green.png',
+    shadowUrl: '/static/js/images/leaf-shadow.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
 $(document).ready(function(){
 
@@ -377,11 +388,12 @@ function setSites(siteListJson, layerShortName) {
 			"<img src=/static/supporting/place/menupics/" + 
 				siteListJson[i].slug  + ".jpg>" + siteListJson[i].map_blurb;
 		// create marker, with popHtml
-		console.log(" --- siteListJson[i].latitude: " + siteListJson[i].latitude);	
+		// console.log(" --- siteListJson[i].latitude: " + siteListJson[i].latitude);	
 		// make sure there's a valid lat and long
 		if (siteListJson[i].latitude && siteListJson[i].longitude) {
 			// add marker
 			// since we're creating the array all we need is the index in order to pop it up
+			// custom markers:   ..siteListJson[i].longitude], {icon: greenIcon}).bindPopup(popHtml));
 			markerList.push(L.marker([siteListJson[i].latitude, 
 				siteListJson[i].longitude]).bindPopup(popHtml));
 			// add to HTML for site list links
