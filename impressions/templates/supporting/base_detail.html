@@ -2,8 +2,10 @@
 
 <div id="slimpop-wrapper">
 	<div class="slim-border">
-		<p class="slimpop-close"><a href='javascript:hideBox();'>close</a>		
-			 | <a href="javascript:divPrint('slimpop-container');">print</a>
+		<p class="slimpop-close"><a href='javascript:hideBox();'>close</a>
+		{# if object.content_type.slug != 'feature' #} {# supress print link for special features #}
+			| <a href="javascript:divPrint('slimpop-container');">print</a>
+		{# endif #}
 		</p>
 	  <h4 class="heading slim-subhead">{% block heading %}{{ object.content_type.plural_title }}{% endblock %}</h4>
 		<h1 class="slim-title">{% block item_title %}content type title{% endblock %}</h1>

@@ -12,7 +12,7 @@ class FeatureAdmin(admin.ModelAdmin):
             'source', 'menu_blurb', 'description', 'narrative']}),
         ('Behind the scenes',   {'fields': ['status_num', 'is_on_menu', 'ordinal', 
             'edited_by', 'edit_date', 'notes']}),
-        ('Img dimensions - Then and Now',   {'fields': ['img_width', 'img_height'], 
+        ('Img dimensions - Then and Now (and Looking time)',   {'fields': ['img_width', 'img_height'], 
             'classes': ['collapse']}),
     ]
     inlines = [FrameInline]

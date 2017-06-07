@@ -41,3 +41,37 @@ Changed release-7-5 to 7-9
 	# rpm -ivh epel-release-7-9.noarch.rpm (already installed)
 	# yum update -y && yum upgrade -y (nothing new)
 	# dnf install redhat-rpm-config (command not found)
+
+eApps support: cause was related to a missing configuration on the CentOS Plus repository required to install the kernel and its related packages.
+They ran
+::
+	yum groupinstall 'Development Tools' --enablerepo=centosplus
+So I ran groupinsall again
+::
+	yum groupinstall -y "development tools"
+	> 1 packages excluded due to repository priority protections
+	> Maybe run: yum groups mark install (see man yum)
+	> No packages in any requested group available to install or update
+
+Next line from Eriksson
+::
+	# Libraries needed during compilation to enable all features of Python:
+	yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+
+Install Python
+++++++++++++++
+
+Pay particular attention to the part in Eriksson about using the LDFLAGS as will be required by mod_wsgi
+Dir to be in for the download: /usr/local/src
+Check that all destinations exist before running.
+::
+	cd /usr/local/src
+	# Python 3.6.1:
+	wget http://python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz
+	tar xf Python-3.6.1.tar.xz
+	cd Python-3.6.1
+	./configure --prefix=/usr/local --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
+	make && make altinstall
+
+
+

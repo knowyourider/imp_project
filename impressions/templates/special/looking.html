@@ -10,8 +10,8 @@
   {{ object.description|safe }}
   
   <!-- from Cod Rops -->
-
-  <div class="audio-slideshow" data-audio="{% static 'special/looking/media/' %}{{ object.slug }}.m4a" data-audio-duration="162">
+  {# using img_width field for audio total run time. #}
+  <div class="audio-slideshow" data-audio="{% static 'special/looking/media/' %}{{ object.slug }}.m4a" data-audio-duration="{{ object.img_width }}">
     
     <div class="audio-slides">
     {% for slide in object.frame_set.all %}
@@ -43,14 +43,15 @@
   </div><!-- /audio-slideshow -->
 
   <!-- /from Cod Rops -->
-
   <script type="text/javascript">
     // since this is in a slim called by ajax we can't just list the script directly
     $.getScript('{% static "js/jquery.audioslideshow.js" %}', function() {
       // Call custom function defined in script
       $('.audio-slideshow').audioSlideshow();
     });
-
   </script>
+
+  {{ object.narrative|safe }}
+
 
 {% endblock slim_content %}

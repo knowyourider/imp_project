@@ -29,7 +29,7 @@ class Feature(CommonSupportingModel):
     narrative = models.TextField('Narrative / Label', blank=True, default='')
     map_blurb = models.TextField(blank=True, default='')
     is_on_menu = models.BooleanField('Show on Special Features Menu', default=True)
-    img_width = models.IntegerField(blank=True, null=True)
+    img_width = models.IntegerField('img width (or runtime)', blank=True, null=True)
     img_height = models.IntegerField(blank=True, null=True)
 
     # for menu - each type a separate list
