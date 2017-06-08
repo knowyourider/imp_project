@@ -1380,16 +1380,14 @@ table.discoverers-faces td {
     opacity: .4; }
   to {
     opacity: 1; } }
-.voices {
-  width: 50vw; }
-  .voices blockquote {
-    margin-left: 0; }
-    .voices blockquote p {
-      font-style: italic; }
-    .voices blockquote cite {
-      font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
-      font-size: 0.9em;
-      font-style: normal; }
+.voices blockquote {
+  margin-left: 0; }
+  .voices blockquote p {
+    font-style: italic; }
+  .voices blockquote cite {
+    font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+    font-size: 0.9em;
+    font-style: normal; }
 
 #slimpop-wrapper {
   background-color: #fff4e4;
@@ -1465,8 +1463,8 @@ table.discoverers-faces td {
   width: 900px; }
 
 .voices {
-  max-height: 85%;
-  width: 550px; }
+  width: 50vw;
+  max-height: 85%; }
 
 .slideshow, .about, .footprint, .video, .society,
 .then, .looking, .explore, .discoverers {

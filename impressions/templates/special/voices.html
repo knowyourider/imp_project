@@ -6,8 +6,6 @@
 
 {% block slim_content%}
 
-<section class="voices">
-
   {{ object.description|safe }}
 
   <audio controls>
@@ -28,6 +26,5 @@
   <cite>{{ object.caption|safe }} </cite> 
 
   </blockquote>
-</section>
 
 {% endblock slim_content %}
