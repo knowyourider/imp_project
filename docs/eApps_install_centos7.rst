@@ -73,5 +73,94 @@ Check that all destinations exist before running.
 	./configure --prefix=/usr/local --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
 	make && make altinstall
 
+Rebooted to new kernel
+now redo and update
+Redo tools
+::
+	yum update -y && yum upgrade -y
+	# 1 packages excluded due to repository priority protections
+	yum groupinstall 'Development Tools'
+	# 1 packages excluded due to repository priority protections
+	yum update -y zlib-devel
+	yum update -y bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+
+Check Python install. Redo? 
+No, going to try to proceed and see if any problems arise
+::
+	# cd /usr/local/src/Python-3.6.1
+	# ./configure --prefix=/usr/local --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
+	# make && make altinstall
+
+Back to Eriksson
+::
+	strip /usr/local/lib/libpython3.6m.so.1.0
+	cd /usr/local/src
+	wget https://bootstrap.pypa.io/get-pip.py
+	python3.6 get-pip.py
+	# enables: pip3.6 install [packagename]
+
+Visit flag issue per my PyDjango docs and the previous eApps_install.rst
+::
+	cd /etc
+	vim ld.so.conf
+	# add: /usr/local/lib 
+
+	ldconfig
+
+
+WSGI
+-----
+Switching to Digital Ocean Apache as a ref.
+Do I need to build mod_wsgi? Or "just" yum install mod_wsgi?
+Ocean Apache has yum install
+My previous eApps install has yum apache tools, download and build.
+Per mod_wsgi doc: [Getting Started — mod_wsgi 4.5.14 documentation](https://modwsgi.readthedocs.io/en/develop/getting-started.html)
+Be sure to enable daemon mode.
+
+From prev notes
+::
+ 	(determine apache version)
+	apachectl -V
+	(Apache/2.4.6 (CentOS))
+	yum install httpd-devel-2.4.6
+
+	cd /usr/local/src
+	wget https://github.com/GrahamDumpleton/mod_wsgi/archive/4.5.14.tar.gz
+	tar xf 4.5.14.tar.gz
+	cd mod_wsgi-4.5.14
+	./configure --with-python=/usr/local/bin/python3.6
+	make
+	make install
+
+	cd /etc/httpd/conf.d
+	(create the file: wsgi.conf -- will contain only the following:)
+	LoadModule wsgi_module modules/mod_wsgi.so
+
+oops, I didn't run that command after include ld.so.conf.d/*.conf
+Now run ldconfig from /etc
+::
+	ldconfig
+
+	cd /usr/local/src/mod_wsgi-4.5.14
+	make
+	make install
+
+Enable module in apache
+
+In ISP look at /etc/httpd/conf/httpd.conf
+Modules are listed in Include conf.modules.d/*.conf
+
+Add file 00-wsgi.conf with LoadModule wsgi_module modules/mod_wsgi.so
+::
+	cd /etc/httpd/conf.modules.d
+	vim 00-wsgi.conf
+	# Added by Don Button for mod_wsgi - Django
+	LoadModule wsgi_module modules/mod_wsgi.so
+
+Come back to Apache server conf later
+
+
+Virtual Environment
+-----------
 
 
