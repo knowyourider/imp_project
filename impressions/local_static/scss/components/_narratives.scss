@@ -6,9 +6,6 @@
 	}		
 }
 
-	h2 {
-	}
-
 	h4 {
 		font-size: $small-font-size;
 		line-height: $base-line-height;
@@ -34,8 +31,12 @@
 
 		a {
 			display: block;
-			font-style: italic;
-			letter-spacing: $italic-letter-spacing;
+
+			span {
+				display: block;
+				font-style: italic;
+				letter-spacing: $italic-letter-spacing;
+			}
 		}
 	}
 
@@ -49,8 +50,10 @@
 }
 
 .read-this {
-	background: no-repeat bottom url("../images/pointing-hand-down.png");
-	height: 60px;
+	img {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 .chapter {
@@ -62,6 +65,20 @@
   	@include span-columns(8);
 		@include shift(4);
 		margin-bottom: $small-spacing;
+	}
+
+	blockquote p {
+		font-style: italic;
+	}
+
+	blockquote cite {
+		font-size: $smallish-font-size;
+		font-style: normal;
+		margin-left: $base-spacing;
+
+		&:before {
+			content: "\2014";
+		}
 	}
 }
 

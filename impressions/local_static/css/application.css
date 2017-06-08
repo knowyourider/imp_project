@@ -394,6 +394,9 @@ h6 {
   font-size: 0.8em;
   margin-top: -0.8em; }
 
+.accent {
+  color: #b12b00; }
+
 p {
   margin: 0 0 0.8em; }
 
@@ -512,14 +515,14 @@ blockquote {
 #document-paging--list a:link {
   text-decoration: underline; }
 #document-paging--list a:hover {
-  background-color: #b12b00; }
+  background-color: #b3aa98; }
 
 .document-paging--title {
   float: left;
   margin: 2px 4px 0 0.0625em; }
 
-.document-paging--selected {
-  background-color: #b3aa98; }
+.document-paging--selected a {
+  background-color: rgba(179, 170, 152, 0.5); }
 
 #toggle-transcription {
   background-color: #b3aa98;
@@ -611,9 +614,12 @@ dl.slim-curatorial {
 
 .glacier-list {
   border-top: 1px solid #b3aa98; }
-  .glacier-list li label, .glacier-list li a {
+  .glacier-list li label {
     font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
     font-size: 0.8em; }
+  .glacier-list li a {
+    font-variant: small-caps;
+    letter-spacing: .05em; }
 
 .map-locations {
   margin-bottom: 1.6em; }
@@ -961,17 +967,19 @@ dl.slim-curatorial {
     .intro-nav li:last-child {
       margin-right: 0; }
     .intro-nav li a {
-      display: block;
-      font-style: italic;
-      letter-spacing: 0.05em; }
+      display: block; }
+      .intro-nav li a span {
+        display: block;
+        font-style: italic;
+        letter-spacing: 0.05em; }
   .intro-nav li.previous {
     text-align: left; }
   .intro-nav li.next {
     text-align: right; }
 
-.read-this {
-  background: no-repeat bottom url("../images/pointing-hand-down.png");
-  height: 60px; }
+.read-this img {
+  display: block;
+  margin: 0 auto; }
 
 .chapter {
   width: 100%; }
@@ -985,6 +993,14 @@ dl.slim-curatorial {
       margin-bottom: 0.8em; }
       .chapter:last-child {
         margin-right: 0; } }
+  .chapter blockquote p {
+    font-style: italic; }
+  .chapter blockquote cite {
+    font-size: 0.9em;
+    font-style: normal;
+    margin-left: 1.6em; }
+    .chapter blockquote cite:before {
+      content: "\2014"; }
 
 .chapter-vertical {
   width: 100%; }
@@ -1420,15 +1436,16 @@ table.discoverers-faces td {
 .slim-caption {
   color: #b3aa98; }
 
+.slim-date {
+  color: #b12b00;
+  margin-top: -1.5em; }
+
 .slim-deeper {
   color: #b12b00;
   margin-top: 0.8em;
   padding-top: 0.4em; }
-  .slim-deeper h2 {
-    margin-bottom: 0; }
-  .slim-deeper h3 {
-    font-weight: bold;
-    margin: 1.6em 0 0.4em 0; }
+  .slim-deeper ul li {
+    margin-bottom: 0.8em; }
 
 #slimpop-overlay {
   background: url(../images/overlay.png) repeat;
@@ -1456,7 +1473,7 @@ table.discoverers-faces td {
 
 .person, .context, .fastfact {
   max-height: 85%;
-  width: 550px; }
+  width: 600px; }
 
 .artifact, .document {
   max-height: 85%;

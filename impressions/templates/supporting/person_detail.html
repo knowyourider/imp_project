@@ -6,7 +6,7 @@
 {% block item_title %}
 	{{ object.title_prefix|safe }} {{ object.first_name|safe }} 
 		{{ object.middle_name|safe }} {{ object.last_name|safe }} {{ object.suffix|safe }}
-	<h4 class="slim-subhead">{{ object.birth_year }} - {{ object.death_year }}</h4>
+	<h4 class="slim-date">{{ object.birth_year }} - {{ object.death_year }}</h4>
 {% endblock item_title%}
 
 {% block slim_content%}

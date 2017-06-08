@@ -64,11 +64,12 @@
   }
 
     a:link {
+      //padding: $tiny-spacing;
       text-decoration: underline;
     }
 
     a:hover {
-      background-color: $accent-color;
+      background-color: $light-taupe;
     }
 }
 
@@ -77,32 +78,20 @@
   margin: 2px 4px 0 em(1);
 }
 
-.document-paging--selected {
-  background-color: $light-taupe;
+.document-paging--selected a {
+  background-color: transparentize($light-taupe, 0.5);
 }
 
 // transcription toggle button
 #toggle-transcription {
   background-color: $light-taupe;
   margin-top: $tiny-spacing;
-  //float: right;
   font-size: $small-font-size;
 
   @media print {
     display: none;
   }  
 }
-
-//not sure we need these styles, leftovers from Mystic?
-//.item-viewer--tools {
-//  @include outer-container;
-//  margin-bottom: 1em;
-//  margin-top: .5em;
-  
-//  @include media(max-width $max-width) {
-//    font-size: $base-font-size * 0.85;
-//  } 
-//}
 
 // for curatorial info on evidence pages
 dl.slim-curatorial {
@@ -118,7 +107,6 @@ dl.slim-curatorial {
   
   dd {
     margin-left: 35%;
-    //margin-bottom: .5em;
   }
   
   dd::after {

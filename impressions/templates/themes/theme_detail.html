@@ -9,8 +9,8 @@
 
   <header>
 
-    <h4 class="heading"><a href="{% url 'themes:theme_detail' object.slug %}">{{ object.title|safe }}</a></h4>
-    <h2 class="main-title">{{ object.title|safe }} {{ object.subtitle|safe }}</h2>  
+    <h1 class="main-title">{{ object.title|safe }}</h1> 
+    <h2 class="subtitle">{{ object.subtitle|safe }}</h2> 
     <h4 class="byline">By {{ object.author|safe }}</h4> 
 
   </header>

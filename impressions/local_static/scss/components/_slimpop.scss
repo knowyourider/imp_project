@@ -38,20 +38,28 @@
   color: $light-taupe;
 }
 
+.slim-date {
+  color: $accent-color;
+  margin-top: -1.5em;
+}
+
 .slim-deeper {
-  //border-top: 1px solid $base-border-color;
   color: $accent-color;
   margin-top: $small-spacing;
   padding-top: $tiny-spacing;
 
-    h2 {
-      margin-bottom: 0;
-    }
+  h2 {
+    //margin-bottom: 0;
+  }
 
-    h3 {
-      font-weight: bold;
-      margin: $base-spacing 0 $tiny-spacing 0;
-    }
+  h3 {
+    //font-weight: bold;
+    //margin: $base-spacing 0 $tiny-spacing 0;
+  }
+
+  ul li {
+    margin-bottom: $small-spacing;
+  }
 }
 
 #slimpop-overlay {
@@ -81,18 +89,18 @@
 
 .person, .context, .fastfact {
   max-height: 85%;
-  width: 550px;
+  width: 600px;
 }
 
 .artifact, .document {
   max-height: 85%;
   width: 900px;
+  //width: 80vw;
 }
 
 .voices {
   width: 50vw;
   max-height: 85%;
-  //width: 550px;
 }
 
 .slideshow, .about, .footprint, .video, .society,

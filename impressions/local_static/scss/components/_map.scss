@@ -99,9 +99,14 @@
 .glacier-list {
 	border-top: $base-border;
 
-	li label, li a {
+	li label {
   	font-family: $utility-font-family;
 		font-size: $small-font-size;
+	}
+	
+	li a {
+		font-variant: small-caps;
+  	letter-spacing: .05em;
 	}
 }	
 

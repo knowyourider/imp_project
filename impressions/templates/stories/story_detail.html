@@ -24,20 +24,23 @@
 
       <li>
         {% if object.get_prev %}
-          &lArr;&nbsp;Previous <a href="{% url 'stories:story_detail' object.get_prev.slug %}">{{object.get_prev.title|safe}}</a>     
+          <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <span>{{object.get_prev.title|safe}}<span></a>     
         {% else %}
           &lArr; Previous
         {% endif %}
       </li>
 
       <li class="read-this">
-        <a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read This Story</a>
+        <a href="{% url 'stories:chapter_detail' object.slug 1 %}">
+          Read This Story
+          <img src="{% static 'images/' %}pointing-hand-down.png">
+        </a>
       </li>
 
       <li class="next">
 
         {% if object.get_next %}
-          Next&nbsp;&rArr; <a href="{% url 'stories:story_detail' object.get_next.slug %}">{{object.get_next.title|safe}}</a>     
+          <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <span>{{object.get_next.title|safe}}</span></a>     
         {% else %}
           Next Story &rArr;
         {% endif %}

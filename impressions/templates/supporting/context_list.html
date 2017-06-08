@@ -28,7 +28,6 @@
     <input type="submit" value="Go" />
     <span id="clear"><a href="#">clear search</a></span>
   </form>
-
 </section> 
 
 <section class="menu-grid--area">
@@ -42,7 +41,7 @@
 
         <img src="{% static 'supporting/' %}{{ 'context/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
         
-        {{ object.title|safe }} {{ object.subtitle|safe }}
+        {{ object.title|safe }} 
       </a>
     </li>
   {% endfor %}
