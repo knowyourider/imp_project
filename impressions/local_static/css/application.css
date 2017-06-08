@@ -1329,6 +1329,12 @@ table.discoverers-faces td {
   opacity: 1;
   z-index: 100; }
 
+.looking-credits {
+  font-size: 0.9em;
+  margin-top: 3.2em; }
+  .looking-credits h2 {
+    font-weight: bold; }
+
 .slideshow-container {
   padding-top: 1.6em;
   position: relative;
