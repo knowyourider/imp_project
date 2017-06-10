@@ -13,6 +13,8 @@ References
 - Digital Ocean Python (but not wsgi): [How To Install Python 3 and Set Up a Local Programming Environment on CentOS 7 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-centos-7)
 - Digital Ocean apache, wsgi, Django - but not python: [How To Serve Django Applications with Apache and mod_wsgi on CentOS 7 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-centos-7)
 - Digital Ocean, CentOS 7 - only Django: [How To Install the Django Web Framework on CentOS 7 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-the-django-web-framework-on-centos-7)
+- Super user acct. to use with sudo: [Initial Server Setup with CentOS 7 | DigitalOcean](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7)
+- mod_wsgi: [Getting Started — mod_wsgi 4.5.14 documentation](https://modwsgi.readthedocs.io/en/develop/getting-started.html)
 
 
 Install Python 3.6
@@ -145,12 +147,22 @@ Now run ldconfig from /etc
 	make
 	make install
 
-Enable module in apache
+Double check that mod_wsgi was created with shared lib
+Per: https://modwsgi.readthedocs.io/en/develop/user-guides/checking-your-installation.html
+::
+	cd /etc/httpd/modules
+	ldd mod_wsgi.so
+	# Good:
+	# libpython3.6m.so.1.0 =>
 
+Enable module in apache
+++++++++++++++++++++++++
 In ISP look at /etc/httpd/conf/httpd.conf
 Modules are listed in Include conf.modules.d/*.conf
 
 Add file 00-wsgi.conf with LoadModule wsgi_module modules/mod_wsgi.so
+
+
 ::
 	cd /etc/httpd/conf.modules.d
 	vim 00-wsgi.conf
@@ -158,9 +170,107 @@ Add file 00-wsgi.conf with LoadModule wsgi_module modules/mod_wsgi.so
 	LoadModule wsgi_module modules/mod_wsgi.so
 
 Come back to Apache server conf later
+wsgi getting started: https://modwsgi.readthedocs.io/en/develop/user-guides/quick-configuration-guide.html
 
 
-Virtual Environment
+Super user
+-----------
+Belatedly
+I'm thinking that, per Ocean, it would be good to have a non-root user that could use sudo.
+Could add some flexibility -- could add to group. 
+Create user in isp, then
+::
+	gpasswd -a [my-name] wheel
+
+hmm, not that kind of user that has a bash login, so sticking with root
+
+Install Virtual Environment
 -----------
 
+Ocean Apache, prev notes and PyDjangoDocs virtual env
+
+Python 3 comes with venv built-in, so we can proceed straight to Virtualenvwrapper.
+
+From any dir:
+::
+	pip3.6 install virtualenvwrapper
+
+
+[look at .bash_profile on vm1 root and vm2 pvma_django user]
+
+Edit ~/.bash_profile to indlude:
+::
+	export WORKON_HOME=/var/www/pvma-django/data/.envs
+	export PROJECT_HOME=/var/www/pvma-django/data/www
+	# to use Python 3
+	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.6
+	export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+	source /usr/local/bin/virtualenvwrapper.sh
+
+logout and log back in.
+Then, as documented in VirtualenvWrapper.md, create project and use workon proj etc.
+
+Create site
+-------------
+- Add subdomain in Portal
+- Add domain in ISP
+
+Set up a virtual env
+____________________
+
+from anywhere (in terminal)
+(looks like the --python option is redundant (with .bash_profile above))
+::
+	mkvirtualenv -a  /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions --python=/usr/local/bin/python3.6 impressions
+
+Install Django 
+---------------------
+::
+
+	workon impressions
+	pip install Django==1.10.7
+	pip install Unipath==1.1
+
+
+Postgresql
+------------
+Posgres can be installed in ISP per: 
+[PostgreSQL 9 and phpPgAdmin - Powered by Kayako Help Desk Software](https://support.eapps.com/index.php?/Knowledgebase/Article/View/414/53/postgresql-9-and-phppgadmin)
+
+Installed PostgreSQL 9.2.18-1.el7
+Also, phpPgAdmin
+
+Set up the Postgresql database via ISP mangager with user and pass from local
+Owner pvma-django -- (impdb_user created on separte line in dialog)
+Encoding UTF8
+new user per settings base
+Password has to pass muster upper and lower (or did it work after I selected the auto generator?)
+Entering my current IP for remote access -- will need to change as needed.
+
+Install psycopg2
+--------------
+
+(Didn't Prepare by installing the postgres devloper tools -- from prev docs.
+	# yum install python-setuptools python-devel postgresql-devel
+::
+
+	workon impressions
+	pip install psycopg2==2.6
+
+
+Git clone the project
+-----------------
+Delete/rename the default, then clone
+while in /var/www/pvma-django/data/www
+
+Log in as pvma-django !!
+:: 
+	cd /var/www/pvma-django/data/www
+	git clone https://github.com/knowyourider/imp_project.git dev.dinotracksdiscovery.org
+
+Test and migrate
+----------------
+
+::
+	./manage.py migrate
 
