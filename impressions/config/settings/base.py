@@ -44,7 +44,7 @@ TEMPLATES = [
     },
 ]
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dev.dinotracksdiscovery.org', 'impdev.deerfield-ma.org']
 
 
 # Application definition

@@ -247,6 +247,9 @@ new user per settings base
 Password has to pass muster upper and lower (or did it work after I selected the auto generator?)
 Entering my current IP for remote access -- will need to change as needed.
 
+log location: /var/lib/pgsql/data/pg_log/
+
+
 Install psycopg2
 --------------
 
@@ -346,15 +349,71 @@ Ip address will need to be changed in pg_hba as needed
 
 With PGAdmin3 change owner of public schema to impdb_user
 
-Login problem
-log location??
-?: usr/local/var/postgres
+Had database prob:
+password authentication failed for user "impdb_user"
+But support fixed the password on impdb
+
+Test with runserver - ok
+
+
+Set up Apache
+----------------
+WSGI part 2
+
+in /etc/httpd/conf/vhosts/pvma-django/dev.dinotracksdiscovery.org
+We're in Apace version 2.2.21??
+
+As is, from server, plus my insertion
+::
+
+	<VirtualHost 68.169.61.104:80>
+		ServerName dev.dinotracksdiscovery.org
+		DocumentRoot /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org
+		ServerAdmin webmaster@dev.dinotracksdiscovery.org
+		AddDefaultCharset UTF-8
+		SuexecUserGroup pvma-django pvma-django
+		CustomLog /var/www/httpd-logs/dev.dinotracksdiscovery.org.access.log combined
+		ErrorLog /var/www/httpd-logs/dev.dinotracksdiscovery.org.error.log
+		DirectoryIndex index.html
+
+		# Don inserting here
+		Alias /static/ /var/www/pvma-django/data/www/imp_static/
+		Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
+		WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
+		WSGIProcessGroup staging
+		WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
+		# end insertion
+
+
+	</VirtualHost>
+	<Directory /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org>
+		Options +Includes -ExecCGI
+	</Directory>
+
+	# Don adding this
+	<Directory /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config>
+	    <Files wsgi.py>
+		    Order deny,allow
+		    Allow from all
+	    </Files>
+	</Directory>
+
+
+
+		# Don inserting here
+	    Alias /static/ /var/www/pvma-django/data/www/imp_static/
+	    Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
+
+	    WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
+	    WSGIProcessGroup staging
+	    WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
+
+	    # end insertion
+
 
 NEXT: 
-try adding the impdb postgres line
-
-Test and migrate
-----------------
+- switch django version of site back in
+- lookup apach 2.4 and mod
 
 collect static as pvma-django
 ::
