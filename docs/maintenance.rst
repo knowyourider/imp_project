@@ -51,6 +51,7 @@ GIT
 Logon as pvma
 ::
 	cd /var/www/pvma/data/www/impdev.deerfield-ma.org
+	cd /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org
 	git status
 	etc.
 

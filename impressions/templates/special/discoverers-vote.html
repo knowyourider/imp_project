@@ -18,7 +18,9 @@
 <ul>
 {% for slide in object.frame_set.all %}
 	<li>
-		  - {{slide.caption}} - {{slide.narrative|safe}}>
+		xx visitor votes  - {{slide.caption}}<br/>
+		{{slide.narrative|safe}} <br/>
+		&nbsp;
 	</li>
 
 {% endfor %}

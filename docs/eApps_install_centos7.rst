@@ -258,6 +258,7 @@ Install psycopg2
 	pip install psycopg2==2.6
 
 
+
 Git clone the project
 -----------------
 Delete/rename the default, then clone
@@ -268,9 +269,103 @@ Log in as pvma-django !!
 	cd /var/www/pvma-django/data/www
 	git clone https://github.com/knowyourider/imp_project.git dev.dinotracksdiscovery.org
 
+	cd /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org
+
+Transfer database
+------------------
+
+Get the backup
+::
+Transfer the backup from "old" to local.
+::
+	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
+	(edit remote pvma password into the following, ad hoc)
+	wget --user=pvma --password='pvma password by hand' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
+
+Restore to new server.
+[hmm, phppgadmin? or command line?]
+Get phpPgAdmin fired up
+
+phpPgAdmin
+https://68.169.61.104/pgadmin/ # nope, goes to African american -- need to talk with Tony
+user: postgres
+Pass: in 1pass, keychain, and in ISP > Server Settings --> Database Servers
+
+Try pgAdmin3
+Password: Settings > Database servers > Edit
+Can't connect -- dialog just bounces back to me.
+
+Setup access for postgres user
+-------------------------------
+
+Command Line
+Based on copy data to educators
+# Note msedb_ed as the target.
+Upload vis FTP this time
+Log into shell as root
+::
+
+	su - postgres
+	cd /var/www/pvma-django/data/FTP_transfer
+	#pg_restore --clean --dbname=msedb_ed --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
+	pg_restore --dbname=impdb --user=impdb_user --verbose impdb_$(date +"%Y_%m_%d").backup
+	[db password here]
+
+
+Edit pg_hba.conf located at /var/lib/pgsql/data
+
+from vm1
+::
+	local template1 postgres password
+	host template1 postgres 0.0.0.0 0.0.0.0 password
+	host	impdb	impdb_user	0.0.0.0	0.0.0.0	password
+	local all postgres password
+	local all root password
+	local	impdb	impdb_user	password
+	local template1 all password
+	host all all 127.0.0.1/32 md5
+	host all all ::1/128 md5
+
+As is on vm2
+::
+	local	postgres	postgres	ident
+	host	all	all	127.0.0.1/32	md5
+	host	all	all	::1/128	md5
+	host	impdb	impdb_user	173.48.47.251/32	md5
+
+eApps KB article says other users to have access then lines need to be added
+Allow su postgres when logged in as root
+::
+	local	impdb	impdb_user	password
+
+Allow access from my local PGAdmin3
+Ip address will need to be changed in pg_hba as needed
+::
+	host	postgres	postgres	173.48.47.251/32	md5
+	host	impdb	postgres	173.48.47.251/32	md5
+
+With PGAdmin3 change owner of public schema to impdb_user
+
+Login problem
+log location??
+?: usr/local/var/postgres
+
+NEXT: 
+try adding the impdb postgres line
+
 Test and migrate
 ----------------
 
+collect static as pvma-django
 ::
+	
+As root
+::
+	workon impressions
 	./manage.py migrate
+	./manage.py runserver
+
+
+
+
 
