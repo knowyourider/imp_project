@@ -1,32 +1,38 @@
 {% extends extend_base %}
 {% load staticfiles %}
 
-{% block heading %}{{ object.content_type.plural_title }} - Discoverers {% endblock %}
-{% block item_title %}{{ object.title|safe }}{% endblock %}
+{% block heading %}Your Vote{% endblock %}
+{% block item_title %}You cast your vote for {{ votee_object.caption|safe }}! {% endblock %}
 
 {% block slim_content%}
 
-<div id="video-content">
+<section>
 
-<p>feedback: {{ feedback }}</p>
+  <p><strong>Here's how other visitors to this website have voted:</strong></p>
+  <ul>
+    <li>xx visitor votes - Pliny Moody</li>
+    <li>xx visitor votes - Native American</li>
+    <li>xx visitor votes - Edward Hitchcock</li>
+    <li>xx visitor votes - Dexter Marsh</li>
+    <li>xx visitor votes - James Deane</li>
+    <li>xx visitor votes - Roswell Field</li>
+    <li>xx visitor votes - Benjamin Silliman</li>
+    <li>xx visitor votes - William Draper</li>
+  </ul>
 
-{{ object.narrative|safe }}
+  <p>&nbsp;</p>
+  <h3><strong>Your vote makes sense because...</strong></h3>
+  <p>{{ votee_object.narrative|safe }}</p>
 
+  <h3><strong>But other votes are also valid because...</strong></h3>
 
-<p>list of the people and the votes they got:</p>
-
-<ul>
-{% for slide in object.frame_set.all %}
-	<li>
-		xx visitor votes  - {{slide.caption}}<br/>
-		{{slide.narrative|safe}} <br/>
-		&nbsp;
-	</li>
-
-{% endfor %}
-</ul>
-
+	{% for slide in object.frame_set.all %}
+		{% if slide.slide_num != votee_object.slide_num %}
+			<p>{{slide.caption}}<br/>
+			{{slide.narrative|safe}}</p>
+		{% endif %}
+	{% endfor %}
 	
-</div><!-- /video-content -->
+</section>
 
 {% endblock slim_content %}

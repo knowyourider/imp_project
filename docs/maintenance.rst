@@ -36,6 +36,7 @@ Renew WSGI after code change
 ::
 
 	touch /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions/config/wsgi.py
+	touch /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
 
 Tools
 ~~~~~~~~~
@@ -48,7 +49,7 @@ Pass: in 1pass, keychain, and in ISP > Server Settings --> Database Servers
 GIT
 ----
 
-Logon as pvma
+Logon as pvma (or, for vm2, pvma-django)
 ::
 	cd /var/www/pvma/data/www/impdev.deerfield-ma.org
 	cd /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org

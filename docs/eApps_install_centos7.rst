@@ -412,11 +412,14 @@ As is, from server, plus my insertion
 
 
 NEXT: 
-- switch django version of site back in
-- lookup apach 2.4 and mod
+- change collected static to pvma-django
+- post with allowed hosts
 
 collect static as pvma-django
+
+touch
 ::
+	touch /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
 	
 As root
 ::

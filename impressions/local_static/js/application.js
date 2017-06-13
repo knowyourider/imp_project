@@ -228,17 +228,14 @@ $(document).ready(function(){
   // ---- DISCOVERERS VOTE ---
   $(document).on("click", "#discoverers-form .vote", function(event){
     event.preventDefault();
-    var voteValue = $(this).attr('value')
-    // var choice = $(event.target).val()
-    console.log(" --- vote: " + voteValue );
-    // Add vote value next
+    var voteeNum = $(this).attr('value')
+    // console.log(" --- voteeNum: " + voteeNum );
     constructed_href = 
-      "/special/discoverers/discoverers-vote/" + voteValue + "/";
+      "/special/discoverers/discoverers-vote/" + voteeNum + "/";
+    // disable and grey-out the voting checkboxes
+    $(".vote").prop("disabled",true);
     // call to ajax
     slimPop(constructed_href, "discoverers");  
-    // getURL(choiceURL, $('#society_feedback'));
-    // // disable and grey-out the buttons
-    // $(".society_choice").prop("disabled",true);
   });
 
 

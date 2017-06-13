@@ -108,13 +108,19 @@ class DiscoverersDetailView(FeatureDetailView):
     def get_context_data(self, **kwargs):
         context = super(DiscoverersDetailView, self).get_context_data(**kwargs)
         # print(" -- choice: " + self.kwargs['choice'])
+        feature_object = super(DiscoverersDetailView, self).get_object()
 
         # get choice param and convert to int
-        vote_value = self.kwargs['vote']
+        votee_num = int(self.kwargs['slide_num'])
+        # feature_slug = self.kwargs['slug']
 
-        feedback = "You voted for " + vote_value
+        # get the person (frame, aka slide) object
+        votee_object = get_object_or_404(Frame, feature_id=feature_object.id, 
+            slide_num=votee_num)
+
+        # votee_name = votee_num
         # add variables to context
-        context.update({'feedback': feedback})
+        context.update({'votee_object': votee_object})
         return context
 
 
