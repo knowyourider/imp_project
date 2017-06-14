@@ -53,9 +53,11 @@
         <img src="{% static 'stories/' %}{{ object.slug }}/{{ chapter.image_name }}.jpg">
     {% endif %}
 
-      <p class="caption">{{ chapter.caption|safe }}
+    <p class="caption">{{ chapter.caption|safe }}
+      {% if chapter.source.id != 1 %}
         Image courtesy of {{ chapter.source.institution|safe }}.
-      </p>
+      {% endif %}
+    </p>
 
     </div><!--/chapter-image -->
 

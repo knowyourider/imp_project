@@ -24,7 +24,7 @@
   <h3><strong>Your vote makes sense because...</strong></h3>
   <p>{{ votee_object.narrative|safe }}</p>
 
-  <h3><strong>But other votes are also valid because...</strong></h3>
+  <h3><strong>But other votes could make sense because...</strong></h3>
 
 	{% for slide in object.frame_set.all %}
 		{% if slide.slide_num != votee_object.slide_num %}

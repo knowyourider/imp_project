@@ -227,7 +227,7 @@ $(document).ready(function(){
 
   // ---- DISCOVERERS VOTE ---
   $(document).on("click", "#discoverers-form .vote", function(event){
-    event.preventDefault();
+    // event.preventDefault();
     var voteeNum = $(this).attr('value')
     // console.log(" --- voteeNum: " + voteeNum );
     constructed_href = 
