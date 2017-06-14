@@ -6,10 +6,10 @@
 
 {% block slim_content%}
 
-<section>
+<section class="vote-feedback">
 
-  <p><strong>Here's how other visitors to this website have voted:</strong></p>
-  <ul>
+  <h3>Here's how other visitors to this website have voted:</h3>
+  <ul class=>
     <li>xx visitor votes - Pliny Moody</li>
     <li>xx visitor votes - Native American</li>
     <li>xx visitor votes - Edward Hitchcock</li>
@@ -20,11 +20,10 @@
     <li>xx visitor votes - William Draper</li>
   </ul>
 
-  <p>&nbsp;</p>
-  <h3><strong>Your vote makes sense because...</strong></h3>
+  <h3>Your vote makes sense because&hellip;</h3>
   <p>{{ votee_object.narrative|safe }}</p>
 
-  <h3><strong>But other votes could make sense because...</strong></h3>
+  <h3>But other votes could make sense because&hellip;</h3>
 
 	{% for slide in object.frame_set.all %}
 		{% if slide.slide_num != votee_object.slide_num %}

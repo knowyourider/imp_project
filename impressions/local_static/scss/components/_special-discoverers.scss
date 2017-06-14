@@ -45,3 +45,12 @@ table.discoverers-faces {
 		}
 	}
 }
+
+.vote-feedback {
+	
+	h3 {
+		font-size: $medlarge-font-size;
+  	font-style: italic;
+		margin: $base-spacing 0 $tiny-spacing 0;
+	}
+}
