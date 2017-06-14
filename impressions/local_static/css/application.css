@@ -371,9 +371,8 @@ h6 {
   color: #b12b00; }
 
 .story-title {
-  font-size: 2.25em;
-  color: #fff4e4;
-  text-shadow: 1px 1px 2px black; }
+  font-size: 1.75em;
+  color: #b12b00; }
 
 .story-subtitle {
   font-size: 1.25em;
@@ -1502,7 +1501,13 @@ table.discoverers-faces td {
         margin-right: 0; } }
   .text-page article {
     border-bottom: 1px solid #b3aa98;
-    margin-bottom: 3.2em; }
+    margin-bottom: 3.2em;
+    padding-bottom: 1.6em; }
+  .text-page ul li {
+    padding-bottom: 0.8em; }
+
+.intra-page-nav li {
+  padding-bottom: 1.6em; }
 
 .lesson-list ol {
   list-style-type: decimal; }
@@ -1510,6 +1515,23 @@ table.discoverers-faces td {
     padding-bottom: 1.6em; }
     .lesson-list ol li a {
       display: block; }
+
+.funder-logos {
+  display: table;
+  margin: 1.6em 0; }
+  .funder-logos li {
+    display: inline;
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 28.78967%; }
+    .funder-logos li:last-child {
+      margin-right: 0; }
+    .funder-logos li img {
+      border: 1px solid #b3aa98; }
+
+article#credits h2.heading {
+  margin-top: 1.6em; }
 
 .footer {
   background: #65605a;

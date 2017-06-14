@@ -14,7 +14,16 @@
 	article {
 		border-bottom: $base-border;
 		margin-bottom: $large-spacing;
+		padding-bottom: $base-spacing;
 	}
+
+	ul li {
+		padding-bottom: $small-spacing;
+	}
+}
+
+.intra-page-nav li {
+	padding-bottom: $base-spacing;
 }
 
 .lesson-list {
@@ -28,5 +37,25 @@
 				display: block;
 			}
 		}
+	}
+}
+
+.funder-logos {
+	display: table;
+	margin: $base-spacing 0;
+
+	li {
+		display: inline;
+		@include span-columns(2.5 of 8);
+
+		img {
+			border: $base-border;
+		}
+	}
+}
+
+article#credits {
+	h2.heading {
+		margin-top: $base-spacing;
 	}
 }
