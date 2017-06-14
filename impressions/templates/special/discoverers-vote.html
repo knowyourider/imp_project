@@ -27,7 +27,7 @@
 
 	{% for slide in object.frame_set.all %}
 		{% if slide.slide_num != votee_object.slide_num %}
-			<p>{{slide.caption}}<br/>
+			<p><span class="heading">{{slide.caption}}</span><br/>
 			{{slide.narrative|safe}}</p>
 		{% endif %}
 	{% endfor %}
