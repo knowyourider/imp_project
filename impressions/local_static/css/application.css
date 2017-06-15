@@ -372,12 +372,11 @@ h6 {
 
 .story-title {
   font-size: 1.75em;
-  color: #b12b00; }
+  color: #fff4e4; }
 
 .story-subtitle {
   font-size: 1.25em;
-  color: #fff4e4;
-  text-shadow: 1px 1px 2px black; }
+  color: #fff4e4; }
 
 .heading {
   font-variant: small-caps;
