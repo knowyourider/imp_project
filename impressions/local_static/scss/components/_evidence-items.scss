@@ -38,6 +38,10 @@
   p {
   	opacity: 1.0;
   }
+
+  table p {
+    margin: $tiny-spacing 0 $tiny-spacing 3px;
+  }
 }
 
 .document-text--transcription {

@@ -496,6 +496,8 @@ blockquote {
   left: 0px; }
   #document-text p {
     opacity: 1.0; }
+  #document-text table p {
+    margin: 0.4em 0 0.4em 3px; }
 
 .document-text--transcription {
   margin: 1.6em; }
