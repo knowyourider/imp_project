@@ -14,11 +14,14 @@
 	article {
 		border-bottom: $base-border;
 		margin-bottom: $large-spacing;
-		padding-bottom: $base-spacing;
 	}
 
 	ul li {
 		padding-bottom: $small-spacing;
+	}
+
+	p.prompt { 
+		margin-top: $small-spacing; 
 	}
 }
 

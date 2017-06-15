@@ -1506,10 +1506,11 @@ table.discoverers-faces td {
         margin-right: 0; } }
   .text-page article {
     border-bottom: 1px solid #b3aa98;
-    margin-bottom: 3.2em;
-    padding-bottom: 1.6em; }
+    margin-bottom: 3.2em; }
   .text-page ul li {
     padding-bottom: 0.8em; }
+  .text-page p.prompt {
+    margin-top: 0.8em; }
 
 .intra-page-nav li {
   padding-bottom: 1.6em; }
