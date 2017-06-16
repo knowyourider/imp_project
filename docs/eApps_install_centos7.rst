@@ -427,7 +427,12 @@ As root
 	./manage.py migrate
 	./manage.py runserver
 
+Transfer assets
+---------------
 
+Use wget
+::
+	wget --user=pvma --password='pvma password by hand' ftp://68.169.58.50/www/impdev.deerfield-ma.org/impressions/themes/themes-static.zip
 
 
 
