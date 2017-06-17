@@ -278,6 +278,11 @@ Log in as pvma-django !!
 
 	cd /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org
 
+for public
+::
+	git clone https://github.com/knowyourider/imp_project.git dinotracksdiscovery.org
+	cd /var/www/pvma-django/data/www/dinotracksdiscovery.org
+
 Transfer database
 ------------------
 
@@ -380,13 +385,13 @@ As is, from server, plus my insertion
 		ErrorLog /var/www/httpd-logs/dev.dinotracksdiscovery.org.error.log
 		DirectoryIndex index.html
 
-		# Don inserting here
-		Alias /static/ /var/www/pvma-django/data/www/imp_static/
-		Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
-		WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
-		WSGIProcessGroup staging
-		WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
-		# end insertion
+	# Don inserting here
+	Alias /static/ /var/www/pvma-django/data/www/imp_static/
+	Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
+	WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
+	WSGIProcessGroup staging
+	WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
+	# end insertion
 
 
 	</VirtualHost>
