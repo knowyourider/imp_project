@@ -37,7 +37,7 @@
     
     <li>
       <a class="pop_item" href="{% url 'supporting:'|add:object.evidence_category|add:'_detail' object.slug %}">
-        <img src="{% static 'supporting/' %}{{ 'evidenceitem/menupics/'|add:object.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ object.slug}}"> 
+        <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> 
         
         <em>{{ object.title|safe }}</em>
       </a>

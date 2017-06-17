@@ -33,7 +33,7 @@
 
     <li>
     	<a class="pop_item" href="{% url 'supporting:person_detail' person1.slug %}">
-        <img src="{% static 'supporting/' %}{{ 'person/menupics/'|add:person1.slug|add:'.jpg'|supporting_image_exists }}"  alt="image of {{ person1.slug}}"> 
+        <img src="{% static 'supporting/person/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ person1.slug}}"> 
     		<em>{{ person1.title_prefix|safe }} {{ person1.first_name|safe }} 
         {{ person1.middle_name|safe }} {{ person1.last_name|safe }} {{ person1.suffix|safe }}</em>
       </a>
