@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # aka Backgrounds
-    url(r'^context/$', views.ContextListView.as_view(paginate_by=21), name='context_list'),
+    url(r'^context/$', views.ContextListView.as_view(paginate_by=20), name='context_list'),
     url(r'^context/(?P<pk>[0-9]+)/$', views.ContextDetailView.as_view(), \
         name='context_detail_pk'),
     url(r'^context/(?P<slug>\S+)/$', views.ContextDetailView.as_view(), \
