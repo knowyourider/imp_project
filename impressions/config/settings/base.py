@@ -50,6 +50,7 @@ ALLOWED_HOSTS = ['dev.dinotracksdiscovery.org', 'impdev.deerfield-ma.org', '127.
 # Application definition
 
 INSTALLED_APPS = (
+    # 'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,6 +124,8 @@ STATICFILES_DIRS = (
 )
 
 # Project specific constants
-# 2 for wireframe, 3 for devel, 4 for public
-STATUS_LEVEL = 2
+# 2 for draft, 3 for review, 4 for public
+STATUS_LEVEL = 3
 
+# for publi vs. private versions of the site?
+SITE_ID = 1

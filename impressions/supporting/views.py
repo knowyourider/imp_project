@@ -9,11 +9,12 @@ from .forms import EvidenceItemSearchForm, ContextSearchForm
 
 class ContextListView(FormMixin, ListView):
     """
+    a.k.a Backdrops
     Search in the Context case is more complicated than the Context case. 
     We're searching a many to many relationship
     """
     # model = Context
-    queryset = Context.objects.filter(status_num__gte=1)
+    queryset = Context.objects.filter(status_num__gte=settings.STATUS_LEVEL)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
     # paginate_by=21
@@ -69,7 +70,7 @@ class EvidenceItemListView(FormMixin, ListView):
     is directly a field of Evidence item. (Context has many to many associations)
     """
     # model = EvidenceItem
-    queryset = EvidenceItem.objects.filter(status_num__gte=1)
+    queryset = EvidenceItem.objects.filter(status_num__gte=settings.STATUS_LEVEL)
     # context_object_name = 'object_list'
     # template_name = 'supporting/evidenceitem_list.html' 
     # paginate_by=21 -- supplied by url conf
@@ -184,7 +185,7 @@ class FastFactDetailView(DetailView):
 
 class PersonListView(ListView):
     #model = Person
-    queryset = Person.objects.filter(status_num__gte=1)
+    queryset = Person.objects.filter(status_num__gte=settings.STATUS_LEVEL)
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
 

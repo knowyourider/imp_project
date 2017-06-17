@@ -30,6 +30,18 @@ In either case:
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
 	pg_restore --clean --dbname=impdb --user=impdb_user --verbose impdb_$(date +"%Y_%m_%d").backup
 
+Copy devel database to public
+~~~~~~~~~~~~~~~~~~~
+( to edti , from mse)
+Note msedb_ed as the target.
+Log into shell as root
+::
+
+	su - postgres
+	cd /var/www/mseadmin/data/FTP_transfer
+	pg_restore --clean --dbname=msedb_ed --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
+	[db password here]
+
 
 Renew WSGI after code change
 ~~~~~~~~~~~~~~~~~~~~~~~

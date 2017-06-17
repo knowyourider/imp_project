@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+from django.conf import settings
 from .models import Feature, Frame
 
 
 class FeatureListView(ListView):
     #model = Feature
-    queryset = Feature.objects.filter(status_num__gte=1, is_on_menu=True)
+    queryset = Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, is_on_menu=True)
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 

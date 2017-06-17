@@ -218,10 +218,14 @@ Create site
 Set up a virtual env
 ____________________
 
-from anywhere (in terminal)
+from anywhere (in terminal) -- dev
 (looks like the --python option is redundant (with .bash_profile above))
 ::
 	mkvirtualenv -a  /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions --python=/usr/local/bin/python3.6 impressions
+
+Public
+::
+	mkvirtualenv -a  /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions --python=/usr/local/bin/python3.6 imppub
 
 Install Django 
 ---------------------
@@ -390,6 +394,17 @@ As is, from server, plus my insertion
 		Options +Includes -ExecCGI
 	</Directory>
 
+Just the insertions, for dev.dino
+::
+		# Don inserting here
+	    Alias /static/ /var/www/pvma-django/data/www/imp_static/
+	    Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
+
+	    WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
+	    WSGIProcessGroup staging
+	    WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
+	    # end insertion
+
 	# Don adding this
 	<Directory /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config>
 	    <Files wsgi.py>
@@ -398,18 +413,23 @@ As is, from server, plus my insertion
 	    </Files>
 	</Directory>
 
-
-
+Insertions for public dinotracks
+::
 		# Don inserting here
 	    Alias /static/ /var/www/pvma-django/data/www/imp_static/
-	    Alias /design/ /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/design/
 
-	    WSGIDaemonProcess staging python-path=/var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/impressions/lib/python3.6/site-packages
-	    WSGIProcessGroup staging
-	    WSGIScriptAlias / /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/config/wsgi.py
-
+	    WSGIDaemonProcess production python-path=/var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/imppub/lib/python3.6/site-packages
+	    WSGIProcessGroup production
+	    WSGIScriptAlias / /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/config/wsgi.py
 	    # end insertion
 
+	# Don adding this
+	<Directory /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/config>
+	    <Files wsgi.py>
+		    Order deny,allow
+		    Allow from all
+	    </Files>
+	</Directory>
 
 NEXT: 
 - change collected static to pvma-django
