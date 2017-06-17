@@ -225,7 +225,7 @@ from anywhere (in terminal) -- dev
 
 Public
 ::
-	mkvirtualenv -a  /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions --python=/usr/local/bin/python3.6 imppub
+	mkvirtualenv -a  /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions --python=/usr/local/bin/python3.6 implive
 
 Install Django 
 ---------------------
@@ -258,6 +258,7 @@ Install psycopg2
 --------------
 
 (Didn't Prepare by installing the postgres devloper tools -- from prev docs.
+This has to be installed in virtual env
 	# yum install python-setuptools python-devel postgresql-devel
 ::
 
