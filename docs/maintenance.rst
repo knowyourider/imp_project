@@ -12,11 +12,23 @@ On eapps, login as root. We're not using the -O option since local and remote ha
     [impdb_user password]
 	
     cd /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions (or workon impressions)
+vm2 ::
+    cd /var/www/pvma-django/data/FTP_transfer
+	pg_dump -Fc --clean --verbose impdb --user=impdb_user > impdb_$(date +"%Y_%m_%d").backup
+    [impdb_user password]
+	
+    cd /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions (or workon impressions)
 
 Or, run script from local which accesses remote:
 :: 
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
 	ssh root@68.169.58.50 'bash -s' < copy_stagedb.sh
+	(remote root password)
+or, vor vm2 
+hmm, looks like I need to set up remote password
+::
+	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
+	ssh root@68.169.61.104 -p 2789 'bash -s' < copy_stage2db.sh
 	(remote root password)
 
 Transfer to local via FTP pvma root.
@@ -24,6 +36,8 @@ Transfer to local via FTP pvma root.
 	cd ~/Documents/Projects/Impressions/DataBaks/from_remote
 	(edit remote pvma password into the following, ad hoc)
 	wget --user=pvma --password='pvma password by hand' ftp://deerfield-history-center.org/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
+or vm2 ::
+	wget --user=pvma-django --password='pvma-django password by hand' ftp://68.169.61.104/FTP_transfer/impdb_$(date +"%Y_%m_%d").backup
 
 In either case:
 ::

@@ -113,13 +113,17 @@ class DiscoverersDetailView(FeatureDetailView):
 
         # get choice param and convert to int
         votee_num = int(self.kwargs['slide_num'])
-        # feature_slug = self.kwargs['slug']
-
         # get the person (frame, aka slide) object
         votee_object = get_object_or_404(Frame, feature_id=feature_object.id, 
             slide_num=votee_num)
 
-        # votee_name = votee_num
+        # record the vote
+        if votee_object.num_correct:
+            votee_object.num_correct += 1
+        else:
+            votee_object.num_correct = 1
+        votee_object.save()
+
         # add variables to context
         context.update({'votee_object': votee_object})
         return context

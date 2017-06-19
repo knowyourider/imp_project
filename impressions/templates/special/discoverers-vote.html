@@ -9,16 +9,20 @@
 <section class="vote-feedback">
 
   <h3>Here's how other visitors to this website have voted:</h3>
-  <ul class=>
-    <li>xx visitor votes - Pliny Moody</li>
-    <li>xx visitor votes - Native American</li>
-    <li>xx visitor votes - Edward Hitchcock</li>
-    <li>xx visitor votes - Dexter Marsh</li>
-    <li>xx visitor votes - James Deane</li>
-    <li>xx visitor votes - Roswell Field</li>
-    <li>xx visitor votes - Benjamin Silliman</li>
-    <li>xx visitor votes - William Draper</li>
+
+  <ul>
+  {% for slide in object.frame_set.all %}
+    <li>
+      {{slide.num_correct}} visitor votes -
+      {% if slide.slide_num == votee_object.slide_num %}
+        <span class="heading">{{slide.caption}}</span> (Your vote)
+      {% else %}
+        {{slide.caption}}
+      {% endif %}
+    </li>
+  {% endfor %}
   </ul>
+
 
   <h3>Your vote makes sense because&hellip;</h3>
   <p>{{ votee_object.narrative|safe }}</p>
