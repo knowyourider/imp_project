@@ -1140,10 +1140,11 @@ ul.chapter-nav li:hover ol.chapter-subnav {
     .activities-controls li span.no-more {
       color: #999; }
 
-.slideshow-col {
-  float: left;
-  margin-right: 1.6em;
-  width: 60%; }
+@media screen and (min-width: 55em) {
+  .slideshow-col {
+    float: left;
+    margin-right: 1.6em;
+    width: 60%; } }
 
 #slideshow-image img {
   max-height: 600px; }
