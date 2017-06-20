@@ -4,12 +4,12 @@
 }
 
 #item-viewer--container {
-  //margin-top: -$base-spacing;
+  border: $double-border;
+  padding: 1px;
 }
 
 #item-image {
   background-color: $base-background-color;
-  border: $double-border;
   height: em(400);
 }
 

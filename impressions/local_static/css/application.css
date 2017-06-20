@@ -460,9 +460,12 @@ blockquote {
 #item-viewer {
   position: relative; }
 
+#item-viewer--container {
+  border: double #b3aa98;
+  padding: 1px; }
+
 #item-image {
   background-color: #fff4e4;
-  border: double #b3aa98;
   height: 25em; }
 
 .evidence-left-col {
