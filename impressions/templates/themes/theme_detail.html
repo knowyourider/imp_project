@@ -7,7 +7,7 @@
 
 {% block content_area %}
 
-  <header>
+  <header id="top">
 
     <h1 class="main-title">{{ object.title|safe }}</h1> 
     <h2 class="subtitle">{{ object.subtitle|safe }}</h2> 
@@ -75,5 +75,7 @@
       </ul>
 
   </section><!--/dig-deeper -->
+      
+  <p class="prompt"><a href="#top">top of page</a></p>
 
 {% endblock content_area %}
