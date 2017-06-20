@@ -1142,7 +1142,8 @@ ul.chapter-nav li:hover ol.chapter-subnav {
 
 .slideshow-col {
   float: left;
-  margin-right: 1.6em; }
+  margin-right: 1.6em;
+  width: 60%; }
 
 #slideshow-image img {
   max-height: 600px; }
