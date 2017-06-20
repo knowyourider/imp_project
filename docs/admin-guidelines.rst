@@ -4,16 +4,19 @@ Guidelines
 Special Feature fields and rules
 -----------------------------------
 
-Interactive (footprints)
-- The intro is slide 0 (still needs to have some number for num_correct)
+Ativities: Footprints
+- The intro is slide 0 
+- each slide (aka frame) has num_correct for the total number of footprints
 
 Looking and Seeing
-- description at top from description
-- seconds for slide - use num_correct field
+- description at top from "description" field
+- use num_correct field for seconds per slide
+- uses img_width (collapsed in admin) for total running time
 
 Slideshow
 - Zero slide gets different template -- condition in view
-- Intro text comes from slide narrative (not base slideshow narr).
+- Intro text comes from slide narrative (not overall slideshow narr).
+- [proposed: use "1" in num_correct to indicate vertical image]
 
 Then and Now
 - background (old) image is slide 0
