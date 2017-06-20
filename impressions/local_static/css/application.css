@@ -643,6 +643,11 @@ dl.slim-curatorial {
   overflow: scroll;
   padding: 0.8em; }
 
+.map-image {
+  float: left;
+  margin-right: 1.6em;
+  border: double #b3aa98; }
+
 .map-left-col, .map-right-col {
   float: left;
   display: block;
@@ -1489,7 +1494,7 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 600px; }
 
-.artifact, .document {
+.artifact, .document, .about {
   max-height: 85%;
   width: 900px; }
 
@@ -1497,7 +1502,7 @@ table.discoverers-faces td {
   width: 50vw;
   max-height: 85%; }
 
-.slideshow, .about, .footprint, .video, .society,
+.slideshow, .footprint, .video, .society,
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }

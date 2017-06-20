@@ -62,7 +62,6 @@
 
 #map { 
   height: 100%; 
-  //width: 100%;
   z-index: 85;
 }
 
@@ -137,6 +136,13 @@
 	margin-bottom: $base-spacing;
   overflow: scroll;
   padding: $small-spacing;
+}
+
+// for About this map slimpops
+.map-image {
+	float: left;
+	margin-right: $base-spacing;
+	border: $double-border;
 }
 
 // for map intro page
