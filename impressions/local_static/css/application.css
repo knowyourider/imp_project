@@ -492,7 +492,7 @@ blockquote {
   height: 100%;
   width: 100%;
   line-height: 1.6;
-  opacity: 0.75;
+  opacity: 0.80;
   overflow: scroll;
   position: absolute;
   top: 0px;
@@ -642,6 +642,11 @@ dl.slim-curatorial {
   margin-bottom: 1.6em;
   overflow: scroll;
   padding: 0.8em; }
+
+.map-image {
+  float: left;
+  margin-right: 1.6em;
+  border: double #b3aa98; }
 
 .map-left-col, .map-right-col {
   float: left;
@@ -1140,10 +1145,11 @@ ul.chapter-nav li:hover ol.chapter-subnav {
     .activities-controls li span.no-more {
       color: #999; }
 
-.slideshow-col {
-  float: left;
-  margin-right: 1.6em;
-  width: 60%; }
+@media screen and (min-width: 55em) {
+  .slideshow-col {
+    float: left;
+    margin-right: 1.6em;
+    width: 60%; } }
 
 #slideshow-image img {
   max-height: 600px; }
@@ -1488,7 +1494,7 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 600px; }
 
-.artifact, .document {
+.artifact, .document, .about {
   max-height: 85%;
   width: 900px; }
 
@@ -1496,7 +1502,7 @@ table.discoverers-faces td {
   width: 50vw;
   max-height: 85%; }
 
-.slideshow, .about, .footprint, .video, .society,
+.slideshow, .footprint, .video, .society,
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }
