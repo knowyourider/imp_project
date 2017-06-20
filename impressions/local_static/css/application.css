@@ -1174,6 +1174,10 @@ ul.chapter-nav li:hover ol.chapter-subnav {
   font-size: 0.8em;
   margin-right: 0.4em; }
 
+.slide-number {
+  float: left;
+  margin-right: 0.8em; }
+
 .dinospot {
   fill: #b12b00;
   fill-opacity: 0; }

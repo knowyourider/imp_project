@@ -6,11 +6,11 @@
 
 {% block slim_content%}
 
-<div class="activity-col">
+<!--<div class="activity-col">-->
 	<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
-</div>
+<!--</div>-->
 
-<section class="activity-controls-col">
+<!--<section class="activity-controls-col">-->
 {% block optional_intro %}
   {% if error_msg %}
     <p class="error-msg">{{ error_msg }}</p>
@@ -33,7 +33,7 @@
   </form>
       
   <hr/>
-  <p>{{ slide.slide_num }} of 14</p>
+  <p class="slide-number">Question {{ slide.slide_num }} of 14</p>
 
   {% block slideshow_controls %}
     {% include 'special/_slide_nav.html' %}
@@ -41,6 +41,6 @@
 
 {% endblock optional_intro %}
 
-</section>
+<!--</section>-->
 
 {% endblock slim_content %}
