@@ -1,35 +1,40 @@
 // Menus for home page
 // this will become obsolete
-.menu-home {
-	li {
-	  display: inline-block;
-	  margin-right: $large-spacing;
-		padding-top: $xlarge-spacing;
+// .menu-home {
+// 	li {
+// 	  display: inline-block;
+// 	  margin-right: $large-spacing;
+// 		padding-top: $xlarge-spacing;
 
-	  a { 
-	  font-size: $medlarge-font-size;
-		}
+// 	  a { 
+// 	  font-size: $medlarge-font-size;
+// 		}
 
-  	img {
-  		padding: 2px;
-  		border: $double-border;
-  	}
-  }
-}
+//   	img {
+//   		padding: 2px;
+//   		border: $double-border;
+//   	}
+//   }
+// }
 
 //is this obsolete?
-.secondary	{
-	clear: left;
-	font-size: $small-font-size;
-}
+// .secondary	{
+// 	clear: left;
+// 	font-size: $small-font-size;
+// }
 
 .home {
 	background: url("../images/hm-bkgrnd-lite.jpg") no-repeat;
 	background-size: cover;
 	text-align: center;
 
-	img.hm-menu {
-		border: $double-border;
+	a.hm-menu-item {
+		//display: block;
+		//position: relative;
+
+		img {
+			border: $double-border;
+		}
 	}
 
 	header {
@@ -49,15 +54,10 @@
   font-style: italic;
 }
 
-
 .hm-col-1 {
 	@include span-columns(5);
 
-	ul li {
-		display: block;
-	}
-
-	ul li.sub-col {
+	.sub-col {
 		@include span-columns(2.25 of 5);
 	}
 }
@@ -77,15 +77,17 @@
 	}
 }
 
-// cross-dissolve animation
-#fade-story, #fade-evidence, #fade-theme {
+// cross-dissolve animation from http://css3.bradshawenterprises.com/
+#fade-story { position: relative; }
+
+#fade-story img.top, #fade-evidence, #fade-theme {
   position: relative;
   margin: 0 auto;
 }
 
 #fade-story img, #fade-evidence img, #fade-theme img {
   position: absolute;
-  left: 0;
+  //left: 40px;
   -webkit-animation-name: fade-inandout;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
@@ -103,6 +105,8 @@
   animation-iteration-count: infinite;
   animation-duration: 8s;
  }
+
+
 
 @-webkit-keyframes fade-inandout {
     0% {
