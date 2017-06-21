@@ -19,10 +19,20 @@ $(document).ready(function(){
     // console.log(" -- slim class size: " + slimpopSizeClass);
 
     // test mobile for find-footprints and test state of mobile menu
-    if (href_split[3] == 
-      "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
-      var fullHref = "/supporting/fullspecial/" + href_split[3] + "/";
+    // if this is a /special/ and
+    // if we're in mobile (mobile menu visible) then insert "/full" into path
+    // e.g. /special/footprint/find-footprints/
+
+    if (href_split[1] == 
+      "special" && $('#js-top-navigation-mobile-menu').is(":visible")) {
+      var fullHref = "/special/full/" + href_split[2] + "/" + href_split[3] + "/";
       window.location.href = fullHref;
+      
+    // if (href_split[3] == 
+    //   "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
+    //   var fullHref = "/special/full/footprint/" + href_split[3] + "/";
+    //   window.location.href = fullHref;
+
     } else {
       // call ajax for the slim pop. (href, size class)
       slimPop(chosen_href, slimpopSizeClass);  

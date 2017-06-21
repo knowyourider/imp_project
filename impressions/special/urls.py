@@ -37,9 +37,6 @@ urlpatterns = [
     url(r'^full/voices/(?P<slug>\S+)/$', 
         views.FullVoiceDetailView.as_view(), name='full_voices_detail'),
 
-    url(r'^full/then/(?P<slug>\S+)/$', 
-        views.FullThenDetailView.as_view(), name='full_then_detail'),
-
     #  ------ EXPLORE ---
     url(r'^explore/(?P<slug>\S+)/$', 
         views.ExploreDetailView.as_view(), name='explore_detail'),
@@ -48,6 +45,7 @@ urlpatterns = [
         views.FullExploreDetailView.as_view(), name='full_explore_detail'),
 
     #  ------ DICOVERERS ---
+    # Not stand-alone -- only serves voting in Whose Discovery, Chapter 8
     url(r'^discoverers/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
         views.DiscoverersDetailView.as_view(), name='discoverers_detail'),
 
@@ -56,6 +54,9 @@ urlpatterns = [
     #  ------ THEN AND NOW ---
     url(r'^then/(?P<slug>\S+)/$', 
         views.ThenDetailView.as_view(), name='then_detail'),
+
+    url(r'^full/then/(?P<slug>\S+)/$', 
+        views.FullThenDetailView.as_view(), name='full_then_detail'),
 
     #  ------ LOOKING ---
     url(r'^looking/(?P<slug>\S+)/$', 
@@ -81,7 +82,7 @@ urlpatterns = [
 
     # zero version of full intro
     url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
-        views.IntroFullSlideshowDetailView.as_view(), name='slideshow_detail'),
+        views.IntroFullSlideshowDetailView.as_view(), name='full_slideshow_detail'),
 
     #  full screen with slide number
     url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
@@ -108,6 +109,20 @@ urlpatterns = [
     # default - intro
     url(r'^society/(?P<slug>\S+)/$', 
         views.IntroSocietyDetailView.as_view(), name='society_detail'),
+
+
+    # zero version of full intro
+    url(r'^full/society/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+        views.IntroFullSocietyDetailView.as_view(), name='full_society_detail'),
+
+    #  full screen with slide number
+    url(r'^full/society/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+        views.FullSocietyDetailView.as_view(), name='full_society_slide_detail'),
+
+    # full screen default - intro
+    url(r'^full/society/(?P<slug>\S+)/$', 
+        views.IntroFullSocietyDetailView.as_view(), name='full_society_detail'),
+
 
 
     #  ------ FOOTPRINTS ---

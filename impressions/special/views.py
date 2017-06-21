@@ -186,6 +186,23 @@ class IntroSocietyDetailView(SocietyDetailView):
     # regular swap_pop from intro
     link_class = 'swap_pop'
 
+
+
+
+#  full screen with slide number
+class FullSocietyDetailView(SocietyDetailView):
+    template_name="special/society.html"
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'full_society_slide_detail'
+    link_class = 'noclass'
+
+# full screen default - intro  
+class IntroFullSocietyDetailView(FullSocietyDetailView):
+    template_name="special/society_intro.html"
+
+
+
+
 # choice integer with slide number
 class SocietyChoiceDetailView(SlideFeatureDetailView):
     template_name="special/society_choice.html"
