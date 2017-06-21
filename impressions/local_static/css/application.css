@@ -943,6 +943,98 @@ dl.slim-curatorial {
   margin-top: 0.8em;
   margin-bottom: 0.4em; }
 
+#fade-evidence {
+  position: relative;
+  margin: 0 auto; }
+
+#fade-evidence img {
+  position: absolute;
+  left: 0;
+  -webkit-animation-name: fade-inandout;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 8s;
+  -moz-animation-name: fade-inandout;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 8s;
+  -o-animation-name: fade-inandout;
+  -o-animation-timing-function: ease-in-out;
+  -o-animation-iteration-count: infinite;
+  -o-animation-duration: 8s;
+  animation-name: fade-inandout;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 8s; }
+
+@-webkit-keyframes fade-inandout {
+  0% {
+    opacity: 1; }
+  17% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  92% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fade-inandout {
+  0% {
+    opacity: 1; }
+  17% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  92% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-o-keyframes fade-inandout {
+  0% {
+    opacity: 1; }
+  17% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  92% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fade-inandout {
+  0% {
+    opacity: 1; }
+  17% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  92% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+#fade-evidence img:nth-of-type(1) {
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  -o-animation-delay: 6s;
+  animation-delay: 6s; }
+
+#fade-evidence img:nth-of-type(2) {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  animation-delay: 4s; }
+
+#fade-evidence img:nth-of-type(3) {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s; }
+
+#fade-evidence img:nth-of-type(4) {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay: 0;
+  animation-delay: 0; }
+
 @media screen and (min-width: 55em) {
   .intro-text h1 {
     font-size: 1.75em; } }
