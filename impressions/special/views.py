@@ -23,10 +23,22 @@ class FeatureDetailView(DetailView):
     # Default is for slim pop. Sub classe will override for fullscreen
     extend_base = 'supporting/base_detail.html'
     
-    # get extend_base into context 
+    # get extend_base and referrer into context 
     def get_context_data(self, **kwargs):
         context = super(FeatureDetailView, self).get_context_data(**kwargs)
-        context.update({'extend_base': self.extend_base})
+
+        # record referring path for full-screen back link
+        split_path = self.request.META['HTTP_REFERER'].split("/")
+        # e.g http://dev.dinotracksdiscovery.org/stories/refinement-edward-orra/7/
+        referring_path = "/".join(["", split_path[3], split_path[4], ""])
+        # print(" -- split_path[5]: " + split_path[5])
+        if split_path[5]:
+            # "/".join([split_path[5], ""])
+            referring_path += split_path[5] + "/"
+        # print(" --- referring_path: " + referring_path)
+
+        context.update({'extend_base': self.extend_base, 
+            'referring_path': referring_path})
         return context    
 
 
@@ -65,9 +77,10 @@ class SlideFeatureDetailView(FeatureDetailView):
             error_msg = "Error: For feature at least one slide has to be " + \
                 "defined in Admin."
 
+
         # add variables to context
         context.update({'slide': slide, 'error_msg': error_msg,
-        'link_name': self.link_name, 'link_class': self.link_class })
+        'link_name': self.link_name, 'link_class': self.link_class})
         return context
 
 # ----------- NON-SLIDE FEATURES ---------
