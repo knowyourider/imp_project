@@ -147,18 +147,34 @@
 
 // for map intro page
 .map-left-col, .map-right-col {
-	@include span-columns(3);
+  @include span-columns(12);
 	text-align: left;
+
+	// for large displays:
+  @include media($large-screen) {
+  	@include span-columns(3);
+	}
 }
 
 .map-middle-col {
-	@include span-columns(6);
-
+  @include span-columns(12);
 	button {
 
 	  a {
 	  	color: $light-font-color;
 	  }
+	}
+	// for large displays:
+  @include media($large-screen) {
+  	@include span-columns(6);
+	}
+}
+
+img.locater-map {
+  //@include span-columns(6 of 12);
+
+	// for large displays:
+  @include media($large-screen) {
 	}
 }
 

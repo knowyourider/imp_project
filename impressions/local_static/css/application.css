@@ -652,20 +652,36 @@ dl.slim-curatorial {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
+  width: 100%;
   text-align: left; }
   .map-left-col:last-child, .map-right-col:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 55em) {
+    .map-left-col, .map-right-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .map-left-col:last-child, .map-right-col:last-child {
+        margin-right: 0; } }
 
 .map-middle-col {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%; }
+  width: 100%; }
   .map-middle-col:last-child {
     margin-right: 0; }
   .map-middle-col button a {
     color: #fff4e4; }
+  @media screen and (min-width: 55em) {
+    .map-middle-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .map-middle-col:last-child {
+        margin-right: 0; } }
 
 .related-list li {
   font-size: 0.9em;
@@ -1403,9 +1419,6 @@ ul.chapter-nav li:hover ol.chapter-subnav {
 .activities-controls label {
   display: inline; }
 
-#video-content {
-  width: 500px; }
-
 .society-question {
   font-size: 1.25em;
   font-style: italic; }
@@ -1724,15 +1737,15 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 600px; }
 
-.artifact, .document, .about {
+.artifact, .document, .about, .video {
   max-height: 85%;
-  width: 900px; }
+  width: 75vw; }
 
 .voices {
   width: 50vw;
   max-height: 85%; }
 
-.slideshow, .footprint, .video, .society,
+.slideshow, .footprint, .society,
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%; }

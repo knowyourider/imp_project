@@ -92,10 +92,10 @@
   width: 600px;
 }
 
-.artifact, .document, .about {
+.artifact, .document, .about, .video {
   max-height: 85%;
-  width: 900px;
-  //width: 80vw;
+  //width: 900px;
+  width: 75vw;
 }
 
 .voices {
@@ -103,7 +103,7 @@
   max-height: 85%;
 }
 
-.slideshow, .footprint, .video, .society,
+.slideshow, .footprint, .society,
 .then, .looking, .explore, .discoverers {
   max-width: 85%;
   max-height: 85%;
