@@ -19,20 +19,32 @@
   margin-bottom: 0;
 }
 
-.hm-subtitle, .hm-menu-link {
+.hm-subtitle {
   color: $accent-color;
   font-size: $medlarge-font-size;
   font-style: italic;
 	text-align: center;
 }
 
+.hm-menu-link {
+  color: $accent-color;
+  font-size: $medlarge-font-size;
+  font-variant: small-caps;
+  letter-spacing: .05em;
+	text-align: center;
+}
+
 // layout
 .hm-col-1 {
-	@include span-columns(5);
-
-	.sub-col {
-		@include span-columns(2.25 of 5);
+	@include span-columns(8);
+	
+	@include media($large-screen) {
+		@include span-columns(5);
 	}
+}
+
+.sub-col {
+	@include span-columns(2.25 of 5);
 }
 
 .hm-col-2 {
@@ -40,7 +52,11 @@
 }
 
 .hm-col-3 {
-	@include span-columns(5);
+	@include span-columns(12);
+	
+	@include media($large-screen) {
+		@include span-columns(5);
+	}
 }
 
 .hm-col-1, .hm-col-2, .hm-col-3 {
@@ -54,6 +70,7 @@
 #fade-story, #fade-theme, #fade-evidence, #fade-people { 
 	position: relative;
 }
+
 //should this go AFTER next part?
 #fade-story img.top, #fade-evidence img.top, #fade-theme img.top, #fade-people img.top {
   position: relative;
@@ -67,54 +84,23 @@
  }
 
 #fade-people img {
-  @include animation(fade-inandout-people 4s ease-in-out infinite);
+  @include animation(fade-inandout-people 45s ease-in-out infinite);
 }
 
 #fade-story img {
-  @include animation(fade-inandout 6s ease-in-out infinite);
+  @include animation(fade-inandout-story 36s ease-in-out infinite);
 }
 
 #fade-evidence img {
-  @include animation(fade-inandout 8s ease-in-out infinite);
+  @include animation(fade-inandout-evidence 28s ease-in-out infinite);
 }
 
 #fade-theme img {
-  @include animation(fade-inandout 7s ease-in-out infinite);
+  @include animation(fade-inandout-theme 32s ease-in-out infinite);
 }
 
-@-webkit-keyframes fade-inandout {
-  0% { opacity: 1; }
-  17% { opacity: 1; }
-  25% { opacity: 0; }
-  92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-moz-keyframes fade-inandout {
-  0% { opacity: 1; }
-  17% { opacity: 1; }
-  25% { opacity: 0; }
-  92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-o-keyframes fade-inandout {
-  0% { opacity: 1; }
-  17% { opacity: 1; }
-  25% { opacity: 0; }
-  92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes fade-inandout {
-  0% { opacity: 1; }
-  17% { opacity: 1; }
-  25% { opacity: 0; }
-  92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-webkit-keyframes fade-inandout-people {
+// do this animation PER IMAGE, the percentage of the overall animation
+@include keyframes(fade-inandout-people) {
   0% { opacity: 1; }
   15% { opacity: 1; }
   20% { opacity: 0; }
@@ -122,80 +108,107 @@
   100% { opacity: 1; }
 }
 
-@-moz-keyframes fade-inandout-people {
+@include keyframes(fade-inandout-evidence) {
   0% { opacity: 1; }
-  15% { opacity: 1; }
-  20% { opacity: 0; }
-  95% { opacity: 0; }
+  18% { opacity: 1; }
+  25% { opacity: 0; }
+  93% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-@-o-keyframes fade-inandout-people {
+@include keyframes(fade-inandout-story) {
   0% { opacity: 1; }
-  15% { opacity: 1; }
-  20% { opacity: 0; }
-  95% { opacity: 0; }
+  11% { opacity: 1; }
+  17% { opacity: 0; }
+  94% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-@keyframes fade-inandout-people {
+@include keyframes(fade-inandout-theme) {
   0% { opacity: 1; }
-  15% { opacity: 1; }
-  20% { opacity: 0; }
-  95% { opacity: 0; }
+  19% { opacity: 1; }
+  25% { opacity: 0; }
+  94% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-#fade-evidence, #fade-story, #fade-theme {
-	img:nth-of-type(1) {
-    animation-delay: 6s;
-	}
+// this says when, within the overall duration, each image becomes visible
+////////   evidence  //////////
+#fade-evidence img:nth-of-type(1) {
+  animation-delay: 21s;
 }
 
-#fade-evidence, #fade-story, #fade-theme {
- img:nth-of-type(2) {
-    animation-delay: 4s;
-  }
+#fade-evidence img:nth-of-type(2) {
+  animation-delay: 14s;
 }
 
-#fade-evidence, #fade-story, #fade-theme {
- img:nth-of-type(3) {
-    animation-delay: 2s;
-  }
+#fade-evidence img:nth-of-type(3) {
+  animation-delay: 7s;
 }
 
-#fade-evidence, #fade-story, #fade-theme {
- img:nth-of-type(4) {
-    animation-delay: 0;
-  }
+#fade-evidence img:nth-of-type(4) {
+  animation-delay: 0;
 }
 
-#fade-people {
-	img:nth-of-type(1) {
-    animation-delay: 12s;
-	}
+////////   people   //////////
+#fade-people img:nth-of-type(1) {
+  animation-delay: 36s;
 }
 
-#fade-people {
- img:nth-of-type(2) {
-    animation-delay: 9s;
-  }
+#fade-people img:nth-of-type(2) {
+  animation-delay: 27s;
 }
 
-#fade-people {
- img:nth-of-type(3) {
-    animation-delay: 6s;
-  }
+#fade-people img:nth-of-type(3) {
+  animation-delay: 18s;
 }
 
-#fade-people {
- img:nth-of-type(4) {
-    animation-delay: 3s;
-  }
+#fade-people img:nth-of-type(4) {
+  animation-delay: 9s;
 }
 
-#fade-people {
- img:nth-of-type(5) {
-    animation-delay: 0;
-  }
+#fade-people img:nth-of-type(5) {
+  animation-delay: 0;
+}
+
+////////   theme   ////////
+#fade-theme img:nth-of-type(1) {
+  animation-delay: 24s;
+}
+
+#fade-theme img:nth-of-type(2) {
+  animation-delay: 16s;
+}
+
+#fade-theme img:nth-of-type(3) {
+  animation-delay: 8s;
+}
+
+#fade-theme img:nth-of-type(4) {
+  animation-delay: 0;
+}
+
+////////   story   //////////
+#fade-story img:nth-of-type(1) {
+  animation-delay: 30s;
+}
+
+#fade-story img:nth-of-type(2) {
+  animation-delay: 24s;
+}
+
+#fade-story img:nth-of-type(3) {
+  animation-delay: 18s;
+}
+
+#fade-story img:nth-of-type(4) {
+  animation-delay: 12s;
+}
+
+#fade-story img:nth-of-type(5) {
+  animation-delay: 6s;
+}
+
+#fade-story img:nth-of-type(6) {
+  animation-delay: 0;
 }
