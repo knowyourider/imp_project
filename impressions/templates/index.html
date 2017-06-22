@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}Impressions From a Lost World{% endblock %}
+{% block title %}Impressions from a Lost World{% endblock %}
 
 {% block body_class %}class="home"{% endblock body_class %}
 
@@ -9,60 +9,98 @@
 
   <div class="content-wrapper">
 
-  <header>
-    <h1 class="hm-title">Impressions from a Lost World</h1>
-    <p class="hm-subtitle">Dinosaurs and the New Geology in 19th Century New England</p>
-    <p class="prompt"><a href="">View Introduction</a></p>
-  </header>
+    <header>
+      <h1 class="hm-title">Impressions from a Lost World</h1>
+      <p class="hm-subtitle">In which dinosaur footprints are discovered in New England and hearts and minds are forever changed!</p>
+      <p class="prompt"><a href="">View Introduction</a></p>
+    </header>
 
     <div class="hm-col-1">
-      <ul>
-        <li>
-          <a href="/stories/">
+
+          <a href="/stories/" class="hm-menu-item">
             <h2 class="hm-menu-link">Stories</h2>
-            <img src="/static/images/stories.gif" class="hm-menu">
+            <div id="fade-story">
+              <img src="/static/images/story1.jpg" class="top" />
+              <img src="/staticimages/story2.jpg" />
+              <img src="/static/images/story3.jpg" />
+              <img src="/static/images/story4.jpg" />
+              <img src="/static/images/story5.jpg" />
+              <img src="/static/images/story6.jpg" />
+            </div><!-- /fade-story -->
           </a>
-        </li>
 
-        <li class="sub-col">
-          <a href="/supporting/person/">
+        <div class="sub-col">
+          <a href="/supporting/person/" class="hm-menu-item">
             <h2 class="hm-menu-link">People</h2>
-            <img src="/static/images/people.gif" class="hm-menu oval">
+            <div id="fade-people">
+              <img src="/static/images/people1.gif" class="top oval" />
+              <img src="/static/images/people2.gif" class="oval" />
+              <img src="/static/images/people3.gif" class="oval" />
+              <img src="/static/images/people4.gif" class="oval" />
+              <img src="/static/images/people5.gif" class="oval" />
+            </div><!-- /fade-people -->
           </a>
-        </li>  
+        </div><!-- /sub-col -->
 
-        <li class="sub-col">
-          <a href="/supporting/evidenceitem/">
-            <h2 class="hm-menu-link">Artifacts&nbsp;&amp;&nbsp;Documents</h2>
-            <img src="/static/images/evidence.jpg" class="hm-menu">
-          </a>
-        </li>
-      </ul>
+        <div class="sub-col">
 
-    </div>
+        <a href="/supporting/context/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Backdrops</h2>
+          <img src="/static/images/backdrops.jpg" />
+        </a>
+
+      </div><!-- /sub-col -->
+
+    </div><!-- /hm-col-1 -->
 
     <div class="hm-col-2">
-      <a href="/map/intro/">
+
+      <a href="/map/intro/" class="hm-menu-item">
         <h2 class="hm-menu-link">Map</h2>
-        <img src="/static/images/map.jpg" class="hm-menu">
+        <img src="/static/images/map.jpg">
       </a>
-    </div>
+
+    </div><!-- /hm-col-2 -->
 
     <div class="hm-col-3">
-      <a href="/themes/">
-        <h2 class="hm-menu-link">Themes</h2>
-        <img src="/static/images/themes.gif" class="hm-menu">
-      </a>
-      <a href="/special/feature/">
-        <h2 class="hm-menu-link">Special Features</h2>
-        <img src="/static/images/special.jpg" class="hm-menu">
-      </a>
-      <a href="/supporting/context/">
-        <h2 class="hm-menu-link">Backdrops</h2>
-        <img src="/static/images/backdrops.jpg" class="hm-menu">
-      </a>
-    </div>
 
-  </div>
+      <a href="/special/feature/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Special Features</h2>
+        <img src="/static/images/special.jpg">
+      </a>
+
+      <div class="sub-col">
+
+        <a href="/supporting/evidence/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Artifacts &amp; Documents</h2>
+            
+          <div id="fade-evidence">
+            <img src="/static/images/evidence1.jpg" class="top" />
+            <img src="/static/images/evidence2.jpg" />
+            <img src="/static/images/evidence3.jpg" />
+            <img src="/static/images/evidence4.jpg" />
+          </div><!-- /fade-evidence -->
+        </a>
+
+      </div><!-- /sub-col -->
+
+      <div class="sub-col">
+
+        <a href="/themes/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Themes</h2>
+
+          <div id="fade-theme">
+            <img src="/static/images/theme1.jpg" class="top" />
+            <img src="/static/images/theme2.jpg" />
+            <img src="/static/images/theme3.jpg" />
+            <img src="/static/images/theme4.jpg" />
+          </div><!-- /fade-theme -->
+        </a>
+
+      </div><!-- /sub-col -->
+
+    </div><!-- /hm-col-3 -->
+
+  </div><!--/content-wrapper -->
 
 {% endblock full_page %}
