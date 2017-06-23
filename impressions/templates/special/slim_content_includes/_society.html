@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<img src="{% static 'special/society/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+
+{% block optional_intro %}
+  {% if error_msg %}
+    <p class="error-msg">{{ error_msg }}</p>
+  {% else %}
+    <p class="society-question">{{ slide.narrative}}</p>
+  {% endif %}
+
+  <div id="society_feedback">
+    <p>How would you answer this question?</p>
+  </div>
+
+  <form id="society_choices" action="#">
+
+    <!-- need to add slide num -->
+    <input class="society_choice" type="button"
+      name="{% url 'special:society_choice' object.slug slide.slide_num 1 %}" value="Affirmative" />
+    <input class="society_choice" type="button" 
+      name="{% url 'special:society_choice' object.slug slide.slide_num 0 %}" value="Negative" />
+
+  </form>
+      
+  <hr/>
+  <p class="slide-number">Question {{ slide.slide_num }} of 14</p>
+
+  {% block slideshow_controls %}
+    {% include 'special/_slide_nav.html' %}
+  {% endblock slideshow_controls %}
+
+{% endblock optional_intro %}

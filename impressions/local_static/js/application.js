@@ -45,13 +45,27 @@ $(document).ready(function(){
     event.preventDefault();
     // get href
     var chosen_href = $(event.target).attr('href');
-    console.log('chosen_href: ' + chosen_href);
+    // console.log('chosen_href: ' + chosen_href);
     var href_split = chosen_href.split('/');    
     // var slimpopSizeClass = href_split[2];
     var contentDiv = $('#slimpop-container');
     // resize contentDiv
     contentDiv.removeClass().addClass("slimpop-basic").addClass(href_split[2]); 
     // call ajax for the slim pop. 
+    getURL(chosen_href, contentDiv);
+  });
+
+  // the full-screen version of special slims needs in internal swap
+  // via ajax so the the shell retains the correct "back" referrer
+  $(document).on("click", ".swap_fullpop", function(event){
+    event.preventDefault();
+    // get href
+    var chosen_href = $(event.target).attr('href');
+    console.log(' ---- chosen_href swap_fullpop: ' + chosen_href);
+    // e.g. /special/full/slideshow/orra-landscape/1/
+
+    var contentDiv = $('#fullpop_wrapper');
+    // call ajax for the slim pop.
     getURL(chosen_href, contentDiv);
   });
 

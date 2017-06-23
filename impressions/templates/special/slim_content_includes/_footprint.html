@@ -1,10 +1,4 @@
-{% extends extend_base %}
 {% load staticfiles %}
-
-{% block heading %}{{ object.content_type.plural_title }} - Activity {% endblock %}
-{% block item_title %}{{ object.title|safe }}{% endblock %}
-
-{% block slim_content%}
 
 <script type="text/javascript">
 	var numOfCorrect = {{slide.num_correct}};
@@ -63,5 +57,3 @@
 
 	{% endblock activity_controls %}
 </section>
-
-{% endblock slim_content %}
