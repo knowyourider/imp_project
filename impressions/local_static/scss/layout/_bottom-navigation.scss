@@ -2,7 +2,6 @@
 .footer {
   background: $footer-background-color;
   border-top: 1px solid $panel-darken-color;
-  //height: $bottom-navigation-height;  
   color: $footer-link-color;
   overflow: auto;
   padding: $small-spacing;
@@ -15,6 +14,7 @@
 
   p a {
     color: $footer-link-color;
+    margin-top: $base-spacing;
     text-decoration: none;
 
     &:focus,
@@ -29,10 +29,6 @@
   li {
     display: inline;
     padding-right: $base-spacing;
-  }
-    
-  @include media($large-screen) {
-    //float: none;
   }
 
   li a {

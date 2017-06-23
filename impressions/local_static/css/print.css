@@ -1,0 +1,21 @@
+// Print Styles
+body, p, h1, h2, h3, h4, ul, ol, li, dl, dd, dt { 
+  background: #fff;
+	color: #000;
+ }
+
+footer ul, header.top-navigation  { display: none; }
+
+footer p.caption em, footer p.caption a, footer p.caption {
+	color: #000;
+	font-family: 'Libre Baskerville', serif;	
+	font-size: 12pt;
+}
+
+#slimpop-wrapper img {
+	max-height: 50% !important;
+  /*page-break-before: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  /*page-break-after: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  /* page-break-inside: avoid; or 'auto' */
+}
+      

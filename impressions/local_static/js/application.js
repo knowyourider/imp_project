@@ -339,7 +339,7 @@ function divPrint(divName) {
   var DocumentContainer = document.getElementById(divName);
   var WindowObject = window.open("", "PrintWindow", "width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
 
-  var virtualPage = '<html><head><style media="screen" type="text/css"> body {font-family: "Arial Narrow", Arial, sans-serif; font-size: 1em; line-height: 1.5em; padding: 2em;}  h1, h2, h3, h4 {color:#B23F05;} p.close {display: none;} dt {font-weight: bold; margin-top: 1em; }</style><style media="print" type="text/css"> body {color: black; font-family: "Arial Narrow", Arial, sans-serif; font-size: 1em; line-height: 1.5em; padding: 2em;} p.close {display: none;} dt {font-weight: bold; margin-top: 1em;}</style></head><body>' + DocumentContainer.innerHTML + '</body></html> ';
+  var virtualPage = '<html><head><style media="screen" type="text/css"> body { font-size: 1em; line-height: 1.5em; padding: 2em;}  h1, h2, h3, h4 {color: #000000;} img {max-height: 100px;} p.slimpop-close {display: none;} dt {font-weight: bold; margin-top: 1em; }</style><style media="print" type="text/css"> body {color: #000000; font-size: 1em; line-height: 1.5em; padding: 2em;} img {max-height: 500px; float: left; margin-right: 2em; } p.slimpop-close {display: none;} dt {font-weight: bold; margin-top: 1em;}</style></head><body>' + DocumentContainer.innerHTML + '</body></html> ';
 
   WindowObject.document.writeln(virtualPage);  
   WindowObject.document.close();
