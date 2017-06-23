@@ -648,40 +648,62 @@ dl.slim-curatorial {
   margin-right: 1.6em;
   border: double #b3aa98; }
 
-.map-left-col, .map-right-col {
+.map-left-col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  text-align: left; }
+  .map-left-col:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 55em) {
+    .map-left-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .map-left-col:last-child {
+        margin-right: 0; } }
+
+.map-right-col {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
   text-align: left; }
-  .map-left-col:last-child, .map-right-col:last-child {
+  .map-right-col:last-child {
     margin-right: 0; }
   @media screen and (min-width: 55em) {
-    .map-left-col, .map-right-col {
+    .map-right-col {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 23.23176%; }
-      .map-left-col:last-child, .map-right-col:last-child {
+      .map-right-col:last-child {
         margin-right: 0; } }
 
-.map-middle-col {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .map-middle-col:last-child {
-    margin-right: 0; }
+.map-middle-col button {
+  margin-bottom: 1.6em; }
   .map-middle-col button a {
     color: #fff4e4; }
-  @media screen and (min-width: 55em) {
-    .map-middle-col {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .map-middle-col:last-child {
-        margin-right: 0; } }
+@media screen and (min-width: 55em) {
+  .map-middle-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-bottom: 0; }
+    .map-middle-col:last-child {
+      margin-right: 0; } }
+
+@media screen and (max-width: 55em) {
+  img.how-to-map {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    img.how-to-map:last-child {
+      margin-right: 0; } }
 
 .related-list li {
   font-size: 0.9em;

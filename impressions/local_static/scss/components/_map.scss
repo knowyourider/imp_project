@@ -146,7 +146,17 @@
 }
 
 // for map intro page
-.map-left-col, .map-right-col {
+.map-left-col {
+  @include span-columns(6 of 12);
+	text-align: left;
+
+	// for large displays:
+  @include media($large-screen) {
+  	@include span-columns(3);
+	}
+}
+
+.map-right-col {
   @include span-columns(12);
 	text-align: left;
 
@@ -157,8 +167,10 @@
 }
 
 .map-middle-col {
-  @include span-columns(12);
+//  @include span-columns(6 of 12);
+
 	button {
+		margin-bottom: $base-spacing;
 
 	  a {
 	  	color: $light-font-color;
@@ -167,14 +179,13 @@
 	// for large displays:
   @include media($large-screen) {
   	@include span-columns(6);
+		margin-bottom: 0;
 	}
 }
 
-img.locater-map {
-  //@include span-columns(6 of 12);
-
-	// for large displays:
-  @include media($large-screen) {
+img.how-to-map {
+  @include media (max-width $large-screen) {
+  	@include span-columns(6 of 12);
 	}
 }
 
