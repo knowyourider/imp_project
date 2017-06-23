@@ -1832,6 +1832,7 @@ article#credits h2.heading {
       padding-bottom: 6.4em; } }
   .footer p a {
     color: rgba(255, 244, 228, 0.7);
+    margin-top: 1.6em;
     text-decoration: none; }
     .footer p a:focus, .footer p a:hover {
       color: #fff4e4; }
