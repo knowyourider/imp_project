@@ -1,0 +1,13 @@
+// Print Styles
+body { color: black; }
+
+footer, header.top-navigation  { display: none; }
+
+#slimpop-wrapper img {
+	max-height: 90px;
+  /*page-break-before: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  /*page-break-after: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  /* page-break-inside: avoid; or 'auto' */
+}
+
+
