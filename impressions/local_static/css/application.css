@@ -753,7 +753,11 @@ dl.slim-curatorial {
     z-index: 1; }
 .menu-gallery li:hover p {
   visibility: visible; }
-.menu-gallery .menu-title {
+  @media screen and (max-width: 55em) {
+    .menu-gallery li:hover p {
+      visibility: hidden; } }
+
+.menu-title {
   display: block;
   font-style: normal;
   font-variant: small-caps; }
@@ -784,7 +788,7 @@ dl.slim-curatorial {
 
 .six-across {
   width: 100%;
-  overflow: auto; }
+  overflow: hidden; }
   .six-across .menu-gallery li {
     float: left;
     display: block;

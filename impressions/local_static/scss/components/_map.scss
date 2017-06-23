@@ -182,7 +182,7 @@
 		margin-bottom: 0;
 	}
 }
-
+// for small displays
 img.how-to-map {
   @include media (max-width $large-screen) {
   	@include span-columns(6 of 12);

@@ -1,10 +1,33 @@
-// Print Styles
-body, p, h1, h2, h3, h4, ul, ol, li, dl, dd, dt { 
+/* Print Styles  */
+
+/* make the text black  */
+section.image-panel p,
+article.text-panel h1.story-title,
+article.text-panel h2.story-subtitle,
+article.text-panel p,
+section.chapter p, 
+section.chapter p a, 
+header h4.heading a, 
+header h2.main-title,
+section.dig-deeper h2,
+section.dig-deeper ul li a,
+h1.main-title,
+h2.subtitle,
+h4.byline,
+h3.heading,
+ul.menu-grid li a,
+section.control-panel,
+input#id_q,
+span#clear a,
+section.six-across h3.subtitle,
+section.six-across ul.menu-gallery li a { 
   background: #fff;
-	color: #000;
+	color: #000 !important;
  }
 
-footer ul, header.top-navigation  { display: none; }
+footer ul, header.top-navigation  { 
+	display: none;
+}
 
 footer p.caption em, footer p.caption a, footer p.caption {
 	color: #000;
@@ -14,8 +37,8 @@ footer p.caption em, footer p.caption a, footer p.caption {
 
 #slimpop-wrapper img {
 	max-height: 50% !important;
-  /*page-break-before: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-  /*page-break-after: auto;  'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-  /* page-break-inside: avoid; or 'auto' */
 }
       
+.intro-nav, .chapter-nav, nav#paging {
+	display: none;
+}

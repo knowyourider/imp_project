@@ -27,27 +27,29 @@
 			font-style: normal;
 	    left: 0;
 	    letter-spacing: .05em;
-	    //margin-left: -90%; 
 		  padding: $small-spacing;
 		  position: absolute;
 		  text-align: center;
 	    top: 0;
 	    visibility: hidden;
 		  width: 100%;
-		  //width: 250px;
-	    z-index: 1;				
+	    z-index: 1;
 		}
 	}
 
 	li:hover p {
 		visibility: visible;
-	}
 
-	.menu-title {
-		display: block;
-		font-style: normal;
-		font-variant: small-caps;
+		@include media (max-width $large-screen) {
+	    visibility: hidden;
+	  }
 	}
+}
+
+.menu-title {
+	display: block;
+	font-style: normal;
+	font-variant: small-caps;
 }
 
 // for Stories
@@ -65,7 +67,8 @@
 // for Special Features
 .six-across {
 	width: 100%;
-	overflow: auto;
+	overflow: hidden;
+
 	.menu-gallery li {
 		@include span-columns(2);
 		@include omega(5n);
