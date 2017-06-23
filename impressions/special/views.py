@@ -185,6 +185,11 @@ class FullSlideshowDetailView(SlideFeatureDetailView):
 class IntroFullSlideshowDetailView(FullSlideshowDetailView):
     template_name="special/slideshow_intro.html"
     
+# full screen - intro  upon ajax return
+class ReIntroFullSlideshowDetailView(FullSlideshowDetailView):
+    # template_name="special/slideshow_intro.html"
+    template_name="special/slim_content_includes/_slideshow_intro.html"
+    
     
 # ---- SOCIETY ---
 #  with slide number
@@ -213,7 +218,10 @@ class FullSocietyDetailView(SocietyDetailView):
 class IntroFullSocietyDetailView(FullSocietyDetailView):
     template_name="special/society_intro.html"
 
-
+# full screen - intro  upon ajax return
+class ReIntroFullSocietyDetailView(FullSocietyDetailView):
+    # template_name="special/society_intro.html"
+    template_name="special/slim_content_includes/_society_intro.html"
 
 
 # choice integer with slide number
@@ -289,6 +297,11 @@ class FullFootprintDetailView(SlideFeatureDetailView):
 # full screen default - intro  
 class IntroFullFootprintDetailView(FullFootprintDetailView):
     template_name="special/footprint_intro.html"
+
+# full screen - intro  upon ajax return
+class ReIntroFullFootprintDetailView(FullFootprintDetailView):
+    # template_name="special/footprint_intro.html"
+    template_name="special/slim_content_includes/_footprint_intro.html"
 
 # --- exception - for footprint ----   
 def special_footprint(request, image_name):

@@ -7,6 +7,36 @@
 {% block slim_content%}
 	
   {# shared with swap_fullpop ajax #}
-  {% include 'special/slim_content_includes/_slideshow.html' %}
+  {# wish I could include here, but then intro, which extends this, doesn't see block controls #}
+  {# I have to hack an extra version of intro as well!! #}
+  {# include 'special/slim_content_includes/_slideshow.html' #}
+
+
+<section class="slideshow-col">
+	<div id="slideshow-image">
+
+		<img src="{% static 'special/slideshow/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+    <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
+
+	</div> <!-- slideshow-image -->
+</section>
+
+<section class="slideshow-controls-col">
+  {% block slideshow_controls %}
+
+    {% include 'special/_slide_nav.html' %}
+
+    <h4 class="heading slim-subhead">About this Image</h4>
+
+    {% if error_msg %}
+      <p class="error-msg">{{ error_msg }}</p>
+    {% else %}
+      <p>{{ slide.narrative|safe}}</p>
+    {% endif %}
+
+
+  {% endblock slideshow_controls %}
+</section>
+
 
 {% endblock slim_content %}

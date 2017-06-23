@@ -1,0 +1,21 @@
+{% extends "special/slim_content_includes/_slideshow.html" %}
+{% load staticfiles %}
+
+{% block slideshow_controls %}
+
+  <h4 class="heading slim-subhead">About this Slideshow</h4>
+
+	{% if error_msg %}
+	  <p class="error-msg">{{ error_msg }}</p>
+	{% else %}
+	  <p>{{ slide.narrative|safe}}</p>
+	{% endif %}
+
+	<ul class="activities-controls">
+		<li>
+			<a class="{{ link_class }}" 
+		    href="{% url 'special:'|add:link_name object.slug 1 %}">View Slideshow &rArr;</a>
+		</li>
+	</ul>
+	
+{% endblock slideshow_controls %}

@@ -81,8 +81,9 @@ urlpatterns = [
         views.IntroSlideshowDetailView.as_view(), name='slideshow_detail'),
 
     # zero version of full intro
+    # because when we go back to intro, it's via ajax
     url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
-        views.IntroFullSlideshowDetailView.as_view(), name='full_slideshow_detail'),
+        views.ReIntroFullSlideshowDetailView.as_view(), name='full_slideshow_re_intro_detail'),
 
     #  full screen with slide number
     url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
@@ -112,8 +113,9 @@ urlpatterns = [
 
 
     # zero version of full intro
+    # because when we go back to intro, it's via ajax
     url(r'^full/society/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
-        views.IntroFullSocietyDetailView.as_view(), name='full_society_detail'),
+        views.ReIntroFullSocietyDetailView.as_view(), name='full_society_re_intro_detail'),
 
     #  full screen with slide number
     url(r'^full/society/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
@@ -139,8 +141,10 @@ urlpatterns = [
         views.IntroFootprintDetailView.as_view(), name='footprint_detail'),
 
     # zero version of full intro
+    # because when we go back to intro, it's via ajax
     url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
-        views.IntroFullFootprintDetailView.as_view(), name='full_footprint_detail'),
+        views.ReIntroFullFootprintDetailView.as_view(), name='full_footprint_re_intro_detail'),
+
 
     #  full screen with slide number
     url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
