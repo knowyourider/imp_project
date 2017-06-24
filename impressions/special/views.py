@@ -20,7 +20,8 @@ class FeatureDetailView(DetailView):
     model = Feature
     # context_object_name = 'object'
     # template_name = feature_detail.html - there's a placeholder for this
-    # Default is for slim pop. Sub classe will override for fullscreen
+    # Default is for slim pop. Sub classes will override for fullscreen or empty
+    # dummy for multi-slice specials (foot, slide, society)
     extend_base = 'supporting/base_detail.html'
     
     # get extend_base and referrer into context 
@@ -174,21 +175,23 @@ class SlideshowDetailView(SlideFeatureDetailView):
 class IntroSlideshowDetailView(SlideshowDetailView):
     template_name="special/slideshow_intro.html"
 
-#  full screen with slide number
+#  full screen with slide number - not first slide, so use ajax non-shell 
 class FullSlideshowDetailView(SlideFeatureDetailView):
-    template_name="special/slim_content_includes/_slideshow.html"
-    extend_base = 'supporting/base_detail_full.html'
+    template_name="special/slideshow.html"
+    extend_base = 'supporting/base_detail_ajax.html'
     link_name = 'full_slideshow_slide_detail'
     link_class = 'swap_fullpop'
 
 # full screen default - intro  
 class IntroFullSlideshowDetailView(FullSlideshowDetailView):
     template_name="special/slideshow_intro.html"
+    extend_base = 'supporting/base_detail_full.html'
     
 # full screen - intro  upon ajax return
+# need to suppress shell with base_detail_ajax
 class ReIntroFullSlideshowDetailView(FullSlideshowDetailView):
-    # template_name="special/slideshow_intro.html"
-    template_name="special/slim_content_includes/_slideshow_intro.html"
+    template_name="special/slideshow_intro.html"
+    extend_base = 'supporting/base_detail_ajax.html'
     
     
 # ---- SOCIETY ---
@@ -208,20 +211,22 @@ class IntroSocietyDetailView(SocietyDetailView):
 
 #  full screen with slide number
 class FullSocietyDetailView(SocietyDetailView):
-    # template_name="special/society.html"
-    template_name="special/slim_content_includes/_society.html"
-    extend_base = 'supporting/base_detail_full.html'
+    template_name="special/society.html"
+    # template_name="special/slim_content_includes/_society.html"
+    # extend_base = 'supporting/base_detail_full.html'
+    extend_base = 'supporting/base_detail_ajax.html'
     link_name = 'full_society_slide_detail'
     link_class = 'swap_fullpop'
 
 # full screen default - intro  
 class IntroFullSocietyDetailView(FullSocietyDetailView):
     template_name="special/society_intro.html"
+    extend_base = 'supporting/base_detail_full.html'
 
 # full screen - intro  upon ajax return
 class ReIntroFullSocietyDetailView(FullSocietyDetailView):
-    # template_name="special/society_intro.html"
-    template_name="special/slim_content_includes/_society_intro.html"
+    template_name="special/society_intro.html"
+    extend_base = 'supporting/base_detail_ajax.html'
 
 
 # choice integer with slide number
@@ -286,22 +291,27 @@ class FootprintDetailView(SlideFeatureDetailView):
 class IntroFootprintDetailView(FootprintDetailView):
     template_name="special/footprint_intro.html"
 
+
 #  full screen with slide number
 class FullFootprintDetailView(SlideFeatureDetailView):
-    # template_name="special/footprint.html"
-    template_name="special/slim_content_includes/_footprint.html"
-    extend_base = 'supporting/base_detail_full.html'
+    template_name="special/footprint.html"
+    # template_name="special/slim_content_includes/_footprint.html"
+    # extend_base = 'supporting/base_detail_full.html'
+    extend_base = 'supporting/base_detail_ajax.html'
     link_name = 'full_footprint_slide_detail'
     link_class = 'swap_fullpop'
 
 # full screen default - intro  
 class IntroFullFootprintDetailView(FullFootprintDetailView):
     template_name="special/footprint_intro.html"
+    extend_base = 'supporting/base_detail_full.html'
+
 
 # full screen - intro  upon ajax return
 class ReIntroFullFootprintDetailView(FullFootprintDetailView):
-    # template_name="special/footprint_intro.html"
-    template_name="special/slim_content_includes/_footprint_intro.html"
+    template_name="special/footprint_intro.html"
+    # template_name="special/slim_content_includes/_footprint_intro.html"
+    extend_base = 'supporting/base_detail_ajax.html'
 
 # --- exception - for footprint ----   
 def special_footprint(request, image_name):
@@ -309,4 +319,13 @@ def special_footprint(request, image_name):
     template_name = "special/footprint_includes/_" + image_name + ".html"
     return render(request, template_name, {'dummy': 'dummy'})
  
+
+
+
+
+
+
+
+
+
 
