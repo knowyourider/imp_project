@@ -5,16 +5,6 @@ from . import views
 urlpatterns = [
     url(r'^feature/$', views.FeatureListView.as_view(), name='feature_list'),
 
-    
-    # url(r'^feature/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.feature_detail, \
-    #     name='feature_detail_slide'),    
-    # url(r'^feature/(?P<slug>\S+)/$', views.feature_detail, name='feature_detail'),  
-
-    # # full page versions of the above 
-    # url(r'^fullfeature/(?P<slug>\S+)/(?P<slide_num_arg>[0-9]+)/$', views.feature_detail, \
-    #     name='fullfeature_detail_slide'),    
-    # url(r'^fullfeature/(?P<slug>\S+)/$', views.feature_detail, name='fullfeature_detail'),  
-
     # CBV approach
     # The first part of each name has to match the corresponding
     # name in special.Feature.special_type, e.g. "video"_detail

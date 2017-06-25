@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   // ------- SLIM POPS ------
 
+  // -- .pop_item --
   // enable click event on menu items and text links
   // "document on" sytntax required since this markup may appear on
   // links loaded by ajax. (at least map dig deeper)
@@ -18,27 +19,20 @@ $(document).ready(function(){
 
     // console.log(" -- slim class size: " + slimpopSizeClass);
 
-    // test mobile for find-footprints and test state of mobile menu
-    // if this is a /special/ and
-    // if we're in mobile (mobile menu visible) then insert "/full" into path
+    // for mobile special and supporting items  then insert "/full" into path
     // e.g. /special/footprint/find-footprints/
-
-    if (href_split[1] == 
-      "special" && $('#js-top-navigation-mobile-menu').is(":visible")) {
-      var fullHref = "/special/full/" + href_split[2] + "/" + href_split[3] + "/";
-      window.location.href = fullHref;
-      
-    // if (href_split[3] == 
-    //   "find-footprints" && $('#js-top-navigation-mobile-menu').is(":visible")) {
-    //   var fullHref = "/special/full/footprint/" + href_split[3] + "/";
-    //   window.location.href = fullHref;
-
+    if ($('#js-top-navigation-mobile-menu').is(":visible"))  {
+      if (href_split[1] == "special" || href_split[1] == "supporting"){
+        var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
+        window.location.href = fullHref;        
+      }
     } else {
       // call ajax for the slim pop. (href, size class)
       slimPop(chosen_href, slimpopSizeClass);  
     }
   });
 
+  // -- .swap_pop --
   // enable click event on slim that's already up
   // "document on" sytntax required since this the markup was loaded by ajax.
   $(document).on("click", ".swap_pop", function(event){
@@ -56,6 +50,7 @@ $(document).ready(function(){
     getURL(chosen_href, contentDiv);
   });
 
+  // -- .swap_fullpop --
   // the full-screen version of special slims needs in internal swap
   // via ajax so the the shell retains the correct "back" referrer
   $(document).on("click", ".swap_fullpop", function(event){
@@ -66,9 +61,49 @@ $(document).ready(function(){
     // e.g. /special/full/slideshow/orra-landscape/1/
 
     var contentDiv = $('#fullpop_content_wrapper');
+    // var contentDiv = $('#slimpop_wrapper');
     // call ajax for the slim pop.
     getURL(chosen_href, contentDiv);
   });
+
+  // -- .swap_supfullpop --
+  // the full-screen version of special slims needs in internal swap
+  // via ajax so the the shell retains the correct "back" referrer
+  $(document).on("click", ".swap_supfullpop", function(event){
+    event.preventDefault();
+    // get href
+    var chosen_href = $(event.target).attr('href');
+    console.log(' ---- in .swap_supfullpop: chosen_href swap_fullpop: ' + chosen_href);
+    // e.g. /special/full/slideshow/orra-landscape/1/
+
+    // var contentDiv = $('#fullpop_content_wrapper');
+    // var contentDiv = $('#slimpop_wrapper');
+    // var contentDiv = $('#supporting_full_next');
+    var contentDiv = $('#supporting_fullpop_wrapper');
+    // call ajax for the slim pop.
+    getURL(chosen_href, contentDiv);
+  });
+
+  // -- .swap_supfullpop -- 
+  // the full-screen version of supporing slims different from special
+  // just like regular swap_pop, but div is fullpop_content_wrapper rather 
+  // than slimpop-container
+  // the shell retains the correct "back" referrer
+  // $(document).on("click", ".swap_supfullpop", function(event){
+  //   event.preventDefault();
+  //   // get href
+  //   var chosen_href = $(event.target).attr('href');
+  //   // console.log('chosen_href: ' + chosen_href);
+  //   var href_split = chosen_href.split('/');    
+  //   // var slimpopSizeClass = href_split[2];
+  //   // BTW supporting/base_detail_full also has slimpop-wrapper
+  //   var contentDiv = $('#fullpop_content_wrapper');
+  //   // resize contentDiv
+  //   contentDiv.removeClass().addClass("slimpop-basic").addClass(href_split[2]); 
+  //   // call ajax for the slim pop. 
+  //   console.log(" --- href, contentDiv: " + chosen_href + ", " + contentDiv);
+  //   getURL(chosen_href, contentDiv);
+  // });
 
   // ---------- NAVIGATION ----------
   // This is happening on page load

@@ -34,6 +34,12 @@ urlpatterns = [
     url(r'^person/$', views.PersonListView.as_view(), name='person_list'),
     url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), name='person_detail_pk'),
     url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), name='person_detail'),
+    url(r'^full/person/(?P<slug>\S+)/$', 
+        views.FullPersonDetailView.as_view(), name='full_person_detail'),
+    #  full screen from swap fullpop
+    url(r'^swapfull/person/(?P<slug>\S+)/$', 
+        views.SwapFullPersonDetailView.as_view(), name='full_supswap_person_detail'),
+
 
     # -- team pages  
     url(r'^team/evidenceitem/$', views.EvidenceItemListView.as_view(template_name=\

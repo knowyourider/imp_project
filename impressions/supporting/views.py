@@ -6,6 +6,7 @@ from django.views.generic.edit import FormMixin
 from django.db.models import Q
 from .models import Context, EvidenceItem, FastFact, Person, Page
 from .forms import EvidenceItemSearchForm, ContextSearchForm
+from core.views import MobileFullMixin
 
 class ContextListView(FormMixin, ListView):
     """
@@ -189,12 +190,26 @@ class PersonListView(ListView):
     # context_object_name = 'object_list'
     # template_name = 'supporting/person_list.html' 
 
-class PersonDetailView(DetailView):
+class PersonDetailView(MobileFullMixin, DetailView):
     model = Person
     # context_object_name = 'object'
     # template_name = 'supporting/person_detail.html'
+    link_name = "" # empty for no prefix, just e.g. person_detail
 
+class FullPersonDetailView(PersonDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+    # extend_base = 'supporting/base_detail_ajax.html'
+    link_name = 'full_supswap_'
+    link_class = 'swap_supfullpop'
+    # link_class = 'swap_supfullpop'
 
+class SwapFullPersonDetailView(PersonDetailView):
+    # extend_base = 'supporting/base_detail_full.html'
+    extend_base = 'supporting/base_detail_ajax_supp.html'
+    # extend_base = 'supporting/base_detail_ajax.html'
+    link_name = 'full_supswap_'
+    link_class = 'swap_supfullpop'
+    # template_name = 'supporting/person_detail.html'
 
 class TeamTemplateView(TemplateView):
     template_name = 'supporting/team_type_list.html' 
