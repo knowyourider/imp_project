@@ -48,6 +48,7 @@ $(document).ready(function(){
     // console.log('chosen_href: ' + chosen_href);
     var href_split = chosen_href.split('/');    
     // var slimpopSizeClass = href_split[2];
+    // BTW supporting/base_detail_full also has slimpop-wrapper
     var contentDiv = $('#slimpop-container');
     // resize contentDiv
     contentDiv.removeClass().addClass("slimpop-basic").addClass(href_split[2]); 
@@ -64,7 +65,7 @@ $(document).ready(function(){
     console.log(' ---- chosen_href swap_fullpop: ' + chosen_href);
     // e.g. /special/full/slideshow/orra-landscape/1/
 
-    var contentDiv = $('#fullpop_wrapper');
+    var contentDiv = $('#fullpop_content_wrapper');
     // call ajax for the slim pop.
     getURL(chosen_href, contentDiv);
   });
