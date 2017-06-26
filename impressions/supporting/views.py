@@ -59,10 +59,18 @@ class ContextListView(FormMixin, ListView):
         context['result_count'] = len(self.object_list)
         return self.render_to_response(context)
 
-class ContextDetailView(DetailView):
+class ContextDetailView(MobileFullMixin, DetailView):
     model = Context
     # context_object_name = 'object'
     # template_name = 'supporting/person_detail.html'
+
+class FullContextDetailView(ContextDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'swapfull_'
+    link_class = 'swap_fullpop'
+
+class SwapFullContextDetailView(FullContextDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
 
 
 class EvidenceItemListView(FormMixin, ListView):
@@ -116,7 +124,7 @@ class EvidenceItemListView(FormMixin, ListView):
         return self.render_to_response(context)
 
 
-class EvidenceItemDetailView(DetailView):
+class EvidenceItemDetailView(MobileFullMixin, DetailView):
     """
     Used with pk for team lists
     """
@@ -156,6 +164,22 @@ class DocumentDetailView(EvidenceItemDetailView):
         context.update({'page': page, 'error_msg': error_msg })
         return context
 
+
+class FullDocumentDetailView(DocumentDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'swapfull_'
+    link_class = 'swap_fullpop'
+
+class SwapFullDocumentDetailView(FullDocumentDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
+
+class FullArtifactDetailView(ArtifactDetailView):
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'swapfull_'
+    link_class = 'swap_fullpop'
+
+class SwapFullArtifactDetailView(FullArtifactDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
 
 def evidence_page(request, slug, page_suffix):
     """
@@ -198,18 +222,11 @@ class PersonDetailView(MobileFullMixin, DetailView):
 
 class FullPersonDetailView(PersonDetailView):
     extend_base = 'supporting/base_detail_full.html'
-    # extend_base = 'supporting/base_detail_ajax.html'
-    link_name = 'full_supswap_'
-    link_class = 'swap_supfullpop'
-    # link_class = 'swap_supfullpop'
+    link_name = 'swapfull_'
+    link_class = 'swap_fullpop'
 
-class SwapFullPersonDetailView(PersonDetailView):
-    # extend_base = 'supporting/base_detail_full.html'
-    extend_base = 'supporting/base_detail_ajax_supp.html'
-    # extend_base = 'supporting/base_detail_ajax.html'
-    link_name = 'full_supswap_'
-    link_class = 'swap_supfullpop'
-    # template_name = 'supporting/person_detail.html'
+class SwapFullPersonDetailView(FullPersonDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
 
 class TeamTemplateView(TemplateView):
     template_name = 'supporting/team_type_list.html' 

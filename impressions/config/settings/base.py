@@ -57,8 +57,8 @@ TEMPLATES = [
     },
 ]
 
-ALLOWED_HOSTS = ['dinotracksdiscovery.org', 'dev.dinotracksdiscovery.org', 'impdev.deerfield-ma.org', '127.0.0.1']
-
+ALLOWED_HOSTS = ['dinotracksdiscovery.org', 'www.dinotracksdiscovery.org', 
+    'dev.dinotracksdiscovery.org', 'impdev.deerfield-ma.org', '127.0.0.1']
 
 # Application definition
 

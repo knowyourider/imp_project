@@ -4,7 +4,7 @@
 
 	{% for feature in object.featured_specials.all %}
 	<li>
-	  <a class="{{ link_class }}" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
+	  <a class="{{ link_class }}" href="{% url 'special:'|add:link_name|add:feature.special_type|add:'_detail' feature.slug %}">
 	    {{ feature.title|safe }}
 	  </a>
 	</li>
@@ -22,7 +22,7 @@
 
 	{% for evidenceitem in object.evidence.all %}
 	<li>
-	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
 	    {{ evidenceitem.title|safe }}
 	  </a>
 	</li>
@@ -30,7 +30,7 @@
 
 	{% for context in object.contexts.all %}
 	<li>
-	  <a class="{{ link_class }}" href="{% url 'supporting:context_detail' context.slug %}">
+	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:'context_detail' context.slug %}">
 	    {{ context.title|safe }}
 	  </a>
 	</li>

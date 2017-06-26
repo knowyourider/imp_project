@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.conf import settings
 from .models import Feature, Frame
+from core.views import MobileFullMixin
 
 
 class FeatureListView(ListView):
@@ -13,46 +14,19 @@ class FeatureListView(ListView):
 class TeamFeatureListView(FeatureListView):
     template_name = 'supporting/team_item_list.html' 
 
-class FeatureDetailView(DetailView):
+class FeatureDetailView(MobileFullMixin, DetailView):
     """
     To be sub classed for each special view
     """
     model = Feature
-    # context_object_name = 'object'
-    # template_name = feature_detail.html - there's a placeholder for this
-    # Default is for slim pop. Sub classes will override for fullscreen or empty
-    # dummy for multi-slice specials (foot, slide, society)
-    extend_base = 'supporting/base_detail.html'
-    
-    # get extend_base and referrer into context 
-    def get_context_data(self, **kwargs):
-        context = super(FeatureDetailView, self).get_context_data(**kwargs)
-
-        # record referring path for full-screen back link
-        split_path = self.request.META['HTTP_REFERER'].split("/")
-        # e.g http://dev.dinotracksdiscovery.org/stories/refinement-edward-orra/7/
-        referring_path = "/".join(["", split_path[3], split_path[4], ""])
-        # print(" -- split_path[5]: " + split_path[5])
-        if split_path[5]:
-            # "/".join([split_path[5], ""])
-            referring_path += split_path[5] + "/"
-        # print(" --- referring_path: " + referring_path)
-
-        context.update({'extend_base': self.extend_base, 
-            'referring_path': referring_path})
-        return context    
-
 
 class SlideFeatureDetailView(FeatureDetailView):
     """
     The model for "slides" is called Frame (for legacy reasons)
     """
     # template_name = determined by sub class
-    # extend_base - default from FeatureDetailView, or override in sub class
-    link_name = "must-be-overridden-by-subclass-if-needed"
-    # link_class overridden by subclass with "swap_fullpop" if 
-    # multi-slide fullscreen (footprints, society, slideshow)
-    link_class = "swap_pop"
+    # extend_base - default from MobileFullMixin, or override in sub class
+    # link_name and link_class established in  FeatureDetailView  - MobileFullMixin,
     
     # get extend_base into context 
     def get_context_data(self, **kwargs):
@@ -94,6 +68,9 @@ class VideoDetailView(FeatureDetailView):
 class FullVideoDetailView(VideoDetailView):
     extend_base = 'supporting/base_detail_full.html'
  
+class SwapFullVideoDetailView(VideoDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
+ 
 
 # ---- VOICES ---
 class VoiceDetailView(FeatureDetailView):
@@ -101,6 +78,9 @@ class VoiceDetailView(FeatureDetailView):
     
 class FullVoiceDetailView(VoiceDetailView):
     extend_base = 'supporting/base_detail_full.html'
+ 
+class SwapFullVoiceDetailView(VoiceDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
  
 
 # ---- EXPLORE ---
@@ -111,6 +91,9 @@ class ExploreDetailView(FeatureDetailView):
 #  full screen 
 class FullExploreDetailView(ExploreDetailView):
     extend_base = 'supporting/base_detail_full.html'
+
+class SwapFullExploreDetailView(ExploreDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
 
 
 # ----------- SLIDE-BASED FEATURES ---------
@@ -153,6 +136,9 @@ class ThenDetailView(SlideFeatureDetailView):
 class FullThenDetailView(ThenDetailView):
     extend_base = 'supporting/base_detail_full.html'
 
+class SwapFullThenDetailView(FullThenDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
+
 
 # ---- LOOKING ---
 #  default
@@ -162,6 +148,9 @@ class LookingDetailView(SlideFeatureDetailView):
 #  full screen 
 class FullLookingDetailView(LookingDetailView):
     extend_base = 'supporting/base_detail_full.html'
+
+class SwapFullLookingDetailView(FullLookingDetailView):
+    extend_base = 'supporting/base_detail_ajax.html'
 
 
 # ---- SLIDESHOW ---

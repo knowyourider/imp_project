@@ -55,17 +55,15 @@
      | <a href="javascript:divPrint('slimpop-wrapper');">print</a>
     </p>
     
-    <div id="supporting_fullpop_wrapper">
+    <div id="fullpop_content_wrapper">
   	  <h4 class="heading slim-subhead">{% block heading %}{{ object.content_type.plural_title }}{% endblock %}</h4>
   		<h1 class="slim-title">{% block item_title %}content type title{% endblock %}</h1>
       
-      <div id="fullpop_content_wrapper">{# for ajax to switch special content only #}
-        {% block slim_content%}
-          slim content
-        {% endblock slim_content %} 
-      </div> <!-- fullpop_content_wrapper -->
+      {% block slim_content%}
+        slim content
+      {% endblock slim_content %} 
       
-    </div> <!-- supporting_fullpop_wrapper -->
+    </div> <!-- fullpop_content_wrapper -->
 
   
   </div><!--slim-border -->
