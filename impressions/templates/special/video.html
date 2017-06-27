@@ -8,14 +8,14 @@
 
 <div id="video-content">
 
-	<video width="560" height="315" controls="controls">
+	<video width="300" height="168" controls="controls">
 		<source src="{% static 'special/video/media/' %}{{ object.slug}}.webm" type="video/webm">
 		<source src="{% static 'special/video/media/' %}{{ object.slug}}.mp4" type="video/mp4">
 		Your browser does not support the video tag.
 	</video>
 
-	{{ object.narrative|safe }}
-	
 </div><!-- /video-content -->
+
+	{{ object.narrative|safe }}
 
 {% endblock slim_content %}

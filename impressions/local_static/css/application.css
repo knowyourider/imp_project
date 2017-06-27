@@ -1445,6 +1445,16 @@ ul.chapter-nav li:hover ol.chapter-subnav {
 .activities-controls label {
   display: inline; }
 
+#video-content {
+  position: relative;
+  padding-top: 56.25%; }
+  #video-content video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; }
+
 .society-question {
   font-size: 1.25em;
   font-style: italic; }
