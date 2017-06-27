@@ -98,13 +98,18 @@
   width: 75vw;
 }
 
-.voices {
-  width: 50vw;
+.society {
   max-height: 85%;
+  width: 60%;
 }
 
-.slideshow, .footprint, .society,
-.then, .looking, .explore, .discoverers {
+.voices {
+  max-height: 85%;
+  width: 50vw;
+}
+
+.slideshow, .footprint,
+.then, .looking, .explore, .discoverers, .intro {
   max-width: 85%;
   max-height: 85%;
 }
