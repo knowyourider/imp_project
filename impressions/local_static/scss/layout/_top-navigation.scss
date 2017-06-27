@@ -117,11 +117,6 @@ li.more {
     padding-left: .25em;
   }
 
-  // &:focus > ul.submenu,
-  // &:hover > ul.submenu {
-  //   display: block;
-  //   z-index: 9999 !important;
-  // }
   & > ul.submenu {
     z-index: 9999 !important;
   }
