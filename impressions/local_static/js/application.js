@@ -71,26 +71,6 @@ $(document).ready(function(){
     getURL(chosen_href, contentDiv);
   });
 
-  // -- .swap_supfullpop --
-  // the full-screen version of supporing slims different from special
-  // just like regular swap_pop, but div is supporting_fullpop_wrapper rather 
-  // than slimpop-container
-  // the shell retains the correct "back" referrer
-  // $(document).on("click", ".swap_supfullpop", function(event){
-  //   event.preventDefault();
-  //   // get href
-  //   var chosen_href = $(event.target).attr('href');
-  //   console.log(' ---- in .swap_supfullpop: chosen_href swap_fullpop: ' + chosen_href);
-  //   // e.g. /special/full/slideshow/orra-landscape/1/
-
-  //   // var contentDiv = $('#fullpop_content_wrapper');
-  //   // var contentDiv = $('#slimpop_wrapper');
-  //   // var contentDiv = $('#supporting_full_next');
-  //   var contentDiv = $('#fullpop_content_wrapper');
-  //   // call ajax for the slim pop.
-  //   getURL(chosen_href, contentDiv);
-  // });
-
   // ---------- NAVIGATION ----------
   // This is happening on page load
   // Assign var menuToggle to stand for the element js-top-navigation-mobile-menu
@@ -148,11 +128,11 @@ $(document).ready(function(){
 
 
   // ------- Story Navigation
-  /*
+  
   // this drops menu on click
   $(".more a").click(function(event){ // .mobile
-    console.log(" -- click on more");
-    event.preventDefault();
+    // console.log(" -- click on more");
+    // event.preventDefault();
     event.stopPropagation();
     // console.log(" --- got chapter-nav-- click");
     $("submenu").toggle();
@@ -172,7 +152,7 @@ $(document).ready(function(){
       $(".submenu").hide();
     }
   );
-  */
+
 
   // --- ARTIFACTS AND DOCUMENTS ------------
 
