@@ -468,21 +468,23 @@ blockquote {
   background-color: #fff4e4;
   height: 25em; }
 
-.evidence-left-col {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%; }
-  .evidence-left-col:last-child {
-    margin-right: 0; }
+@media screen and (min-width: 55em) {
+  .evidence-left-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%; }
+    .evidence-left-col:last-child {
+      margin-right: 0; } }
 
-.evidence-right-col {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 40.29137%; }
-  .evidence-right-col:last-child {
-    margin-right: 0; }
+@media screen and (min-width: 55em) {
+  .evidence-right-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%; }
+    .evidence-right-col:last-child {
+      margin-right: 0; } }
 
 #document-text {
   background-color: #fff4e4;

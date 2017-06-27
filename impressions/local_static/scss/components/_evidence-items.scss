@@ -14,11 +14,17 @@
 }
 
 .evidence-left-col {
-  @include span-columns (7);
+  //for large displays:
+  @include media($large-screen) { 
+    @include span-columns (7);
+  }
 }
 
 .evidence-right-col {
-  @include span-columns (5);
+  //for large displays:
+  @include media($large-screen) { 
+    @include span-columns (5);
+  }
 }
 
 // for document transcriptions
