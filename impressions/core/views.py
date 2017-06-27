@@ -13,6 +13,9 @@ class HomeTemplateView(TemplateView):
         template_name = 'index.html' 
 
 
+class IntroTemplateView(TemplateView):
+    template_name = 'intro.html' 
+
 class TeamHomeTemplateView(TemplateView):
     template_name = 'team_index.html' 
 
