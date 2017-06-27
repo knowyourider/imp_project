@@ -147,6 +147,33 @@ $(document).ready(function(){
   );
 
 
+  // ------- Story Navigation
+  /*
+  // this drops menu on click
+  $(".more a").click(function(event){ // .mobile
+    console.log(" -- click on more");
+    event.preventDefault();
+    event.stopPropagation();
+    // console.log(" --- got chapter-nav-- click");
+    $("submenu").toggle();
+  });
+
+  $(document).click( function(){
+      $('submenu').hide();
+  });
+
+  // hover in js rather than css to accomodate mobile
+  $("li.more").hover(
+    function(event){ 
+      console.log(" --- got story-nav-- hover on");
+      $(".submenu").show();
+    }, function(event){
+      // console.log(" --- got chapter-nav-- hover off");
+      $(".submenu").hide();
+    }
+  );
+  */
+
   // --- ARTIFACTS AND DOCUMENTS ------------
 
   // ------- Docment text show/hide ------

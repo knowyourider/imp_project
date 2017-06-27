@@ -202,10 +202,13 @@ def evidenceitem_detail(request, slug, page_suffix='default'):
     return None
 
 
-class FastFactDetailView(DetailView):
+class FastFactDetailView(MobileFullMixin, DetailView):
     model = FastFact
     # context_object_name = 'object'
     # template_name = 'supporting/fastfact_detail.html'
+
+class FullFastFactDetailView(FastFactDetailView):
+    extend_base = 'supporting/base_detail_full.html'
 
 
 class PersonListView(ListView):

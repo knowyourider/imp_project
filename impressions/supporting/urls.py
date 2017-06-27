@@ -30,7 +30,6 @@ urlpatterns = [
     # is_document_oriented evidenceitems need separate view that supplies 1st page
     url(r'^document/(?P<slug>\S+)/$', views.DocumentDetailView.as_view(), 
       name='document_detail'),
-
     #  full screen 
     url(r'^full/document/(?P<slug>\S+)/$', 
         views.FullDocumentDetailView.as_view(), name='full_document_detail'),
@@ -50,19 +49,20 @@ urlpatterns = [
     url(r'^person/$', views.PersonListView.as_view(), name='person_list'),
     url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), name='person_detail_pk'),
     url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), name='person_detail'),
-    # prepend name with "initial" - similar to intro for special
+    # full screen mobile
     url(r'^full/person/(?P<slug>\S+)/$', 
         views.FullPersonDetailView.as_view(), name='full_person_detail'),
     #  full screen from swap fullpop
     url(r'^swapfull/person/(?P<slug>\S+)/$', 
         views.SwapFullPersonDetailView.as_view(), name='swapfull_person_detail'),
 
-
     # aka In Briefs
     url(r'^fastfact/(?P<pk>[0-9]+)/$', views.FastFactDetailView.as_view(), 
         name='fastfact_detail_pk'),
     url(r'^fastfact/(?P<slug>\S+)/$', views.FastFactDetailView.as_view(), 
         name='fastfact_detail'),
+    url(r'^full/fastfact/(?P<slug>\S+)/$', 
+        views.FullFastFactDetailView.as_view(), name='full_fastfact_detail'),
     
 
     # -- team pages  
