@@ -1445,6 +1445,16 @@ ul.chapter-nav li:hover ol.chapter-subnav {
 .activities-controls label {
   display: inline; }
 
+#video-content {
+  position: relative;
+  padding-top: 56.25%; }
+  #video-content video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; }
+
 .society-question {
   font-size: 1.25em;
   font-style: italic; }
@@ -1767,12 +1777,16 @@ table.discoverers-faces td {
   max-height: 85%;
   width: 75vw; }
 
-.voices {
-  width: 50vw;
-  max-height: 85%; }
+.society {
+  max-height: 85%;
+  width: 60%; }
 
-.slideshow, .footprint, .society,
-.then, .looking, .explore, .discoverers {
+.voices {
+  max-height: 85%;
+  width: 50vw; }
+
+.slideshow, .footprint,
+.then, .looking, .explore, .discoverers, .intro {
   max-width: 85%;
   max-height: 85%; }
 
@@ -2008,14 +2022,8 @@ li.more {
     color: rgba(125, 118, 100, 0.7);
     content: "\25BE";
     padding-left: .25em; }
-  /*
-  li.more:focus > ul.submenu, li.more:hover > ul.submenu {
-    display: block;
-    z-index: 9999 !important; }
-  */
   li.more > ul.submenu {
-    z-index: 9999 !important; 
-  }
+    z-index: 9999 !important; }
   @media screen and (min-width: 55em) {
     li.more {
       padding-right: 1em;
