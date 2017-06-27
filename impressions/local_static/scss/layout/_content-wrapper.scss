@@ -2,20 +2,9 @@
 
 .content-wrapper { 
 	@include outer-container;
-	overflow: auto;
 	padding: $small-spacing $base-spacing $xlarge-spacing $base-spacing;
 }
 
 .content-wrapper--intro {
 	background-color: $dark-taupe;
-	overflow: auto;
-}
-
-// obsolete?
-.content-wrapper-map {
-	margin-top: $top-navigation-height;
-}
-
-.content-wrapper--full {
-	overflow: auto;
 }
