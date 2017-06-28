@@ -13,7 +13,7 @@
   	{% for person in object.people.all %}
     <li>
       <!-- <a class="{{ link_class }}" href="{% url 'supporting:person_detail' person.slug %}"> -->
-      <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:'person_detail' person.slug %}#top">
+      <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:'person_detail' person.slug %}">
         {{ person.title_prefix|safe }} {{ person.first_name|safe }} 
         {{ person.middle_name|safe }} {{ person.last_name|safe }} {{ person.suffix|safe }}
       </a>
@@ -22,7 +22,7 @@
 
 	{% for evidenceitem in object.evidence.all %}
 	<li>
-	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}#top">
+	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
 	    {{ evidenceitem.title|safe }}
 	  </a>
 	</li>
@@ -30,7 +30,7 @@
 
 	{% for context in object.contexts.all %}
 	<li>
-	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:'context_detail' context.slug %}#top">
+	  <a class="{{ link_class }}" href="{% url 'supporting:'|add:link_name|add:'context_detail' context.slug %}">
 	    {{ context.title|safe }}
 	  </a>
 	</li>

@@ -60,7 +60,7 @@ $(document).ready(function(){
     event.preventDefault();
     // get href
     var chosen_href = $(event.target).attr('href');
-    console.log(' ---- chosen_href swap_fullpop: ' + chosen_href);
+    // console.log(' ---- chosen_href swap_fullpop: ' + chosen_href);
     // e.g. /special/full/slideshow/orra-landscape/1/
 
     // var contentDiv = $('#fullpop_content_wrapper');
@@ -353,8 +353,21 @@ function getURL(theURL, contentDiv) {
   // requestData,?
   $.get(theURL, function(data) {  
     contentDiv.html(data);
+    // console.log("--- attr name: " + contentDiv.attr('id'));
     // make sure we're scrolled to the top
-    contentDiv.animate({ scrollTop: 0 }, 0);
+    // in the case of full screen (mobile) the scroll has to operate on 
+    // the whole windo
+    if (contentDiv.attr('id') == 'fullpop_content_wrapper') {
+      $(window).scrollTop( 0 );
+    } else {
+      contentDiv.animate({ scrollTop: 0 }, 0);    
+    }
+    // following callback wasn't needed since we're operating on the window.
+    // contentDiv.html(data).promise().done(function(){
+    //   // console.log(" -- success for html")
+    //   // scrollTop works on window, not div
+    //   $(window).scrollTop( 0 );
+    // });
   }).fail(function(jqXHR) {
     contentDiv.html('<div id="slimpop-wrapper">' + '<p>SlimPop error: ' + 
       jqXHR.status + '</p></div>')
