@@ -1839,6 +1839,9 @@ table.discoverers-faces td {
 article#credits h2.heading {
   margin-top: 1.6em; }
 
+.about-list {
+  padding-left: 3.2em; }
+
 .footer {
   background: #65605a;
   border-top: 1px solid #5d5853;
