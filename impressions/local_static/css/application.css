@@ -420,9 +420,6 @@ picture {
 blockquote {
   font-style: italic; }
 
-.error-msg {
-  color: #009900; }
-
 .dig-deeper {
   clear: left;
   font-size: 0.9em;
@@ -1914,8 +1911,7 @@ article#credits h2.heading {
 div.error-msg {
   margin: 6.4em 0; }
   div.error-msg p {
-    font-size: 1.75em;
-    width: 60%; }
+    font-size: 1.75em; }
 
 .footer {
   background: #65605a;
