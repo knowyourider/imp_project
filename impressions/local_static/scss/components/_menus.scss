@@ -66,26 +66,31 @@
 
 // for Special Features
 .six-across {
-	width: 100%;
 	overflow: hidden;
-
-	.menu-gallery li {
-		@include span-columns(2);
-		@include omega(5n);
-		font-size: $smallish-font-size;
-		margin-bottom: $large-spacing;
-	}
-
 	@include media($large-screen) {
 		@include span-columns(2);
-	
-		.menu-gallery li {
-			@include span-columns(2 of 2);
-		}
 	}
 
 	h3 {
 		padding: $small-spacing 0;
+	}
+
+	.menu-gallery li {
+		margin-bottom: $large-spacing;
+
+		// phone-portrait displays, less than or equal to 340em - 3 cols
+		@include media(max-width $very-small-screen) {
+			@include span-columns(4);
+			@include omega(3n);
+			font-size: $small-font-size;
+		}
+
+		// small displays, greater than or equal to 341em but less than or equal to 879em - 4 cols
+		@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+			@include span-columns(3);
+			@include omega(4n);
+			font-size: $smallish-font-size;
+		}
 	}
 }
 

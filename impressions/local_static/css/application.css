@@ -789,21 +789,7 @@ dl.slim-curatorial {
     clear: left; }
 
 .six-across {
-  width: 100%;
   overflow: hidden; }
-  .six-across .menu-gallery li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 14.70196%;
-    font-size: 0.9em;
-    margin-bottom: 3.2em; }
-    .six-across .menu-gallery li:last-child {
-      margin-right: 0; }
-    .six-across .menu-gallery li:nth-child(5n) {
-      margin-right: 0; }
-    .six-across .menu-gallery li:nth-child(5n+1) {
-      clear: left; }
   @media screen and (min-width: 55em) {
     .six-across {
       float: left;
@@ -811,16 +797,37 @@ dl.slim-curatorial {
       margin-right: 2.35765%;
       width: 14.70196%; }
       .six-across:last-child {
-        margin-right: 0; }
+        margin-right: 0; } }
+  .six-across h3 {
+    padding: 0.8em 0; }
+  .six-across .menu-gallery li {
+    margin-bottom: 3.2em; }
+    @media screen and (max-width: 26.25em) {
       .six-across .menu-gallery li {
         float: left;
         display: block;
-        margin-right: 16.03631%;
-        width: 100%; }
+        margin-right: 2.35765%;
+        width: 31.76157%;
+        font-size: 0.8em; }
         .six-across .menu-gallery li:last-child {
-          margin-right: 0; } }
-  .six-across h3 {
-    padding: 0.8em 0; }
+          margin-right: 0; }
+        .six-across .menu-gallery li:nth-child(3n) {
+          margin-right: 0; }
+        .six-across .menu-gallery li:nth-child(3n+1) {
+          clear: left; } }
+    @media screen and (min-width: 26.3125em) and (max-width: 54.9375em) {
+      .six-across .menu-gallery li {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        font-size: 0.9em; }
+        .six-across .menu-gallery li:last-child {
+          margin-right: 0; }
+        .six-across .menu-gallery li:nth-child(4n) {
+          margin-right: 0; }
+        .six-across .menu-gallery li:nth-child(4n+1) {
+          clear: left; } }
 
 .menu-grid--area {
   overflow: auto;
