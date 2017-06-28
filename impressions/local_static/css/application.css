@@ -1911,6 +1911,12 @@ article#credits h2.heading {
 .about-list {
   padding-left: 3.2em; }
 
+div.error-msg {
+  margin: 6.4em 0; }
+  div.error-msg p {
+    font-size: 1.75em;
+    width: 60%; }
+
 .footer {
   background: #65605a;
   border-top: 1px solid #5d5853;

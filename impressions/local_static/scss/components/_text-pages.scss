@@ -67,3 +67,12 @@ article#credits {
 	padding-left: $large-spacing;
 	//margin-bottom: $large-spacing;
 }
+
+div.error-msg {
+	margin: $xlarge-spacing 0;
+
+	p {
+		font-size: $large-font-size;
+		width: 60%;
+	}
+}
