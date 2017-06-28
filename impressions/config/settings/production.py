@@ -11,4 +11,4 @@ DEBUG = False
 STATUS_LEVEL = 4
 
 # for publi vs. private versions of the site?
-SITE_ID = 2
+SITE_ID = 1
