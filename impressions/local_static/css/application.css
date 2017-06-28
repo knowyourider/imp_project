@@ -1781,7 +1781,10 @@ table.discoverers-faces td {
 .slim-border {
   border: 1px solid #b3aa98;
   overflow: auto;
-  padding: 1.6em 3.2em 3.2em 3.2em; }
+  padding: 1.6em 0.8em 1.6em 0.8em; }
+  @media screen and (min-width: 40em) {
+    .slim-border {
+      padding: 1.6em 3.2em 3.2em 3.2em; } }
 
 .slimpop-close {
   /* for the close link */

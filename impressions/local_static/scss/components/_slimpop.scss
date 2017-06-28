@@ -11,7 +11,12 @@
 .slim-border {
   border: 1px solid $base-border-color;
   overflow: auto;
-  padding: $base-spacing $large-spacing $large-spacing $large-spacing;
+  padding: $base-spacing $small-spacing $base-spacing $small-spacing;
+
+  // large displays, greater than or equal to 880em - 8 cols
+  @include media($medium-screen) {
+    padding: $base-spacing $large-spacing $large-spacing $large-spacing;
+  }
 }
 
 .slimpop-close {/* for the close link */
