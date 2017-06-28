@@ -7,12 +7,14 @@
 
 {% block content_area %}
 
-    <header>
-      <h1 class="hm-title">Impressions from a Lost World</h1>
-    </header>
+  <header>
+    <h1 class="hm-title">Impressions from a Lost World</h1>
+  </header>
 
-	{% block error_msg %}
-		<div class="error-msg">[error msg here]</div>
-	{% endblock error_msg %}
-
+	<div class="error-msg">
+		{% block error_msg %}
+			[error msg here]
+		{% endblock error_msg %}
+	</div>
+	
 {% endblock content_area %}
