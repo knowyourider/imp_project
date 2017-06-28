@@ -853,52 +853,112 @@ dl.slim-curatorial {
       margin-bottom: 0.4em;
       padding: 2px; }
 
-.squares li {
-  float: left;
-  display: block;
-  margin-right: 3.57866%;
-  width: 15.84234%; }
-  .squares li:last-child {
-    margin-right: 0; }
-  .squares li:nth-child(5n) {
-    margin-right: 0; }
-  .squares li:nth-child(5n+1) {
-    clear: left; }
+@media screen and (max-width: 26.25em) {
+  .squares li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    font-size: 0.8em; }
+    .squares li:last-child {
+      margin-right: 0; }
+    .squares li:nth-child(4n) {
+      margin-right: 0; }
+    .squares li:nth-child(4n+1) {
+      clear: left; } }
+@media screen and (min-width: 26.3125em) and (max-width: 54.9375em) {
+  .squares li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .squares li:last-child {
+      margin-right: 0; }
+    .squares li:nth-child(6n) {
+      margin-right: 0; }
+    .squares li:nth-child(6n+1) {
+      clear: left; } }
+@media screen and (min-width: 55em) {
+  .squares li {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 15.84234%; }
+    .squares li:last-child {
+      margin-right: 0; }
+    .squares li:nth-child(5n) {
+      margin-right: 0; }
+    .squares li:nth-child(5n+1) {
+      clear: left; } }
 
 .people-primary img, .people-secondary img, .oval img {
-  border-radius: 50%; }
+  border: double #b3aa98;
+  border-radius: 50%;
+  padding: 2px; }
 
-.people-primary {
-  margin-top: 3.2em; }
+.people-primary, .people-secondary, .people-tertiary {
+  display: block;
+  margin: 1.6em 0 3.2em 0; }
+  .people-primary::after, .people-secondary::after, .people-tertiary::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .people-primary li, .people-secondary li, .people-tertiary li {
+    margin-bottom: 0.8em; }
+
+@media screen and (max-width: 54.9375em) {
   .people-primary li {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 16.83441%; }
+    width: 31.76157%; }
     .people-primary li:last-child {
       margin-right: 0; }
-  @media screen and (min-width: 55em) {
-    .people-primary {
-      margin-left: 12.79471%; }
-      .people-primary li {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 14.70196%; }
-        .people-primary li:last-child {
-          margin-right: 0; } }
+    .people-primary li:nth-child(3n) {
+      margin-right: 0; }
+    .people-primary li:nth-child(3n+1) {
+      clear: left; } }
+@media screen and (min-width: 55em) {
+  .people-primary li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .people-primary li:last-child {
+      margin-right: 0; }
+    .people-primary li:nth-child(5n) {
+      margin-right: 0; }
+    .people-primary li:nth-child(5n+1) {
+      clear: left; } }
+@media screen and (min-width: 55em) {
+  .people-primary {
+    margin-left: 12.79471%; } }
 
-.people-secondary li, .people-tertiary li {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 10.43705%; }
-  .people-secondary li:last-child, .people-tertiary li:last-child {
-    margin-right: 0; }
-  .people-secondary li:nth-child(8n), .people-tertiary li:nth-child(8n) {
-    margin-right: 0; }
-  .people-secondary li:nth-child(8n+1), .people-tertiary li:nth-child(8n+1) {
-    clear: left; }
+@media screen and (max-width: 26.25em) {
+  .people-secondary li, .people-tertiary li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    font-size: 0.8em; }
+    .people-secondary li:last-child, .people-tertiary li:last-child {
+      margin-right: 0; }
+    .people-secondary li:nth-child(4n), .people-tertiary li:nth-child(4n) {
+      margin-right: 0; }
+    .people-secondary li:nth-child(4n+1), .people-tertiary li:nth-child(4n+1) {
+      clear: left; } }
+@media screen and (min-width: 26.3125em) and (max-width: 54.9375em) {
+  .people-secondary li, .people-tertiary li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .people-secondary li:last-child, .people-tertiary li:last-child {
+      margin-right: 0; }
+    .people-secondary li:nth-child(6n), .people-tertiary li:nth-child(6n) {
+      margin-right: 0; }
+    .people-secondary li:nth-child(6n+1), .people-tertiary li:nth-child(6n+1) {
+      clear: left; } }
 @media screen and (min-width: 55em) {
   .people-secondary li, .people-tertiary li {
     float: left;
@@ -914,7 +974,6 @@ dl.slim-curatorial {
 
 .people-tertiary {
   overflow: auto;
-  padding-top: 3.2em;
   text-align: left; }
 
 .home {

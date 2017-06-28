@@ -120,53 +120,88 @@
 }
 
 // for Backdrop and Evidence Menus
-.squares {
+.squares li {
+	// phone-portrait displays, less than or equal to 340em - 4 cols
+	@include media(max-width $very-small-screen) {
+		@include span-columns(3);
+		@include omega(4n);
+		font-size: $small-font-size;
+	}
 
-	li {
+	// small displays, greater than or equal to 341em but less than or equal to 879em - 6 cols
+	@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+		@include span-columns(2);
+		@include omega(6n);
+	}
+
+	// large displays, greater than or equal to 880em - 8 cols
+  @include media($large-screen) {
 	  @include span-columns(1.5 of 8);
 	  @include omega(5n);
 	}
 }
 
-// for People Menu -- this needs responsive help!!
+// for People Menu
 .people-primary, .people-secondary, .oval {
 	img {
+  	border: $double-border;
 		border-radius: 50%;	
+ 		padding: 2px;
 	}
 }
 
-.people-primary {
-	margin-top: $large-spacing;
-
-	li {
-		@include span-columns(2.25);
-	}
-
-  @include media($large-screen) {
+.people-primary, .people-secondary, .people-tertiary {
+  @include row();
+	margin: $base-spacing 0 $large-spacing 0;
 	
-	@include shift(1.5);
-		li {
-			@include span-columns(2);
-		} 
+	li {
+		margin-bottom: $small-spacing;
 	}
 }
 
-.people-secondary, .people-tertiary {
-	li {
+.people-primary  {
+  li {
+		// small displays - 3 cols
+  	@include media(max-width $small-screen) {
+			@include span-columns(4 of 12);
+			@include omega(3n);
+		}
+
+		// large displays - 5 cols
+	  @include media(min-width $large-screen) {
+			@include span-columns(2 of 12);
+			@include omega(5n);
+		}	
+	}
+
+	// large displays - center the cols
+  @include media(min-width $large-screen) {
+		@include shift(1.5);
+	}
+}
+
+.people-secondary li, .people-tertiary li {
+	// phone-portrait displays, less than or equal to 340em - 4 cols
+	@include media(max-width $very-small-screen) {
+		@include span-columns(3);
+		@include omega(4n);
+		font-size: $small-font-size;
+	}
+
+	// small displays, greater than or equal to 341em but less than or equal to 879em - 6 cols
+	@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+		@include span-columns(2);
+		@include omega(6n);
+	}
+
+	// large displays, greater than or equal to 880em - 8 cols
+  @include media($large-screen) {
 		@include span-columns(1.5);
 		@include omega(8n);
-	}
-
-  @include media($large-screen) {
-		li {
-			@include span-columns(1.5);
-			@include omega(8n);
-		}
 	}
 }
 
 .people-tertiary {
 	overflow: auto;
-	padding-top: $large-spacing;
 	text-align: left;
 }
