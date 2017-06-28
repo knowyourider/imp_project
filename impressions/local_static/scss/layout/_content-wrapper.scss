@@ -7,4 +7,9 @@
 
 .content-wrapper--intro {
 	background-color: $dark-taupe;
+
+	//for large displays:
+  @include media($large-screen) {	
+		overflow: auto;
+ 	}
 }
