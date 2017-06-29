@@ -1,45 +1,48 @@
 //Dig Deeper Gallery
 
 .dig-deeper {
-	//border-top: 1px solid $light-taupe;
 	clear: left;
-	font-size: $smallish-font-size;
 	overflow: auto;
 
 	h2 {
 		color: $action-color;
-		font-size: $large-font-size;
+		font-size: $base-font-size * 1.5;
 		letter-spacing: 0.25em;
-		//margin-top: $base-spacing;
 		text-transform: uppercase;
-	}
-
-	ul li {
-		@include span-columns(3);
-  	@include omega(4n);
-  	padding: $base-spacing;/* this adds left & right padding to images in deeper gallery */
-
-		img {
-			border: $double-border;
-			display: block;
-			max-width: 100%;
-			padding: 2px;
-
-			// when viewport is less than or equal to 790px tall, make images smaller
-			//@include media(max-height 790px) {
-			//	max-height: 20vh;
-			//}
-
-			// when viewport is less than or equal to em(860), make images smaller
-			@include media(max-width $large-screen) {
-				max-height: none;
-			}
-		}
 	}
 }
 
-//to make the gallery of images responsive, at tablet size img max-height 50%, at phone size stack page vertically
+ul.dig-deeper-list {
 
-.oval {
-	border-radius: 50%;	
+	img {
+		border: $double-border;
+		display: block;
+		max-width: 100%;
+		padding: 2px;
+	}
+
+	li {
+		padding: $small-spacing $base-spacing $base-spacing 0;
+
+	// phone-portrait displays, less than or equal to 340em - 3 cols
+		@include media(max-width $very-small-screen) {
+			@include span-columns(4);
+			@include omega(3n);
+			font-size: $small-font-size;
+		}
+
+		// small displays, greater than or equal to 341em but less than or equal to 879em - 4 cols
+		@include media(min-width $very-small-screen +em(1) max-width $small-screen) {
+			@include span-columns(3);
+			@include omega(4n);
+			font-size: $smallish-font-size;
+		}
+
+		// large displays, greater than or equal to 880em - 5 cols
+	  @include media($large-screen) {
+		  @include span-columns(2.4);
+		  @include omega(5n);
+			font-size: $smallish-font-size;
+		}
+	}
 }

@@ -17,7 +17,7 @@
 
     <li>
       <a class="pop_item" href="{% url 'supporting:person_detail' person2.slug %}">
-        <img src="{% static 'supporting/person/menupics/' %}{{ person2.slug }}.jpg"  alt="image of {{ person2.slug}}" >
+        <img src="{% static 'supporting/person/menupics/' %}{{ person2.slug }}.jpg" class="oval" alt="image of {{ person2.slug}}" >
         <span class="heading">{{ person2.title_prefix|safe }} {{ person2.first_name|safe }} 
         {{ person2.middle_name|safe }} {{ person2.last_name|safe }} {{ person2.suffix|safe }}</span>
       </a>
@@ -33,7 +33,7 @@
 
     <li>
     	<a class="pop_item" href="{% url 'supporting:person_detail' person1.slug %}">
-        <img src="{% static 'supporting/person/menupics/' %}{{ person1.slug }}.jpg"  alt="image of {{ person1.slug}}"> 
+        <img src="{% static 'supporting/person/menupics/' %}{{ person1.slug }}.jpg" class="oval" alt="image of {{ person1.slug}}"> 
     		<em>{{ person1.title_prefix|safe }} {{ person1.first_name|safe }} 
         {{ person1.middle_name|safe }} {{ person1.last_name|safe }} {{ person1.suffix|safe }}</em>
       </a>

@@ -146,13 +146,10 @@
 	}
 }
 
-// for People Menu
-.people-primary, .people-secondary, .oval {
-	img {
-  	border: $double-border;
-		border-radius: 50%;	
- 		padding: 2px;
-	}
+img.oval {
+	border: $double-border;
+	border-radius: 50%;	
+	padding: 2px;
 }
 
 .people-primary, .people-secondary, .people-tertiary {
