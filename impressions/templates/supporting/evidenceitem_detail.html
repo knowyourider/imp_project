@@ -2,7 +2,7 @@
 {% load staticfiles image_extras %}
 
 {% block heading %}
-	{{ object.content_type.plural_title }}: {{ object.evidence_type }}
+	{{ object.content_type.plural_title|safe }}: {{ object.evidence_type }}
 {% endblock %}
 
 {% block item_title %}{{ object.title|safe }}{% endblock %}

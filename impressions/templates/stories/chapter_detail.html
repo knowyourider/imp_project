@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}{{ object.content_type.singular_title}}: {{object.title }} - {{ chapter.chapter_num }} {{ chapter.title|safe }} {% endblock %}
+{% block title %}Impressions - Story: {{object.title }}{% endblock %}
 
 <!-- possibly migrate the following to a common story template -->
 {% block wrapper_class %}"content-wrapper"{% endblock wrapper_class %}
