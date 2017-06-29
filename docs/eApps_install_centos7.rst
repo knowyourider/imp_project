@@ -419,6 +419,9 @@ Just the insertions, for dev.dino
 	    </Files>
 	</Directory>
 
+	# robots alias
+	Alias /robots.txt /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org/impressions/robots.txt
+
 Insertions for public dinotracks
 ::
 		# Don inserting here
@@ -436,6 +439,9 @@ Insertions for public dinotracks
 		    Allow from all
 	    </Files>
 	</Directory>
+
+	# robots alias
+	Alias /robots.txt /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/robots.txt
 
 NEXT: 
 - change collected static to pvma-django

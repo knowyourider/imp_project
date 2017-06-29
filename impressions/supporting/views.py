@@ -38,19 +38,31 @@ class ContextListView(FormMixin, ListView):
         if form.is_valid():
             q = form.cleaned_data['q']
             topic_list = form.cleaned_data['topics']
+            
             if q:
                 self.object_list = self.object_list.filter(Q(title__icontains=q) | 
                     Q(narrative__icontains=q) )
+
+            """
+            # This version widens per checkbox (OR)
             # topics are many to many
             if len(topic_list) > 0 : # < len(self.init_data['gls'])
                 # per undocumented .add method for Q objects
                 # https://bradmontgomery.net/blog/adding-q-objects-in-django/
                 qquery = Q(topics__slug=topic_list[0])
-
                 for topic_choice in topic_list[1:]:
                     qquery.add((Q(topics__slug=topic_choice)), 'OR' ) # , qquery.connector
 
                 self.object_list = self.object_list.filter(qquery)
+            """
+
+            # topics - these narrow (and)
+            # Patterned after MA food tags
+            # we don't go the Q route which seems more suited for OR
+            if len(topic_list) > 0 : 
+
+                for idx, val in enumerate(topic_list):
+                    self.object_list = self.object_list.filter(topics__slug=topic_list[idx])
 
         # remove any duplicates
         self.object_list = self.object_list.distinct()
