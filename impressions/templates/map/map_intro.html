@@ -21,7 +21,7 @@
       
       <h2 class="heading"><a href="{% url 'map:map_detail' %}">The Interactive Map</a></h2>
       <p>The interactive map lets you geographically explore the history and science of dinosaur footprints and geology of the Connecticut River Valley. The map has four primary layers which you can look at individually, or stack them so you can see, for example, how the town of Amherst relates geographically to Lake Hitchcock</p>
-      <button><a href="{% url 'map:map_detail' %}">Go to Map</a></button>   
+      <input type="button" onclick="location.href='{% url 'map:map_detail' %}';" value="Go to Map" />
 
     </section> 
     
