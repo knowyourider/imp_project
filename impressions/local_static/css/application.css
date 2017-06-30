@@ -552,9 +552,6 @@ ul.dig-deeper-list li {
   background-color: #b3aa98;
   margin-top: 0.4em;
   font-size: 0.8em; }
-  @media print {
-    #toggle-transcription {
-      display: none; } }
 
 dl.slim-curatorial {
   margin-bottom: 0.8em;
@@ -1865,7 +1862,7 @@ table.discoverers-faces td {
 
 .artifact, .document, .about, .video {
   max-height: 85%;
-  width: 75vw; }
+  width: 75%; }
 
 .society {
   max-height: 85%;
