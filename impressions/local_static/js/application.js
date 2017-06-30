@@ -26,13 +26,24 @@ $(document).ready(function(){
       if (href_split[1] == "special" || href_split[1] == "supporting"){
         var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
         // e.g. /special/full/footprint/find-footprints/
-        console.log(" -- fullHref: " + fullHref);
+        // console.log(" -- fullHref: " + fullHref);
         window.location.href = fullHref;        
       }
     } else {
       // call ajax for the slim pop. (href, size class)
       slimPop(chosen_href, slimpopSizeClass);  
     }
+    // IE 11 hack
+    var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+    if (isIE11) { 
+      if (href_split[1] == "special" || href_split[1] == "supporting"){
+        var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
+        // e.g. /special/full/footprint/find-footprints/
+        // console.log(" -- fullHref: " + fullHref);
+        window.location.href = fullHref;        
+      }
+    }
+
   });
 
   // -- .swap_pop --
