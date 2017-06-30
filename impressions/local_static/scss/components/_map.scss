@@ -1,5 +1,8 @@
 //Map
-.map-empty {}
+.map-empty {
+	background-color: $dark-taupe;
+	overflow: auto;
+}
 
 // to make 2 left-hand columns float left
 .map-wrapper {
@@ -19,7 +22,6 @@
 		display: block;
 		margin-left: 75%;
 		width: 25%;
-		@include calc(height, "100vh - 130px");
 	}
 }
 
@@ -30,13 +32,11 @@
 		display: block;
 		float: left;
 		width: 30%;
-		@include calc(height, "100vh - 130px");
 	}
 }
 
 // both side panels
 .map-control-panel, .map-locations-panel {
-	background-color: $dark-taupe;
 	color: $light-font-color;
 	padding: $base-spacing;
 
@@ -56,9 +56,8 @@
 
 //map central area
 .map-area {
-	background-color: $panel-darken-color;
 	display: block;
-	@include calc(height, "100vh - 130px");
+	height: 100vh;
 }
 
 #map { 
@@ -168,7 +167,6 @@
 }
 
 .map-middle-col {
-//  @include span-columns(6 of 12);
 
 	button {
 		margin-bottom: $base-spacing;
@@ -177,12 +175,14 @@
 	  	color: $light-font-color;
 	  }
 	}
+
 	// for large displays:
   @include media($large-screen) {
   	@include span-columns(6);
 		margin-bottom: 0;
 	}
 }
+
 // for small displays
 img.how-to-map {
   @include media (max-width $large-screen) {
