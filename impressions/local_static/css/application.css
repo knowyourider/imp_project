@@ -1332,9 +1332,8 @@ img.oval {
       margin-right: 0; }
     .intro-nav li a {
       display: block; }
-      .intro-nav li a span {
+      .intro-nav li a em {
         display: block;
-        font-style: italic;
         letter-spacing: 0.05em; }
   .intro-nav li.previous {
     text-align: left; }

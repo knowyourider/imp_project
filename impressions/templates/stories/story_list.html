@@ -15,7 +15,7 @@
   {% for object in object_list %}
     <li>
       <a href="{% url 'stories:story_detail' object.slug %}">
-        <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg">
+        <img src="{% static 'stories/menupics/' %}{{ object.slug }}.jpg" alt="story illustration">
         <span class="menu-title">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
         {{ object.menu_blurb|safe }}
       </a>

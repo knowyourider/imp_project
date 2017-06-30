@@ -15,7 +15,7 @@
   {% for object in object_list %}
     <li>
       <a href="{% url 'themes:theme_detail' object.slug %}">
-        <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg">
+        <img src="{% static 'themes/menupics/' %}{{ object.slug }}.jpg" alt="theme illustration">
         <span class="menu-title">{{ object.title|safe }}</span>{{ object.subtitle|safe }}
         {{ object.menu_blurb|safe }}
       </a>

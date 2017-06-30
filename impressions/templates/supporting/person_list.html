@@ -49,7 +49,7 @@
   {% for person0 in object_list.0.minor_person_list %}
 
     <li><a class="pop_item" href="{% url 'supporting:person_detail' person0.slug %}">{{ person0.title_prefix|safe }} {{ person0.first_name|safe }} 
-        {{ person0.middle_name|safe }} {{ person0.last_name|safe }} {{ person0.suffix|safe }}</em></a></li>
+        {{ person0.middle_name|safe }} {{ person0.last_name|safe }} {{ person0.suffix|safe }}</a></li>
 
   {% endfor %}
   </ul>

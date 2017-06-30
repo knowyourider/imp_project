@@ -10,7 +10,7 @@
 
   <section class="image-panel">
 
-    <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg">
+    <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
     <p class="image-panel--caption">
       {{ object.caption|safe }}
       Image courtesy of {{ object.source.institution|safe }}.
@@ -24,7 +24,7 @@
 
       <li>
         {% if object.get_prev %}
-          <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <span>{{object.get_prev.title|safe}}<span></a>     
+          <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <em>{{object.get_prev.title|safe}}<em></a>     
         {% else %}
           &lArr; Previous
         {% endif %}
@@ -33,14 +33,14 @@
       <li class="read-this">
         <a href="{% url 'stories:chapter_detail' object.slug 1 %}">
           Read This Story
-          <img src="{% static 'images/' %}pointing-hand-down.png">
+          <img src="{% static 'images/' %}pointing-hand-down.png" alt="pointing hand icon">
         </a>
       </li>
 
       <li class="next">
 
         {% if object.get_next %}
-          <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <span>{{object.get_next.title|safe}}</span></a>     
+          <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <em>{{object.get_next.title|safe}}</em></a>     
         {% else %}
           Next Story &rArr;
         {% endif %}

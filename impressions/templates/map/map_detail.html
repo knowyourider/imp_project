@@ -18,7 +18,7 @@
 
 {% endblock javascript %}
 
-{% block wrapper_class %}{% endblock wrapper_class %}
+{% block wrapper_class %}"map-empty"{% endblock wrapper_class %}
 
 {% block content_area %}
 
@@ -37,7 +37,7 @@
             <label for="id_{{ overlay.layer_index }}">
               <input id="id_{{ overlay.layer_index }}" name="overlay" type="checkbox" value="{{ overlay.layer_index }}" /> {{ overlay.title|safe }}
             </label>
-            <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg">
+            <img src="{% static 'map/thumbpics/' %}{{ overlay.slug }}.jpg" alt="map layer thumbnail image">
             <!-- {{ overlay.short_blurb|safe }} -->
             <a class="pop_item" href="{% url 'map:about_detail' overlay.slug %}">about this map</a>
           </li>

@@ -70,7 +70,7 @@
 <body {% block body_class %}{% endblock body_class %}>
 {% block full_page %}
 
-<header class="top-navigation" role="banner">
+<header class="top-navigation">
 
     <a href="/" class="mobile-logo">
       <img src="{% static 'images/footmark-logo.png' %}" alt="Logo image">
@@ -78,22 +78,22 @@
 
     <a href="javascript:void(0)" id="js-top-navigation-mobile-menu" class="top-navigation-mobile-menu">MENU</a>
 
-    <nav role="navigation">
+    <nav>
 
       <ul id="js-top-navigation-menu" class="top-navigation-menu show">
 
         <li>
-          <img src="{% static 'images/nav-trackways-first.png' %}">
+          <img src="{% static 'images/nav-trackways-first.png' %}" alt="footprint icon">
         </li>
 
         <li>
           <a href="/">Home</a>
-          <img src="{% static 'images/nav-trackways-home.png' %}">
+          <img src="{% static 'images/nav-trackways-home.png' %}" alt="footprint icon">
         </li>
 
         <li{% if object.content_type.id == 1 %} class="more"{% endif %}>
           <a href="{% url 'stories:story_list' %}">Stories</a>
-          <img src="{% static 'images/nav-trackways-stories.png' %}">
+          <img src="{% static 'images/nav-trackways-stories.png' %}" alt="footprint icon">
           {% if object.content_type.id == 1 %}
             <ul class="submenu">
               {% for story in object.story_list %}
@@ -105,7 +105,7 @@
 
         <li{% if object.content_type.id == 2 %} class="more"{% endif %}>
           <a href="{% url 'themes:theme_list' %}">Themes</a>
-          <img src="{% static 'images/nav-trackways-themes.png' %}">
+          <img src="{% static 'images/nav-trackways-themes.png' %}" alt="footprint icon">
           {% if object.content_type.id == 2 %}
             <ul class="submenu">
               {% for theme in object.theme_list %}
@@ -117,7 +117,7 @@
 
         <li>
           <a href="{% url 'map:map_intro' %}">Map</a>
-          <img src="{% static 'images/nav-trackways-map.png' %}">
+          <img src="{% static 'images/nav-trackways-map.png' %}" alt="footprint icon">
         </li>
 
         <li>
