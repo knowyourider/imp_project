@@ -35,6 +35,10 @@
 		padding-bottom: $xlarge-spacing;
 	}
 
+  @media print {
+		@include span-columns(4);
+  }   
+
 	ul {
 		margin-bottom: $base-spacing;
 

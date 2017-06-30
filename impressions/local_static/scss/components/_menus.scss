@@ -91,6 +91,11 @@
 			@include omega(4n);
 			font-size: $smallish-font-size;
 		}
+
+		@media print {
+			@include span-columns(2 of 12);
+		  @include omega(6n);
+  	}
 	}
 }
 
@@ -105,6 +110,10 @@
 	@include media($large-screen) {
 		@include span-columns(8);
 	}
+  
+  @media print {
+		@include span-columns(8);
+  }
 }
 
 .menu-grid {
@@ -144,6 +153,11 @@
 	  @include span-columns(1.5 of 8);
 	  @include omega(5n);
 	}
+
+  @media print {
+		@include span-columns(1.5 of 8);
+	  @include omega(5n);
+  }
 }
 
 img.oval {
@@ -158,6 +172,11 @@ img.oval {
 	
 	li {
 		margin-bottom: $small-spacing;
+
+		@media print {
+			@include span-columns(1.5 of 8);
+		  @include omega(5n);
+  	}
 	}
 }
 
