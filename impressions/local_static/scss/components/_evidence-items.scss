@@ -56,7 +56,7 @@
 
 // for document paging
 #document-paging {
-  margin: $small-spacing 0;
+  margin: $small-spacing 0;  
 }
 
 #document-paging--list {
@@ -97,10 +97,6 @@
   background-color: $light-taupe;
   margin-top: $tiny-spacing;
   font-size: $small-font-size;
-
-  @media print {
-    display: none;
-  }  
 }
 
 // for curatorial info on evidence pages
