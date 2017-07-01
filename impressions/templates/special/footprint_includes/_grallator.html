@@ -1,8 +1,11 @@
 {% load staticfiles %}
+
+<div class="svg-container-footprint">
+
 	<svg  xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox="0 0 1000 750" 
-	class="svg-content double-border">
+	class="iefix-special double-border"> <!-- svg-content  -->
 
 		<g id="hotspot_group"> 
 			{# image name is hard-wired here since this all of the data in this include is image-specific #}
@@ -31,6 +34,7 @@
 		</g>
 
 	</svg>
+</div> <!-- svg-container-footprint -->
 
     <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
 
