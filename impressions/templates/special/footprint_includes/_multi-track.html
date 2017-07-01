@@ -1,9 +1,8 @@
 {% load staticfiles %}
 
-<svg  xmlns="http://www.w3.org/2000/svg"
-xmlns:xlink="http://www.w3.org/1999/xlink"
-viewBox="0 0 1000 750" 
-class="svg-content double-border">
+<div class="svg-container-footprint">
+	<!-- multi-track -->
+  <svg viewBox="0 0 1000 750" class="iefix-special double-border"> <!-- svg-content -->
 
 	<g id="hotspot_group"> 
 		{# image name is hard-wired here since this all of the data in this include is image-specific #}
@@ -86,7 +85,8 @@ class="svg-content double-border">
 		<ellipse transform="matrix(0.3697 -0.9292 0.9292 0.3697 -467.7018 577.0035)" class="hotspot" name="correct" cx="191.4" cy="633.2" rx="51.9" ry="33.5"/>
 
 	</g>
-</svg>
+  </svg>
+</div>
 
 <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
 
