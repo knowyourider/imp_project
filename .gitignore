@@ -8,7 +8,6 @@
 
 # files
 .DS_Store
-impressions/local_static/css/application.css.map
 secrets.json
 robots.txt
 
