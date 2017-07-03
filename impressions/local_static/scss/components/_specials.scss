@@ -49,6 +49,48 @@
 	display: inline;
 }
 
+// SVG fix for IE
+.svg-container-then-sugarloaf, 
+.svg-container-then-turners-falls-dam, 
+.svg-container-then-da-mem-hall, 
+.svg-container-then-fossil-exhibit, 
+.svg-container-footprint,
+.svg-container-explore  {
+  position: relative;
+}
+
+.svg-container-then-sugarloaf {
+  padding-top: 56.5%;
+}
+
+.svg-container-then-turners-falls-dam {
+  padding-top: 44.5%;
+}
+
+.svg-container-then-da-mem-hall {
+  padding-top: 53%;
+}
+
+.svg-container-then-fossil-exhibit {
+  padding-top: 79.8%;
+}
+
+.svg-container-footprint {
+  padding-top: 75%;
+}
+      
+.svg-container-explore {
+  padding-top: 43%;
+}
+
+svg.iefix-special {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 // Video
 #video-content {
 	position: relative;
