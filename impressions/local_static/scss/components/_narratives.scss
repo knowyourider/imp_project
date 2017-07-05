@@ -55,6 +55,18 @@
 	}
 }
 
+p.story-prompt {
+	margin-top: -($base-spacing * 1.5);
+
+	a:link, a:visited {
+		color: $light-font-color;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+}
+
 .chapter {
 	// for small displays
 	width: 100%;
