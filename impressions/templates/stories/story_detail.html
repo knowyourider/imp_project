@@ -12,8 +12,9 @@
 
     <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
     <p class="image-panel--caption">
-      {{ object.caption|safe }}
-      Image courtesy of {{ object.source.institution|safe }}.
+      {% if chapter.source.id != 1 %}
+        Image courtesy of {{ object.source.institution|safe }}.
+      {% endif %}
     </p>
 
   </section><!--/image-panel-->
@@ -22,11 +23,11 @@
     
     <ul class="intro-nav">
 
-      <li>
+      <li class="previous">
         {% if object.get_prev %}
           <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <em>{{object.get_prev.title|safe}}</em></a>     
         {% else %}
-          &lArr; Previous
+          <span class="end-of-the-line">&lArr; Previous</span>
         {% endif %}
       </li>
 
@@ -42,7 +43,7 @@
         {% if object.get_next %}
           <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <em>{{object.get_next.title|safe}}</em></a>     
         {% else %}
-          Next Story &rArr;
+          <span class="end-of-the-line">Next Story &rArr;</span>
         {% endif %}
 
       </li>
@@ -55,7 +56,7 @@
 
     {{ object.introduction|safe }}
 
-    <p><a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read this story.</a></p>
+    <p class="story-prompt"><a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read this story&hellip;</a></p>
 
   </article>
 

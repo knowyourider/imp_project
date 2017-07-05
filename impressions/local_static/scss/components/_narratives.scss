@@ -40,11 +40,20 @@
 	}
 
 	li.previous {
+		padding-left: $tiny-spacing;
 		text-align: left;
+
+		span.end-of-the-line {
+			display: none;
+		}
 	}
 
 	li.next {
 		text-align: right;
+
+		span.end-of-the-line {
+			display: none;
+		}
 	}
 }
 
@@ -52,6 +61,18 @@
 	img {
 		display: block;
 		margin: 0 auto;
+	}
+}
+
+p.story-prompt {
+	margin-top: $base-spacing;
+
+	a:link, a:visited {
+		color: $light-font-color;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 }
 
