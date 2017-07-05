@@ -6,8 +6,11 @@ from core.views import MobileFullMixin
 
 
 class FeatureListView(ListView):
-    #model = Feature
-    queryset = Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, is_on_menu=True)
+    model = Feature
+    # print("--- settings.STATUS_LEVEL: " + str(settings.STATUS_LEVEL))
+    # Menu doesn't look a this CBV list -- model has separate list for each type
+    # queryset = Feature.objects.filter(is_on_menu=True) 
+    # , is_on_menu=True status_num__gte=settings.STATUS_LEVEL
     # context_object_name = 'object_list'
     # template_name = 'special/feature_list.html' 
 

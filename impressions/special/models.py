@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
+from django.conf import settings
 from core.models import AssociationMixin, Source # ContentType
 from supporting.models import CommonSupportingModel
 
@@ -34,19 +35,24 @@ class Feature(CommonSupportingModel):
 
     # for menu - each type a separate list
     def slideshow_list(self):
-        return Feature.objects.filter(status_num__gte=1, special_type='slideshow')
+        return Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            is_on_menu=True, special_type='slideshow')
 
     def video_list(self):
-        return Feature.objects.filter(status_num__gte=1, special_type='video')
+        return Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            is_on_menu=True, special_type='video')
 
     def voices_list(self):
-        return Feature.objects.filter(status_num__gte=1, is_on_menu=True, special_type='voices')
+        return Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            is_on_menu=True, special_type='voices')
 
     def looking_list(self):
-        return Feature.objects.filter(status_num__gte=1, special_type='looking')
+        return Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            is_on_menu=True, special_type='looking')
 
     def then_list(self):
-        return Feature.objects.filter(status_num__gte=1, special_type='then')
+        return Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            is_on_menu=True, special_type='then')
 
     # in the case of Activities we want to display only "Activities",
     # not the sub type
