@@ -55,6 +55,8 @@
 
     {{ object.introduction|safe }}
 
+    <p><a href="{% url 'stories:chapter_detail' object.slug 1 %}">Read this story.</a></p>
+
   </article>
 
 
