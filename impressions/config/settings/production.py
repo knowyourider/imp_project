@@ -12,3 +12,5 @@ STATUS_LEVEL = 4
 
 # for publi vs. private versions of the site?
 SITE_ID = 1
+
+SECURE_SSL_REDIRECT = True
