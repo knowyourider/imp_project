@@ -12,8 +12,9 @@
 
     <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
     <p class="image-panel--caption">
-      {{ object.caption|safe }}
-      Image courtesy of {{ object.source.institution|safe }}.
+      {% if chapter.source.id != 1 %}
+        Image courtesy of {{ object.source.institution|safe }}.
+      {% endif %}
     </p>
 
   </section><!--/image-panel-->
