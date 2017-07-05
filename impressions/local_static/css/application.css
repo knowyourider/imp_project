@@ -1377,16 +1377,21 @@ img.oval {
         display: block;
         letter-spacing: 0.05em; }
   .intro-nav li.previous {
+    padding-left: 0.4em;
     text-align: left; }
+    .intro-nav li.previous span.end-of-the-line {
+      display: none; }
   .intro-nav li.next {
     text-align: right; }
+    .intro-nav li.next span.end-of-the-line {
+      display: none; }
 
 .read-this img {
   display: block;
   margin: 0 auto; }
 
 p.story-prompt {
-  margin-top: -2.4em; }
+  margin-top: 1.6em; }
   p.story-prompt a:link, p.story-prompt a:visited {
     color: #fff4e4; }
   p.story-prompt a:hover {

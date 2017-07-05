@@ -40,11 +40,20 @@
 	}
 
 	li.previous {
+		padding-left: $tiny-spacing;
 		text-align: left;
+
+		span.end-of-the-line {
+			display: none;
+		}
 	}
 
 	li.next {
 		text-align: right;
+
+		span.end-of-the-line {
+			display: none;
+		}
 	}
 }
 
@@ -56,7 +65,7 @@
 }
 
 p.story-prompt {
-	margin-top: -($base-spacing * 1.5);
+	margin-top: $base-spacing;
 
 	a:link, a:visited {
 		color: $light-font-color;

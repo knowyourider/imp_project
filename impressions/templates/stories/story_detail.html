@@ -26,7 +26,7 @@
         {% if object.get_prev %}
           <a href="{% url 'stories:story_detail' object.get_prev.slug %}">&lArr;&nbsp;Previous <em>{{object.get_prev.title|safe}}</em></a>     
         {% else %}
-          &lArr; Previous
+          <span class="end-of-the-line">&lArr; Previous</span>
         {% endif %}
       </li>
 
@@ -42,7 +42,7 @@
         {% if object.get_next %}
           <a href="{% url 'stories:story_detail' object.get_next.slug %}">Next&nbsp;&rArr; <em>{{object.get_next.title|safe}}</em></a>     
         {% else %}
-          Next Story &rArr;
+          <span class="end-of-the-line">Next Story &rArr;</span>
         {% endif %}
 
       </li>
