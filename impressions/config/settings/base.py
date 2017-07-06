@@ -142,3 +142,5 @@ STATUS_LEVEL = 3
 
 # for publi vs. private versions of the site?
 SITE_ID = 1
+# for devel vs. produciton diffes: google analytics in base.html
+IS_PRODUCTION = False

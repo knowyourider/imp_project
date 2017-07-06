@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load staticfiles settings_extras %}
 
 <html lang="en">
 <head>
@@ -154,6 +154,10 @@
   <a href="http://deerfield-ma.org" target="_blank"><img src="{% static 'images/logo-pvma.svg' %}" alt="Pocumtuck Valley Memorial Association logo" width="92" height="93"></a>
 </footer>
 
+{% is_production "" as show_production %}
+{% if show_production %}
+  {% include "_google_analytics.html" %}
+{% endif %}
 
 </body>
 </html>

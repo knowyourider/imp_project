@@ -14,3 +14,5 @@ STATUS_LEVEL = 4
 SITE_ID = 1
 
 SECURE_SSL_REDIRECT = True
+# for devel vs. produciton diffes: google analytics in base.html
+IS_PRODUCTION = True
