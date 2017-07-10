@@ -33,16 +33,6 @@ $(document).ready(function(){
       // call ajax for the slim pop. (href, size class)
       slimPop(chosen_href, slimpopSizeClass);  
     }
-    // IE 11 hack
-    // var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
-    // if (isIE11) { 
-    //   if (href_split[2] == "artifact" || href_split[2] == "document"){
-    //     var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
-    //     // e.g. /special/full/footprint/find-footprints/
-    //     // console.log(" -- fullHref: " + fullHref);
-    //     window.location.href = fullHref;        
-    //   }
-    // }
 
   });
 
@@ -156,7 +146,7 @@ $(document).ready(function(){
   // hover in js rather than css to accomodate mobile
   $("li.more").hover(
     function(event){ 
-      console.log(" --- got story-nav-- hover on");
+      // console.log(" --- got story-nav-- hover on");
       $(".submenu").show();
     }, function(event){
       // console.log(" --- got chapter-nav-- hover off");
@@ -196,7 +186,7 @@ $(document).ready(function(){
     var slug = href_split[3]
     var page_suffix = href_split[4]
 
-    console.log('href:' + theURL);
+    // console.log('href:' + theURL);
 
     // set first item selected
     // change zoomify image
@@ -212,7 +202,7 @@ $(document).ready(function(){
     // in all cases, add .zif
     zoomPath += ".zif";
 
-    console.log('zoom path:' + zoomPath);
+    // console.log('zoom path:' + zoomPath);
 
     Z.Viewer.setImagePath(zoomPath);
 
@@ -269,7 +259,7 @@ $(document).ready(function(){
     event.preventDefault();
     var choiceURL = $(this).attr('name')
     // var choice = $(event.target).val()
-    console.log(" --- society name: " + choiceURL );
+    // console.log(" --- society name: " + choiceURL );
     // call to ajax
     getURL(choiceURL, $('#society_feedback'));
     // disable and grey-out the buttons
@@ -282,7 +272,7 @@ $(document).ready(function(){
     event.preventDefault();
     // get href
     var chosen_href = $(event.target).attr('href');
-    console.log('--- quiz_swap: ' + chosen_href);
+    // console.log('--- quiz_swap: ' + chosen_href);
     // call ajax for the slim pop. 
     getURL(chosen_href, $('#slimpop-container'));
     // re-enable the buttons
