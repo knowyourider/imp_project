@@ -92,3 +92,7 @@ To push from server:
 ::
 	git push -u origin develop
 	(github password)
+
+AWStats - not enabled
+::
+	http://dinotracksdiscovery.org/cgi-bin/awstats/awstats.pl

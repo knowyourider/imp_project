@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Impressions - Artifacts and Documents</title>
+
+	
+    <link rel="stylesheet" href="/static/css/application.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/print.css" media="print" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    
+    <script   src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"   integrity="sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw="   crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      if (typeof jQuery == 'undefined') {
+          document.write(unescape("%3Cscript src='/static/js/jquery-3.1.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+
+    <script src="/static/js/d3.min.js" type="text/javascript"></script>
+
+    <script src="/static/js/application.js" type="text/javascript"></script>
+
+    <!-- for looking and seeing -->
+    <script src="/static/js/jquery.jplayer.js" type="text/javascript"></script>
+    <!-- <script src="/static/js/jquery.audioslideshow.js" type="text/javascript"></script> -->
+
+    <!-- for zoom, include only on evidence slim? -->
+    <script type="text/javascript" src="/static/js/ZoomifyImageViewerPro-min.js"></script>
+
+</head>
+
+<body>
+    
+    <div id="slimpop-container" class="slimpop-basic artifact">
+
+    <div id="slimpop-wrapper">
+        <div class="slim-border">
+            <p class="slimpop-close"><a href="javascript:hideBox();">close</a>
+                | <a href="javascript:divPrint('slimpop-container');">print</a>
+            </p>
+        <h4 class="heading slim-subhead">Artifacts &amp; Documents: Pictures and Paintings</h4>
+        <h1 class="slim-title">Exhuming the Mastodon, Charles Willson Peale</h1>
+            
+        <script type="text/javascript">
+            Z.showImage("item-image", 
+              "/static/supporting/evidenceitem/zooms/peale-mastodon-painting.zif", // }.zif" 
+              "zSkinPath=/static/js/Assets/Skins/Default&zNavigatorVisible=0");
+        </script>
+
+
+        <section class="evidence-left-col">
+
+            <section id="item-viewer">
+
+                <div id="item-viewer--container">
+                    
+                    <div id="item-image">to be filled in by zoomify</div>
+                                
+
+                </div> <!-- /item-viewer--container --> 
+            </section> <!-- /item-viewer -->
+
+            <!-- Test for IE 11 and provide work-around hard-coded dimensions -->
+            <script type="text/javascript">
+            //alert('navigator.userAgent: ' + navigator.userAgent);
+            var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+            //if (true) {
+            if (isIE11) { 
+              // /Trident.*rv[ :]?11\./
+              ///alert('detected IE 11');
+              var $itempage = $('#item-image');
+              $itempage.css('width', '400px');
+              $itempage.css('height', '400px');
+              // $itempage.css('margin-left', 'auto');
+              // $itempage.css('margin-right', 'auto');
+            }
+            </script>
+
+            <!-- paging --> 
+            
+
+            
+
+
+            <div class="slim-deeper">
+            <h2 class="subtitle heading">Dig Deeper</h2>
+            <ul>        
+                <li>
+                  <a class="swap_pop" href="/supporting/person/chas-w-peale/">Charles Willson Peale </a>
+                </li>
+            </ul>
+        </div>
+
+
+        </section><!-- evidence-left-col -->
+
+        <!-- not sure we need this on evidence pages
+        <p class="caption slim-caption">Image courtesy of Baltimore City Life Museum Collection/Museum Department.</p> -->
+
+        <section class="evidence-right-col">
+
+            
+            <p>Charles Willson Peale was primarily known as a portrait painter, but he also had an absorbing interest in natural history. In 1784 he founded the first natural history museum in the United States, in Philadelphia. Peale unearthed and reconstructed a mastodon in 1801, which became the museum's main attraction. The mastodon was discovered on a farm near Newburgh, NY. Peale directed the excavation, with the assistance of one of his sons, Rembrandt Peale.</p>
+
+            <dl class="slim-curatorial">
+                
+                    <dt>Creator:</dt>
+                    <dd>Charles Willson Peale</dd>
+                
+
+                <dt>Date:</dt>
+                <dd>
+                    
+                    1806-1808
+                </dd>
+
+                
+                    <dt>Dimensions:</dt>
+                    <dd>50 × 62.5 in</dd>
+                
+                
+                    <dt>Materials:</dt>
+                    <dd>Oil on Canvas</dd>
+                
+                
+                    <dt>Accession #:</dt>
+                    <dd>MA5911</dd>
+                
+                
+                
+                    <dt>Courtesy of:</dt>
+                    <dd>Baltimore City Life Museum Collection/Museum Department</dd>
+                
+                
+
+            </dl>
+
+        </section><!-- evidence-right-col -->
+
+
+            
+            </div><!--slim-border -->
+        </div><!--slimpop-wrapper -->
+
+        <script type="text/javascript">
+            // set first item selected
+            $("#document-paging--list li").filter(":first").addClass('document-paging--selected');
+        </script>
+
+    </div>
+
+
+</body>
+</html>
