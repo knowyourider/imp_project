@@ -34,15 +34,15 @@ $(document).ready(function(){
       slimPop(chosen_href, slimpopSizeClass);  
     }
     // IE 11 hack
-    var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
-    if (isIE11) { 
-      if (href_split[2] == "artifact" || href_split[2] == "document"){
-        var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
-        // e.g. /special/full/footprint/find-footprints/
-        // console.log(" -- fullHref: " + fullHref);
-        window.location.href = fullHref;        
-      }
-    }
+    // var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+    // if (isIE11) { 
+    //   if (href_split[2] == "artifact" || href_split[2] == "document"){
+    //     var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
+    //     // e.g. /special/full/footprint/find-footprints/
+    //     // console.log(" -- fullHref: " + fullHref);
+    //     window.location.href = fullHref;        
+    //   }
+    // }
 
   });
 
