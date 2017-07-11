@@ -72,7 +72,7 @@ $(document).ready(function(){
     // Adding vector tiled roads via Tangram - layer parameters, source, etc... 
     // are defined in scene.yaml file
     roads = Tangram.leafletLayer({
-        // scene: '/static/js/map_assets/cinnabar-style.yaml',
+        // scene: '/static/js/map_assets/cinnabar-style-more-labels.yaml',
         scene: '/static/js/map_assets/roads.yaml',
         // scene: '/static/js/map_assets/scene.yaml',
         attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> '

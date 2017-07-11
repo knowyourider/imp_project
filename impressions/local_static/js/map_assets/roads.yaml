@@ -38,12 +38,12 @@ labels-global:
     - &text_visible_highway           true
     - &text_visible_highway_e         false     #false for default, #false for more
     - &text_visible_trunk_primary     true
-    - &text_visible_trunk_primary_e2  false     #false for default, #false for more
-    - &text_visible_trunk_primary_e   false     #false for default, #false for more
+    - &text_visible_trunk_primary_e2  true     #false for default, #false for more
+    - &text_visible_trunk_primary_e   true     #false for default, #false for more
     - &text_visible_secondary         true
-    - &text_visible_secondary_e       false     #false for default, #false for more
+    - &text_visible_secondary_e       true     #false for default, #false for more
     - &text_visible_tertiary          true
-    - &text_visible_tertiary_e        false     #false for default, #false for more
+    - &text_visible_tertiary_e        true     #false for default, #false for more
     - &text_visible_minor_road        true
     - &text_visible_minor_road_e      true
     - &text_visible_service_road      true
@@ -669,6 +669,128 @@ layers:
     #                 width: 40
 
 
+    # Used by the SDK to place point, line, and polygon overlays on the map
+    mz_default_point:
+        data: { source: mz_default_point }
+        draw:
+            sdk-point-overlay:
+                interactive: global.sdk_interactive
+                sprite: ux-search-active
+                size: [36px,54px]
+                collide: false
+                anchor: top
+                transition: { show: { time: 0s }, hide: { time: 0s } }
+    mz_default_shield:
+        data: { source: mz_default_shield }
+        draw:
+            sdk-shield-overlay:
+                interactive: global.sdk_interactive
+                sprite: |
+                    function() {
+                        if( feature.ref ) {
+                            return ('sdk_shield-' + feature.ref.length + 'char');
+                        } else {
+                            return ('sdk_shield-' + feature.name.length + 'char');
+                        }
+                    }
+                sprite_default: sdk_shield-1char
+                color: global.sdk_shield_color
+                collide: false
+                transition: { show: { time: 0s }, hide: { time: 0s } }
+                text:
+                    # offset: [0px, -1px]
+                    text_source: |
+                        function() {
+                            if( feature.ref ) {
+                                return feature.ref;
+                            } else {
+                                return feature.name;
+                            }
+                        }
+                    anchor: center
+                    font:
+                        family: Montserrat
+                        fill: global.sdk_shield_text_color
+                        style: bold
+                        size: [[7,7px],[12,8px],[16,11px]]
+
+        width_1char:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length === 1);
+                    } else {
+                        return (feature.name.length === 1);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    size: [[6,[16px,16px]],[13,[18px,18px]],[16,[21px,21px]]]
+        width_2char:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length === 2);
+                    } else {
+                        return (feature.name.length === 2);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    size: [[6,[21px,16px]],[13,[24px,18px]],[16,[28px,21px]]]
+        width_3char:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length === 3);
+                    } else {
+                        return (feature.name.length === 3);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    size: [[6,[27px,16px]],[13,[31px,18px]],[16,[36px,21px]]]
+        width_4char:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length === 4);
+                    } else {
+                        return (feature.name.length === 4);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    size: [[6,[32px,16px]],[13,[36px,18px]],[16,[41px,21px]]]
+        width_5char:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length === 5);
+                    } else {
+                        return (feature.name.length === 5);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    size: [[6,[37px,16px]],[13,[41px,18px]],[16,[48px,21px]]]
+        # this is kinda a hack
+        width_longggggg:
+            filter: |
+                function() {
+                    if( feature.ref ) {
+                        return (feature.ref.length > 5);
+                    } else {
+                        return (feature.name.length > 5);
+                    }
+                }
+            draw:
+                sdk-shield-overlay:
+                    visible: false
+
+
+
+
     roads:
         data: { source: mapzen, layer: roads }
         filter: { not: { kind: rail } }
@@ -784,62 +906,44 @@ layers:
                         cap: round
                         outline:
                             cap: butt
+            # added July 2017
+            labels-highway-default:
+                draw:
+                    text-blend-order:
+                        text_source: global.ux_language_text_source_road_ref_and_name
+
+            # start - replace highway
+
             labels-highway-z13:
                 filter:
                     $zoom: 13
                 draw:
                     text-blend-order:
                         priority: 50
-                        visible: *text_visible_highway
+                        visible: global.text_visible_highway
                         #text_source: ref
                         #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
                         font:
-                            fill: *text_fill
+                            fill: global.text_fill
                             size: 13px
-                            stroke: { color: *text_stroke_road1, width: 4 }
+                            stroke: { color: global.text_stroke_road1, width: 4 }
             labels-highway-z14:
                 filter:
                     $zoom: 14
                 draw:
                     text-blend-order:
                         priority: 50
-                        visible: *text_visible_highway
+                        visible: global.text_visible_highway
                         #text_source: ref
                         #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
                         font:
-                            fill: *text_fill
+                            fill: global.text_fill
                             size: 11px
-                            stroke: { color: *text_stroke_road1, width: 4 }
-            labels-highway-z15:
-                filter:
-                    $zoom: 15
-                draw:
-                    text-blend-order:
-                        visible: *text_visible_highway
-                        font:
-                            fill: *text_fill
-                            size: 13px
-                            #stroke: { color: *text_stroke_road1, width: 4 }
-            labels-highway-z16:
-                filter: { $zoom: { min: 16, max: 18 } }
-                draw:
-                    text-blend-order:
-                        priority: 50
-                        visible: *text_visible_highway
-                        font:
-                            fill: *text_fill
-                            size: 15px
-                            #stroke: { color: *text_stroke_road1, width: 4 }
-            labels-highway-z18:
-                filter: { $zoom: { min: 18 } }
-                draw:
-                    text-blend-order:
-                        priority: 50
-                        visible: *text_visible_highway
-                        font:
-                            fill: *text_fill2
-                            size: 18px
-                            #stroke: { color: *highway1, width: 4 }
+                            stroke: { color: global.text_stroke_road1, width: 4 }
+
+
+
+            # end replace highway
 
         major_road:
             filter: { kind: major_road }
@@ -883,6 +987,15 @@ layers:
                                 color: *major_tunnel1
                                 outline:
                                     color: *major_tunnel_casing1
+                    # added by Don July, 2017
+                    labels-trunk_primary-route-default:
+                        draw:
+                            text-blend-order:
+                                text_source: global.ux_language_text_source_road_ref_and_name
+                                visible: global.text_visible_trunk_primary_route
+
+
+
                     labels-trunk_primary-route-z10:
                         filter: { $zoom: [10] }
                         draw:
