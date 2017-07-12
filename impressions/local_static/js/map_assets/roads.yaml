@@ -1,15 +1,19 @@
-﻿# Note: This is a demo *.yaml file I snagged from Tangram's GitHub page.  I commented stuff out until I got roads. Still learning their yaml conventions.
+﻿# Cinnabar is a classic look and should be your go-to for general mapping applications.
+# Give OpenStreetMap data a refined basemap skin using the Tangram graphics library and
+# Mapzen's versatile Vector Tiles.
+#
+# This style is a High Road influenced evolution of the Traditional style Stamen created
+# for Mapzen's Open Android app in 2014. Please use and adapt the open source scene file
+# in your own projects!
+#
+# Authors: Nathaniel V. Kelso, Geraldine Sarmiento
+# Read more: https://github.com/tangrams/cinnabar-style
+#
 
-# cameras:
-#     camera1:
-#         type: flat
-
-# lights:
-#     light1:
-#         type: directional
-#         direction: [0, 1, -.5]
-#         diffuse: .3
-#         ambient: 1
+global:
+    # SHIELDS
+    sdk_shield_color: black
+    sdk_shield_text_color: white
 
 labels-global:
     - &text_visible_continent         true
@@ -56,12 +60,6 @@ labels-global:
     - &text_visible_exits_e           false     #false for default, #false for more
     - &text_visible_airport_gate      true
 
-
-# sources:
-#     osm:
-#         type: TopoJSON
-#         url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson?api_key=mapzen-Su28ep2
-#         max_zoom: 18
 
 sources:
     mapzen:
@@ -245,89 +243,16 @@ cinnabar-colors:
         - &text_stroke_park   '#bddec5'          # park stroke color
         - &text_stroke_building  [.8, .8, .8]    # building stroke color
         - &text_stroke_address   [0.85, 0.85, 0.85]    # address stroke color
-        - &text_stroke_road1  '#f8c2c2'          # road stroke color highway
+        # - &text_stroke_road1  '#f8c2c2'          # road stroke color highway
+        - &text_stroke_road1  '#666'          # road stroke color highway
         - &text_stroke_road2  '#fbf2f2'          # road stroke color major road
         - &text_stroke_road3  '#f8d8d9'          # road stroke color major road route
         - &text_stroke_road4   white             # road stroke color minor road
-        - &text_stroke_shield  '#D16768'         # road shield stroke color &highway_casing1
+        # - &text_stroke_shield  '#D16768'         # road shield stroke color &highway_casing1
+        - &text_stroke_shield  '#666'         # road shield stroke color &highway_casing1
         - &townspot_sprite    townspot-l-rev     # depends on land color and text settings
         - &text_font_family  'Open Sans'        # branding in asperational Unicode, yo (or Helvetica)
 
-styles:
-    dashed:
-        base: lines
-        dash: [1.25, 1.25]
-        dash_background_color: [0.808,0.860,0.851]
-    dashed_big:
-        base: lines
-        dash: [2.0, 1.0]
-        dash_background_color: [0.808,0.860,0.851]
-    dashed_steps:
-        base: lines
-        dash: [0.25, 0.25]
-        dash_background_color: [0.882,0.878,0.871]
-    lines_transparent:
-        base: lines
-        blend: overlay
-    outline_transparent:
-        base: lines
-        blend: overlay
-    polygons_transparent:
-        base: polygons
-        blend: overlay
-    icons:
-        base: points
-        texture: pois
-        interactive: true
-        blend_order: 1
-    text-blend-order:
-        base: text
-        blend_order: 1
-    ux-route-line-overlay:
-        base: lines
-        blend: overlay
-        blend_order: 0
-    ux-route-line-dash-overlay:
-        base: lines
-        blend: overlay
-        blend_order: 0
-        dash: [2, 1]
-    ux-transit-line-overlay:
-        base: lines
-        blend: overlay
-        blend_order: 0
-    ux-location-gem-overlay:
-        base: points
-        texture: pois
-        interactive: true
-        blend: overlay
-        blend_order: 2
-    ux-icons-overlay:
-        base: points
-        texture: pois
-        interactive: true
-        blend: overlay
-        blend_order: 3
-    sdk-point-overlay:
-        base: points
-        texture: pois
-        interactive: true
-        blend: overlay
-        blend_order: 3
-    sdk-shield-overlay:
-        base: points
-        texture: pois
-        interactive: true
-        blend: overlay
-        blend_order: 3
-    sdk-line-overlay:
-        base: lines
-        blend: overlay
-        blend_order: 0
-    sdk-polygon-overlay:
-        base: polygons
-        blend: overlay
-        blend_order: 0
 
 textures:
     pois:
@@ -613,78 +538,144 @@ textures:
 
 
 
+camera:
+    type: isometric
+    axis: [0, .1] # very small building extrusion
+
+#lights:
+#    light1:
+#        type: directional
+#        direction: [1, 1, -.9]
+#        diffuse: .5
+#        ambient: .85
+
+styles:
+    dashed:
+        base: lines
+        dash: [1.25, 1.25]
+        dash_background_color: [0.808,0.860,0.851]
+    dashed_big:
+        base: lines
+        dash: [2.0, 1.0]
+        dash_background_color: [0.808,0.860,0.851]
+    dashed_steps:
+        base: lines
+        dash: [0.25, 0.25]
+        dash_background_color: [0.882,0.878,0.871]
+    lines_transparent:
+        base: lines
+        blend: overlay
+    outline_transparent:
+        base: lines
+        blend: overlay
+    polygons_transparent:
+        base: polygons
+        blend: overlay
+    icons:
+        base: points
+        texture: pois
+        interactive: true
+        blend_order: 1
+    text-blend-order:
+        base: text
+        blend_order: 1
+    ux-route-line-overlay:
+        base: lines
+        blend: overlay
+        blend_order: 0
+    ux-route-line-dash-overlay:
+        base: lines
+        blend: overlay
+        blend_order: 0
+        dash: [2, 1]
+    ux-transit-line-overlay:
+        base: lines
+        blend: overlay
+        blend_order: 0
+    ux-location-gem-overlay:
+        base: points
+        texture: pois
+        interactive: true
+        blend: overlay
+        blend_order: 2
+    ux-icons-overlay:
+        base: points
+        texture: pois
+        interactive: true
+        blend: overlay
+        blend_order: 3
+    sdk-point-overlay:
+        base: points
+        texture: pois
+        interactive: true
+        blend: overlay
+        blend_order: 3
+    sdk-shield-overlay:
+        base: points
+        texture: pois
+        interactive: true
+        blend: overlay
+        blend_order: 3
+    sdk-line-overlay:
+        base: lines
+        blend: overlay
+        blend_order: 0
+    sdk-polygon-overlay:
+        base: polygons
+        blend: overlay
+        blend_order: 0
+
+# scene:
+#     background:
+#         color: *scene1
+
+# fonts:
+#     Open Sans:
+#         - weight: 300 # Light
+#           url: fonts/OpenSans-Light.woff
+#         - weight: normal # Regular
+#           url: fonts/OpenSans-Regular.woff
+#         - weight: normal # Regular
+#           style: italic
+#           url: fonts/OpenSans-Italic.woff
+#         - weight: 600 # Semi Bold
+#           url: fonts/OpenSans-Semibold.woff
+#         - weight: 600 # Semi Bold
+#           style: italic
+#           url: fonts/OpenSans-SemiboldItalic.woff
+#         - weight: bold
+#           url: fonts/OpenSans-Bold.woff
+#     Montserrat:
+#         - weight: normal
+#           #url: https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff
+#           url: fonts/Montserrat-Regular.woff
+
+
+
+
 layers:
-#     earth:
-#         data: { source: osm }
-#         draw:
-#             polygons:
-#                 order: function() { return feature.sort_rank; }
-#                 color: '#ddeeee'
 
-#     landuse:
-#         data: { source: osm }
-#         draw:
-#             polygons:
-#                 order: function() { return feature.sort_rank; }
-#                 color: '#aaffaa'
-
-#     water:
-#         data: { source: osm }
-#         draw:
-#             polygons:
-#                 order: function() { return feature.sort_rank; }
-#                 color: '#88bbee'
-
-
-
-
-    # roads:
-    #     data: { source: osm }
-    #     filter:
-    #         not: { kind: [path, rail, ferry] }
-    #     draw:
-    #         lines:
-    #             order: function() { return feature.sort_rank; }
-    #             color: gray
-    #             width: 60
-    #             cap: round
-    #     highway:
-    #         filter:
-    #             kind: highway
-    #         draw:
-    #             lines:
-    #                 order: function() { return feature.sort_rank; }
-    #                 color: '#cc6666'
-    #                 width: 80
-    #                 outline:
-    #                     color: grey
-    #                     width: 1.5
-    #     minor_road:
-    #         filter:
-    #             kind: minor_road
-    #         draw:
-    #             lines:
-    #                 order: function() { return feature.sort_rank; }
-    #                 color: lightgrey
-    #                 width: 40
-
+    # Map overlays for styling the server response (using special source layer names) for route line, current location, and search result pins
+    # omitted
 
     # Used by the SDK to place point, line, and polygon overlays on the map
     mz_default_point:
         data: { source: mz_default_point }
         draw:
             sdk-point-overlay:
-                interactive: global.sdk_interactive
+                interactive: true
                 sprite: ux-search-active
                 size: [36px,54px]
                 collide: false
                 anchor: top
-                transition: { show: { time: 0s }, hide: { time: 0s } }
+                transition:
+                    [show, hide]:
+                        time: 0s
     mz_default_shield:
         data: { source: mz_default_shield }
         draw:
             sdk-shield-overlay:
-                interactive: global.sdk_interactive
+                interactive: true
                 sprite: |
                     function() {
                         if( feature.ref ) {
@@ -696,7 +687,9 @@ layers:
                 sprite_default: sdk_shield-1char
                 color: global.sdk_shield_color
                 collide: false
-                transition: { show: { time: 0s }, hide: { time: 0s } }
+                transition:
+                    [show, hide]:
+                        time: 0s
                 text:
                     # offset: [0px, -1px]
                     text_source: |
@@ -787,8 +780,31 @@ layers:
             draw:
                 sdk-shield-overlay:
                     visible: false
+    mz_default_line:
+        data: { source: mz_default_line }
+        draw:
+            sdk-line-overlay:
+                color: '#06a6d4'
+                order: 503
+                width: 3px
+    mz_default_polygon:
+        data: { source: mz_default_polygon }
+        draw:
+            sdk-polygon-overlay:
+                color: [0.02,0.65,0.82,0.5]  #'#06b1e2'
+                order: 501
+            sdk-line-overlay:
+                color: '#06a6d4'
+                order: 502
+                width: 0px
 
-
+    # Basemap styling
+    # earth:
+    # ocean-water:
+    # water-not-ocean:
+    # subway-light-rail:
+    # railway-late:
+    # platforms:
 
 
     roads:
@@ -906,13 +922,6 @@ layers:
                         cap: round
                         outline:
                             cap: butt
-            # added July 2017
-            labels-highway-default:
-                draw:
-                    text-blend-order:
-                        text_source: global.ux_language_text_source_road_ref_and_name
-
-            # start - replace highway
 
             labels-highway-z13:
                 filter:
@@ -920,30 +929,29 @@ layers:
                 draw:
                     text-blend-order:
                         priority: 50
-                        visible: global.text_visible_highway
+                        visible: *text_visible_highway
                         #text_source: ref
                         #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
                         font:
-                            fill: global.text_fill
+                            fill: *text_fill
                             size: 13px
-                            stroke: { color: global.text_stroke_road1, width: 4 }
+                            stroke: { color: *text_stroke_road1, width: 4 }
             labels-highway-z14:
                 filter:
                     $zoom: 14
                 draw:
                     text-blend-order:
                         priority: 50
-                        visible: global.text_visible_highway
+                        visible: *text_visible_highway
                         #text_source: ref
                         #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
                         font:
-                            fill: global.text_fill
+                            fill: *text_fill
                             size: 11px
-                            stroke: { color: global.text_stroke_road1, width: 4 }
-
-
-
-            # end replace highway
+                            stroke: { color: *text_stroke_road1, width: 4 }
+            # labels-highway-z15:
+            # labels-highway-z16:
+            # labels-highway-z18:
 
         major_road:
             filter: { kind: major_road }
@@ -987,15 +995,6 @@ layers:
                                 color: *major_tunnel1
                                 outline:
                                     color: *major_tunnel_casing1
-                    # added by Don July, 2017
-                    labels-trunk_primary-route-default:
-                        draw:
-                            text-blend-order:
-                                text_source: global.ux_language_text_source_road_ref_and_name
-                                visible: global.text_visible_trunk_primary_route
-
-
-
                     labels-trunk_primary-route-z10:
                         filter: { $zoom: [10] }
                         draw:
@@ -1064,49 +1063,12 @@ layers:
                                 fill: *text_fill
                                 size: 12px
                                 stroke: { color: *text_stroke_road2, width: 4 }
-                labels-trunk_primary-z15:
-                    filter: { $zoom: [15] } #huh: , ref: false }
-                    draw:
-                        text-blend-order:
-                            priority: 51
-                            visible: *text_visible_trunk_primary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill
-                                size: 14px
-                                stroke: { color: *text_stroke_road2, width: 4 }
-                labels-trunk_primary-z16:
-                    filter: { $zoom: [16] }
-                    draw:
-                        text-blend-order:
-                            priority: 51
-                            visible: *text_visible_trunk_primary
-                            #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
-                            font:
-                                fill: *text_fill2
-                                size: 14px
-                                stroke: { color: *text_stroke_road2, width: 4 }
-                labels-trunk_primary-z17:
-                    filter: { $zoom: [17] }
-                    draw:
-                        text-blend-order:
-                            priority: 51
-                            visible: *text_visible_trunk_primary
-                            #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
-                            font:
-                                fill: *text_fill2
-                                size: 15px
-                                stroke: { color: *text_stroke_road2, width: 4 }
-                labels-trunk_primary-z18:
-                    filter: { $zoom: { min: 18 } }
-                    draw:
-                        text-blend-order:
-                            priority: 51
-                            visible: *text_visible_trunk_primary
-                            #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
-                            font:
-                                fill: *text_fill2
-                                size: 16px
+
+                # labels-trunk_primary-z15:
+                # labels-trunk_primary-z16:
+                # labels-trunk_primary-z17:
+                # labels-trunk_primary-z18:
+
             link:
                 filter: { is_link: true } # on- and off-ramps, etc
                 draw:
@@ -1199,53 +1161,11 @@ layers:
                                 fill: *text_fill
                                 size: 10px
                                 stroke: { color: *text_stroke_road4, width: 1 }
-                labels-secondary-z15:
-                    filter:
-                        $zoom: [15]
-                    draw:
-                        text-blend-order:
-                            priority: 56
-                            visible: *text_visible_secondary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill
-                                size: 11px
-                                stroke: { color: *text_stroke_road3, width: 3 }
-                labels-secondary-z16:
-                    filter:
-                        $zoom: [16]
-                    draw:
-                        text-blend-order:
-                            priority: 56
-                            visible: *text_visible_secondary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill
-                                size: 11px
-                                stroke: { color: *text_stroke_road3, width: 3 }
-                labels-secondary2:
-                    filter: { $zoom: [17] }
-                    draw:
-                        text-blend-order:
-                            priority: 56
-                            visible: *text_visible_secondary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: [0.15,0.15,0.15]
-                                size: 12px
-                                # stroke: { color: *text_stroke, width: 4 }
-                labels-secondary3:
-                    filter: { $zoom: { min: 18 } }
-                    draw:
-                        text-blend-order:
-                            priority: 56
-                            visible: *text_visible_secondary
-                            #text_source: ref
-                            #text_source: function() { if( feature.ref && feature.name ) { return feature.ref + " " + feature.name; } else { return feature.name; } }
-                            font:
-                                fill: *text_fill2
-                                size: 13px
-                                stroke: { color: *major_road1, width: 4 }
+                # labels-secondary-z15:
+                # labels-secondary-z16:
+                # labels-secondary2:
+                # labels-secondary3:
+
             tertiary:
                 filter: { kind_detail: [tertiary, tertiary_link] }
                 draw:
@@ -1333,39 +1253,11 @@ layers:
                                 font:
                                     size: 10px
                                     stroke: { color: *text_stroke_road4, width: 1 }
-                labels-tertiary-z15:
-                    filter: { $zoom: [15] }
-                    draw:
-                        text-blend-order:
-                            priority: 57
-                            visible: *text_visible_tertiary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill
-                                size: 12px
-                                stroke: { color: *text_stroke_road3, width: 2 }
-                labels-tertiary-z16-z17:
-                    filter: { $zoom: { min: 16, max: 18 } }
-                    draw:
-                        text-blend-order:
-                            priority: 57
-                            visible: *text_visible_tertiary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill
-                                size: 13px
-                                #stroke: { color: *text_stroke_road3, width: 4 }
-                labels-tertiary-z18:
-                    filter: { $zoom: { min: 18 } }
-                    draw:
-                        text-blend-order:
-                            priority: 57
-                            visible: *text_visible_tertiary
-                            #text_source: function() { if( feature.ref && feature.name ) { if( feature.ref.length < 6 ) { return feature.ref + " " + feature.name; } else { return feature.name; } } else { return feature.name; } }
-                            font:
-                                fill: *text_fill2
-                                size: 15px
-                                #stroke: { color: *text_stroke_road3, width: 4 }
+
+                # labels-tertiary-z15:
+                # labels-tertiary-z16-z17:
+                # labels-tertiary-z18:
+
         minor_road:
             filter: { kind: minor_road, not: { kind_detail: service } }
             draw:
@@ -1447,41 +1339,9 @@ layers:
                         cap: round
                         outline:
                             cap: butt
-            labels-minor_road:
-                filter: { $zoom: [15,16,17] }
-                draw:
-                    text-blend-order:
-                        priority: 59
-                        visible: *text_visible_minor_road_e
-                        text_source: name
-                        font:
-                            fill: *text_fill_road_e
-                            size: 11px
-                            stroke: { color: *text_stroke_road4, width: 2 }
-                labels-minor_road-z15:
-                    filter: { $zoom: [15] }
-                    draw:
-                        text-blend-order:
-                            font:
-                                size: 9px
-                                stroke: { color: *text_stroke_road4, width: 1 }
-                labels-minor_road-z16:
-                    filter: { $zoom: [15] }
-                    draw:
-                        text-blend-order:
-                            font:
-                                size: 10px
-                                stroke: { color: *text_stroke_road4, width: 1 }
-            labels-minor_road2:
-                filter: { $zoom: { min: 18 } }
-                draw:
-                    text-blend-order:
-                        priority: 59
-                        visible: *text_visible_minor_road
-                        text_source: name
-                        font:
-                            fill: *text_fill2
-                            size: 15px
+
+            # labels-minor_road:
+
         service_road:
             filter: { kind: minor_road, kind_detail: service }
             draw:
@@ -1572,6 +1432,319 @@ layers:
                             #stroke: { color: *text_stroke_road4, width: 4 }
 
 
+        shields:
+            filter:
+                $zoom: { min: 6 }
+                #
+                # United State looks great with shield_text alone, but...
+                #
+                #shield_text: true    # some roads don't have shield text, deal with that later
+                #
+                # Europe doesn't have many network relations set, so we could look for either
+                # shield_text or ref (with no shield_text) but...
+                # that makes United States look a bit funky with `(xxx)` and generic shields
+                # showing up in fields of custom state shields like US:CA and US:NY
+                #
+                any:
+                    - shield_text: true    # some roads don't have shield text, deal with that later
+                    - all:
+                        - shield_text: false    # some roads don't have shield text, deal with that later
+                        - ref: true
+                        - kind_detail: [motorway, trunk, primary, secondary, tertiary]
+            # default
+            draw:
+                icons:
+                    # you need to match any custom shield to the vector tile `network` values
+                    sprite: |
+                        function() {
+                            if( feature.shield_text ) {
+                                return ('generic_shield-' + feature.shield_text.length + 'char');
+                            } else {
+                                return ('generic_shield-' + feature.ref.length + 'char');
+                            }
+                        }
+                    sprite_default: generic_shield-5char
+                    priority: 58
+                    # Size is specified below, and limited to 5 char in another filter
+                    repeat_group: shields
+                    repeat_distance: [[8,90px],[10,40px],[13,30px]]
+                    placement: midpoint
+                    placement_min_length_ratio:
+                        - [8, 0.1]
+                        - [9, 0.25]
+                        - [10, 0.25]
+                        - [11, 0.15]
+                        - [12, 1]
+                        - [13, 1.50]
+                        - [14, 2.0]
+                    cull_from_tile: true
+                    visible: false
+                    text:
+                        offset: [0px, -0.5px]
+                        repeat_distance: 200px
+                        anchor: center
+                        text_source: |
+                            function() {
+                                if( feature.shield_text ) {
+                                    return feature.shield_text;
+                                } else {
+                                    return feature.ref;
+                                }
+                            }
+                        font:
+                            family: Montserrat
+                            fill: [0.308,0.308,0.308]
+                            size: [[7,7px],[12,8px],[16,11px]]
+
+            default_priority_highway:
+                filter:
+                    all:
+                        - kind_detail: motorway
+                        - $zoom: { min: 9 }
+                draw:
+                    icons:
+                        priority: 47
+                        #color: yellow
+                        visible: *text_visible_shields
+
+            default_priority_trunk:
+                filter:
+                    all:
+                        - kind_detail: [trunk]
+                        - $zoom: { min: 10 }
+                draw:
+                    icons:
+                        priority: 48
+                        #color: red
+                        visible: *text_visible_shields
+            default_priority_primary:
+                filter:
+                    all:
+                        - kind_detail: [primary]
+                        - $zoom: { min: 12 }
+                draw:
+                    icons:
+                        priority: 49
+                        #color: aqua
+                        visible: *text_visible_shields
+            default_priority_trunk_secondary:
+                filter:
+                    all:
+                        - kind_detail: [secondary]
+                        - $zoom: { min: 12 }
+                draw:
+                    icons:
+                        priority: 53
+                        #color: blue
+                        visible: *text_visible_shields
+            default_priority_trunk_tertiary:
+                filter:
+                    all:
+                        - kind_detail: tertiary
+                        - $zoom: { min: 13 }
+                draw:
+                    icons:
+                        priority: 55
+                        #color: green
+                        visible: *text_visible_shields
+
+            width_1char:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length === 1)
+                        } else {
+                            return (feature.ref.length === 1)
+                        }
+                    }
+                draw:
+                    icons:
+                        size: [[6,[14px,14px]],[13,[16px,16px]],[16,[18px,18px]]]
+            width_2char:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length === 2)
+                        } else {
+                            return (feature.ref.length === 2)
+                        }
+                    }
+                draw:
+                    icons:
+                        size: [[6,[18px,14px]],[13,[20px,15px]],[16,[24px,18px]]]
+            width_3char:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length === 3)
+                        } else {
+                            return (feature.ref.length === 3)
+                        }
+                    }
+                draw:
+                    icons:
+                        size: [[6,[25px,14px]],[13,[27px,15px]],[16,[33px,18px]]]
+            width_4char:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length === 4)
+                        } else {
+                            return (feature.ref.length === 4)
+                        }
+                    }
+                draw:
+                    icons:
+                        size: [[6,[29px,14px]],[13,[31px,15px]],[16,[38px,18px]]]
+                # London sucks
+                early:
+                    filter: { $zoom: { max: 14 } }
+                    draw:
+                        icons:
+                            visible: false
+            width_5char:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length === 5)
+                        } else {
+                            return (feature.ref.length === 5)
+                        }
+                    }
+                draw:
+                    icons:
+                        size: [[6,[34px,14px]],[13,[37px,15px]],[16,[45px,18px]]]
+                # London sucks
+                early:
+                    filter: { $zoom: { max: 14 } }
+                    draw:
+                        icons:
+                            visible: false
+            # this is kinda a hack
+            width_longggggg:
+                filter: |
+                    function() {
+                        if( feature.shield_text ) {
+                            return (feature.shield_text.length > 5)
+                        } else {
+                            return (feature.ref.length > 5)
+                        }
+                    }
+                draw:
+                    icons:
+                        visible: false
+            #
+            # Now for the good stuff
+            #
+            legit-shields:
+                filter: { shield_text: true }
+                # draw:
+                #     icons:
+                #         color: pink
+
+                # US Interstate roads
+                US-I:
+                    filter:
+                        network: 'US:I'
+                    draw:
+                        icons:
+                            # you need to match any custom shield to the vector tile `network` values
+                            sprite: function() { return (feature.network + '-' + feature.shield_text.length + 'char'); }
+                            priority: 46
+                            visible: *text_visible_shields
+                            text:
+                                offset: [0px, 0.5px]
+                                font:
+                                    fill: [0.308,0.308,0.308]
+                                    size: [[7,8px],[13,9px],[15,11px]]
+                    width_1char:
+                        filter: function() { return (feature.shield_text.length === 1) }
+                        draw:
+                            icons:
+                                size: [[6,[15px,18px]],[13,[17px,20px]],[15,[22px,25px]]]
+                    width_2char:
+                        filter: function() { return (feature.shield_text.length === 2) }
+                        draw:
+                            icons:
+                                size: [[6,[18px,18px]],[13,[20px,20px]],[15,[25px,25px]]]
+                    width_3char:
+                        filter: function() { return (feature.shield_text.length === 3) }
+                        draw:
+                            icons:
+                                size: [[6,[23px,18px]],[13,[26px,20px]],[15,[33px,25px]]]
+                    width_4char:
+                        filter: function() { return (feature.shield_text.length === 4) }
+                        draw:
+                            icons:
+                                size: [[6,[25px,18px]],[13,[27px,20px]],[15,[35px,25px]]]
+                    width_5char:
+                        filter: function() { return (feature.shield_text.length === 5) }
+                        draw:
+                            icons:
+                                size: [[6,[26px,18px]],[13,[30px,20px]],[15,[38px,25px]]]
+                # US Federal Routes
+                US-US:
+                    filter:
+                        network: ['US:US','US:US:Business', 'US:US:Truck', 'US:US:Alternate']
+                        $zoom: { min: 7 }
+                    draw:
+                        icons:
+                            # you need to match any custom shield to the vector tile `network` values
+                            sprite: |
+                                function() { return ('US:US-' + feature.shield_text.length + 'char'); }
+                            priority: 47
+                            cull_from_tile: true
+                            visible: *text_visible_shields
+                            text:
+                                offset: [0px, -0.7px]
+                                font:
+                                    fill: [0.380,0.318,0.312]
+                                    size: [[7,8px],[13,9px],[15,11px]]
+                    width_1char:
+                        filter: function() { return (feature.shield_text.length === 1) }
+                        draw:
+                            icons:
+                                size: [[6,[15px,17px]],[13,[17px,19px]],[15,[22px,24px]]]
+                    width_2char:
+                        filter: function() { return (feature.shield_text.length === 2) }
+                        draw:
+                            icons:
+                                size: [[6,[18px,17px]],[13,[20px,19px]],[15,[26px,24px]]]
+                    width_3char:
+                        filter: function() { return (feature.shield_text.length === 3) }
+                        draw:
+                            icons:
+                                size: [[6,[22px,17px]],[13,[25px,19px]],[15,[34px,25px]]]
+                    width_4char:
+                        filter: function() { return (feature.shield_text.length === 4) }
+                        draw:
+                            icons:
+                                size: [[6,[25px,17px]],[13,[29px,19px]],[15,[39px,25px]]]
+                    width_5char:
+                        filter: function() { return (feature.shield_text.length === 5) }
+                        draw:
+                            icons:
+                                size: [[6,[27px,17px]],[13,[30px,19px]],[15,[41px,25px]]]
+                # US State Routes
+                # US-states:
+                #     # Match state highways: `US:??`
+                #     filter: |
+                #         function() {
+                #             return feature.shield_text &&
+                #                 /^US:(?!US)\w\w$/.test(feature.network)
+                #         }
+                #     draw:
+                #         icons:
+                #             # you need to match any custom shield to the vector tile `network` values
+                #             #priority: 48
+                #             visible: *text_visible_shields
+
+                # US-CA:
+                # US-NY:
+                # US-PA:
+
+                # USA County Routes
+                # US-counties:
 
     places:
         data: { source: mapzen, layer: places }
@@ -1610,101 +1783,12 @@ layers:
                         fill: [[2,[0.450,0.450,0.450]],[5,*text_fill]]
                         weight: normal
                         transform: uppercase
-            country-z2-3:
-                filter:
-                    $zoom: [2,3]
-                draw:
-                    text-blend-order:
-                        priority: 10
-                        buffer: 10px
-                        font:
-                            size: [[2,9px],[3,10px]]
-                early-ones-z2:
-                    filter:
-                        $zoom: [2]
-                        not: { name: [United States of America,Brasil,中华人民共和国,Россия,Canada,Kalaallit Nunaat,Ísland,Australia,India,日本,Guam,Indonesia,South Africa,مصر,Nigeria,Kenya] }
-                    draw:
-                        text-blend-order:
-                            visible: false
-                early-ones-z3:
-                    filter:
-                        $zoom: [3]
-                        name: [Nederland,Luxembourg,Liechtenstein,San Marino,Civitatis Vaticanæ,Crna Gora,Македонија,The Gambia,Burundi,Swaziland,الإمارات العربية المتحدة,العراق,Singapore,El Salvador,Belize,Trinidad and Tobago, Saint Lucia, Montserrat,Anguilla,República Dominicana,Bahamas,British Virgin Islands,Antigua and Barbuda,Grenada,Sint Maarten,Saint Kitts and Nevis,Cayman Islands,België - Belgique - Belgien,Deutschland,España]
-                    draw:
-                        text-blend-order:
-                            visible: false
-            country-z4:
-                filter:
-                    $zoom: [4]
-                draw:
-                    text-blend-order:
-                        buffer: 10px
-                        priority: 8
-                        font:
-                            size: 12px
-                early-ones-z4:
-                    filter:
-                        name: [Nederland,Luxembourg,Liechtenstein,San Marino,Civitatis Vaticanæ,Crna Gora,Македонија,The Gambia,Burundi,Swaziland,الإمارات العربية المتحدة,العراق,Singapore,El Salvador,Belize,Trinidad and Tobago, Saint Lucia, Montserrat,Anguilla,República Dominicana,Bahamas,British Virgin Islands,Antigua and Barbuda,Grenada,Sint Maarten,Saint Kitts and Nevis,Cayman Islands,België - Belgique - Belgien,Deutschland,España,Magyarország,Österreich,Polska,Хуссар Ирыстон,Аҧсны - Абхазия]
-                    draw:
-                        text-blend-order:
-                            visible: false
-            country-z5:
-                filter:
-                    $zoom: [5]
-                draw:
-                    text-blend-order:
-                        priority: 8
-                        font:
-                            size: 13px
-                early-ones-z5:
-                    filter:
-                        # South Ossetia and Abkhazia aren't countries (they are disputed areas)
-                        - name: [Luxembourg,Liechtenstein,San Marino,Civitatis Vaticanæ,El Salvador,Belize,België - Belgique - Belgien,"Хуссар Ирыстон - Южная Осетия","Хуссар Ирыстон","Аҧсны - Абхазия","Լեռնային Ղարաբաղի Հանրապետությու (Nagorno-Karabakh Republic)"]
-                        - population: { max: 5000000 }
-                    draw:
-                        text-blend-order:
-                            visible: false
-            country-z6:
-                filter:
-                    $zoom: [6]
-                draw:
-                    text-blend-order:
-                        priority: 8
-                        font:
-                            weight: 600
-                            size: 14px
-                small-ones-z6:
-                    filter:
-                        # South Ossetia and Abkhazia aren't countries (they are disputed areas)
-                        - name: [Luxembourg,Liechtenstein,San Marino,Civitatis Vaticanæ,België - Belgique - Belgien,"Хуссар Ирыстон - Южная Осетия","Хуссар Ирыстон","Аҧсны - Абхазия","Լեռնային Ղարաբաղի Հանրապետությու (Nagorno-Karabakh Republic)"]
-                        - population: { max: 5000000 }
-                    draw:
-                        text-blend-order:
-                            visible: false
-            country-z7:
-                # South Ossetia and Abkhazia aren't countries (they are disputed areas)
-                filter: { $zoom: { min: 7, max: 9 } }
-                draw:
-                    text-blend-order:
-                        font:
-                            size: 16px
-                            weight: bold
-                small-ones-z7:
-                    filter:
-                        $zoom: [7]
-                        # South Ossetia and Abkhazia aren't countries (they are disputed areas)
-                        name: [Liechtenstein,San Marino,Civitatis Vaticanæ,"Хуссар Ирыстон - Южная Осетия","Хуссар Ирыстон","Аҧсны - Абхазия","Լեռնային Ղարաբաղի Հանրապետությու (Nagorno-Karabakh Republic)"]
-                    draw:
-                        text-blend-order:
-                            visible: false
-                small-pop:
-                    filter:
-                        - population: { max: 5000000 }
-                    draw:
-                        text-blend-order:
-                            priority: 30
-                            font:
-                                size: 12px
+
+            # country-z2-3:
+            # country-z4:
+            # country-z5:
+            # country-z6:
+            # country-z7:
 
         region:
             filter:
@@ -1720,73 +1804,11 @@ layers:
                         weight: 300
                         fill: *text_fill
                         transform: uppercase
-            region-z4:
-                filter:
-                    $zoom: [4]
-                    not: { name: [Western Cape,Eastern Cape,Northern Cape,North West,Limpopo,KwaZulu-Natal,Hamburg,Freie und Hansestadt Hamburg,Neuchâtel,Nordrhein-Westfalen,Haute-Normandie,Baden-Württemberg,Bayern,Sachsen-Anhalt,Berlin,Mecklenburg-Vorpommern,Schleswig-Holstein,Brandenburg,Niedersachsen,Saarland,Thüringen,Hessen,Sachsen] }
-                draw:
-                    text-blend-order:
-                        visible: global.text_visible_admin
-            region-z5:
-                filter:
-                    $zoom: [5]
-                    not: { name: [Western Cape,Eastern Cape,Northern Cape,North West,Limpopo,KwaZulu-Natal,Hamburg,Freie und Hansestadt Hamburg,Neuchâtel,Nordrhein-Westfalen,Haute-Normandie,Baden-Württemberg,Bayern,Sachsen-Anhalt,Berlin,Mecklenburg-Vorpommern,Schleswig-Holstein,Brandenburg,Niedersachsen,Saarland,Thüringen,Hessen,Sachsen] }
-                draw:
-                    text-blend-order:
-                        visible: *text_visible_admin
-                        font:
-                            size: 13px
-            region-z6:
-                filter:
-                    $zoom: [6]
-                    not: { name: [Western Cape,Eastern Cape,Northern Cape,North West,Limpopo,KwaZulu-Natal,Hamburg,Freie und Hansestadt Hamburg,Neuchâtel,Nordrhein-Westfalen,Haute-Normandie,Baden-Württemberg,Bayern,Sachsen-Anhalt,Berlin,Mecklenburg-Vorpommern,Schleswig-Holstein,Brandenburg,Niedersachsen,Saarland,Thüringen,Hessen,Sachsen] }
-                draw:
-                    text-blend-order:
-                        visible: *text_visible_admin
-                        font:
-                            size: 13px
-                            stroke: { color: *text_stroke, width: 4 }
-            region-z7-z8:
-                filter: { $zoom: [7,8] }
-                draw:
-                    text-blend-order:
-                        visible: *text_visible_admin
-                        text_source: |
-                            function() { if(feature["name:short"]) { return feature["name"]; } else { return ""; } }
-                        font:
-                            size: 14px
-                            stroke: { color: *text_stroke, width: 4 }
-                pesky:
-                    filter:
-                        $zoom: [7]
-                        name: [Western Cape,Eastern Cape,Northern Cape,North West,Limpopo,KwaZulu-Natal,Hamburg,Freie und Hansestadt Hamburg,Neuchâtel,Nordrhein-Westfalen,Haute-Normandie,Baden-Württemberg,Bayern,Sachsen-Anhalt,Berlin,Mecklenburg-Vorpommern,Schleswig-Holstein,Brandenburg,Niedersachsen,Saarland,Thüringen,Hessen,Sachsen]
-                    draw:
-                        text-blend-order:
-                            visible: false
 
-                abbrev-small-ones-z7:
-                    filter:
-                        $zoom: [7]
-                        name: [Delaware,New Jersey,Connecticut,Rhode Island,Massachusetts,New Hampshire,Vermont]
-                    draw:
-                        text-blend-order:
-                            text_source: |
-                                function() { return feature["name:abbreviation"] || feature["name"]; }
-                region-z8:
-                    filter:
-                        $zoom: [8]
-                    draw:
-                        text-blend-order:
-                            text_source: name
-                    no-pop:
-                        filter:
-                            any:
-                                - population: false
-                                - population: { max: 1000000 }
-                        draw:
-                            text-blend-order:
-                                font:
-                                    size: 16px
+            # region-z4:
+            # region-z5:
+            # region-z6:
+            # region-z7-z8:
 
         populated-places:
             filter:
@@ -1910,64 +1932,9 @@ layers:
                         visible: false
 
 
-            population-10m-up:
-                filter:
-                    population: { min: 10000000 }
-                draw:
-                    icons:
-                        size: [[4,5px],[8,6px],[9,0px]]
-                        sprite: townspot-m-rev
-                        priority: 6
-                        text:
-                            font:
-                                size: [[2,11px],[6,17px],[8,19px],[12,21px],[13,0px]]
-                    text-blend-order:
-                        priority: 6
-                        font:
-                            size: [[2,11px],[6,17px],[8,19px],[12,21x],[13,0px]]
-                z9-bold:
-                    filter: { $zoom: { min: 9 } }
-                    draw:
-                        icons: { text: { font: { weight: 600 } } }
-                        text-blend-order: { font: { weight: 600 } }
-                capital:
-                    filter: { country_capital: true, $zoom: { min: 5 } }
-                    draw:
-                        icons:
-                            size: [[10,8px],[11,0px]]
-                            sprite: capital-l
-                            priority: 5
-                        text-blend-order:
-                            priority: 5
-            population-5m-10m:
-                filter:
-                    population: { min: 5000000, max: 10000000 }
-                draw:
-                    icons:
-                        size: [[4,5px],[8,6px],[9,0px]]
-                        sprite: townspot-m-rev
-                        priority: 7
-                        text:
-                            font:
-                                size: [[4,10px],[6,16px],[8,18px],[12,20px],[13,0px]]
-                    text-blend-order:
-                        priority: 7
-                        font:
-                            size: [[4,10px],[6,16px],[8,18px],[12,20px],[13,0px]]
-                z9-semibold:
-                    filter: { $zoom: { min: 9 } }
-                    draw:
-                        icons: { text: { font: { weight: 600 } } }
-                        text-blend-order: { font: { weight: 600 } }
-                capital:
-                    filter: { country_capital: true, $zoom: { min: 5 } }
-                    draw:
-                        icons:
-                            size: [[10,8px],[11,0px]]
-                            sprite: capital-l
-                            priority: 6
-                        text-blend-order:
-                            priority: 6
+            # population-10m-up:
+            # population-5m-10m:
+
             population-1m-5m:
                 filter:
                     population: { min: 1000000, max: 5000000 }
@@ -2328,40 +2295,6 @@ layers:
                         font:
                             size: 11px
                             stroke: { color: *text_stroke, width: 3 }
-            neighborhood-z15:
-                filter:
-                    $zoom: [15]
-                    min_zoom: [11,12,13,14,15]
-                    max_zoom: { min: 16 }
-                    kind_tile_rank: { max: 8 }
-                draw:
-                    text-blend-order:
-                        text_wrap: 12
-                        visible: *text_visible_neighbourhoods
-                        font:
-                            size: 13px
-                            weight: 300
-                            stroke: { color: *text_stroke, width: 3 }
-                z15-new:
-                    filter:
-                        all:
-                            - min_zoom: 15
-                    draw:
-                        text-blend-order:
-                            priority: 19
-                            font:
-                                size: 13px
-            neighborhood-z16:
-                filter:
-                    $zoom: [16]
-                    min_zoom: [11,12,13,14,15,16]
-                    max_zoom: { min: 17 }
-                    kind_tile_rank: { max: 8 }
-                draw:
-                    text-blend-order:
-                        visible: *text_visible_neighbourhoods
-                        font:
-                            size: 14px
-                            weight: 300
-                            fill: [0.00,0.00,0.00,0.50]
-                            stroke: { color: *text_stroke, width: 3 }
+
+            # neighborhood-z15:
+            # neighborhood-z16:
