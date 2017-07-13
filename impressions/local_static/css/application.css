@@ -570,7 +570,10 @@ dl.slim-curatorial {
 
 .map-empty {
   background-color: #65605a;
-  overflow: auto; }
+  overflow: visible; }
+  @media screen and (min-width: 55em) {
+    .map-empty {
+      overflow: auto; } }
 
 .map-wrapper {
   float: none;

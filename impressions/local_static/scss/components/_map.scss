@@ -1,7 +1,11 @@
 //Map
 .map-empty {
 	background-color: $dark-taupe;
-	overflow: auto;
+	overflow: visible;
+
+  @include media($large-screen) {
+		overflow: auto;
+	}	
 }
 
 // to make 2 left-hand columns float left
