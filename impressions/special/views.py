@@ -245,7 +245,7 @@ class SocietyChoiceDetailView(SlideFeatureDetailView):
             if ladies_choice == 1:
                 feedback  +=  "The young ladies also voted in the affirmative!"
             elif ladies_choice == 0:
-                feedback  +=  "Sorry,the young ladies voted in the negagive."
+                feedback  +=  "Sorry,the young ladies voted in the negative."
             elif ladies_choice == 2:
                 feedback  +=  "Actually, this is the last topic the young ladies considered \
                 and they never recorded their answer!"
@@ -257,7 +257,7 @@ class SocietyChoiceDetailView(SlideFeatureDetailView):
             if ladies_choice == 1:
                 feedback  +=  "Sorry,the young ladies voted in the affirmative."
             elif ladies_choice == 0:
-                feedback  +=  "The young ladies also voted in the negagive!"
+                feedback  +=  "The young ladies also voted in the negative!"
             elif ladies_choice == 2:
                 feedback  +=  "Actually, this is the last topic the young ladies considered \
                 and they never recorded their answer!"
