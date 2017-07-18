@@ -26,7 +26,7 @@
 	}
 
 	Z.showImage("item-image", 
-	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif", // }.zif" 
+	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}", // }.zif" 
 	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
 </script>
 
@@ -39,6 +39,10 @@
 			{% else %}
 				<div id="item-image">zoomable artifact image here</div>
 			{% endif %}
+
+			<div id="print-img" class="hidden">
+				<img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
+			</div><!-- /document-text -->
 
 			<div id="document-text" class="hidden">
 				<div class="document-text--transcription">
