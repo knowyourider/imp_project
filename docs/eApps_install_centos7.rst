@@ -235,6 +235,9 @@ Install Django
 	pip install Django==1.10.7
 	pip install Unipath==1.1
 
+upgrade 7/17/2017
+::
+	pip install --upgrade django==1.11.3
 
 Postgresql
 ------------
