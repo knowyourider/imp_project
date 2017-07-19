@@ -73,14 +73,14 @@
     content: none;
   }
 
-    a:link {
-      //padding: $tiny-spacing;
-      text-decoration: underline;
-    }
+  a:link {
+    //padding: $tiny-spacing;
+    text-decoration: underline;
+  }
 
-    a:hover {
-      background-color: $light-taupe;
-    }
+  a:hover {
+    background-color: $light-taupe;
+  }
 }
 
 .document-paging--title {
