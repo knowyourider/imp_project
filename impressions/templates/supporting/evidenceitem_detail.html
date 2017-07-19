@@ -40,10 +40,6 @@
 				<div id="item-image">zoomable artifact image here</div>
 			{% endif %}
 
-			<div id="print-img" class="hidden">
-				<img src="{% static 'supporting/evidenceitem/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}">
-			</div><!-- /document-text -->
-
 			<div id="document-text" class="hidden">
 				<div class="document-text--transcription">
 					{{ page.transcript|safe }}
