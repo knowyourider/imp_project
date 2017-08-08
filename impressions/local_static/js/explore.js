@@ -82,6 +82,11 @@ function setTooltip (eventTarget, thisDinospot) {
     // console.log(" --- bbox width: " + $(event.target)[0].getBBox().width);
     var targetBBox = eventTarget[0].getBBox();
     // get the target title
+
+    // console.log(" --- eventTarget.parent() tag name: " + 
+    //     eventTarget.parent().prop("tagName"));
+
+    
     var targetTitle = eventTarget.parent().find("text").html();
     // object name in the "name" element has to match image_name for slide in Admin
 
