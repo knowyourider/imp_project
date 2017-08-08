@@ -20,7 +20,12 @@ section.control-panel,
 input#id_q,
 span#clear a,
 section.six-across h3.subtitle,
-section.six-across ul.menu-gallery li a { 
+section.six-across ul.menu-gallery li a,
+#slimpop-wrapper h1, 
+#slimpop-wrapper h2.heading, 
+#slimpop-wrapper h4, 
+#slimpop-wrapper p,
+#slimpop-wrapper ul li a { 
   background: #fff;
 	color: #000 !important;
  }

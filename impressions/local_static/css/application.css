@@ -1881,6 +1881,11 @@ table.discoverers-faces td {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
   overflow: auto;
   padding: 3px; }
+  @media print {
+    #slimpop-wrapper {
+      background-color: white;
+      border: none;
+      box-shadow: none; } }
 
 .slim-border {
   border: 1px solid #b3aa98;
@@ -1889,10 +1894,16 @@ table.discoverers-faces td {
   @media screen and (min-width: 40em) {
     .slim-border {
       padding: 1.6em 3.2em 3.2em 3.2em; } }
+  @media print {
+    .slim-border {
+      border: none; } }
 
 .slimpop-close {
   /* for the close link */
   float: right; }
+  @media print {
+    .slimpop-close {
+      display: none; } }
 
 .double-border {
   border: double #b3aa98; }
@@ -1943,6 +1954,11 @@ table.discoverers-faces td {
   right: 0;
   top: 0;
   z-index: 100; }
+  @media print {
+    .slimpop-basic {
+      overflow: visible;
+      position: absolute;
+      top: 0; } }
 
 .person, .context, .fastfact {
   max-height: 85%;
