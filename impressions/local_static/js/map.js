@@ -307,10 +307,13 @@ function setSiteLayer(layerShortName) {
 	// Get site list for this layer
 	// get ansynchronous data via a "promise" per 
 	// http://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-success
+	// siteListPromise is a jqXHR object
 	var siteListPromise = getSiteList("/map/sites/" + layerShortName + "/");
 
 	// this is triggered when we get the json site list back (data)
-	siteListPromise.success(function (data) {
+	// siteListPromise.success(function (data) {
+	// success method depricated in jquery 3.0. use "done" instead.
+	siteListPromise.done(function (data) {
 
 		// remove previous marker layer
 		// site markers are undefined on initial visit, 
