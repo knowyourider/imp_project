@@ -93,23 +93,6 @@ $(document).ready(function(){
 
 	var mapLayerObjects = [roads, hitchcock1857, hitchcock1834, hitchcock1833]; 
 
-	// ----- define lake geoJson overlays ----- 
-
-
-	// // need to get promise for geoJson - use when success is returned
-	// // var geoPromise = getGeoJson("/static/js/map_assets/json_1950.geojson");
-	// var geoPromise = getGeoJson("/static/js/map_assets/lake_17900.geojson");
-
-	// // on successful return of geoJson, set all of the layers
-	// geoPromise.success(function (data) {
-
-	// 	// var _lake = L.geoJson(data, {
-	// 	mapLakeLayers[2] = L.geoJson(data, {
-	//     	style: HitchcockStyle
-	// 	});
-	// 	// mapLakeLayers = [roads, hitchcock, hitchcock_1833, _lake ]; 
-
-	// });
 
 	// ----- define base layer -----
 	var stamen = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-'
@@ -261,7 +244,8 @@ function switchLake(lakeIndex) { //  layerShortName,
 				lakeLayerNames[lakeIndex] + ".geojson");
 
 			// on successful return of geoJson
-			geoPromise.success(function (data) {
+			// geoPromise.success(function (data) {
+			geoPromise.done(function (data) {
 				lakeLayerObjects[lakeIndex] = L.geoJson(data, {
 			    	style: HitchcockStyle
 				});
