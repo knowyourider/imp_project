@@ -23,7 +23,8 @@ ul.dig-deeper-list {
 
 	li {
 		padding: $small-spacing $base-spacing $base-spacing 0;
-
+		text-align: center;
+		
 	// phone-portrait displays, less than or equal to 340em - 3 cols
 		@include media(max-width $very-small-screen) {
 			@include span-columns(4);
