@@ -83,10 +83,11 @@ function setTooltip (eventTarget, thisDinospot) {
     var targetBBox = eventTarget[0].getBBox();
     // get the target title
 
+    // .html() does not work inside of SVG in IE11
     // console.log(" --- eventTarget.parent() tag name: " + 
-    //     eventTarget.parent().prop("tagName"));
+        //eventTarget.parent().find("text").prop("tagName")); // works
+        //eventTarget.parent().find("text").html()); // doesn't work
 
-    
     var targetTitle = eventTarget.parent().find("text").html();
     // object name in the "name" element has to match image_name for slide in Admin
 
