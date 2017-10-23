@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Impressions from a Lost World{% endblock %}
+
+{% block body_class %}class="home"{% endblock body_class %}
+
+{% block full_page %}
+
+  <div class="content-wrapper">
+
+    <header>
+      <h1 class="hm-title"><a href="/">Impressions from a Lost World</a></h1>
+      <p class="hm-subtitle">Site Map</p>
+    </header>
+
+    <div class="hm-col-1">
+
+          <a href="/stories/" class="hm-menu-item">
+            <h2 class="hm-menu-link">Stories</h2>
+          </a>
+            <ul>
+              <li>story 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+
+        <div class="sub-col">
+          <a href="/supporting/person/" class="hm-menu-item">
+            <h2 class="hm-menu-link">People</h2>
+          </a>
+            <ul>
+              <li>person 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+        </div><!-- /sub-col -->
+
+        <div class="sub-col">
+
+        <a href="/supporting/context/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Backdrops</h2>
+        </a>
+             <ul>
+              <li>backdrop 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+
+      </div><!-- /sub-col -->
+
+    </div><!-- /hm-col-1 -->
+
+    <div class="hm-col-2">
+
+      <a href="/map/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Map</h2>
+      </a>
+            <ul>
+              <li>map</li>
+            </ul>
+
+    </div><!-- /hm-col-2 -->
+
+    <div class="hm-col-3">
+
+      <a href="/special/feature/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Special Features</h2>
+      </a>
+            <ul>
+              <li>special 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+
+      <div class="sub-col">
+
+        <a href="/supporting/evidenceitem/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Artifacts &amp; Documents</h2>
+        </a>
+            
+            <ul>
+              <li>evidence 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+
+      </div><!-- /sub-col -->
+
+      <div class="sub-col">
+        <a href="/themes/" class="hm-menu-item">
+          <h2 class="hm-menu-link">Themes</h2>
+        </a>
+
+            <ul>
+              <li>themes 1</li>
+              <li>story 2</li>
+              <li>story 3</li>
+            </ul>
+
+      </div><!-- /sub-col -->
+
+    </div><!-- /hm-col-3 -->
+
+  </div><!--/content-wrapper -->
+
+{% endblock full_page %}

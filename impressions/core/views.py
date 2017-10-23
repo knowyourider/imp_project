@@ -12,7 +12,6 @@ class HomeTemplateView(TemplateView):
         # regular home page
         template_name = 'index.html' 
 
-
 class IntroTemplateView(TemplateView):
     template_name = 'intro.html' 
 
@@ -36,23 +35,28 @@ class MobileFullMixin(DetailView):
     def get_context_data(self, **kwargs):
         context = super(MobileFullMixin, self).get_context_data(**kwargs)
 
-        # record referring path for full-screen back link
-        split_path = self.request.META['HTTP_REFERER'].split("/")
-        # e.g http://dev.dinotracksdiscovery.org/stories/refinement-edward-orra/7/
-        # key:   0/1/   2                       /   3   /       4              /5/
-        referring_path = "/".join(["", split_path[3], split_path[4], ""])
+        # determine whether this is from a (internal?) link with a referer
+        # if (self.request.META['HTTP_REFERER']):
+        try:
+            # record referring path for full-screen back link
+            split_path = self.request.META['HTTP_REFERER'].split("/")
+            # e.g http://dev.dinotracksdiscovery.org/stories/refinement-edward-orra/7/
+            # key:   0/1/   2                       /   3   /       4              /5/
+            referring_path = "/".join(["", split_path[3], split_path[4], ""])
 
-        # print(" --- referrer: " + self.request.META['HTTP_REFERER'])
-        # print(" --- split_path length: " + str(len(split_path)))
-        # print(" -- split_path[5]: " + split_path[5])
+            # print(" --- referrer: " + self.request.META['HTTP_REFERER'])
+            # print(" --- split_path length: " + str(len(split_path)))
+            # print(" -- split_path[5]: " + split_path[5])
 
-        # space after last / counts (also we're in non-index mode of counting re: length)
-        if len(split_path) > 6:
-            # "/".join([split_path[5], ""])
-            referring_path += split_path[5] + "/"
-            # not sure if we ever get here, but just in case
-            if len(split_path) > 7:
-                referring_path += split_path[6] + "/"
+            # space after last / counts (also we're in non-index mode of counting re: length)
+            if len(split_path) > 6:
+                # "/".join([split_path[5], ""])
+                referring_path += split_path[5] + "/"
+                # not sure if we ever get here, but just in case
+                if len(split_path) > 7:
+                    referring_path += split_path[6] + "/"
+        except KeyError:
+            referring_path = "/"
 
             
         # print(" --- referring_path: " + referring_path)
@@ -62,3 +66,21 @@ class MobileFullMixin(DetailView):
             'link_name': self.link_name})
         return context    
 
+class SitemapTemplateView(TemplateView):
+    template_name = 'sitemap.html' 
+
+    def get_context_data(self, **kwargs):
+        context = super(SitemapTemplateView, self).get_context_data(**kwargs)
+        # get the short name
+        # print(" -- **kwargs: " + kwargs['slug'])
+        page = "impressions"
+        # page = kwargs['slug']
+
+        # get supporting people list
+        
+
+        # add variables to context
+        context.update({'page': page })
+        return context
+
+    
