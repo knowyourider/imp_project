@@ -16,23 +16,45 @@
 
     <div class="hm-col-1">
 
-          <a href="/stories/" class="hm-menu-item">
-            <h2 class="hm-menu-link">Stories</h2>
+      <a href="/stories/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Stories</h2>
+      </a>
+      <ul>
+      {% for object in stories %}
+        <li>
+          <a href="{% url 'stories:story_detail' object.slug %}" target="from-map">
+            {{ object.title|safe }}
           </a>
-            <ul>
-              <li>story 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
-            </ul>
+        </li>
+      {% endfor %}
+      </ul>  
 
         <div class="sub-col">
-          <a href="/supporting/person/" class="hm-menu-item">
+          <a href="/supporting/person/" class="hm-menu-item" target="from-map">
             <h2 class="hm-menu-link">People</h2>
           </a>
             <ul>
-              <li>person 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
+              <li>Primary
+                <ul>
+                  {% for person in prime_peeps %}
+                    <li> - <a href="{% url 'supporting:person_detail' person.slug %}" target="from-map">{{ person.last_name }}, {{ person.first_name }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li>Secondary
+                <ul>
+                  {% for person in second_peeps %}
+                    <li> - {{ person.last_name }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li>Minor
+                <ul>
+                  {% for person in minor_peeps %}
+                    <li> - {{ person.last_name }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
             </ul>
         </div><!-- /sub-col -->
 

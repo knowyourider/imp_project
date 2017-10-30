@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from django.conf import settings
+from supporting.models import Person
+from stories.models import Story
 
 class HomeTemplateView(TemplateView):
     # template_name = 'index.html' 
@@ -76,11 +78,15 @@ class SitemapTemplateView(TemplateView):
         page = "impressions"
         # page = kwargs['slug']
 
+        context['stories'] = Story.objects.filter(status_num__gte=settings.STATUS_LEVEL)
         # get supporting people list
+        context['prime_peeps'] = Person.objects.filter(person_level=2)
+        context['second_peeps'] = Person.objects.filter(person_level=1)
+        context['minor_peeps'] = Person.objects.filter(person_level=0)
         
 
         # add variables to context
-        context.update({'page': page })
+        #context.update({'prime_peps': prime_peps, 'page': page  })
         return context
 
     
