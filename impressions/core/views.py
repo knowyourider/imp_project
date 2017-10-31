@@ -42,7 +42,7 @@ class MobileFullMixin(DetailView):
         try:
             # record referring path for full-screen back link
             split_path = self.request.META['HTTP_REFERER'].split("/")
-            # e.g http://dev.dinotracksdiscovery.org/stories/refinement-edward-orra/7/
+            # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/7/
             # key:   0/1/   2                       /   3   /       4              /5/
             referring_path = "/".join(["", split_path[3], split_path[4], ""])
 
@@ -50,17 +50,21 @@ class MobileFullMixin(DetailView):
             # print(" --- split_path length: " + str(len(split_path)))
             # print(" -- split_path[5]: " + split_path[5])
 
-            # space after last / counts (also we're in non-index mode of counting re: length)
+            # space after last / counts (also we're in non-index mode of counting 
+            # re: length)
             if len(split_path) > 6:
                 # "/".join([split_path[5], ""])
                 referring_path += split_path[5] + "/"
                 # not sure if we ever get here, but just in case
                 if len(split_path) > 7:
                     referring_path += split_path[6] + "/"
-        except KeyError:
+        except KeyError: # in the case of no referrer
+            referring_path = "/"
+        except IndexError:
+            # max index may be 2 
+            # e.g http://dinotracksdiscovery.org/ (home)
             referring_path = "/"
 
-            
         # print(" --- referring_path: " + referring_path)
 
         context.update({'extend_base': self.extend_base, 

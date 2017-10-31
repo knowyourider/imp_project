@@ -4,10 +4,11 @@ from . import views
 
 urlpatterns = [
     # aka Backgrounds
-    url(r'^context/$', views.ContextListView.as_view(paginate_by=20), name='context_list'),
-    url(r'^context/(?P<pk>[0-9]+)/$', views.ContextDetailView.as_view(), \
+    url(r'^context/$', views.ContextListView.as_view(paginate_by=20), 
+        name='context_list'),
+    url(r'^context/(?P<pk>[0-9]+)/$', views.ContextDetailView.as_view(), 
         name='context_detail_pk'),
-    url(r'^context/(?P<slug>\S+)/$', views.ContextDetailView.as_view(), \
+    url(r'^context/(?P<slug>\S+)/$', views.ContextDetailView.as_view(), 
         name='context_detail'),
 
     url(r'^full/context/(?P<slug>\S+)/$', 
@@ -24,7 +25,7 @@ urlpatterns = [
     url(r'^evidenceitem/(?P<pk>[0-9]+)/$', views.EvidenceItemDetailView.as_view(), 
         name='evidenceitem_detail_pk'),
     # supports ajax for both artifact and document pages
-    url(r'^evidence/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', \
+    url(r'^evidence/(?P<slug>\S+)/(?P<page_suffix>\S+)/$', 
         views.evidence_page, name='evidence_page_detail'),  
 
     # is_document_oriented evidenceitems need separate view that supplies 1st page
@@ -47,11 +48,25 @@ urlpatterns = [
 
     # --- PEOPLE
     url(r'^person/$', views.PersonListView.as_view(), name='person_list'),
-    url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), name='person_detail_pk'),
-    url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), name='person_detail'),
+    url(r'^person/(?P<pk>[0-9]+)/$', views.PersonDetailView.as_view(), 
+        name='person_detail_pk'),
+
+
+    url(r'^person/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), 
+        name='person_detail'),
     # full screen mobile
     url(r'^full/person/(?P<slug>\S+)/$', 
         views.FullPersonDetailView.as_view(), name='full_person_detail'),
+
+
+    # url(r'^person/ajax/(?P<slug>\S+)/$', views.PersonDetailView.as_view(), 
+    #     name='ajax_person_detail'),
+    # # full screen mobile
+    # url(r'^person/(?P<slug>\S+)/$', 
+    #     views.FullPersonDetailView.as_view(), name='person_detail'),
+
+
+
     #  full screen from swap fullpop
     url(r'^swapfull/person/(?P<slug>\S+)/$', 
         views.SwapFullPersonDetailView.as_view(), name='swapfull_person_detail'),
