@@ -16,6 +16,95 @@
 
     <div class="hm-col-1">
 
+      <a href="/supporting/context/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Backdrops</h2>
+      </a>
+       <ul>
+          {% for backdrop in backdrops %}
+            <li> - <a href="{% url 'supporting:context_detail' backdrop.slug %}">{{ backdrop.title }}</a></li>
+          {% endfor %}
+      </ul>
+
+     <a href="/special/feature/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Special Features</h2>
+      </a>
+
+      <p>Then and Now</p>
+      <ul>
+      {% for then in features.0.then_list %}
+        <li>
+          <a href="{% url 'special:then_detail' then.slug %}">
+           {{ then.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+
+      <p>Slideshows</p>
+      <ul>
+      {% for slideshow in features.0.slideshow_list %}
+        <li>
+          <a href="{% url 'special:slideshow_detail' slideshow.slug %}">
+           {{ slideshow.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+
+      <p>Videos</p>
+      <ul>
+      {% for video in features.0.video_list %}
+        <li>
+          <a href="{% url 'special:video_detail' video.slug %}">
+           {{ video.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+
+      <p>Activities</p>
+      {# one at a time for these, no loop #}
+      <ul>
+        <li>
+          <a href="{% url 'special:footprint_detail' 'find-footprints' %}">
+           Find the Footprints
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'special:explore_detail' 'jurassic-landscape' %}">
+           Late Triassic Landscape
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'special:society_detail' 'society-quiz' %}">
+           "Topics Under Consideration" Quiz
+          </a>
+        </li>
+      </ul>
+
+      <p>Voices</p>
+      <ul>
+      {% for voices in features.0.voices_list %}
+        <li>
+          <a href="{% url 'special:voices_detail' voices.slug %}">
+           {{ voices.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+
+      <p>Looking &amp; Seeing</p>
+      <ul>
+      {% for looking in features.0.looking_list %}
+        <li>
+          <a href="{% url 'special:looking_detail' looking.slug %}">
+           {{ looking.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+
+
       <a href="/stories/" class="hm-menu-item">
         <h2 class="hm-menu-link">Stories</h2>
       </a>
@@ -29,47 +118,15 @@
       {% endfor %}
       </ul>  
 
-        <div class="sub-col">
-          <a href="/supporting/person/" class="hm-menu-item" target="from-map">
-            <h2 class="hm-menu-link">People</h2>
-          </a>
-            <ul>
-              <li>Primary
-                <ul>
-                  {% for person in prime_peeps %}
-                    <li> - <a href="{% url 'supporting:person_detail' person.slug %}" target="from-map">{{ person.last_name }}, {{ person.first_name }}</a></li>
-                  {% endfor %}
-                </ul>
-              </li>
-              <li>Secondary
-                <ul>
-                  {% for person in second_peeps %}
-                    <li> - {{ person.last_name }}</li>
-                  {% endfor %}
-                </ul>
-              </li>
-              <li>Minor
-                <ul>
-                  {% for person in minor_peeps %}
-                    <li> - {{ person.last_name }}</li>
-                  {% endfor %}
-                </ul>
-              </li>
-            </ul>
-        </div><!-- /sub-col -->
+      <a href="/themes/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Themes</h2>
+      </a>
+          <ul>
+            <li>Theme 1</li>
+            <li>Theme 2</li>
+            <li>Theme 3</li>
+          </ul>
 
-        <div class="sub-col">
-
-        <a href="/supporting/context/" class="hm-menu-item">
-          <h2 class="hm-menu-link">Backdrops</h2>
-        </a>
-             <ul>
-              <li>backdrop 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
-            </ul>
-
-      </div><!-- /sub-col -->
 
     </div><!-- /hm-col-1 -->
 
@@ -78,50 +135,48 @@
       <a href="/map/" class="hm-menu-item">
         <h2 class="hm-menu-link">Map</h2>
       </a>
+      <a href="/supporting/person/" class="hm-menu-item" target="from-map">
+        <h2 class="hm-menu-link">People</h2>
+      </a>
+        <ul>
+          <li>Primary
             <ul>
-              <li>map</li>
+              {% for person in prime_peeps %}
+                <li> - <a href="{% url 'supporting:person_detail' person.slug %}">{{ person.title }}</a></li>
+              {% endfor %}
             </ul>
+          </li>
+          <li>Secondary
+            <ul>
+              {% for person in second_peeps %}
+                <li> - <a href="{% url 'supporting:person_detail' person.slug %}">{{ person.last_name }}, {{ person.first_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li>Minor
+            <ul>
+              {% for person in minor_peeps %}
+                <li> - <a href="{% url 'supporting:person_detail' person.slug %}">{{ person.last_name }}, {{ person.first_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
 
     </div><!-- /hm-col-2 -->
 
     <div class="hm-col-3">
 
-      <a href="/special/feature/" class="hm-menu-item">
-        <h2 class="hm-menu-link">Special Features</h2>
+      <a href="/supporting/evidenceitem/" class="hm-menu-item">
+        <h2 class="hm-menu-link">Artifacts &amp; Documents</h2>
       </a>
-            <ul>
-              <li>special 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
-            </ul>
-
-      <div class="sub-col">
-
-        <a href="/supporting/evidenceitem/" class="hm-menu-item">
-          <h2 class="hm-menu-link">Artifacts &amp; Documents</h2>
-        </a>
-            
-            <ul>
-              <li>evidence 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
-            </ul>
-
-      </div><!-- /sub-col -->
-
-      <div class="sub-col">
-        <a href="/themes/" class="hm-menu-item">
-          <h2 class="hm-menu-link">Themes</h2>
-        </a>
-
-            <ul>
-              <li>themes 1</li>
-              <li>story 2</li>
-              <li>story 3</li>
-            </ul>
-
-      </div><!-- /sub-col -->
-
+          
+      <ul>
+          {% for evidenceitem in evidenceitems %}
+            <li> - <a href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
+            {{ evidenceitem.title }}</a></li>
+          {% endfor %}
+      </ul>
+ 
     </div><!-- /hm-col-3 -->
 
   </div><!--/content-wrapper -->

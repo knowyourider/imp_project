@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from django.conf import settings
-from supporting.models import Person
+from supporting.models import Person, Context, EvidenceItem
+from special.models import Feature
 from stories.models import Story
 
 class HomeTemplateView(TemplateView):
@@ -47,34 +48,50 @@ class MobileFullMixin(DetailView):
         try:
             # record referring path for full-screen back link
             split_path = self.request.META['HTTP_REFERER'].split("/")
+
+            # determin whether ref is from within dinotracks
             # e.g http://dinotracksdiscovery.org/sitemap/
-            # key:   0/1/   2                   /   3   /  
-            referring_path = "/".join(["", split_path[3], ""]) # , ""
-            # print(" --- referrer: " + self.request.META['HTTP_REFERER'])
-            # print(" --- split_path length: " + str(len(split_path)))
-            # print(" -- split_path[5]: " + split_path[5])
+            base_url = split_path[2] 
+            # e.g. dinotracksdiscovery.org , http://127.0.0.1:8000
 
-            if len(split_path) > 5:
-                # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/
-                # key:   0/1/   2                   /   3   /       4              /
-                # space after last / counts (also we're in non-index mode of counting 
-                # re: length)
-                referring_path += split_path[4] + "/"
+            # print(" ---- split_path[2]: " + split_path[2])
+            print(" -- domain: " + base_url.split(".")[-2])
 
-                if len(split_path) > 6:
-                    # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/7/
-                    # key:   0/1/   2                   /   3   /       4              /5/
-                    # "/".join([split_path[5], ""])
-                    referring_path += split_path[5] + "/"
-                    # not sure if we ever get here, but just in case
-                    if len(split_path) > 7:
-                        referring_path += split_path[6] + "/"
+            # if (base_url.split(".")[-2] == "dinotracksdiscovery" ):
+            if (base_url.split(".")[-2] == "0" ):
+                # within site
+                # e.g http://dinotracksdiscovery.org/sitemap/
+                # key:   0/1/   2                   /   3   /  
+                referring_path = "/".join(["", split_path[3], ""]) # , ""
+                # print(" --- referrer: " + self.request.META['HTTP_REFERER'])
+                # print(" --- split_path length: " + str(len(split_path)))
+                # print(" -- split_path[5]: " + split_path[5])
+
+                if len(split_path) > 5:
+                    # e.g http://dinotracksdiscovery.org/stories/refinement/
+                    # key:   0/1/   2                   /   3   /       4  /
+                    # space after last / counts (also we're in non-index mode of  
+                    # counting re: length)
+                    referring_path += split_path[4] + "/"
+
+                    if len(split_path) > 6:
+                        # e.g http://dinotracksdiscovery.org/stories/refinement/7/
+                        # key:   0/1/   2                   /   3   /       4  /5/
+                        # "/".join([split_path[5], ""])
+                        referring_path += split_path[5] + "/"
+                        # not sure if we ever get here, but just in case
+                        if len(split_path) > 7:
+                            referring_path += split_path[6] + "/"
+            else:
+                # refed from external site
+                referring_path = "https://dinotracksdiscovery.org"
+
         except KeyError: # in the case of no referrer
-            referring_path = "/"
+            referring_path = "https://dinotracksdiscovery.org"
         except IndexError:
             # max index may be 2 
             # e.g http://dinotracksdiscovery.org/ (home)
-            referring_path = "/"
+            referring_path = "https://dinotracksdiscovery.org"
 
         # print(" --- referring_path: " + referring_path)
 
@@ -93,15 +110,22 @@ class SitemapTemplateView(TemplateView):
         page = "impressions"
         # page = kwargs['slug']
 
-        context['stories'] = Story.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+        context['stories'] = \
+            Story.objects.filter(status_num__gte=settings.STATUS_LEVEL)
         # get supporting people list
         context['prime_peeps'] = Person.objects.filter(person_level=2)
         context['second_peeps'] = Person.objects.filter(person_level=1)
-        context['minor_peeps'] = Person.objects.filter(person_level=0)
-        
+        context['minor_peeps'] = Person.objects.filter(person_level=0, 
+            status_num__gte=settings.STATUS_LEVEL)
+        # remaining supporting
+        context['backdrops'] = \
+            Context.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+        context['evidenceitems'] = \
+            EvidenceItem.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+        context['features'] = \
+            Feature.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+
 
         # add variables to context
         #context.update({'prime_peps': prime_peps, 'page': page  })
         return context
-
-    
