@@ -57,8 +57,8 @@ class MobileFullMixin(DetailView):
             # print(" ---- split_path[2]: " + split_path[2])
             print(" -- domain: " + base_url.split(".")[-2])
 
-            # if (base_url.split(".")[-2] == "dinotracksdiscovery" ):
-            if (base_url.split(".")[-2] == "0" ):
+            if (base_url.split(".")[-2] == "dinotracksdiscovery" ):
+            # if (base_url.split(".")[-2] == "0" ):
                 # within site
                 # e.g http://dinotracksdiscovery.org/sitemap/
                 # key:   0/1/   2                   /   3   /  
