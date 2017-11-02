@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<div class="content-wrapper menus">
+  <h1 class="main-title">Impressions From a Lost World</h1>
+  <h3><em class="subtitle">In which mysterious footprints are discovered in the rock in 19th century New England, are closely examined, and are concluded to be the tracks of an extinct race of gigantic birds that we now know as dinosaurs.</em></h3>
+
+  <p>This website explores the mid-19th century discovery of strange, 3-toed footprints, later understood as dinosaur tracks, in the Connecticut River Valley in Massachusetts and Connecticut. The significance of this first scientific discovery extended far beyond the emerging scientific community, with implications that had a profound effect not only on science but also on American religion, arts, and culture.</p>
+
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/jurassic-landscape.jpg' %}">
+      <p class="caption text">The Connecticut River Valley as it might have looked 250,000,000 years ago when dinosaurs roamed the area.</p>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/sillin-track-detail.jpg' %}">
+      <p class="caption text">Dinosaurs walking in the Jurassic mud left behind tracks...</p>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/track-slab.jpg' %}">
+      <p class="caption text">...that over time hardened into fossils and then were covered with millions of years worth of sediment.</p>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/expanding-world.jpg' %}">
+      <p class="caption text">In 1835, while laying sidewalk stones in Greenfield, Massachusetts, Dexter Marsh uncovered the curious marks.</p>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/peckham.jpg' %}">
+      <p class="caption text">Edward Hitchcock studied these marks, and published articles and gave lectures about them.</p>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{% static 'images/orra-tracks.jpg' %}">
+      <p class="caption text">Orra Hitchcock's drawings helped to spread the knowledge and to change the understanding of the Earth's deep past.</p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center">
+    <span class="dot" name="1"></span> 
+    <span class="dot" name="2"></span> 
+    <span class="dot" name="3"></span> 
+    <span class="dot" name="4"></span> 
+    <span class="dot" name="5"></span> 
+    <span class="dot" name="6"></span> 
+  </div>
+
+</div>
+<script src="{% static 'js/intro-slideshow.js' %}" type="text/javascript"></script>

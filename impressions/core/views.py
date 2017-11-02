@@ -17,6 +17,11 @@ class HomeTemplateView(TemplateView):
 class IntroTemplateView(TemplateView):
     template_name = 'intro.html' 
 
+# a place-holder -- not triggered by js because there is no "mobile menu"
+# to be visible or not. But could be found by google.
+class FullIntroTemplateView(TemplateView):
+    template_name = 'intro_full.html' 
+
 class TeamHomeTemplateView(TemplateView):
     template_name = 'team_index.html' 
 
@@ -42,22 +47,28 @@ class MobileFullMixin(DetailView):
         try:
             # record referring path for full-screen back link
             split_path = self.request.META['HTTP_REFERER'].split("/")
-            # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/7/
-            # key:   0/1/   2                       /   3   /       4              /5/
-            referring_path = "/".join(["", split_path[3], split_path[4], ""])
-
+            # e.g http://dinotracksdiscovery.org/sitemap/
+            # key:   0/1/   2                   /   3   /  
+            referring_path = "/".join(["", split_path[3], ""]) # , ""
             # print(" --- referrer: " + self.request.META['HTTP_REFERER'])
             # print(" --- split_path length: " + str(len(split_path)))
             # print(" -- split_path[5]: " + split_path[5])
 
-            # space after last / counts (also we're in non-index mode of counting 
-            # re: length)
-            if len(split_path) > 6:
-                # "/".join([split_path[5], ""])
-                referring_path += split_path[5] + "/"
-                # not sure if we ever get here, but just in case
-                if len(split_path) > 7:
-                    referring_path += split_path[6] + "/"
+            if len(split_path) > 5:
+                # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/
+                # key:   0/1/   2                   /   3   /       4              /
+                # space after last / counts (also we're in non-index mode of counting 
+                # re: length)
+                referring_path += split_path[4] + "/"
+
+                if len(split_path) > 6:
+                    # e.g http://dinotracksdiscovery.org/stories/refinement-edward-orra/7/
+                    # key:   0/1/   2                   /   3   /       4              /5/
+                    # "/".join([split_path[5], ""])
+                    referring_path += split_path[5] + "/"
+                    # not sure if we ever get here, but just in case
+                    if len(split_path) > 7:
+                        referring_path += split_path[6] + "/"
         except KeyError: # in the case of no referrer
             referring_path = "/"
         except IndexError:

@@ -8,15 +8,11 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>{% block title %}Impressions - {{ object.title }} {% endblock %}</title>
+  <title>Impressions - Introduction</title>
 
-	{% block stylesheets %}
     <link rel="stylesheet" href="{% static 'css/application.css' %}" type="text/css"/>
     <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 
-  {% endblock stylesheets %}
-
-  {% block javascript %}
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     
     <script type="text/javascript">
@@ -25,37 +21,17 @@
       }
     </script>
 
-    <script src="{% static 'js/d3.min.js' %}" type="text/javascript"></script>
-
-    <script src="{% static 'js/application.js' %}" type="text/javascript"></script>
-
-    <!-- for looking and seeing -->
-    <script src="{% static 'js/jquery.jplayer.js' %}" type="text/javascript"></script>
-
-    <!-- for zoom, include only on evidence slim? -->
-    <script type="text/javascript" src="{% static 'js/ZoomifyImageViewerPro-min.js' %}"></script>
-
-  {% endblock javascript %}
-
+    <!-- <script src="{% static 'js/application.js' %}" type="text/javascript"></script> -->
 </head>
 
 <body>
 
 <div id="slimpop-wrapper">
   <div class="slim-border">
-    <!-- <p class="slimpop-close"><a href='javascript:window.history.back();'>back</a>    -->
-    <p class="slimpop-close"><a href="{{ referring_path }}">
-      {% if referring_path == "/" %}Impressions Home{% else %}back{% endif %}
-      </a>
-    </p>
+    <p class="slimpop-close"><a href="https://dinotracksdiscovery.org">Impressions Home</a></p>
     
     <div id="fullpop_content_wrapper">
-  	  <h4 class="heading slim-subhead">{% block heading %}{{ object.content_type.plural_title }}{% endblock %}</h4>
-  		<h1 class="slim-title">{% block item_title %}content type title{% endblock %}</h1>
-      
-      {% block slim_content%}
-        slim content
-      {% endblock slim_content %} 
+        {% include "_intro.html" %}
       
     </div> <!-- fullpop_content_wrapper -->
 

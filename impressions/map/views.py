@@ -4,7 +4,7 @@ from django.http import JsonResponse, HttpResponse
 # import json
 from django.core import serializers
 from .models import Layer, Overlay
-
+from core.views import MobileFullMixin
 
 # class MapListView(ListView):
 #     model = Layer
@@ -43,10 +43,15 @@ class MapDeeperView(DetailView):
 #         return get_object_or_404(Overlay, layer_index=self.kwargs['layer_index'])
 
 
-class MapAboutView(DetailView):
+class MapAboutView(MobileFullMixin, DetailView):
     model = Overlay
     # context_object_name = 'object'
     # template_name = 'map/overlay_detail.html' 
+
+class FullMapAboutView(MapAboutView):
+    extend_base = 'supporting/base_detail_full.html'
+    link_name = 'swapfull_'
+    link_class = 'swap_fullpop'
 
 
 def layer_sites(request, slug):

@@ -18,21 +18,33 @@ $(document).ready(function(){
     var slimpopSizeClass = href_split[2];
 
     // console.log(" -- slim class size: " + slimpopSizeClass);
+    console.log(" -- href_split length: " + href_split.length);
 
     // for mobile special and supporting items  then insert "/full" into path
     // e.g. /special/footprint/find-footprints/
     //     0/   1   /   2     /     3         / 4
-    if ($('#js-top-navigation-mobile-menu').is(":visible"))  {
-      if (href_split[1] == "special" || href_split[1] == "supporting"){
-        var fullHref = "/" + href_split[1] + "/full/" + href_split[2] + "/" + href_split[3] + "/";
-        // e.g. /special/full/footprint/find-footprints/
-        // console.log(" -- fullHref: " + fullHref);
-        window.location.href = fullHref;        
-      }
+
+
+    if ($('#js-top-navigation-mobile-menu').is(":visible"))  { // in mobile mode
+      // use "regular" url which calls full view
+        window.location.href = chosen_href;        
     } else {
       // call ajax for the slim pop. (href, size class)
-      slimPop(chosen_href, slimpopSizeClass);  
+      var ajaxHref = "/" + href_split[1] + "/ajax/" + href_split[2] + "/" + 
+        href_split[3] + "/";
+      // had this condition to accomodate home/intro having only two elements
+      // but ran into trouble testing length bcz most have trailing / but not fast facts
+      // var ajaxHref = "/" + href_split[1] + "/ajax/" + href_split[2] + "/";
+      // // everything except home Learn more is greater than 4
+      // if (href_split.length > 4) {
+      //   ajaxHref += href_split[3] + "/";  
+      // }
+      // e.g. /special/ajax/footprint/find-footprints/
+      // console.log(" -- ajaxHref: " + fullHref);
+
+      slimPop(ajaxHref, slimpopSizeClass);  
     }
+
 
   });
 
@@ -376,17 +388,3 @@ function getURL(theURL, contentDiv) {
   });
 }
 
-// --------- PRINT ------
-// print slim box, NB: zoomify image on evidence slims don't print so we display: none'd #item-viewer which also disappears transcription...not ideal.
-// function divPrint(divName) {
-//   var DocumentContainer = document.getElementById(divName);
-//   var WindowObject = window.open("", "PrintWindow", "width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
-
-//   var virtualPage = '<html><head><style media="screen" type="text/css"> body {font-size: 1em; line-height: 1.5em; padding: 2em;}  h1, h2, h3, h4, dl, dt, dd {color: #000000;} img {max-height: 100px;} p.slimpop-close, #document-paging, #toggle-transcription, #item-viewer {display: none;} dt {font-weight: bold; margin-top: 1em; }</style><style media="print" type="text/css"> body {color: #000000; font-size: 1em; line-height: 1.5em; padding: 2em;} h1, h2, h3, h4 {line-height: 1.5em;} img {max-height: 500px; float: left; margin-right: 2em; } p.slimpop-close, #document-paging, #toggle-transcription, #item-viewer {display: none;} dt {font-weight: bold; margin-top: 1em;} </style></head><body>' + DocumentContainer.innerHTML + '</body></html> ';
-
-//   WindowObject.document.writeln(virtualPage);  
-//   WindowObject.document.close();
-//   WindowObject.focus();
-//   WindowObject.print();
-//   WindowObject.close();
-// }
