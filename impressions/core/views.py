@@ -4,6 +4,7 @@ from django.conf import settings
 from supporting.models import Person, Context, EvidenceItem
 from special.models import Feature
 from stories.models import Story
+from themes.models import Theme
 
 class HomeTemplateView(TemplateView):
     # template_name = 'index.html' 
@@ -101,7 +102,7 @@ class MobileFullMixin(DetailView):
         return context    
 
 class SitemapTemplateView(TemplateView):
-    template_name = 'sitemap.html' 
+    template_name = 'sitemap.xml' 
 
     def get_context_data(self, **kwargs):
         context = super(SitemapTemplateView, self).get_context_data(**kwargs)
@@ -112,6 +113,8 @@ class SitemapTemplateView(TemplateView):
 
         context['stories'] = \
             Story.objects.filter(status_num__gte=settings.STATUS_LEVEL)
+        context['themes'] = \
+            Theme.objects.filter(status_num__gte=settings.STATUS_LEVEL)
         # get supporting people list
         context['prime_peeps'] = Person.objects.filter(person_level=2)
         context['second_peeps'] = Person.objects.filter(person_level=1)

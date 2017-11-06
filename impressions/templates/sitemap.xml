@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+	<!-- Stories -->
+  {% for object in stories %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'stories:story_detail' object.slug %}"></loc>
+		<priority>0.8</priority>
+	</url>
+  {% endfor %}
+
+	<!-- Themes -->
+  {% for object in themes %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'themes:theme_detail' object.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Map -->
+	<url>
+		<loc>https://dinotracksdiscovery.org/map/detail/"></loc>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://dinotracksdiscovery.org/map/"></loc>
+		<priority>0.8</priority>
+	</url>
+
+	<!-- Backdrops -->
+  {% for backdrop in backdrops %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:context_detail' backdrop.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Then and Now -->
+  {% for then in features.0.then_list %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:then_detail' then.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Backdrops -->
+  {% for backdrop in backdrops %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:context_detail' backdrop.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Slideshows -->
+  {% for slideshow in features.0.slideshow_list %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:slideshow_detail' slideshow.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Backdrops -->
+  {% for backdrop in backdrops %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:context_detail' backdrop.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Activities -->
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:footprint_detail' 'find-footprints' %}"></loc>
+	</url>
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:explore_detail' 'jurassic-landscape' %}"></loc>
+	</url>
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:society_detail' 'society-quiz' %}"></loc>
+	</url>
+
+	<!-- Voices -->
+  {% for voices in features.0.voices_list %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:voices_detail' voices.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- Looking and Seeing -->
+  {% for looking in features.0.looking_list %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'special:looking_detail' looking.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- People - primary -->
+  {% for person in prime_peeps %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:person_detail' person.slug %}"></loc>
+		<priority>0.7</priority>
+	</url>
+  {% endfor %}
+
+	<!-- People - secondary -->
+  {% for person in second_peeps %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:person_detail' person.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+	<!-- People - minor -->
+  {% for person in minor_peeps %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:person_detail' person.slug %}"></loc>
+		<priority>0.4</priority>
+	</url>
+  {% endfor %}
+
+	<!-- Artifacts and Documents -->
+  {% for evidenceitem in evidenceitems %}  
+	<url>
+		<loc>https://dinotracksdiscovery.org{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}"></loc>
+	</url>
+  {% endfor %}
+
+
+</urlset> 
