@@ -5,32 +5,32 @@
 	<!-- Stories -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/refinement-edward-orra/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/refinement-edward-orra/</loc>
 		<priority>0.8</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/working-together/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/working-together/</loc>
 		<priority>0.8</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/spreading-gospel/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/spreading-gospel/</loc>
 		<priority>0.8</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/noahs-raven/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/noahs-raven/</loc>
 		<priority>0.8</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/expanding-world/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/expanding-world/</loc>
 		<priority>0.8</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/stories/whose-discovery/"></loc>
+		<loc>https://dinotracksdiscovery.org/stories/whose-discovery/</loc>
 		<priority>0.8</priority>
 	</url>
   
@@ -38,1020 +38,482 @@
 	<!-- Themes -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/women-science/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/women-science/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/fossil-interpretation/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/fossil-interpretation/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/impressions-culture/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/impressions-culture/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/subduing-earth/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/subduing-earth/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/unity-knowledge/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/unity-knowledge/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/world-they-knew/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/world-they-knew/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/themes/owns-science/"></loc>
+		<loc>https://dinotracksdiscovery.org/themes/owns-science/</loc>
 	</url>
   
 
 	<!-- Map -->
 	<url>
-		<loc>https://dinotracksdiscovery.org/map/detail/"></loc>
+		<loc>https://dinotracksdiscovery.org/map/detail/</loc>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://dinotracksdiscovery.org/map/"></loc>
+		<loc>https://dinotracksdiscovery.org/map/</loc>
 		<priority>0.8</priority>
 	</url>
 
 	<!-- Backdrops -->
+	<url>
+		<loc>https://dinotracksdiscovery.org/supporting/context/</loc>
+	</url>
+
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/post-office/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/post-office/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/yale-college/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/yale-college/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geologists-footprints/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/geologists-footprints/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/deerfield-academy/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/deerfield-academy/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cabinets-curiosities/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/cabinets-curiosities/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bsnh/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/bsnh/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/abolition-new-england/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/abolition-new-england/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geo-soc-london/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/geo-soc-london/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/doyle-lost-world/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/doyle-lost-world/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-illustrators/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/women-illustrators/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/footprints-fossils/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/footprints-fossils/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-death/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-death/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-movement/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/women-movement/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/schoolgirl-art/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/schoolgirl-art/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/academy-movement/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/academy-movement/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/lyceum-movement/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/lyceum-movement/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/botany-new-world/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/botany-new-world/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/invention-photography/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/invention-photography/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-19th-century/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/geology-19th-century/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-education/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/religion-education/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/smithsonian/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/smithsonian/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/scientific-agriculture/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/scientific-agriculture/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mount-holyoke/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/mount-holyoke/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/glacial-lake/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/glacial-lake/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/raven-ark/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/raven-ark/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/poetry-middle-class/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/poetry-middle-class/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/taxonomy/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/taxonomy/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/catastrophism-uniformitarianism/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/catastrophism-uniformitarianism/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/wadsworth-athenaeum/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/wadsworth-athenaeum/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/comets/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/comets/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-new-england/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/religion-new-england/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/neptunism-volcanism/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/neptunism-volcanism/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/dickinson-volcanoes/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/dickinson-volcanoes/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/hitchcock-glaciers/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/hitchcock-glaciers/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/getting-around/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/getting-around/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-sexuality/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-sexuality/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/literary-societies/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/literary-societies/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/world-travel/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/world-travel/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/libraries/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/libraries/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/natural-theology/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/natural-theology/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/calvinism/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/calvinism/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/the-sublime/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/the-sublime/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/roads-glen-roy/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/roads-glen-roy/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mammoth-bones/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/mammoth-bones/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/aaas/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/aaas/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/springfield-republican-newspaper/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/springfield-republican-newspaper/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/british-association-science/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/british-association-science/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bridgewater/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/bridgewater/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/giants-causeway/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/giants-causeway/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/pocumtuck-mount-sugarloaf/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/pocumtuck-mount-sugarloaf/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/fossils-native-americans/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/fossils-native-americans/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/american-journal-science/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/american-journal-science/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college-museums/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college-museums/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/engineering-marvels/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/engineering-marvels/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-theater/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-theater/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/popular-press/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/popular-press/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/feminine-role-coloring/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/feminine-role-coloring/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middlebury-college/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/middlebury-college/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/temperance/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/temperance/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mid-19thc-europe/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/mid-19thc-europe/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-geology/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/religion-geology/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-ambition/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-ambition/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-southern-england/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/geology-southern-england/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middle-class-marks/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/middle-class-marks/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/blunt-challenge/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/blunt-challenge/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/great-awakening/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/great-awakening/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cookbooks/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/context/cookbooks/</loc>
 	</url>
   
 
+	<!-- special features -->
+	<url>
+		<loc>https://dinotracksdiscovery.org/special/feature/</loc>
+	</url>
 	<!-- Then and Now -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/then/sugarloaf/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/then/sugarloaf/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/then/turners-falls-dam/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/then/turners-falls-dam/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/then/da-mem-hall/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/then/da-mem-hall/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/then/fossil-exhibit/"></loc>
-	</url>
-  
-
-	<!-- Backdrops -->
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/post-office/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/yale-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geologists-footprints/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/deerfield-academy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cabinets-curiosities/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bsnh/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/abolition-new-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geo-soc-london/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/doyle-lost-world/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-illustrators/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/footprints-fossils/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-death/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/schoolgirl-art/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/academy-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/lyceum-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/botany-new-world/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/invention-photography/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-19th-century/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-education/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/smithsonian/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/scientific-agriculture/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mount-holyoke/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/glacial-lake/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/raven-ark/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/poetry-middle-class/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/taxonomy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/catastrophism-uniformitarianism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/wadsworth-athenaeum/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/comets/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-new-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/neptunism-volcanism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/dickinson-volcanoes/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/hitchcock-glaciers/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/getting-around/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-sexuality/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/literary-societies/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/world-travel/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/libraries/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/natural-theology/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/calvinism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/the-sublime/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/roads-glen-roy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mammoth-bones/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/aaas/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/springfield-republican-newspaper/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/british-association-science/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bridgewater/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/giants-causeway/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/pocumtuck-mount-sugarloaf/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/fossils-native-americans/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/american-journal-science/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college-museums/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/engineering-marvels/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-theater/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/popular-press/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/feminine-role-coloring/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middlebury-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/temperance/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mid-19thc-europe/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-geology/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-ambition/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-southern-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middle-class-marks/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/blunt-challenge/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/great-awakening/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cookbooks/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/then/fossil-exhibit/</loc>
 	</url>
   
 
 	<!-- Slideshows -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-botanicals/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-botanicals/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-landscapes/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-landscapes/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/representing-fossil-footprints/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/representing-fossil-footprints/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-classroom-art/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/orra-classroom-art/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/dinosaur-types/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/dinosaur-types/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/sillin-dinosaurs/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/sillin-dinosaurs/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/school-girl-art/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/school-girl-art/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/oxbow/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/oxbow/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/slideshow/what-taught/"></loc>
-	</url>
-  
-
-	<!-- Backdrops -->
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/post-office/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/yale-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geologists-footprints/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/deerfield-academy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cabinets-curiosities/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bsnh/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/abolition-new-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geo-soc-london/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/doyle-lost-world/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-illustrators/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/footprints-fossils/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-death/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/women-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/schoolgirl-art/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/academy-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/lyceum-movement/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/botany-new-world/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/invention-photography/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-19th-century/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-education/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/smithsonian/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/scientific-agriculture/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mount-holyoke/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/glacial-lake/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/raven-ark/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/poetry-middle-class/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/taxonomy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/catastrophism-uniformitarianism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/wadsworth-athenaeum/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/comets/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-new-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/neptunism-volcanism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/dickinson-volcanoes/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/hitchcock-glaciers/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/getting-around/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-sexuality/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/literary-societies/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/world-travel/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/libraries/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/natural-theology/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/calvinism/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/the-sublime/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/roads-glen-roy/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mammoth-bones/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/aaas/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/springfield-republican-newspaper/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/british-association-science/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/bridgewater/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/giants-causeway/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/pocumtuck-mount-sugarloaf/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/fossils-native-americans/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/american-journal-science/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/amherst-college-museums/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/engineering-marvels/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-theater/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/popular-press/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/feminine-role-coloring/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middlebury-college/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/temperance/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/mid-19thc-europe/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/religion-geology/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/puritan-ambition/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/geology-southern-england/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/middle-class-marks/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/blunt-challenge/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/great-awakening/"></loc>
-	</url>
-    
-	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/context/cookbooks/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/slideshow/what-taught/</loc>
 	</url>
   
 
 	<!-- Activities -->
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/footprint/find-footprints/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/footprint/find-footprints/</loc>
 	</url>
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/explore/jurassic-landscape/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/explore/jurassic-landscape/</loc>
 	</url>
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/society/society-quiz/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/society/society-quiz/</loc>
 	</url>
 
 	<!-- Voices -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/ideal-wife-letter-excerpt/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/ideal-wife-letter-excerpt/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-faith/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-faith/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-gfr-mantellian/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-gfr-mantellian/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/EH-1821-love-poem/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/EH-1821-love-poem/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-rw-buckland/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-rw-buckland/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-smith-Mantellian/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-smith-Mantellian/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-anon-wife/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-anon-wife/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-volcanoes/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-volcanoes/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-eh-sandstone-bird/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-eh-sandstone-bird/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-savants/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/poem-ed-savants/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/voices/test-voice/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/voices/test-voice/</loc>
 	</url>
   
 
 	<!-- Looking and Seeing -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/looking/cole-subsiding/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/looking/cole-subsiding/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/special/looking/erratics/"></loc>
+		<loc>https://dinotracksdiscovery.org/special/looking/erratics/</loc>
 	</url>
   
 
+	<!-- People -->
+	<url>
+		<loc>https://dinotracksdiscovery.org/supporting/person/</loc>
+	</url>
 	<!-- People - primary -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/james-deane/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/james-deane/</loc>
 		<priority>0.7</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/edward-hitchcock/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/edward-hitchcock/</loc>
 		<priority>0.7</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/orra-hitchcock/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/orra-hitchcock/</loc>
 		<priority>0.7</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/dexter-marsh/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/dexter-marsh/</loc>
 		<priority>0.7</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/benjamin-silliman/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/benjamin-silliman/</loc>
 		<priority>0.7</priority>
 	</url>
   
@@ -1059,1006 +521,1009 @@
 	<!-- People - secondary -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/louis-agassiz/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/louis-agassiz/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/mary-anning/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/mary-anning/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-bouve/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-bouve/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/henry-bowditch/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/henry-bowditch/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/william-buckland/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/william-buckland/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-cole/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-cole/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/georges-cuvier/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/georges-cuvier/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charles-darwin/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charles-darwin/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/emily-dickinson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/emily-dickinson/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/roswell-field/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/roswell-field/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/augustus-gould/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/augustus-gould/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/asa-gray/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/asa-gray/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/oliver-holmes/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/oliver-holmes/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/epaphras-hoyt/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/epaphras-hoyt/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/lorenzo-langstroth/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/lorenzo-langstroth/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/hw-longfellow/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/hw-longfellow/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/mary-lyell/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/mary-lyell/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charles-lyell/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charles-lyell/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/mary-lyon/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/mary-lyon/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/gideon-mantell/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/gideon-mantell/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/hugh-miller/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/hugh-miller/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/pliny-moody/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/pliny-moody/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/roderick-murchison/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/roderick-murchison/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/richard-owen/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/richard-owen/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/adam-sedgewick/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/adam-sedgewick/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/jc-warren/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/jc-warren/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/jeffries-wyman/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/jeffries-wyman/</loc>
 	</url>
   
 
 	<!-- People - minor -->
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/elizabeth-agassiz/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/elizabeth-agassiz/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/jacob-bigelow/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/jacob-bigelow/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/amariah-brigham/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/amariah-brigham/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/mary-buckland/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/mary-buckland/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charles-daubeny/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charles-daubeny/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/austin-dickinson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/austin-dickinson/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/arthur-conan-doyle/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/arthur-conan-doyle/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/william-draper/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/william-draper/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/asher-durand/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/asher-durand/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/elihu-dwight/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/elihu-dwight/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/amos-eaton/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/amos-eaton/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/ralph-emerson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/ralph-emerson/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/ebenezer-emmons/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/ebenezer-emmons/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/james-hall/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/james-hall/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/george-herbert/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/george-herbert/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/tw-higginson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/tw-higginson/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-huxley/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/thomas-huxley/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charles-jackson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charles-jackson/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/richard-lull/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/richard-lull/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/maryann-mantell/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/maryann-mantell/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/lydia-miller/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/lydia-miller/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charlotte-murchison/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charlotte-murchison/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/chas-w-peale/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/chas-w-peale/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/robert-peckham/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/robert-peckham/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/william-redfield/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/william-redfield/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/charles-shepard/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/charles-shepard/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/john-pye-smith/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/john-pye-smith/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/timothy-stoughton/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/timothy-stoughton/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/daniel-wadsworth/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/daniel-wadsworth/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/wm-whiston/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/wm-whiston/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/samuel-willard/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/samuel-willard/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/mr-wilson/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/mr-wilson/</loc>
 		<priority>0.4</priority>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/person/czar-nicholas-I/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/person/czar-nicholas-I/</loc>
 		<priority>0.4</priority>
 	</url>
   
 
 	<!-- Artifacts and Documents -->
+	<url>
+		<loc>https://dinotracksdiscovery.org/supporting/evidenceitem/</loc>
+	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/peale-mastodon-painting/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/peale-mastodon-painting/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-silliman-letter-1848/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-silliman-letter-1848/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/greenfield-map-1855/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/greenfield-map-1855/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/marsh-slabs/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/marsh-slabs/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/geology-newsstory/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/geology-newsstory/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/astro-device/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/astro-device/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/czar-fossils/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/czar-fossils/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/marsh-cradle/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/marsh-cradle/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/tough-stories-4-3-1835/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/tough-stories-4-3-1835/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/elephant-greenfield/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/elephant-greenfield/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/bsnh-marsh-auction/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/bsnh-marsh-auction/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/clay-hill/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/clay-hill/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/lyell-elements/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/lyell-elements/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/book-warren-remarks/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/book-warren-remarks/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/visitors-book/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/visitors-book/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-probate/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-probate/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-moody/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-moody/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-auction-poster/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-auction-poster/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/photo-hitchcock-full-length/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/photo-hitchcock-full-length/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-landscape-confluence/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-landscape-confluence/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/boys-boots/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/boys-boots/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-cross-section/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-cross-section/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-middletown-slab/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-middletown-slab/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-rainy-day/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-rainy-day/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-mudcracks-underprints/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-mudcracks-underprints/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/funghi-picti/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/funghi-picti/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/lyceum-poster/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/lyceum-poster/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/orra-herbarium/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/orra-herbarium/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/love-note-charissa/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/love-note-charissa/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/orra-math-notebook/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/orra-math-notebook/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-skeleton/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-skeleton/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/dexter-grave/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/dexter-grave/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/sandstone-bird/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/sandstone-bird/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-grave/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-grave/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-amherst-campus/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-amherst-campus/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/diary-owh-1850-vol-one/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/diary-owh-1850-vol-one/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/diary-eh-1850/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/diary-eh-1850/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-worm-burrows/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-worm-burrows/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/thanksgiving-sermon-1821/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/thanksgiving-sermon-1821/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-with-outlines/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-with-outlines/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/geological-hammer/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/geological-hammer/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/poem-eh-spring/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/poem-eh-spring/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-jd-answer/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-jd-answer/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-appleton/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-appleton/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/religion-geology/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/religion-geology/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-sillimanium/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-sillimanium/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-oh-ideal-wife/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-oh-ideal-wife/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-eh-rejoinder/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-eh-rejoinder/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-jd-discovery/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-jd-discovery/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/fossil-footprint-ad-ajs/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/fossil-footprint-ad-ajs/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/poem-love-eh-1821/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/poem-love-eh-1821/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/exhibit-appleton-woods/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/exhibit-appleton-woods/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-16-1843/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-16-1843/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossils-bloodbrook-1/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossils-bloodbrook-1/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/deane-honors-memory/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/deane-honors-memory/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-deweyanus/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-deweyanus/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-map-amherst/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-map-amherst/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-orthodoxy/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-orthodoxy/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-hh-1825/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-hh-1825/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/map-hitchcock-1857/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/map-hitchcock-1857/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-5-1835/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-5-1835/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/trunk/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/trunk/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/theodolite/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/theodolite/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/saddle-bags/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/saddle-bags/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/gown/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/gown/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-eunice/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-eunice/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/silhouette-justin-hitchcock/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/silhouette-justin-hitchcock/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-seeking-advice/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-seeking-advice/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-job-propects/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-job-propects/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/hoyt-compass/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/hoyt-compass/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-1817/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-1817/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/principles-geology/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/principles-geology/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-1-1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-11-1-1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-chelonian/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-chelonian/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/bridgewater-selected-volume/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/bridgewater-selected-volume/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-ripples/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-ripples/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/comet-of-1811/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/comet-of-1811/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-cheirotherium/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-cheirotherium/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-bachtrachopus/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-bachtrachopus/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-emilia-c1818/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-emilia-c1818/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-children/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-children/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/octagon-woods/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/octagon-woods/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-tracks-water/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-tracks-water/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-bachtrachopus-cracks/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-bachtrachopus-cracks/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-19-1844b/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-19-1844b/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/pitch-pipe/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/pitch-pipe/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-19-44/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-19-44/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-11-13-1843/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-11-13-1843/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/deerfield-rules/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/deerfield-rules/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-eubrontes-type-speciman/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-eubrontes-type-speciman/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/buckland-cartoon/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/buckland-cartoon/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-journal-1844-1848/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-journal-1844-1848/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-art-volcanoes/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-art-volcanoes/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-multiple-tracks/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-multiple-tracks/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/hitchcock-adelphi/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/hitchcock-adelphi/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/vermont-geological-survey/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/vermont-geological-survey/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/chemical-field-kit-hitchcock/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/chemical-field-kit-hitchcock/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/view-amherst-college/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/view-amherst-college/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-feathers-scales/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-feathers-scales/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ichnology-new-england-8-pg-addition/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ichnology-new-england-8-pg-addition/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-deweyanus-det/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-deweyanus-det/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-hard-labor-1850/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-hard-labor-1850/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ladies-literary-soc-1813/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ladies-literary-soc-1813/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/chimaera-barratti/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/chimaera-barratti/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-eh-report/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol47-oct1844-eh-report/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-narrow-slab/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-narrow-slab/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-13-1843/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-13-1843/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-10-30-1843/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-10-30-1843/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/peale-museum/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/peale-museum/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-daybook-1849/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-daybook-1849/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/paleontological-chart/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/paleontological-chart/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol29-jan1836/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ajs-vol29-jan1836/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/deane-ichnographs/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/deane-ichnographs/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-condolence/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-condolence/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/proceedings-aag-may1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/proceedings-aag-may1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/paper-hitchcock-edinborough/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/paper-hitchcock-edinborough/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/ichnology-new-england-eh-1858/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/ichnology-new-england-eh-1858/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/1841-1833-hitchcock-report/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/1841-1833-hitchcock-report/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-footprint-1/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-footprint-1/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-landscape-sugarloaf/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-landscape-sugarloaf/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/sermon-eh-speaking-tour/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/sermon-eh-speaking-tour/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/peckham-painting/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/peckham-painting/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-tg-1831/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-tg-1831/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-12-1822/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-12-1822/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/williams-herbarium/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/williams-herbarium/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jb-eh-4-22-17/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jb-eh-4-22-17/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/illus-invertebrate-fossils/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/illus-invertebrate-fossils/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-19-1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-19-1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-9-1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-12-9-1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-12-1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-9-12-1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-7-22-1835/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-7-22-1835/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letters-eh-1835/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letters-eh-1835/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-travel/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-owh-travel/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-silliman-travel-wife/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-silliman-travel-wife/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/orra-penmanship-notebook/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/orra-penmanship-notebook/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-1859/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-1859/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-piano/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-piano/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/portrait-edw-hitchcock/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/portrait-edw-hitchcock/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-8-10-1844/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-8-10-1844/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-geological-illustrations-banner/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-geological-illustrations-banner/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fourth-meeting-house/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fourth-meeting-house/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/1817-map-valley/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/1817-map-valley/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/photo-marsh/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/photo-marsh/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-1822/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-1822/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jw-23feb1855/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jw-23feb1855/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-credit/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-bs-credit/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/field-papers-conference/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/field-papers-conference/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/napoleon-playbill/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/napoleon-playbill/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/agricultural-school-report/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/agricultural-school-report/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/dyspepsy-forestalled/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/dyspepsy-forestalled/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-1818-AJS/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-1818-AJS/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-21-1859/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-21-1859/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/tyler-tribute/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/tyler-tribute/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-7-1859/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/springfield-republican-may-7-1859/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-ee-eh-July-1840/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-ee-eh-July-1840/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-lepto-prints/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-lepto-prints/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-otozoum-raindrops/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-otozoum-raindrops/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-portrait-maria-louisa/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-portrait-maria-louisa/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jd-1842/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-jd-1842/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/irish-car/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/irish-car/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/geological-poems/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/geological-poems/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-logbook/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/marsh-logbook/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/darwin-letter/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/darwin-letter/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/astro-mug-clark/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/astro-mug-clark/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/map-owh-ajs-1822/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/map-owh-ajs-1822/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/survey-compass-stand/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/survey-compass-stand/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-art-ichthyosaur/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/orra-classroom-art-ichthyosaur/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossils-bloodbrook-2/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossils-bloodbrook-2/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-speaking-tour/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/letter-eh-speaking-tour/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/newspaper-poem/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/newspaper-poem/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/firescreen-telescope/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/firescreen-telescope/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/tyler-amherst-history/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/tyler-amherst-history/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-1833map/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/hitchcock-1833map/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-track-book/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/fossil-track-book/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/hitchcock-almanac/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/hitchcock-almanac/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/19th-century-telescope/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/19th-century-telescope/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/sermon-eh-1820s/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/sermon-eh-1820s/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/owen-moa/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/owen-moa/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/blunt-book-navigation/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/blunt-book-navigation/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/artifact/girls-boots/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/artifact/girls-boots/</loc>
 	</url>
     
 	<url>
-		<loc>https://dinotracksdiscovery.org/supporting/document/love-note-eliphalet/"></loc>
+		<loc>https://dinotracksdiscovery.org/supporting/document/love-note-eliphalet/</loc>
 	</url>
   
 

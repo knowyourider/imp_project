@@ -469,5 +469,15 @@ Use wget
 ::
 	wget --user=pvma --password='pvma password by hand' ftp://68.169.58.50/www/impdev.deerfield-ma.org/impressions/themes/themes-static.zip
 
+Allow .htaccess for 301 redirect for www to non-www
+----------------------------------------------------
+
+allow override
+::
+	 <Directory /var/www/pvma-django/data/www/dinotracksdiscovery.org>
+	    AllowOverride All
+	 </Directory>
+
+
 
 
