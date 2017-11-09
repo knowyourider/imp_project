@@ -1,0 +1,67 @@
+{% extends "base_list.html" %}
+{% load staticfiles image_extras %}
+
+{% block title %}For Further Study{% endblock %}
+
+{% block wrapper_class %}"content-wrapper--full"{% endblock wrapper_class %}
+
+{% block content_area %}
+
+  <section class="control-panel">
+    
+  <h1 class="main-title">For Further Study</h1>
+
+    <nav class="intra-page-nav">
+
+      <ul>
+        <li><a href="#archival">Archival Resources</a></li>
+        <li><a href="#sources">Printed Primary and Secondary Sources</a></li>
+        <li><a href="#websites">Websites and Online Resources</a></li>
+      </ul>
+
+    </nav>
+
+  </section>
+
+  <section class="text-page">
+    <article id="archival">
+      <h2 class="subtitle">Archival Resources</h2>
+      <p>This is where the text goes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <ul>
+        <li><a href="">Amherst College Special Collections</a></li>
+        <li><a href="">Archival Source 2</a></li>
+        <li><a href="">Archival Source 3</a></li>
+        <li><a href="">Archival Source 4</a></li>
+      </ul>
+    </article>
+
+    <article id="sources">
+      <h2 class="subtitle">Printed Primary and Secondary Sources</h2>
+      <p>This is where the text goes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <ul>
+        <li>Hitchcock, Edward. <em>The Ichnology of New England</em>. Boston, William White Printer to the State, 1858.</li>
+        <li>Book 2</li>
+        <li>Book 3</li>
+        <li>Book 4</li>
+        <li>Book 5</li>
+      </ul>
+    </article>
+
+    <article id="websites">
+      <h2 class="subtitle">Websites and Online Resources</h2>
+      <p>This is where the text goes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+      <ul>
+        <li><a href="http://www.thetrustees.org/places-to-visit/pioneer-valley/dinosaur-footprints.html" target="external-site">Trustees Dinosaur Footprints</a>, we could have a descriptive sentence here if we want to.</li>
+        <li><a href="">Website 2</a></li>
+        <li><a href="">Website 3</a></li>
+        <li><a href="">Website 4</a></li>
+        <li><a href="">Website 5</a></li>
+      </ul> 
+    </article>
+
+  </section>
+{% endblock content_area %}

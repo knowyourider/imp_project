@@ -1,14 +1,44 @@
 {% extends "base_list.html" %}
 {% load staticfiles image_extras %}
 
-{% block title %}Teachers{% endblock %}
+{% block title %}Teacher Resources{% endblock %}
 
-{% block wrapper_class %}"content-wrapper menus"{% endblock wrapper_class %}
+{% block wrapper_class %}"content-wrapper--full"{% endblock wrapper_class %}
 
 {% block content_area %}
 
-  <h1 class="main-title">Teachers</h1>
+<section class="control-panel">
+  <h1 class="main-title">Teacher Resources</h1>
 
-<p>Coming soon</p>
+	<p>Introductory text about these lessons Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </section>
 
+  <section class="text-page">
+    <article class="lesson-list">
+      <h2 class="subtitle">Lessons</h2>
+      <ol>
+        <li>
+        	<a href="" class="subtitle" target="lesson">Calculating Leap Year</a>
+					<h3 class="heading accent">Grades 4-6</h3>
+
+					In 1810, a 14-year-old girl named Orra White kept a &ldquo;copybook&rdquo; of math lessons. One of her lessons was about figuring out which years were or would be leap years.  In this lesson students are asked to use the math that Orra used to figure out some leap years.
+				</li>
+
+        <li>
+        	<a href="" class="subtitle" target="lesson">Snakestones - a Scientific Study</a>
+					<h3 class="heading accent">Grades 4-8</h3>
+
+					Elizabeth Philpot was a real person who lived in the beach town of Lyme Regis in England from 1780 to 1857.  She was an artist and a fossil collector, best known for her collection of fish fossils.  One day she found a different kind of fossil on the beach, called a &ldquo;snakestone&rdquo;.  In this lesson students use scientific inquiry to think about whether this type of fossil really was once a snake.
+				</li>
+
+        <li>
+        	<a href="" class="subtitle" target="lesson">Finding VS Discovering</a>
+					<h3 class="heading accent">Grades 9-12</h3>
+
+					In 1802 a 12-year-old boy named Pliny Moody found some dinosaur tracks while plowing his family&rsquo;s farm fields.  Even though he was the first person in this country to find such a thing, he never received any credit and very little recognition for having done so.  In this lesson students will explore the meanings of &ldquo;find&rdquo; and &ldquo;discover&rdquo; to mid-19th century men of learning.
+				</li>
+			</ol>
+
+</section>
 {% endblock content_area %}
+
