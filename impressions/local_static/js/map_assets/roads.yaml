@@ -64,12 +64,15 @@ labels-global:
 sources:
     mapzen:
         type: TopoJSON #GeoJSON, MVT, TopoJSON
-        url:  https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
-        #url:  https://tile.dev.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
+        # url:  https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
+        # Mapzen server discontinued Jan 2018
+        url:  topojson/all/{z}/{x}/{y}.topojson
+        # url:  https://tile.dev.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson
         #url:  //localhost:8080/vector/all/{z}/{x}/{y}.json
         url_params:
             api_key: vector-tiles-HqUVidw
-        max_zoom: 16
+        # max_zoom: 16
+        max_zoom: 13
 
 cinnabar-colors:
     cameras:
