@@ -45,6 +45,7 @@ class MobileFullMixin(DetailView):
         context = super(MobileFullMixin, self).get_context_data(**kwargs)
 
         # determine whether this is from a (internal?) link with a referer
+        # Splitting is based on online dinotracksdiscovery.org -- doesn't work with local 127
         # if (self.request.META['HTTP_REFERER']):
         try:
             # record referring path for full-screen back link
@@ -53,10 +54,10 @@ class MobileFullMixin(DetailView):
             # determin whether ref is from within dinotracks
             # e.g http://dinotracksdiscovery.org/sitemap/
             base_url = split_path[2] 
-            # e.g. dinotracksdiscovery.org , http://127.0.0.1:8000
+            # e.g. dinotracksdiscovery.org , (http://127.0.0.1:8000 won't work)
 
             # print(" ---- split_path[2]: " + split_path[2])
-            print(" -- domain: " + base_url.split(".")[-2])
+            # print(" -- domain: " + base_url.split(".")[-2])
 
             if (base_url.split(".")[-2] == "dinotracksdiscovery" ):
             # if (base_url.split(".")[-2] == "0" ):
@@ -85,14 +86,17 @@ class MobileFullMixin(DetailView):
                             referring_path += split_path[6] + "/"
             else:
                 # refed from external site
-                referring_path = "https://dinotracksdiscovery.org"
+                # referring_path = "https://dinotracksdiscovery.org"
+                referring_path = "external_ref"
 
         except KeyError: # in the case of no referrer
-            referring_path = "https://dinotracksdiscovery.org"
+            # referring_path = "https://dinotracksdiscovery.org"
+            referring_path = "external_ref"
         except IndexError:
             # max index may be 2 
             # e.g http://dinotracksdiscovery.org/ (home)
-            referring_path = "https://dinotracksdiscovery.org"
+            # referring_path = "https://dinotracksdiscovery.org"
+            referring_path = "external_ref"
 
         # print(" --- referring_path: " + referring_path)
 
