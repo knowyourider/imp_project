@@ -66,6 +66,18 @@
 	}
 }
 
+// added 10/15/18 for aaslh award notice...unreviewed
+.award {
+  @include outer-container;
+  padding: $base-spacing;
+  text-align: center;
+
+  img {
+    max-width: 50%;
+    max-height: auto;
+  }
+}
+
 // cross-dissolve animation from http://css3.bradshawenterprises.com/cfimg/
 #fade-story, #fade-theme, #fade-evidence, #fade-people { 
 	position: relative;
