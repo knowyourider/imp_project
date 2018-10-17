@@ -1443,23 +1443,6 @@ img.oval {
   margin-bottom: 0.4em;
 }
 
-.award {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.6em;
-  text-align: center;
-}
-.award::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-.award img {
-  max-width: 50%;
-  max-height: auto;
-}
-
 #fade-story, #fade-theme, #fade-evidence, #fade-people {
   position: relative;
 }
@@ -2691,6 +2674,14 @@ div.error-msg p {
 }
 .footer-primary li a:focus, .footer-primary li a:hover {
   color: #fff4e4;
+}
+
+.award {
+  padding: 0.8em;
+}
+.award img {
+  max-width: 50px;
+  max-height: auto;
 }
 
 .content-wrapper {
