@@ -64,29 +64,29 @@ ALLOWED_HOSTS = ['dinotracksdiscovery.org', 'www.dinotracksdiscovery.org',
 
 INSTALLED_APPS = (
     # 'django.contrib.sites',
+    'ancillary.apps.AncillaryConfig',
+    'core.apps.CoreConfig',
+    'map.apps.MapConfig',
+    'special.apps.SpecialConfig',
+    'stories.apps.StoriesConfig',
+    'supporting.apps.SupportingConfig',
+    'themes.apps.ThemesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ancillary',
-    'core',
-    'map',
-    'stories',
-    'special',
-    'supporting',
-    'themes',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
 )
 
 ROOT_URLCONF = 'config.urls'

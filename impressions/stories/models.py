@@ -10,14 +10,14 @@ class Story(CommonModel):
         (4,'4 - Published'),
     )
     STORY_CONTENT_TYPE_ID = 1
-    content_type = models.ForeignKey('core.ContentType', default=STORY_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', default=STORY_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     title = models.CharField(max_length=48)
     subtitle = models.CharField(max_length=64, blank=True, default='')
     image_name = models.CharField(max_length=32, blank=True, default='')
     introduction = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
-    source = models.ForeignKey('core.Source', default=1)
+    source = models.ForeignKey('core.Source', default=1, on_delete=models.CASCADE)
 
     # next, prev story, false if none
     def get_next(self):
@@ -44,13 +44,13 @@ class Story(CommonModel):
 
 
 class Chapter(AssociationMixin, models.Model):
-    story = models.ForeignKey('stories.Story')
+    story = models.ForeignKey('stories.Story', on_delete=models.CASCADE)
     title = models.CharField(max_length=64)
     chapter_num = models.IntegerField(default=0)
     image_name = models.CharField(max_length=32, blank=True, default='')
     narrative = models.TextField(blank=True, default='')
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
-    source = models.ForeignKey('core.Source', default=1)
+    source = models.ForeignKey('core.Source', default=1, on_delete=models.CASCADE)
     is_vertical = models.BooleanField(default=False)
     has_include = models.BooleanField('Use include instead of image',default=False)
     include_path = models.CharField(max_length=64, blank=True, default='')

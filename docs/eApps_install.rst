@@ -169,6 +169,7 @@ We're in Apace version 2.2.21
 
         Alias /static/ /var/www/pvma/data/www/imp_static/
         Alias /design/ /var/www/pvma/data/www/mpdev.deerfield-ma.org/impressions/design/
+		Alias /robots.txt /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/robots.txt
 
         WSGIDaemonProcess staging python-path=/var/www/pvma/data/www/impdev.deerfield-ma.org/impressions:/var/www/pvma/data/.envs/impressions/lib/python3.5/site-packages
         WSGIProcessGroup staging

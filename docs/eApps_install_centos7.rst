@@ -428,11 +428,11 @@ Just the insertions, for dev.dino
 Insertions for public dinotracks
 ::
 		# Don inserting here
-	    Alias /static/ /var/www/pvma-django/data/www/imp_static/
+	Alias /static/ /var/www/pvma-django/data/www/imp_static/
 
-	    WSGIDaemonProcess production python-path=/var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/imppub/lib/python3.6/site-packages
-	    WSGIProcessGroup production
-	    WSGIScriptAlias / /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/config/wsgi.py
+	WSGIDaemonProcess production python-path=/var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions:/var/www/pvma-django/data/.envs/imppub/lib/python3.6/site-packages
+	WSGIProcessGroup production
+	WSGIScriptAlias / /var/www/pvma-django/data/www/dinotracksdiscovery.org/impressions/config/wsgi.py
 	    # end insertion
 
 	# Don adding this

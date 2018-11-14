@@ -22,7 +22,7 @@ class Feature(CommonSupportingModel):
     )
     FEATURE_CONTENT_TYPE_ID = 10
     content_type = models.ForeignKey('core.ContentType', 
-        default=FEATURE_CONTENT_TYPE_ID)
+        default=FEATURE_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     special_type = models.CharField(max_length=32, default='slideshow', 
         choices=SPECIAL_TYPES)
     title = models.CharField(max_length=128)
@@ -79,7 +79,7 @@ class Feature(CommonSupportingModel):
 
 
 class Frame(models.Model):
-    feature = models.ForeignKey('special.Feature')
+    feature = models.ForeignKey('special.Feature', on_delete=models.CASCADE)
     slide_num = models.IntegerField()
     """
     help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
@@ -89,7 +89,7 @@ class Frame(models.Model):
         default='')
     caption = models.CharField(max_length=255, blank=True, default='',
             help_text="For each slide -- Slides ignore Caption at top of form.")
-    source = models.ForeignKey('core.Source', default=1)
+    source = models.ForeignKey('core.Source', default=1, on_delete=models.CASCADE)
     narrative = models.TextField(blank=True, default='',
             help_text="caption for each slide -- slides ignore Narrative at top of form.")
     num_correct = models.IntegerField(null=True, blank=True)

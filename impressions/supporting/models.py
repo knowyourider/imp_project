@@ -11,7 +11,7 @@ class CommonSupportingModel(CommonModel):
         (4,'4 - Ready for Publication'),
     )
     # source id 1 - "Source not defined"
-    source = models.ForeignKey('core.Source', default=1)
+    source = models.ForeignKey('core.Source', default=1, on_delete=models.CASCADE)
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
 
@@ -34,7 +34,7 @@ class Context(AssociationMixin, CommonSupportingModel):
     )
     CONTEXT_CONTENT_TYPE_ID = 5
     content_type = models.ForeignKey('core.ContentType', 
-        default=CONTEXT_CONTENT_TYPE_ID)
+        default=CONTEXT_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     context_type = models.CharField(max_length=24, default='Background', 
         choices=CONTEXT_TYPE)
     title = models.CharField(max_length=128)
@@ -109,8 +109,8 @@ class EvidenceItem(AssociationMixin, CommonSupportingModel):
     """
     EVIDENCE_CONTENT_TYPE_ID = 4
     content_type = models.ForeignKey('core.ContentType', 
-        default=EVIDENCE_CONTENT_TYPE_ID)
-    evidence_type = models.ForeignKey('supporting.EvidenceType')
+        default=EVIDENCE_CONTENT_TYPE_ID, on_delete=models.CASCADE)
+    evidence_type = models.ForeignKey('supporting.EvidenceType', on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128, blank=True, default='')
     # filename = models.CharField(max_length=64, blank=True, default='')
@@ -160,7 +160,7 @@ class Page(models.Model):
     help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
     "short_name_1, short_name_2, etc.")
     """
-    evidenceitem = models.ForeignKey('supporting.EvidenceItem')
+    evidenceitem = models.ForeignKey('supporting.EvidenceItem', on_delete=models.CASCADE)
     page_num = models.IntegerField('page order')
     page_suffix = models.CharField('filename suffix', max_length=64, blank=True, default='')
     page_label = models.CharField('page label', max_length=64, blank=True, default='')
@@ -211,7 +211,7 @@ class FastFact(CommonSupportingModel):
     )
     FASTFACT_CONTENT_TYPE_ID = 6
     content_type = models.ForeignKey('core.ContentType', 
-        default=FASTFACT_CONTENT_TYPE_ID)
+        default=FASTFACT_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     fastfact_type = models.CharField(max_length=32, default='moreinfo', 
         choices=FASTFACT_TYPES)
     title = models.CharField(max_length=128)
@@ -244,7 +244,7 @@ class Person(AssociationMixin, CommonSupportingModel):
     )
     PERSON_CONTENT_TYPE_ID = 3
     content_type = models.ForeignKey('core.ContentType', 
-        default=PERSON_CONTENT_TYPE_ID)
+        default=PERSON_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=32, blank=True, default='')
     middle_name = models.CharField(max_length=32, blank=True, default='')
     last_name = models.CharField(max_length=32, blank=True, default='')
@@ -290,7 +290,7 @@ class Place(CommonSupportingModel):
     """
     PLACE_CONTENT_TYPE_ID = 9
     content_type = models.ForeignKey('core.ContentType', 
-        default=PLACE_CONTENT_TYPE_ID)
+        default=PLACE_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     narrative = models.TextField('Description / Label', blank=True, default='')
     # has_image = models.BooleanField(default=False)

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+app_name="special"
 
 urlpatterns = [
     url(r'^feature/$', views.FeatureListView.as_view(), name='feature_list'),

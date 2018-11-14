@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+app_name="stories"
 
 urlpatterns = [
     url(r'^$', views.StoryListView.as_view(), name='story_list'),

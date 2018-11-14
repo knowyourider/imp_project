@@ -16,7 +16,7 @@ class Theme(AssociationMixin, CommonModel):
         (4,'4 - Published'),
     )
     THEME_CONTENT_TYPE_ID = 2
-    content_type = models.ForeignKey('core.ContentType', default=THEME_CONTENT_TYPE_ID)
+    content_type = models.ForeignKey('core.ContentType', default=THEME_CONTENT_TYPE_ID, on_delete=models.CASCADE)
     title = models.CharField(max_length=64)
     subtitle = models.CharField(max_length=64, blank=True, default='')
     author = models.CharField(max_length=128, blank=True, default='')
@@ -24,7 +24,7 @@ class Theme(AssociationMixin, CommonModel):
     narrative = models.TextField(blank=True, default='')
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     caption = models.CharField('Image Caption', max_length=255, blank=True, default='')
-    source = models.ForeignKey('core.Source', default=1)
+    source = models.ForeignKey('core.Source', default=1, on_delete=models.CASCADE)
     featured_specials = models.ManyToManyField('special.Feature', 
         verbose_name='Special Features related to this item', blank=True)
 
