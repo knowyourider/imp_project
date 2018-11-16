@@ -45,12 +45,30 @@
   }
 }
 
-// added 10/15/18 for aaslh award notice...unreviewed
-.award {
-  padding: $small-spacing;
+// added 10/15/18 for aaslh award notice
+.footer-logos {
+  margin: $base-spacing auto;
+  width: 60%;
 
   img {
-    max-width: 50px;
-    max-height: auto;
+    margin-right: $tiny-spacing;
+    max-width: 94px;
+    max-height: auto;  
+  }
+}
+
+.pvma-logo {
+  //for large displays:
+  @include media($large-screen) { 
+    float: left;
+    width: 50%;
+  }
+}
+
+.award {
+  //for large displays:
+  @include media($large-screen) { 
+    float: right;
+    width: 50%;
   }
 }

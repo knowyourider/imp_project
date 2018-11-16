@@ -2676,12 +2676,28 @@ div.error-msg p {
   color: #fff4e4;
 }
 
-.award {
-  padding: 0.8em;
+.footer-logos {
+  margin: 1.6em auto;
+  width: 60%;
 }
-.award img {
-  max-width: 50px;
+.footer-logos img {
+  margin-right: 0.4em;
+  max-width: 94px;
   max-height: auto;
+}
+
+@media screen and (min-width: 55em) {
+  .pvma-logo {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 55em) {
+  .award {
+    float: right;
+    width: 50%;
+  }
 }
 
 .content-wrapper {
