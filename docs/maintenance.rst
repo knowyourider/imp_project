@@ -1,6 +1,9 @@
 Maintenance
 ===========
 
+Both dev.dino and dino use the same database: impdb
+Both are on the new eApps server, vm2, but there's a legacy dev on vm1 (I think)
+
 Backup remote and restore local
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
