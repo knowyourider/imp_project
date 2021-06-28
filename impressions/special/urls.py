@@ -1,10 +1,10 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 from . import views
 
 app_name="special"
 
 urlpatterns = [
-    url(r'^feature/$', views.FeatureListView.as_view(), name='feature_list'),
+    path('feature/', views.FeatureListView.as_view(), name='feature_list'),
 
     # CBV approach
     # The first part of each name has to match the corresponding
@@ -14,61 +14,61 @@ urlpatterns = [
     # ----------- NON-SLIDE FEATURES ---------
 
     #  ------ VIDEO ---
-    url(r'^video/(?P<slug>\S+)/$', 
+    path('video/<slug:slug>/', 
         views.FullVideoDetailView.as_view(), name='video_detail'),
 
-    url(r'^ajax/video/(?P<slug>\S+)/$', 
+    path('ajax/video/<slug:slug>/', 
         views.VideoDetailView.as_view(), name='ajax_video_detail'),
 
-    url(r'^swapfull/video/(?P<slug>\S+)/$', 
+    path('swapfull/video/<slug:slug>/', 
         views.SwapFullVideoDetailView.as_view(), name='swapfull_video_detail'),
 
     #  ------ VOICE ---
     # Should have been voice, singular, but too hard to change now
-    url(r'^voices/(?P<slug>\S+)/$', 
+    path('voices/<slug:slug>/', 
         views.FullVoiceDetailView.as_view(), name='voices_detail'),
 
-    url(r'^ajax/voices/(?P<slug>\S+)/$', 
+    path('ajax/voices/<slug:slug>/', 
         views.VoiceDetailView.as_view(), name='ajax_voices_detail'),
 
-    url(r'^swapfull/voices/(?P<slug>\S+)/$', 
+    path('swapfull/voices/<slug:slug>/', 
         views.SwapFullVoiceDetailView.as_view(), name='swapfull_voices_detail'),
 
     #  ------ EXPLORE ---
-    url(r'^explore/(?P<slug>\S+)/$', 
+    path('explore/<slug:slug>/', 
         views.FullExploreDetailView.as_view(), name='explore_detail'),
 
-    url(r'^ajax/explore/(?P<slug>\S+)/$', 
+    path('ajax/explore/<slug:slug>/', 
         views.ExploreDetailView.as_view(), name='ajax_explore_detail'),
 
-    url(r'^swapfull/explore/(?P<slug>\S+)/$', 
+    path('swapfull/explore/<slug:slug>/', 
         views.SwapFullExploreDetailView.as_view(), name='swapfull_explore_detail'),
 
     #  ------ DICOVERERS ---
     # Not stand-alone -- only serves voting in Whose Discovery, Chapter 8
-    url(r'^discoverers/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('discoverers/<slug:slug>/<slide_num>/', 
         views.DiscoverersDetailView.as_view(), name='discoverers_detail'),
 
     # ----------- SLIDE-BASED FEATURES ---------
 
     #  ------ THEN AND NOW ---
-    url(r'^then/(?P<slug>\S+)/$', 
+    path('then/<slug:slug>/', 
         views.FullThenDetailView.as_view(), name='then_detail'),
 
-    url(r'^ajax/then/(?P<slug>\S+)/$', 
+    path('ajax/then/<slug:slug>/', 
         views.ThenDetailView.as_view(), name='ajax_then_detail'),
 
-    url(r'^swapfull/then/(?P<slug>\S+)/$', 
+    path('swapfull/then/<slug:slug>/', 
         views.SwapFullThenDetailView.as_view(), name='swapfull_then_detail'),
 
     #  ------ LOOKING ---
-    url(r'^looking/(?P<slug>\S+)/$', 
+    path('looking/<slug:slug>/', 
         views.FullLookingDetailView.as_view(), name='looking_detail'),
 
-    url(r'^ajax/looking/(?P<slug>\S+)/$', 
+    path('ajax/looking/<slug:slug>/', 
         views.LookingDetailView.as_view(), name='ajax_looking_detail'),
 
-    url(r'^swapfull/looking/(?P<slug>\S+)/$', 
+    path('swapfull/looking/<slug:slug>/', 
         views.SwapFullLookingDetailView.as_view(), name='swapfull_looking_detail'),
 
 
@@ -76,107 +76,107 @@ urlpatterns = [
     # Zero param must also go to intro. We're dependent on the link_name 
     # which distinguishes full from slim pop, so we can't just use 
     # slideshow_detail (no int param) for the link in nav
-    url(r'^slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+    re_path('slideshow/<slug:slug>/(?P<slide_num_arg>[0])/', 
         views.IntroSlideshowDetailView.as_view(), name='reintro-slideshow_detail'),
 
     #  with slide number (other than 0)
-    url(r'^slideshow/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('slideshow/<slug:slug>/<slide_num>/', 
         views.SlideshowDetailView.as_view(), name='slideshow_slide_detail'),
 
     # default - full (changed Nov 1, 2017)
-    url(r'^slideshow/(?P<slug>\S+)/$', 
+    path('slideshow/<slug:slug>/', 
         views.IntroFullSlideshowDetailView.as_view(), name='slideshow_detail'),
 
     # zero version of full intro
     # because when we go back to intro, it's via ajax
-    url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+    re_path('full/slideshow/<slug:slug>/(?P<slide_num_arg>[0])/', 
         views.ReIntroFullSlideshowDetailView.as_view(), name='full_slideshow_re_intro_detail'),
 
     #  full screen with slide number
-    url(r'^full/slideshow/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('full/slideshow/<slug:slug>/<slide_num>/', 
         views.FullSlideshowDetailView.as_view(), name='full_slideshow_slide_detail'),
 
     # ajax screen default - intro (changed Nov 1, 2017)
-    url(r'^ajax/slideshow/(?P<slug>\S+)/$', 
+    path('ajax/slideshow/<slug:slug>/', 
         views.IntroSlideshowDetailView.as_view(), name='intro_ajax_slideshow_detail'),
 
     # the moment when you come from a see also on a person full slim
     # re-use ReIntroFullSlideshowDetailView
-    url(r'^swapfull/slideshow/(?P<slug>\S+)/$', 
+    path('swapfull/slideshow/<slug:slug>/', 
         views.ReIntroFullSlideshowDetailView.as_view(), name='swapfull_slideshow_detail'),
 
 
     #  ------ SOCIETY ---
     # choice for vote
-    url(r'^society/choice/(?P<slug>\S+)/(?P<slide_num>\d+)/(?P<choice>[0-2])/$', 
+    path('society/choice/<slug:slug>/<slide_num>/<int:choice>)/', 
         views.SocietyChoiceDetailView.as_view(), name='society_choice'),
 
     # zero version of intro
-    url(r'^society/(?P<slug>\S+)/(?P<slide_num>[0])/$', 
+    re_path('society/<slug:slug>/(?P<slide_num>[0])/', 
         views.IntroSocietyDetailView.as_view(), name='society_detail'),
 
     #  with slide number
-    url(r'^society/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('society/<slug:slug>/<slide_num>/', 
         views.SocietyDetailView.as_view(), name='society_slide_detail'),
 
     # default - intro (changed Nov 1, 2017)
-    url(r'^society/(?P<slug>\S+)/$', 
+    path('society/<slug:slug>/', 
         views.IntroFullSocietyDetailView.as_view(), name='society_detail'),
 
 
     # zero version of full intro
     # because when we go back to intro, it's via ajax
-    url(r'^full/society/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+    re_path('full/society/<slug:slug>/(?P<slide_num_arg>[0])/', 
         views.ReIntroFullSocietyDetailView.as_view(), name='full_society_re_intro_detail'),
 
     #  full screen with slide number
-    url(r'^full/society/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('full/society/<slug:slug>/<slide_num>/', 
         views.FullSocietyDetailView.as_view(), name='full_society_slide_detail'),
 
     # ajax screen default - intro (changed Nov 1, 2017)
-    url(r'^ajax/society/(?P<slug>\S+)/$', 
+    path('ajax/society/<slug:slug>/', 
         views.IntroSocietyDetailView.as_view(), name='ajax_society_detail'),
 
     # re-use ReIntroFullSocietyDetailView
-    url(r'^swapfull/society/(?P<slug>\S+)/$', 
+    path('swapfull/society/<slug:slug>/', 
         views.ReIntroFullSocietyDetailView.as_view(), name='swapfull_society_detail'),
 
 
 
     #  ------ FOOTPRINTS ---
     # zero version of intro
-    url(r'^footprint/(?P<slug>\S+)/(?P<slide_num>[0])/$', 
+    re_path('footprint/<slug:slug>/(?P<slide_num>[0])/', 
         views.IntroFootprintDetailView.as_view(), name='footprint_detail'),
 
     #  with slide number
-    url(r'^footprint/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('footprint/<slug:slug>/<slide_num>/', 
         views.FootprintDetailView.as_view(), name='footprint_slide_detail'),
 
     # default full - intro (changed Nov 1, 2017)
-    url(r'^footprint/(?P<slug>\S+)/$', 
+    path('footprint/<slug:slug>/', 
         views.IntroFullFootprintDetailView.as_view(), name='footprint_detail'),
 
     # zero version of full intro
     # because when we go back to intro, it's via ajax
-    url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num_arg>[0])/$', 
+    re_path('full/footprint/<slug:slug>/(?P<slide_num_arg>[0])/', 
         views.ReIntroFullFootprintDetailView.as_view(), name='full_footprint_re_intro_detail'),
 
 
     #  full screen with slide number
-    url(r'^full/footprint/(?P<slug>\S+)/(?P<slide_num>\d+)/$', 
+    path('full/footprint/<slug:slug>/<slide_num>/', 
         views.FullFootprintDetailView.as_view(), name='full_footprint_slide_detail'),
 
     # ajax screen default - intro (changed Nov 1, 2017)
-    url(r'^ajax/footprint/(?P<slug>\S+)/$', 
+    path('ajax/footprint/<slug:slug>/', 
         views.IntroFootprintDetailView.as_view(), name='ajax_footprint_detail'),
 
     # re-use ReIntroFullFootprinDetailView
-    url(r'^swapfull/footprint/(?P<slug>\S+)/$', 
+    path('swapfull/footprint/<slug:slug>/', 
         views.ReIntroFullFootprintDetailView.as_view(), name='swapfull_footprint_detail'),
 
 
     #  ------ TEAM ---
-    url(r'^team/feature/$', views.TeamFeatureListView.as_view(), \
+    path('team/feature/', views.TeamFeatureListView.as_view(), \
         name='team_special_list'),
 
 ]

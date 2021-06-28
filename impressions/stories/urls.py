@@ -1,17 +1,17 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 app_name="stories"
 
 urlpatterns = [
-    url(r'^$', views.StoryListView.as_view(), name='story_list'),
-    url(r'^team/$', 
+    path('', views.StoryListView.as_view(), name='story_list'),
+    path('team/', 
         views.StoryListView.as_view(template_name="stories/team_story_list.html"), 
     	name='team_story_list'),
-    url(r'^team/(?P<slug>\S+)/$', 
+    path('team/<slug:slug>/', 
         views.StoryDetailView.as_view(template_name="stories/team_story_detail.html"), 
     	name='team_story_detail'),
-    url(r'^(?P<slug>\S+)/(?P<chapter_num>\d+)/$', views.ChapterDetailView.as_view(), 
+    path('<slug:slug>/<chapter_num>/', views.ChapterDetailView.as_view(), 
     	name='chapter_detail'),
-    url(r'^(?P<slug>\S+)/$', views.StoryDetailView.as_view(), name='story_detail'),
+    path('<slug:slug>/', views.StoryDetailView.as_view(), name='story_detail'),
 ]

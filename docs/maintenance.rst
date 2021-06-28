@@ -1,6 +1,15 @@
 Maintenance
 ===========
 
+Django
+~~~~~~~~~~~~~~~~~
+
+eApps
+Working directories e.g. /var/www/pvma-django/data/www/dev.dinotracksdiscovery.org
+::
+	workon impressions
+
+
 Both dev.dino and dino use the same database: impdb
 Both are on the new eApps server, vm2, but there's a legacy dev on vm1 (I think)
 
@@ -15,7 +24,8 @@ On eapps, login as root. We're not using the -O option since local and remote ha
     [impdb_user password]
 	
     cd /var/www/pvma/data/www/impdev.deerfield-ma.org/impressions (or workon impressions)
-vm2 ::
+Fro the current server, vm2 
+::
     cd /var/www/pvma-django/data/FTP_transfer
 	pg_dump -Fc --clean --verbose impdb --user=impdb_user > impdb_$(date +"%Y_%m_%d").backup
     [impdb_user password]
