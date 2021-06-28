@@ -1,5 +1,5 @@
 {% extends extend_base %}
-{% load staticfiles %}
+{% load static %}
 
 {% block heading %}{{ object.content_type.plural_title }} {% endblock %}
 {% block item_title %}{{ object.title|safe }}{% endblock %}
