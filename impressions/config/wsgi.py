@@ -14,22 +14,22 @@ Some devel envs won't need or have mod_wsgi
 
 import os
 
-# try:
-# 	import mod_wsgi
-# 	try:
-# 		os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings.%s' % mod_wsgi.process_group
-# 	except AttributeError:
-# 		# let the above setting stand
-# 		os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
-# except ImportError:
-# 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
+try:
+	import mod_wsgi
+	try:
+		os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings.%s' % mod_wsgi.process_group
+	except AttributeError:
+		# let the above setting stand
+		os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
+except ImportError:
+	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 	
-# from django.core.wsgi import get_wsgi_application
-# application = get_wsgi_application()
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
 # From Urban 3.2 createproject
-from django.core.wsgi import get_wsgi_application
+# from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.staging')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.staging')
 
-application = get_wsgi_application()
+# application = get_wsgi_application()
