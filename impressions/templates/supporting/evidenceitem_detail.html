@@ -25,8 +25,11 @@
 	  // $itempage.css('margin-right', 'auto');
 	}
 
-	Z.showImage("item-image", 
-	  "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif", // }.zif" 
+  var zoomPath = "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif";
+  console.log(" -- in template - zoom path: " + zoomPath);
+
+  Z.showImage("item-image", 
+	  zoomPath,
 	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
 </script>
 

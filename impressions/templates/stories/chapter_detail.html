@@ -50,7 +50,7 @@
     {% if chapter.has_include %}
       {% include chapter.include_path %}
     {% else %}
-        <img src="{% static 'stories/' %}{{ object.slug }}/{{ chapter.image_name }}.jpg" alt="chapter illustration">
+        <img src="{{ MEDIA_URL }}stories/{{ object.slug }}/{{ chapter.image_name }}.jpg" alt="chapter illustration">
     {% endif %}
 
     <p class="caption">{{ chapter.caption|safe }}
@@ -87,7 +87,7 @@
       {% for person in chapter.people.all %}
         <li>
           <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
-          <img src="{% static 'supporting/person/menupics/' %}{{ person.slug }}.jpg" alt="image of {{ person.slug}}" class="oval">
+          <img src="{{ MEDIA_URL }}supporting/person/menupics/{{ person.slug }}.jpg" alt="image of {{ person.slug}}" class="oval">
             {{ person.first_name }} {{ person.middle_name }} {{ person.last_name }}
           </a>
         </li>
@@ -96,7 +96,7 @@
       {% for evidenceitem in chapter.evidence.all %}
         <li>
           <a class="pop_item" href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
-          <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
+          <img src="{{ MEDIA_URL }}supporting/evidenceitem/menupics/{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title|safe }}
           </a>
         </li>

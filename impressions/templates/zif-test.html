@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test ZIF File Access</title>
+</head>
+<body>
+    <h2>ZIF File Debug Test</h2>
+    <div id="results"></div>
+
+    <script>
+    // Replace with your actual ZIF file path
+    var zifPath = '/static/supporting/evidenceitem/zooms/marsh-cradle.zif';
+    var results = document.getElementById('results');
+    
+    function addResult(message) {
+        results.innerHTML += '<p>' + message + '</p>';
+    }
+    
+    // Test 1: Simple fetch to see if file is accessible
+    addResult('Testing access to: ' + zifPath);
+    
+    fetch(zifPath)
+        .then(response => {
+            addResult('Response status: ' + response.status);
+            addResult('Content-Type: ' + response.headers.get('Content-Type'));
+            addResult('Content-Length: ' + response.headers.get('Content-Length'));
+            addResult('Accept-Ranges: ' + response.headers.get('Accept-Ranges'));
+            return response.arrayBuffer();
+        })
+        .then(buffer => {
+            addResult('File size: ' + buffer.byteLength + ' bytes');
+            
+            // Check if it's a valid ZIF file (should start with specific bytes)
+            var view = new DataView(buffer);
+            var byte0 = view.getUint8(0);
+            var byte1 = view.getUint8(1);
+            var byte2 = view.getUint8(2);
+            var byte3 = view.getUint8(3);
+            
+            addResult('First 4 bytes: ' + byte0 + ', ' + byte1 + ', ' + byte2 + ', ' + byte3);
+            
+            // ZIF files should start with 73, 73, 43, 0 (II+\0)
+            if (byte0 === 73 && byte1 === 73 && byte2 === 43 && byte3 === 0) {
+                addResult('✓ Valid ZIF file header detected');
+            } else {
+                addResult('✗ Invalid ZIF file header');
+            }
+        })
+        .catch(error => {
+            addResult('Error: ' + error);
+        });
+    
+    // Test 2: Try a byte-range request (which Zoomify needs)
+    addResult('<br>Testing byte-range request...');
+    
+    fetch(zifPath, {
+        headers: {
+            'Range': 'bytes=0-1023'
+        }
+    })
+        .then(response => {
+            addResult('Byte-range response status: ' + response.status);
+            if (response.status === 206) {
+                addResult('✓ Server supports byte-range requests');
+            } else if (response.status === 200) {
+                addResult('✗ Server returned full file instead of byte range');
+            } else {
+                addResult('✗ Unexpected response to byte-range request');
+            }
+        })
+        .catch(error => {
+            addResult('Byte-range error: ' + error);
+        });
+    </script>
+</body>
+</html>

@@ -87,4 +87,5 @@ urlpatterns = [
         "supporting/team_item_list.html"), name='team_context_list'),
     # url for special list in special/urls.py
     path('team/', views.TeamTemplateView.as_view(), name='team_type_list'),
+    path('ziftest/', views.TemplateView.as_view(template_name='zif-test.html'), name='zif-test'),
 ]

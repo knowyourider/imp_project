@@ -10,13 +10,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # import os
-from unipath import Path
+# from unipath import Path
+from pathlib import Path
 import json
 from django.core.exceptions import ImproperlyConfigured
 
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # 3-tier approach Using Unipath per Two Scoops
-BASE_DIR = Path(__file__).ancestor(3)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).ancestor(3)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # JSON-based secrets module
-with open(BASE_DIR.child('config', 'settings', 'secrets.json')) as f:
+with open(BASE_DIR / 'config' / 'settings' / 'secrets.json') as f:
     secrets = json.loads(f.read())
 
 def get_secret(setting, secrets=secrets):
@@ -44,7 +45,7 @@ DEBUG = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.child("templates")],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -52,6 +53,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -128,13 +130,17 @@ USE_TZ = False
 # STATIC_ROOT = os.path.join( SITE_ROOT, '../static')
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR.ancestor(2).child("imp_static")
+STATIC_ROOT = BASE_DIR / "imp_static"
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    BASE_DIR.child("local_static"),
+    BASE_DIR / "local_static",
 )
+
+# Media files (content images)
+MEDIA_ROOT = BASE_DIR.parent / "imp_media"
+MEDIA_URL = '/media/'
 
 # Project specific constants
 # 2 for draft, 3 for review, 4 for public

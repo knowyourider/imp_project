@@ -10,7 +10,7 @@
 
   <section class="image-panel">
 
-    <img src="{% static 'stories/' %}{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
+    <img src="{{ MEDIA_URL }}stories/{{ object.slug }}/{{ object.image_name }}.jpg" alt="story illustration by Monica Vachula">
     <p class="image-panel--caption">
       {{ object.caption|safe }}
       {% if object.source.id != 1 %}

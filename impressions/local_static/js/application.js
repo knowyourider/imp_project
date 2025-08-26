@@ -203,6 +203,8 @@ $(document).ready(function(){
     // set first item selected
     // change zoomify image
     var zoomPath = "/static/supporting/evidenceitem/zooms/" + slug;
+    // var zoomPath = "/media/supporting/evidenceitem/zooms/" + slug;
+    console.log(" in app js -- zoom path: " + zoomPath)
 
     // avoid adding suffix for special case of artifact primary view
     // and don't bother trying to change the document text
@@ -225,6 +227,7 @@ $(document).ready(function(){
 
   // click on checkbox submits form
   $('input[type="checkbox"]').change(function(event){
+    console.log('got to checkbox change')
     // each time a new box is checked we should reset to page 1
     // (if nothing else there may not be a page 2 in new result)
     $('#search-form').find('[type=hidden][name=page]').val('1')

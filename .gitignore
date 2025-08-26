@@ -13,8 +13,11 @@ robots.txt
 .htaccess
 
 # directories
+.env-imp
 **/.sass-cache
 **/.sass-cache/*
+imp_static/
+imp_media/
 static/
 webstat/
 impressions/design/local_static_sym
