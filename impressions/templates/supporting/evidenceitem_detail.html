@@ -10,31 +10,92 @@
 {% block slim_content%}
 
 <script type="text/javascript">
+  // Add this to your template to monitor XMLHttpRequest calls
+  (function() {
+    // Override XMLHttpRequest to log all requests
+    var originalOpen = XMLHttpRequest.prototype.open;
+    var originalSend = XMLHttpRequest.prototype.send;
+    
+    XMLHttpRequest.prototype.open = function(method, url) {
+      this._url = url;
+      this._method = method;
+      console.log('XMLHttpRequest.open:', method, url);
+      originalOpen.apply(this, arguments);
+    };
+    
+    XMLHttpRequest.prototype.send = function() {
+      var self = this;
+      
+      this.addEventListener('load', function() {
+        if (self._url && (self._url.indexOf('.zif') > -1 || self._url.indexOf('ImageProperties') > -1)) {
+          console.log('Response for', self._url, '- Status:', self.status);
+          if (self.status !== 200 && self.status !== 206) {
+            console.error('Failed request:', self._url, 'Status:', self.status);
+          }
+        }
+      });
+      
+      this.addEventListener('error', function() {
+        console.error('Network error for:', self._url);
+      });
+      
+      originalSend.apply(this, arguments);
+    };
+    
+    // Also monitor image loads
+    var originalImageSrc = Object.getOwnPropertyDescriptor(Image.prototype, 'src');
+    if (originalImageSrc) {
+      Object.defineProperty(Image.prototype, 'src', {
+        set: function(value) {
+          if (value && value.indexOf('zoom') > -1) {
+            console.log('Image src set:', value);
+          }
+          originalImageSrc.set.call(this, value);
+        },
+        get: originalImageSrc.get
+      });
+    }
+  })();
+</script>
 
-	// Test for IE 11 and provide work-around hard-coded dimensions 
-	// console.log('navigator.userAgent: ' + navigator.userAgent);
-	var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
-	//if (true) {
-	if (isIE11) { 
-	  // /Trident.*rv[ :]?11\./
-	  // console.log('detected IE 11');
-	  var $itempage = $('#item-image');
-	  $itempage.css('width', '400px');
-	  $itempage.css('height', '400px');
-	  // $itempage.css('margin-left', 'auto');
-	  // $itempage.css('margin-right', 'auto');
-	}
 
+
+<script type="text/javascript">
+  // Test for IE 11 and provide work-around hard-coded dimensions 
+  var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+  if (isIE11) { 
+    var $itempage = $('#item-image');
+    $itempage.css('width', '400px');
+    $itempage.css('height', '400px');
+  }
+
+  // Define the zoom path
   var zoomPath = "{% static 'supporting/evidenceitem/zooms/' %}{{ object.slug }}{% if object.evidence_type.is_document_oriented %}-{{ page.page_suffix}}{% endif %}.zif";
   console.log(" -- in template - zoom path: " + zoomPath);
 
-  Z.showImage("item-image", 
-	  zoomPath,
-	  "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
+  // Initialize Zoomify directly - it should handle the ZIF file automatically
+  // since it detects the .zif extension
+  try {
+    Z.showImage("item-image", 
+      zoomPath,
+      "zSkinPath={% static 'js/Assets/Skins/Default' %}&zNavigatorVisible=0");
+    console.log("Zoomify initialization called");
+  } catch(e) {
+    console.error("Zoomify initialization error:", e);
+    document.getElementById('item-image').innerHTML = 'Error: ' + e.message;
+  }
+  
+  // Add debugging to see what Zoomify is doing
+  setTimeout(function() {
+    if (typeof Z !== 'undefined') {
+      console.log("Z.tileSource:", Z.tileSource);
+      console.log("Z.imagePath:", Z.imagePath);
+      console.log("Z.version:", Z.version);
+    }
+  }, 1000);
 </script>
 
 <section class="evidence-left-col">
-
 	<section id="item-viewer">
 		<div id="item-viewer--container">
 			{% if error_msg %}
@@ -48,7 +109,6 @@
 					{{ page.transcript|safe }}
 				</div>
 			</div><!-- /document-text -->
-
 		</div> <!-- /item-viewer--container -->	
 	</section> <!-- /item-viewer -->
 
@@ -63,7 +123,6 @@
 				{% endif %}
 			</h5>
 			<ul id="document-paging--list">
-
 			{# if artifact we need 1st link w/o suffix #}
 			{% if not object.evidence_type.is_document_oriented %}
 				<li class="document-paging--page">
@@ -88,16 +147,10 @@
 		<button id="toggle-transcription">Show Transcription</button>
 	{% endif %}
 
-
 	{% include "supporting/_slim_deeper.html" %}
-
 </section><!-- evidence-left-col -->
 
-<!-- not sure we need this on evidence pages
-<p class="caption slim-caption">Image courtesy of {{ object.source.institution|safe }}.</p> -->
-
 <section class="evidence-right-col">
-
 	{% if object.status_num == 2 %}
 		<p><em>[This drafted material has not been reviewed and may contain errors, which will be corrected during review.]</em></p>
 	{% endif %}
@@ -132,11 +185,7 @@
 			<dt>Courtesy of:</dt>
 			<dd>{{ object.source.institution|safe }}</dd>
 		{% endif %}
-		
-
 	</dl>
-
 </section><!-- evidence-right-col -->
 
 {% endblock slim_content %}
-
