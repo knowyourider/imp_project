@@ -19,7 +19,7 @@
 
     <div class="chapter-image">
 
-      <img src="{% static 'themes/fullpics/' %}{{ object.slug }}.jpg" alt="image illustating theme essay">
+      <img src="{{ MEDIA_URL }}themes/fullpics/{{ object.slug }}.jpg" alt="image illustating theme essay">
 
       <p class="caption">{{ object.caption|safe }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
@@ -39,7 +39,7 @@
 
         <li>
           <a class="pop_item" href="{% url 'supporting:person_detail' person.slug %}">
-          <img class="oval" src="{% static 'supporting/person/menupics/' %}{{ person.slug }}.jpg" alt="image of {{ person.slug}}">
+          <img class="oval" src="{{ MEDIA_URL }}supporting/person/menupics/{{ person.slug }}.jpg" alt="image of {{ person.slug}}">
             {{ person.first_name|safe }} {{ person.middle_name|safe }} {{ person.last_name|safe }}
           </a>
         </li>
@@ -48,7 +48,7 @@
       {% for evidenceitem in object.evidence.all %}
         <li>
           <a class="pop_item"  href="{% url 'supporting:'|add:evidenceitem.evidence_category|add:'_detail' evidenceitem.slug %}">
-          <img src="{% static 'supporting/evidenceitem/menupics/' %}{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
+          <img src="{{ MEDIA_URL }}supporting/evidenceitem/menupics/{{ evidenceitem.slug }}.jpg" alt="image of {{ evidenceitem.slug }}">
             {{ evidenceitem.title }}
           </a>
         </li>
@@ -57,7 +57,7 @@
       {% for context in object.contexts.all %}
         <li>
           <a class="pop_item" href="{% url 'supporting:context_detail' context.slug %}">
-          <img src="{% static 'supporting/context/menupics/' %}{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
+          <img src="{{ MEDIA_URL }}supporting/context/menupics/{{ context.slug }}.jpg" alt="image of {{ context.slug }}">
             {{ context.title }}
           </a>
         </li>
@@ -66,7 +66,7 @@
       {% for feature in object.featured_specials.all %}
         <li>
           <a class="pop_item" href="{% url 'special:'|add:feature.special_type|add:'_detail' feature.slug %}">
-          <img src="{% static 'special/menupics/' %}{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
+          <img src="{{ MEDIA_URL }}special/menupics/{{ feature.slug }}.jpg" alt="image of {{ feature.slug }}">
             {{ feature.title }}
           </a>
         </li>

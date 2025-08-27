@@ -15,7 +15,7 @@
 <section class="slideshow-col">
 	<div id="slideshow-image">
 
-		<img src="{% static 'special/slideshow/fullpics/' %}{{ slide.image_name }}.jpg" class="double-border">
+		<img src="{{ MEDIA_URL }}special/slideshow/fullpics/{{ slide.image_name }}.jpg" class="double-border">
     <p class="caption slim-caption">{{ slide.caption }} Image courtesy of {{ slide.source.institution|safe }}.</p>
 
 	</div> <!-- slideshow-image -->

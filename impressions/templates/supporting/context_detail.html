@@ -6,7 +6,7 @@
 
 {% block slim_content%}
 
-<img src="{% static 'supporting/context/fullpics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
+<img src="{{ MEDIA_URL }}supporting/context/fullpics/{{ object.slug }}.jpg"  alt="image of {{ object.slug}}" class="double-border">
 <p class="caption slim-caption">{{ object.caption }} Image courtesy of {{ object.source.institution|safe }}.</p>
 
 {% if object.status_num == 2 %}

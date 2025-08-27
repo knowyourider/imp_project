@@ -17,7 +17,7 @@
   {% for then in object_list.0.then_list %}
     <li>
       <a class="pop_item" href="{% url 'special:then_detail' then.slug %}">
-       <img src="{% static 'special/menupics/' %}{{ then.slug }}.jpg"  alt="image of {{ then.slug}}" >
+       <img src="{{ MEDIA_URL }}special/menupics/{{ then.slug }}.jpg"  alt="image of {{ then.slug}}" >
        {{ then.title|safe }}
        {{ then.menu_blurb|safe }}
       </a>
@@ -32,7 +32,7 @@
   {% for slideshow in object_list.0.slideshow_list %}
     <li>
       <a class="pop_item" href="{% url 'special:slideshow_detail' slideshow.slug %}">
-       <img src="{% static 'special/menupics/' %}{{ slideshow.slug }}.jpg"  alt="image of {{ slideshow.slug}}" >
+       <img src="{{ MEDIA_URL }}special/menupics/{{ slideshow.slug }}.jpg"  alt="image of {{ slideshow.slug}}" >
        {{ slideshow.title|safe }}
        {{ slideshow.menu_blurb|safe }}
       </a>
@@ -47,7 +47,7 @@
   {% for video in object_list.0.video_list %}
     <li>
       <a class="pop_item" href="{% url 'special:video_detail' video.slug %}">
-       <img src="{% static 'special/menupics/' %}{{ video.slug }}.jpg"  alt="image of {{ video.slug}}" >
+       <img src="{{ MEDIA_URL }}special/menupics/{{ video.slug }}.jpg"  alt="image of {{ video.slug}}" >
        {{ video.title|safe }}
        {{ video.menu_blurb|safe }}
       </a>
@@ -62,7 +62,7 @@
 
     <li>
       <a class="pop_item" href="{% url 'special:footprint_detail' 'find-footprints' %}">
-       <img src="{% static 'special/menupics/' %}find-footprints.jpg"  alt="image of find-footprints" >
+       <img src="{{ MEDIA_URL }}special/menupics/find-footprints.jpg"  alt="image of find-footprints" >
        Find the Footprints
        <p>Test your fossil-finding skills! Can you identify the fossil footprints in these rocks?</p>
       </a>
@@ -70,7 +70,7 @@
     
     <li>
       <a class="pop_item" href="{% url 'special:explore_detail' 'jurassic-landscape' %}">
-       <img src="{% static 'special/menupics/' %}jurassic-landscape.jpg"  alt="image of jurassic-landscape" >
+       <img src="{{ MEDIA_URL }}special/menupics/jurassic-landscape.jpg"  alt="image of jurassic-landscape" >
        Late Triassic Landscape
        <p>Explore the animals and plants that lived in the Connecticut River Valley during the late triassic.</p>
       </a>
@@ -78,7 +78,7 @@
     
     <li>
       <a class="pop_item" href="{% url 'special:society_detail' 'society-quiz' %}">
-       <img src="{% static 'special/menupics/' %}society-quiz.jpg"  alt="image of society-quiz" >
+       <img src="{{ MEDIA_URL }}special/menupics/society-quiz.jpg"  alt="image of society-quiz" >
        "Topics Under Consideration" Quiz
        <p>Orra White and her friends met regularly as "The Young Ladies Literary Society" to debate and answer profound questions. Let's see how you answer these same deep inquiries.</p>
       </a>
@@ -93,7 +93,7 @@
   {% for voices in object_list.0.voices_list %}
     <li>
       <a class="pop_item" href="{% url 'special:voices_detail' voices.slug %}">
-       <img src="{% static 'special/menupics/' %}poetry-icon.gif"  alt="image of poetry icon" >
+       <img src="{{ MEDIA_URL }}special/menupics/poetry-icon.gif"  alt="image of poetry icon" >
        {{ voices.title|safe }}
        {{ voices.menu_blurb|safe }}
       </a>
@@ -108,7 +108,7 @@
   {% for looking in object_list.0.looking_list %}
     <li>
       <a class="pop_item" href="{% url 'special:looking_detail' looking.slug %}">
-       <img src="{% static 'special/menupics/' %}{{ looking.slug }}.jpg"  alt="image of {{ looking.slug}}" >
+       <img src="{{ MEDIA_URL }}special/menupics/{{ looking.slug }}.jpg"  alt="image of {{ looking.slug}}" >
        {{ looking.title|safe }}
        {{ looking.menu_blurb|safe }}
       </a>

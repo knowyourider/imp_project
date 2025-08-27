@@ -39,7 +39,7 @@
       <a class="pop_item" href="{% url 'supporting:context_detail' object.slug %}">
         <!-- <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> -->
 
-        <img src="{% static 'supporting/context/menupics/' %}{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> 
+        <img src="{{ MEDIA_URL }}supporting/context/menupics/{{ object.slug }}.jpg"  alt="image of {{ object.slug}}"> 
         
         {{ object.title|safe }} 
       </a>
